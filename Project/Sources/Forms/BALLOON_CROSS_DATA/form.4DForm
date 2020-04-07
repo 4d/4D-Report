@@ -1,0 +1,93 @@
+﻿{
+	"destination": "detailScreen",
+	"windowTitle": "_menu",
+	"inheritedForm": "BALLOON_COMMON",
+	"width": 280,
+	"height": 260,
+	"markerBreak": 141,
+	"markerFooter": 141,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onActivate",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"border": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 280,
+					"height": 225,
+					"sizingX": "grow",
+					"fill": "transparent",
+					"stroke": "#AAAAAA"
+				}
+			}
+		},
+		{
+			"objects": {
+				"computations": {
+					"type": "subform",
+					"top": 217,
+					"left": 16,
+					"width": 249,
+					"height": 33,
+					"sizingX": "move",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_computations",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/computations.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"separator2": {
+					"type": "line",
+					"top": 164,
+					"left": 0,
+					"width": 280,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"separator1": {
+					"type": "line",
+					"top": 164,
+					"left": 0,
+					"width": 280,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"separator3": {
+					"type": "line",
+					"top": 208,
+					"left": 0,
+					"width": 280,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

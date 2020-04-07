@@ -1,0 +1,197 @@
+﻿{
+	"destination": "detailScreen",
+	"windowMinHeight": 30,
+	"formSizeAnchor": "_template",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerBody": 22,
+	"markerBreak": 22,
+	"markerFooter": 22,
+	"events": [
+		"onLoad",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"automatic_font": {
+					"type": "input",
+					"top": 48,
+					"left": 3,
+					"width": 67,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"left": {
+					"type": "input",
+					"top": 78,
+					"left": 3,
+					"width": 51,
+					"height": 12,
+					"visibility": "hidden",
+					"sizingX": "move",
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 10,
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"top": {
+					"type": "input",
+					"top": 92,
+					"left": 3,
+					"width": 51,
+					"height": 12,
+					"visibility": "hidden",
+					"sizingX": "move",
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 10,
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"ob_widget": {
+					"type": "input",
+					"top": 78,
+					"left": 66,
+					"width": 60,
+					"height": 12,
+					"visibility": "hidden",
+					"sizingX": "move",
+					"stroke": "#FF6600",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 10,
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				}
+			}
+		},
+		{
+			"objects": {
+				"_template": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 373,
+					"height": 22,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"fill": "transparent",
+					"stroke": "transparent"
+				},
+				"border": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 322,
+					"height": 22,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA"
+				},
+				"_airbag": {
+					"type": "button",
+					"top": 1,
+					"left": 0,
+					"width": 264,
+					"height": 22,
+					"sizingX": "move",
+					"display": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"accessPath": {
+					"type": "input",
+					"top": 3,
+					"left": 18,
+					"width": 302,
+					"height": 16,
+					"sizingX": "grow",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"placeholder": "toto",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"browse": {
+					"type": "button",
+					"top": 0,
+					"left": 328,
+					"width": 45,
+					"height": 22,
+					"sizingX": "move",
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"text": ":xliff:CommonEllipse",
+					"iconFrames": 4,
+					"style": "bevel",
+					"dropping": "custom",
+					"method": "ObjectMethods/browse.4dm",
+					"events": [
+						"onClick",
+						"onDrop",
+						"onDragOver"
+					]
+				},
+				"plus": {
+					"type": "button",
+					"top": 3,
+					"left": 1,
+					"width": 16,
+					"height": 16,
+					"visibility": "hidden",
+					"icon": "/RESOURCES/Images/widgets/path/down.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/plus.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,1 @@
+OB SET:C1220((OBJECT Get pointer:C1124(Object subform container:K67:4))->;"checkbox";Self:C308->=1)

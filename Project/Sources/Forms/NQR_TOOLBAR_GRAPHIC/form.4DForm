@@ -1,0 +1,100 @@
+﻿{
+	"destination": "detailScreen",
+	"width": 200,
+	"height": 78,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"title": {
+					"type": "text",
+					"top": 0,
+					"left": 1,
+					"width": 115,
+					"height": 13,
+					"stroke": "#919191",
+					"textAlign": "center",
+					"fontFamily": "System Font",
+					"fontSize": 11,
+					"text": ":xliff:toolbar_graphicAttributes"
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 110,
+					"left": -7,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"tool.selected": {
+					"type": "rectangle",
+					"top": 143,
+					"left": 16,
+					"width": 31,
+					"height": 34,
+					"visibility": "hidden",
+					"stroke": "#AAAAAA",
+					"strokeWidth": 2
+				},
+				"templates": {
+					"type": "button",
+					"top": 19,
+					"left": 2,
+					"width": 59,
+					"height": 51,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_templates",
+					"icon": "/RESOURCES/Images/tbTemplates.png",
+					"style": "custom",
+					"method": "ObjectMethods/templates.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"borders": {
+					"type": "button",
+					"top": 19,
+					"left": 65,
+					"width": 50,
+					"height": 51,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_borders",
+					"icon": "/RESOURCES/Images/tbBorders.png",
+					"style": "custom",
+					"method": "ObjectMethods/borders.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		}
+	]
+}

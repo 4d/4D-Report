@@ -1,0 +1,318 @@
+﻿{
+	"destination": "detailScreen",
+	"windowTitle": "HDI Path picker",
+	"windowSizingY": "fixed",
+	"windowMinWidth": 620,
+	"formSizeAnchor": "Rectangle",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onUnload",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"widget_path.template": {
+					"type": "rectangle",
+					"top": 47,
+					"left": 30,
+					"width": 560,
+					"height": 30,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"fill": "transparent",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1"
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 105,
+					"left": 0,
+					"width": 620,
+					"height": 358,
+					"sizingX": "grow",
+					"stroke": "#FFFFFF"
+				},
+				"Group Box": {
+					"type": "groupBox",
+					"top": 158,
+					"left": 28,
+					"width": 564,
+					"height": 201,
+					"text": "Options:"
+				},
+				"widget_path": {
+					"type": "subform",
+					"top": 47,
+					"left": 30,
+					"width": 380,
+					"height": 30,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "text",
+					"detailForm": "PATH PICKER",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/widget_path.4dm",
+					"events": [
+						"onLoad",
+						"onDataChange"
+					]
+				},
+				"Button": {
+					"type": "button",
+					"top": 121,
+					"left": 28,
+					"width": 142,
+					"height": 22,
+					"text": "Set document",
+					"focusable": false,
+					"method": "ObjectMethods/Button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 121,
+					"left": 239,
+					"width": 142,
+					"height": 22,
+					"text": "Set folder",
+					"focusable": false,
+					"method": "ObjectMethods/Button1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button2": {
+					"type": "button",
+					"top": 121,
+					"left": 450,
+					"width": 142,
+					"height": 22,
+					"text": "delete",
+					"focusable": false,
+					"method": "ObjectMethods/Button2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"type": {
+					"type": "dropdown",
+					"top": 181,
+					"left": 133,
+					"width": 169,
+					"height": 20,
+					"focusable": false,
+					"choiceList": [
+						"Folder",
+						"File"
+					],
+					"fontFamily": "System Font",
+					"fontSize": 11,
+					"method": "ObjectMethods/type.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"browse": {
+					"type": "checkbox",
+					"top": 226,
+					"left": 69,
+					"width": 119,
+					"height": 18,
+					"text": "browse button",
+					"method": "ObjectMethods/browse.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"showOnDisk": {
+					"type": "checkbox",
+					"top": 253,
+					"left": 69,
+					"width": 119,
+					"height": 18,
+					"text": "show on disk",
+					"method": "ObjectMethods/showOnDisk.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"copyPath": {
+					"type": "checkbox",
+					"top": 226,
+					"left": 239,
+					"width": 119,
+					"height": 18,
+					"text": "copy path",
+					"method": "ObjectMethods/copyPath.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"openItem": {
+					"type": "checkbox",
+					"top": 253,
+					"left": 239,
+					"width": 119,
+					"height": 18,
+					"text": "open item",
+					"method": "ObjectMethods/openItem.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"all": {
+					"type": "button",
+					"top": 226,
+					"left": 481,
+					"width": 71,
+					"height": 18,
+					"text": "All",
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"method": "ObjectMethods/all.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"none": {
+					"type": "button",
+					"top": 253,
+					"left": 481,
+					"width": 71,
+					"height": 18,
+					"text": "None",
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"method": "ObjectMethods/none.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"placeholder": {
+					"type": "input",
+					"top": 294,
+					"left": 161,
+					"width": 411,
+					"height": 16,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/placeholder.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"message": {
+					"type": "input",
+					"top": 322,
+					"left": 161,
+					"width": 411,
+					"height": 16,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/message.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text": {
+					"type": "text",
+					"top": 294,
+					"left": 44,
+					"width": 102,
+					"height": 16,
+					"textAlign": "right",
+					"text": "Placeholder:"
+				},
+				"Text1": {
+					"type": "text",
+					"top": 183,
+					"left": 52,
+					"width": 61,
+					"height": 16,
+					"textAlign": "right",
+					"text": "Type:"
+				},
+				"Text2": {
+					"type": "text",
+					"top": 322,
+					"left": 44,
+					"width": 102,
+					"height": 16,
+					"textAlign": "right",
+					"text": "Message:"
+				},
+				"path": {
+					"type": "input",
+					"top": 384,
+					"left": 88,
+					"width": 484,
+					"height": 48,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text3": {
+					"type": "text",
+					"top": 384,
+					"left": 27,
+					"width": 48,
+					"height": 16,
+					"textAlign": "right",
+					"text": "Path:"
+				},
+				"Text4": {
+					"type": "text",
+					"top": 21,
+					"left": 27,
+					"width": 343,
+					"height": 16,
+					"text": "Path picker:"
+				}
+			},
+			"entryOrder": [
+				"widget_path",
+				"Button",
+				"Button1",
+				"Button2",
+				"type",
+				"browse",
+				"showOnDisk",
+				"copyPath",
+				"openItem",
+				"all",
+				"none",
+				"placeholder",
+				"message"
+			]
+		}
+	]
+}

@@ -1,0 +1,1055 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!--Translation file.
+This file is distributed under the same license as the product package.-->
+<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
+
+  <file datatype="x-STR#" original="undefined" source-language="en" target-language="cs">
+    <header>
+      <prop-group name="Xliff-Editor.4dbase">
+        <prop prop-type="version">2.0</prop>
+      </prop-group>
+    </header>
+    <body>
+      <group resname="List report">
+        <trans-unit id="1" resname="head_title">
+          <source>Title</source>
+          <target>Název</target>
+        </trans-unit>
+        <trans-unit id="2" resname="head_details">
+          <source>Format</source>
+          <target>Formát</target>
+        </trans-unit>
+        <trans-unit id="3" resname="head_grand_total">
+          <source>Grand Total</source>
+          <target>Celkový součet</target>
+        </trans-unit>
+        <trans-unit id="4" resname="head_subtotal">
+          <source>{field} changed</source>
+          <target>{field} změněno</target>
+        </trans-unit>
+      </group>
+      <group resname="dialog">
+        <trans-unit id="dialog_1" resname="qr_windowTitle">
+          <source>Quick Report</source>
+          <target>Rychlá zpráva</target>
+        </trans-unit>
+        <trans-unit id="dialog_2" resname="qr_noTable">
+          <source>No table to make a report</source>
+          <target>Žádná tabulka pro tvorbu zprávy</target>
+        </trans-unit>
+      </group>
+      <group resname="data">
+        <trans-unit id="6" resname="nqr_sum">
+          <source>Sum</source>
+          <target>Suma</target>
+        </trans-unit>
+        <trans-unit id="7" resname="nqr_average">
+          <source>Average</source>
+          <target>Průměr</target>
+        </trans-unit>
+        <trans-unit id="8" resname="nqr_min">
+          <source>Min</source>
+          <target>Min</target>
+        </trans-unit>
+        <trans-unit id="9" resname="nqr_max">
+          <source>Max</source>
+          <target>Max</target>
+        </trans-unit>
+        <trans-unit id="10" resname="nqr_count">
+          <source>Count</source>
+          <target>Počet</target>
+        </trans-unit>
+        <trans-unit id="11" resname="nqr_standard_deviation">
+          <source>Standard deviation</source>
+          <target>Standardní odchylka</target>
+        </trans-unit>
+      </group>
+      <group resname="Background Colors">
+        <trans-unit id="81" resname="back_0">
+          <source>Automatic</source>
+          <target>Automaticky</target>
+        </trans-unit>
+        <trans-unit id="82" resname="back_1">
+          <source>Sable</source>
+          <target>Šedočerná</target>
+        </trans-unit>
+        <trans-unit id="83" resname="back_2">
+          <source>Melon</source>
+          <target>Melounová</target>
+        </trans-unit>
+        <trans-unit id="84" resname="back_3">
+          <source>Orange</source>
+          <target>Oranžová</target>
+        </trans-unit>
+        <trans-unit id="85" resname="back_4">
+          <source>Salmon</source>
+          <target>Lososová</target>
+        </trans-unit>
+        <trans-unit id="86" resname="back_5">
+          <source>Lilac</source>
+          <target>Lilek</target>
+        </trans-unit>
+        <trans-unit id="87" resname="back_6">
+          <source>Light Violet</source>
+          <target>Světle fialová</target>
+        </trans-unit>
+        <trans-unit id="88" resname="back_7">
+          <source>Pigeon Blue</source>
+          <target>Holubí modř</target>
+        </trans-unit>
+        <trans-unit id="89" resname="back_8">
+          <source>Turkish Blue</source>
+          <target>Akvamarín</target>
+        </trans-unit>
+        <trans-unit id="90" resname="back_9">
+          <source>Pale Green</source>
+          <target>Bledě zelená</target>
+        </trans-unit>
+        <trans-unit id="91" resname="back_10">
+          <source>Yellow Green</source>
+          <target>Žlutozelená</target>
+        </trans-unit>
+        <trans-unit id="92" resname="back_11">
+          <source>Golden Maize</source>
+          <target>Zlatá kukuřice</target>
+        </trans-unit>
+        <trans-unit id="93" resname="back_12">
+          <source>Grayish Brown</source>
+          <target>Šedohnědá</target>
+        </trans-unit>
+        <trans-unit id="94" resname="back_13">
+          <source>Dark Sable</source>
+          <target>Černá</target>
+        </trans-unit>
+        <trans-unit id="95" resname="back_14">
+          <source>Antelope</source>
+          <target>Antilopí okr</target>
+        </trans-unit>
+        <trans-unit id="96" resname="back_15">
+          <source>Pale Blue</source>
+          <target>Bleděmodrá</target>
+        </trans-unit>
+        <trans-unit id="97" resname="back_16">
+          <source>Cold Gray</source>
+          <target>Sedomodrá</target>
+        </trans-unit>
+        <trans-unit id="98" resname="back_17">
+          <source>Personalized...</source>
+          <target>Vlastní...</target>
+        </trans-unit>
+      </group>
+      <group resname="Foreground Colors">
+        <trans-unit id="200" resname="front_0">
+          <source>Automatic</source>
+          <target>Automaticky</target>
+        </trans-unit>
+        <trans-unit id="201" resname="front_1">
+          <source>Beige</source>
+          <target>Béžová</target>
+        </trans-unit>
+        <trans-unit id="202" resname="front_2">
+          <source>Brown</source>
+          <target>Hnědá</target>
+        </trans-unit>
+        <trans-unit id="203" resname="front_3">
+          <source>Orange</source>
+          <target>Oranžová</target>
+        </trans-unit>
+        <trans-unit id="204" resname="front_4">
+          <source>Red</source>
+          <target>Červená</target>
+        </trans-unit>
+        <trans-unit id="205" resname="front_5">
+          <source>Purple</source>
+          <target>Purpurová</target>
+        </trans-unit>
+        <trans-unit id="206" resname="front_6">
+          <source>Violet</source>
+          <target>Fialová</target>
+        </trans-unit>
+        <trans-unit id="207" resname="front_7">
+          <source>Signal Blue</source>
+          <target>Svítivě modrá</target>
+        </trans-unit>
+        <trans-unit id="208" resname="front_8">
+          <source>Water Blue</source>
+          <target>Akvamarín</target>
+        </trans-unit>
+        <trans-unit id="209" resname="front_9">
+          <source>Leaf Green</source>
+          <target>Listově zelená</target>
+        </trans-unit>
+        <trans-unit id="210" resname="front_10">
+          <source>Signal Green</source>
+          <target>Svítivě zelená</target>
+        </trans-unit>
+        <trans-unit id="211" resname="front_11">
+          <source>Brillant Yellow Green</source>
+          <target>Svítivě žlutozelená</target>
+        </trans-unit>
+        <trans-unit id="212" resname="front_12">
+          <source>Olive</source>
+          <target>Olivová</target>
+        </trans-unit>
+        <trans-unit id="213" resname="front_13">
+          <source>Saddle Brown</source>
+          <target>Hnědá-kůže</target>
+        </trans-unit>
+        <trans-unit id="214" resname="front_14">
+          <source>Beaver Brown</source>
+          <target>Hnědá-bobr</target>
+        </trans-unit>
+        <trans-unit id="215" resname="front_15">
+          <source>Moderate blue</source>
+          <target>Středně modrá</target>
+        </trans-unit>
+        <trans-unit id="216" resname="front_16">
+          <source>Dark Cold Gray</source>
+          <target>Temně modrošedá</target>
+        </trans-unit>
+        <trans-unit id="217" resname="front_17">
+          <source>Personalized...</source>
+          <target>Vlastní...</target>
+        </trans-unit>
+      </group>
+      <group resname="Date format">
+        <trans-unit id="1" resname="date_1">
+          <source>System date short</source>
+          <target>System datum krátký</target>
+        </trans-unit>
+        <trans-unit id="2" resname="date_2">
+          <source>System date abbreviated</source>
+          <target>System datum zkratky</target>
+        </trans-unit>
+        <trans-unit id="3" resname="date_3">
+          <source>System date long</source>
+          <target>System datum dlouhý</target>
+        </trans-unit>
+        <trans-unit id="4" resname="date_4">
+          <source>Internal date short special</source>
+          <target>Interní datum krátký special</target>
+        </trans-unit>
+        <trans-unit id="5" resname="date_5">
+          <source>Internal date long</source>
+          <target>Interní datum dlouhý</target>
+        </trans-unit>
+        <trans-unit id="6" resname="date_6">
+          <source>Internal date abbreviated</source>
+          <target>Interní datum zkratky</target>
+        </trans-unit>
+        <trans-unit id="7" resname="date_7">
+          <source>Internal date short</source>
+          <target>Interní datum krátký</target>
+        </trans-unit>
+        <trans-unit id="8" resname="date_8">
+          <source>ISO Date Time</source>
+          <target>ISO datum čas</target>
+        </trans-unit>
+      </group>
+      <group resname="Picture formats">
+        <trans-unit id="1" resname="pict_1">
+          <source>Truncated (centered)</source>
+          <target>Oříznutý (středěný)</target>
+        </trans-unit>
+        <trans-unit id="2" resname="pict_2">
+          <source>Scaled to fit</source>
+          <target>S upraveným měřítkem</target>
+        </trans-unit>
+        <trans-unit id="3" resname="pict_3">
+          <source>On Background</source>
+          <target>Na pozadí</target>
+        </trans-unit>
+        <trans-unit id="4" resname="pict_4">
+          <source>Truncated (non-centered)</source>
+          <target>Oříznutý (nestředěný)</target>
+        </trans-unit>
+        <trans-unit id="5" resname="pict_5">
+          <source>Scaled to fit (proportional)</source>
+          <target>S upraveným měřítkem (proporcionálně)</target>
+        </trans-unit>
+        <trans-unit id="6" resname="pict_6">
+          <source>Scaled to fit centered (prop.)</source>
+          <target>Upravené měřítko středěný (prop.)</target>
+        </trans-unit>
+        <trans-unit id="7" resname="pict_7">
+          <source>Replicated</source>
+          <target>Replikovaný</target>
+        </trans-unit>
+      </group>
+      <group resname="Boolean Format">
+        <trans-unit id="1" resname="boolean_1">
+          <source>True;False</source>
+          <target>True;False</target>
+          <note>You can add/remove formats according to the localisation.
+                  
+                  Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.
+               </note>
+        </trans-unit>
+        <trans-unit id="2" resname="boolean_2">
+          <source>Yes;No</source>
+          <target>Ano;Ne</target>
+        </trans-unit>
+        <trans-unit id="3" resname="boolean_3">
+          <source>Male;Female</source>
+          <target>Muž;Žena</target>
+        </trans-unit>
+        <trans-unit id="4" resname="boolean_4">
+          <source>Mr;Ms</source>
+          <target>Pan;Paní</target>
+        </trans-unit>
+      </group>
+      <group resname="Number Format">
+        <trans-unit id="1" resname="number_1">
+          <source>###,##0</source>
+          <target>### ##0</target>
+          <note>You can add/remove formats according to the localisation.
+                  
+                  Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.
+                  
+                  Use the 4D separators: "." for decimal separator and "," for thousand separator 
+               </note>
+        </trans-unit>
+        <trans-unit id="2" resname="number_2">
+          <source>###,##0.00</source>
+          <target>### ##0,00</target>
+        </trans-unit>
+        <trans-unit id="3" resname="number_3">
+          <source>###,##0 ;###,##0-</source>
+          <target>### ##0 ;### ##0-</target>
+        </trans-unit>
+        <trans-unit id="4" resname="number_4">
+          <source>###,##0.00 ;###,##0.00-</source>
+          <target>### ##0,00 ;### ##0,00-</target>
+        </trans-unit>
+        <trans-unit id="5" resname="number_5">
+          <source>###,##0;(###,##0)</source>
+          <target>### ##0;(### ##0)</target>
+        </trans-unit>
+        <trans-unit id="6" resname="number_6">
+          <source>###,##0;(###,##0.00)</source>
+          <target>### ##0;(### ##0,00)</target>
+        </trans-unit>
+        <trans-unit id="7" resname="number_7">
+          <source>###,##0.00  ;###,##0.00CR</source>
+          <target>### ##0,00  ;### ##0,00CR</target>
+        </trans-unit>
+        <trans-unit id="8" resname="number_8">
+          <source>$###,##0;-$###,##0</source>
+          <target>### ##0Kč;-### ##0Kč</target>
+        </trans-unit>
+        <trans-unit id="9" resname="number_9">
+          <source>$###,##0;($###,##0)</source>
+          <target>$### ##0;($### ##0)</target>
+        </trans-unit>
+        <trans-unit id="10" resname="number_10">
+          <source>$###,##0.00;-$###,##0.00</source>
+          <target>### ##0,00Kč;-### ##0,00Kč</target>
+        </trans-unit>
+        <trans-unit id="11" resname="number_11">
+          <source>$###,##0.00;($###,##0.00)</source>
+          <target>### ##0,00;(### ##0,00Kč)</target>
+        </trans-unit>
+        <trans-unit id="12" resname="number_12">
+          <source>$^^^,^^0;-$^^^,^^0</source>
+          <target>$^^^ ^^0;-$^^^ ^^0</target>
+        </trans-unit>
+        <trans-unit id="13" resname="number_13">
+          <source>$^^^,^^0;($^^^,^^0)</source>
+          <target>$^^^ ^^0;($^^^ ^^0)</target>
+        </trans-unit>
+        <trans-unit id="14" resname="number_14">
+          <source>$^^^,^^0.00;-$^^^,^^0.00</source>
+          <target>^^^ ^^0,00Kč;-^^^ ^^0,00Kč</target>
+        </trans-unit>
+        <trans-unit id="15" resname="number_15">
+          <source>$^^^,^^0.00;($^^^,^^0.00)</source>
+          <target>^^^ ^^0,00Kč;(^^^ ^^0,00Kč)</target>
+        </trans-unit>
+        <trans-unit id="16" resname="number_16">
+          <source>$***,**0.00;-$***,**0.00</source>
+          <target>*** **0,00Kč;-*** **0,00Kč</target>
+        </trans-unit>
+        <trans-unit id="17" resname="number_17">
+          <source>$***,**0.00;($***,**0.00)</source>
+          <target>*** **0,00Kč;(*** **0,00Kč)</target>
+        </trans-unit>
+        <trans-unit id="18" resname="number_18">
+          <source>$***,**0.00;VOID</source>
+          <target>$*** **0.00;VOID</target>
+        </trans-unit>
+        <trans-unit id="19" resname="number_19">
+          <source>###,##0.00€;(###,##0.00€)</source>
+          <target>### ##0,00€;(### ##0,00€)</target>
+        </trans-unit>
+        <trans-unit id="20" resname="number_20">
+          <source>##0%</source>
+          <target>##0%</target>
+        </trans-unit>
+        <trans-unit id="21" resname="number_21">
+          <source>##0.00%</source>
+          <target>##0,00%</target>
+        </trans-unit>
+      </group>
+      <group resname="Time format">
+        <trans-unit id="1" resname="time_1">
+          <source>HH:MM:SS</source>
+          <target>HH:MM:SS</target>
+        </trans-unit>
+        <trans-unit id="2" resname="time_2">
+          <source>HH:MM</source>
+          <target>HH:MM</target>
+        </trans-unit>
+        <trans-unit id="3" resname="time_3">
+          <source>Hour Min Sec</source>
+          <target>Hod Min Sec</target>
+        </trans-unit>
+        <trans-unit id="4" resname="time_4">
+          <source>Hour Min</source>
+          <target>Hod Min</target>
+        </trans-unit>
+        <trans-unit id="5" resname="time_5">
+          <source>HH:MM AM/PM</source>
+          <target>HH:MM dop/odp</target>
+        </trans-unit>
+        <trans-unit id="6" resname="time_6">
+          <source>MM:SS</source>
+          <target>MM:SS</target>
+        </trans-unit>
+        <trans-unit id="7" resname="time_7">
+          <source>Min Sec</source>
+          <target>Min Sec</target>
+        </trans-unit>
+        <trans-unit id="8" resname="time_8">
+          <source>ISO Date Time</source>
+          <target>ISO datum čas</target>
+        </trans-unit>
+        <trans-unit id="9" resname="time_9">
+          <source>System time short</source>
+          <target>System čas krátký</target>
+        </trans-unit>
+        <trans-unit id="10" resname="time_10">
+          <source>System time long abbreviated</source>
+          <target>System čas dlouhý zkratky</target>
+        </trans-unit>
+        <trans-unit id="11" resname="time_11">
+          <source>System time long</source>
+          <target>System čas dlouhý</target>
+        </trans-unit>
+      </group>
+      <group resname="Alpha format">
+        <trans-unit id="1" resname="alpha_1" translate="no">
+          <source>###-####</source>
+          <note>You can add/remove formats according to the localisation.
+
+Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.
+               </note>
+        </trans-unit>
+        <trans-unit id="2" resname="alpha_2" translate="yes">
+          <source>(###) ###-####</source>
+          <target>(###) ###-####</target>
+        </trans-unit>
+        <trans-unit id="3" resname="alpha_3" translate="yes">
+          <source>###-###-####</source>
+          <target>###-###-####</target>
+        </trans-unit>
+        <trans-unit id="4" resname="alpha_4" translate="yes">
+          <source>###-##-####</source>
+          <target>###-##-####</target>
+        </trans-unit>
+        <trans-unit id="5" resname="alpha_5" translate="yes">
+          <source>(##) ###-###-###</source>
+          <target>(##) ###-###-###</target>
+        </trans-unit>
+      </group>
+      <group resname="menus">
+        <trans-unit id="117" resname="menu_4d_view" translate="no">
+          <source>4D View</source>
+        </trans-unit>
+        <trans-unit id="113" resname="menu_add_column">
+          <source>Add a column…</source>
+          <target>Přidat sloupec</target>
+        </trans-unit>
+        <trans-unit id="154" resname="menu_align_center">
+          <source>Align Center</source>
+          <target>Zarovnat na střed</target>
+        </trans-unit>
+        <trans-unit id="155" resname="menu_align_default">
+          <source>Default</source>
+          <target>Výchozí</target>
+        </trans-unit>
+        <trans-unit id="152" resname="menu_align_left">
+          <source>Align Left</source>
+          <target>Zarovnat vlevo</target>
+        </trans-unit>
+        <trans-unit id="153" resname="menu_align_right">
+          <source>Align Right</source>
+          <target>Zarovnat vpravo</target>
+        </trans-unit>
+        <trans-unit id="144" resname="menu_alternate_background_color">
+          <source>Alternate Background Color</source>
+          <target>Změnitelná barva pozadí</target>
+        </trans-unit>
+        <trans-unit id="125" resname="menu_automatic_width">
+          <source>Automatic Width</source>
+          <target>Šířka automaticky</target>
+        </trans-unit>
+        <trans-unit id="133" resname="menu_average">
+          <source>Average</source>
+          <target>Průměr</target>
+        </trans-unit>
+        <trans-unit id="143" resname="menu_background_color">
+          <source>Background Color</source>
+          <target>Barva pozadí</target>
+        </trans-unit>
+        <trans-unit id="150" resname="menu_bold">
+          <source>Bold</source>
+          <target>Tučné</target>
+        </trans-unit>
+        <trans-unit id="118" resname="menu_borders">
+          <source>Borders</source>
+          <target>Rámečky</target>
+        </trans-unit>
+        <trans-unit id="158" resname="menu_cells">
+          <source>Cells</source>
+          <target>Buňky</target>
+        </trans-unit>
+        <trans-unit id="174" resname="menu_clear_content">
+          <source>Clear Contents</source>
+          <target>Odstranit obsah</target>
+        </trans-unit>
+        <trans-unit id="159" resname="menu_columns">
+          <source>Columns</source>
+          <target>Sloupce</target>
+        </trans-unit>
+        <trans-unit id="136" resname="menu_count">
+          <source>Count</source>
+          <target>Počet</target>
+        </trans-unit>
+        <trans-unit id="161" resname="menu_delete_break_line">
+          <source>Delete this break line</source>
+          <target>Vymazat zlom</target>
+        </trans-unit>
+        <trans-unit id="123" resname="menu_delete_column">
+          <source>Delete this column</source>
+          <target>Vymazat sloupec</target>
+        </trans-unit>
+        <trans-unit id="148" resname="menu_destination">
+          <source>Destination</source>
+          <target>Cíl</target>
+        </trans-unit>
+        <trans-unit id="173" resname="menu_duplicate_column">
+          <source>Duplicate this column</source>
+          <target>Duplikovat sloupec</target>
+        </trans-unit>
+        <trans-unit id="175" resname="menu_edit">
+          <source>Edit</source>
+          <target>Úpravy</target>
+        </trans-unit>
+        <trans-unit id="121" resname="menu_edit_formula">
+          <source>Edit the formula…</source>
+          <target>Upravit výraz…</target>
+        </trans-unit>
+        <trans-unit id="157" resname="menu_file">
+          <source>File</source>
+          <target>Soubor</target>
+        </trans-unit>
+        <trans-unit id="138" resname="menu_font">
+          <source>Font</source>
+          <target>Písmo</target>
+        </trans-unit>
+        <trans-unit id="142" resname="menu_font_color">
+          <source>Font Color</source>
+          <target>Barva písma</target>
+        </trans-unit>
+        <trans-unit id="145" resname="menu_format">
+          <source>Format</source>
+          <target>Formát</target>
+        </trans-unit>
+        <trans-unit id="151" resname="menu_generate">
+          <source>Generate…</source>
+          <target>Generovat…</target>
+        </trans-unit>
+        <trans-unit id="119" resname="menu_header_and_footers">
+          <source>Header &amp; Footer…</source>
+          <target>Záhlaví &amp; zápatí…</target>
+        </trans-unit>
+        <trans-unit id="176" resname="menu_hide">
+          <source>Hide</source>
+          <target>Uschovat</target>
+        </trans-unit>
+        <trans-unit id="168" resname="menu_hide_break_line">
+          <source>Hide this break row</source>
+          <target>Uschovat zlom</target>
+        </trans-unit>
+        <trans-unit id="122" resname="menu_hide_column">
+          <source>Hide this column</source>
+          <target>Uschovat sloupec</target>
+        </trans-unit>
+        <trans-unit id="130" resname="menu_hide_row">
+          <source>Hide this row</source>
+          <target>Uschovat řádek</target>
+        </trans-unit>
+        <trans-unit id="116" resname="menu_html_file">
+          <source>HTML file</source>
+          <target>HTML soubor</target>
+        </trans-unit>
+        <trans-unit id="169" resname="menu_insert_after">
+          <source>After</source>
+          <target>Po</target>
+        </trans-unit>
+        <trans-unit id="168" resname="menu_insert_before">
+          <source>Before</source>
+          <target>Před</target>
+        </trans-unit>
+        <trans-unit id="170" resname="menu_insert_begin">
+          <source>At the beginning</source>
+          <target>Na začátku</target>
+        </trans-unit>
+        <trans-unit id="120" resname="menu_insert_column">
+          <source>Insert a column…</source>
+          <target>Vloži sloupec…</target>
+        </trans-unit>
+        <trans-unit id="171" resname="menu_insert_end">
+          <source>At the end</source>
+          <target>Na konci</target>
+        </trans-unit>
+        <trans-unit id="148" resname="menu_italic">
+          <source>Italic</source>
+          <target>Kurzíva</target>
+        </trans-unit>
+        <trans-unit id="141" resname="menu_justification">
+          <source>Justification</source>
+          <target>Zarovnání</target>
+        </trans-unit>
+        <trans-unit id="155" resname="menu_max">
+          <source>Max</source>
+          <target>Max</target>
+        </trans-unit>
+        <trans-unit id="134" resname="menu_min">
+          <source>Min</source>
+          <target>Min</target>
+        </trans-unit>
+        <trans-unit id="143" resname="menu_new">
+          <source>New</source>
+          <target>Nový</target>
+        </trans-unit>
+        <trans-unit id="172" resname="menu_new_column">
+          <source>New column</source>
+          <target>Nový sloupec</target>
+        </trans-unit>
+        <trans-unit id="144" resname="menu_open">
+          <source>Open…</source>
+          <target>Otevřít…</target>
+        </trans-unit>
+        <trans-unit id="149" resname="menu_page_setup">
+          <source>Page Setup…</source>
+          <target>Vzhled stránky…</target>
+        </trans-unit>
+        <trans-unit id="151" resname="menu_plain">
+          <source>Plain</source>
+          <target>Normální</target>
+        </trans-unit>
+        <trans-unit id="156" resname="menu_presentation">
+          <source>Presentation…</source>
+          <target>Provést…</target>
+        </trans-unit>
+        <trans-unit id="150" resname="menu_preview ">
+          <source>Print Preview…</source>
+          <target>Náhled tisku…</target>
+        </trans-unit>
+        <trans-unit id="114" resname="menu_printer">
+          <source>Printer</source>
+          <target>Tiskárna</target>
+        </trans-unit>
+        <trans-unit id="124" resname="menu_repeated_values">
+          <source>Repeated Values</source>
+          <target>Opakované hodnoty</target>
+        </trans-unit>
+        <trans-unit id="147" resname="menu_revert">
+          <source>Revert to save</source>
+          <target>Zpět k uloženému</target>
+        </trans-unit>
+        <trans-unit id="145" resname="menu_save">
+          <source>Save</source>
+          <target>Uložit</target>
+        </trans-unit>
+        <trans-unit id="146" resname="menu_save_as">
+          <source>Save as…</source>
+          <target>Uložit jako…</target>
+        </trans-unit>
+        <trans-unit id="146" resname="menu_show_fonts">
+          <source>Show font…</source>
+          <target>Ukázat písmo…</target>
+        </trans-unit>
+        <trans-unit id="139" resname="menu_size">
+          <source>Size</source>
+          <target>Velikost</target>
+        </trans-unit>
+        <trans-unit id="127" resname="menu_sort_ascending">
+          <source>Ascending</source>
+          <target>Vzestpně</target>
+        </trans-unit>
+        <trans-unit id="128" resname="menu_sort_descending">
+          <source>Descending</source>
+          <target>Sestupně</target>
+        </trans-unit>
+        <trans-unit id="126" resname="menu_sort_none">
+          <source>None</source>
+          <target>Žádné</target>
+        </trans-unit>
+        <trans-unit id="129" resname="menu_sort_order">
+          <source>Sort Order</source>
+          <target>Pořadí třídění</target>
+        </trans-unit>
+        <trans-unit id="137" resname="menu_standard_deviation">
+          <source>Standard deviation</source>
+          <target>Standardní odchylka</target>
+        </trans-unit>
+        <trans-unit id="140" resname="menu_style">
+          <source>Style</source>
+          <target>Styl</target>
+        </trans-unit>
+        <trans-unit id="132" resname="menu_sum">
+          <source>Sum</source>
+          <target>Suma</target>
+        </trans-unit>
+        <trans-unit id="115" resname="menu_text_file">
+          <source>Text file</source>
+          <target>Text-dokument</target>
+        </trans-unit>
+        <trans-unit id="131" resname="menu_total_spacing">
+          <source>Total Spacing…</source>
+          <target>Celková rozteč…</target>
+        </trans-unit>
+        <trans-unit id="147" resname="menu_underline">
+          <source>Underline</source>
+          <target>Podtržené</target>
+        </trans-unit>
+        <trans-unit id="191" resname="menu_sort_leftToRight">
+          <source>From left to right</source>
+          <target>Zleva doprava</target>
+        </trans-unit>
+        <trans-unit id="192" resname="menu_sort_rightToLeft">
+          <source>From right to left</source>
+          <target>Zprava doleva</target>
+        </trans-unit>
+        <trans-unit id="193" resname="menu_sort_topToBottom">
+          <source>From top to bottom</source>
+          <target>Shora dolů</target>
+        </trans-unit>
+        <trans-unit id="194" resname="menu_sort_bottomToTop">
+          <source>From bottom to top</source>
+          <target>Zespoda nahoru</target>
+        </trans-unit>
+        <trans-unit id="218" resname="menu_subtotalProperties">
+          <source>Spacing</source>
+          <target>Řádkování</target>
+        </trans-unit>
+        <trans-unit id="219" resname="menu_subtotalSpacingBreak">
+          <source>Page break </source>
+          <target>Zalomení stránky </target>
+        </trans-unit>
+        <trans-unit id="221" resname="menu_subtotalSpacingPercent">
+          <source>%</source>
+          <target>%</target>
+        </trans-unit>
+        <trans-unit id="222" resname="menu_subtotalSpacingPoint">
+          <source>Pt</source>
+          <target>bd</target>
+        </trans-unit>
+        <trans-unit id="223" resname="menu_subtotalSpacingItem">
+          <source>Spacing options</source>
+          <target>Možnosti řádkování</target>
+        </trans-unit>
+        <trans-unit id="225" resname="menu_subtotalSpacingMnuInPercent">
+          <source>Line break (%)...</source>
+          <target>Zalomení řádku (%)...</target>
+        </trans-unit>
+        <trans-unit id="226" resname="menu_subtotalSpacingMnuPageBreak">
+          <source>Page Break</source>
+          <target>Zalomení stránky</target>
+        </trans-unit>
+        <trans-unit id="227" resname="menu_subtotalSpacingRequest">
+          <source>Spacing</source>
+          <target>Řádkování</target>
+        </trans-unit>
+        <trans-unit id="228" resname="menu_subtotalSpacingValue">
+          <source>Line break</source>
+          <target>Zalomení řádku</target>
+        </trans-unit>
+        <trans-unit id="229" resname="menu_subtotalSpacingMnuInPoint">
+          <source>Line break (pt)...</source>
+          <target>Zalomení řádku (bd)...</target>
+        </trans-unit>
+        <trans-unit id="230" resname="menu_thickness0">
+          <source>No border</source>
+          <target>Bez ohraničení</target>
+        </trans-unit>
+        <trans-unit id="231" resname="menu_thickness1">
+          <source>Hairline</source>
+          <target>Vlasové</target>
+        </trans-unit>
+        <trans-unit id="232" resname="menu_thickness2">
+          <source>0.5 point</source>
+          <target>0.5 bodu</target>
+        </trans-unit>
+        <trans-unit id="233" resname="menu_thickness3">
+          <source>1 point</source>
+          <target>1 bod</target>
+        </trans-unit>
+        <trans-unit id="234" resname="menu_thickness4">
+          <source>2 points</source>
+          <target>2 body</target>
+        </trans-unit>
+        <trans-unit id="235" resname="menu_thicknessMultiple">
+          <source>(Multiple)</source>
+          <target>(Násobný)</target>
+        </trans-unit>
+        <trans-unit id="236" resname="menu_borderAll">
+          <source>All borders</source>
+          <target>Všechny rámečky</target>
+        </trans-unit>
+        <trans-unit id="237" resname="menu_borderOutside">
+          <source>Outside borders</source>
+          <target>Vnější rámečky</target>
+        </trans-unit>
+        <trans-unit id="238" resname="menu_borderInside">
+          <source>Inside borders</source>
+          <target>V>nitřní rámečky</target>
+        </trans-unit>
+        <trans-unit id="239" resname="menu_borderVertical">
+          <source>Vertical borders</source>
+          <target>Svislé rámečky</target>
+        </trans-unit>
+        <trans-unit id="240" resname="menu_borderHorizontal">
+          <source>Horizontal borders</source>
+          <target>Vodorovné rámečky</target>
+        </trans-unit>
+        <trans-unit id="241" resname="menu_border_left">
+          <source>Left borders</source>
+          <target>Levé rámečky</target>
+        </trans-unit>
+        <trans-unit id="242" resname="menu_border_right">
+          <source>Right borders</source>
+          <target>Pravé rámečky</target>
+        </trans-unit>
+        <trans-unit id="243" resname="menu_border_top">
+          <source>Top borders</source>
+          <target>Vrchní rámečky</target>
+        </trans-unit>
+        <trans-unit id="244" resname="menu_border_bottom">
+          <source>Bottom borders</source>
+          <target>Spodní rámečky</target>
+        </trans-unit>
+        <trans-unit id="245" resname="menu_border_thickness">
+          <source>Thickness</source>
+          <target>Šířka</target>
+        </trans-unit>
+        <trans-unit id="246" resname="menu_border_color">
+          <source>Color</source>
+          <target>Barva</target>
+        </trans-unit>
+        <trans-unit id="247" resname="button_addBorder">
+          <source>Add</source>
+          <target>Přidat</target>
+        </trans-unit>  
+        <trans-unit id="248" resname="button_clearBorder">
+          <source>Clear</source>
+          <target>Odstranit</target>
+        </trans-unit>  
+      </group>
+      <group resname="messages">
+        <trans-unit id="153" resname="select_a_report_definition_document">
+          <source>Select a report definition document</source>
+          <target>Vybrat dokument definic zprávy</target>
+        </trans-unit>
+        <trans-unit id="154" resname="save_the_report_as">
+          <source>Name of the report definition document</source>
+          <target>Název dokumentu definice zprávy</target>
+        </trans-unit>
+        <trans-unit id="177" resname="save_the_new_report_as">
+          <source>Name of the new report definition document</source>
+          <target>Název nového dokumentu definice zprávy</target>
+        </trans-unit>
+      </group>
+      <group resname="Format">
+        <trans-unit id="158" resname="disparate">
+          <source>&lt;Disparate&gt;</source>
+          <target>&lt;Různý&gt;</target>
+        </trans-unit>
+        <trans-unit id="159" resname="none">
+          <source>&lt;None&gt;</source>
+          <target>&lt;Žádný&gt;</target>
+        </trans-unit>
+        <trans-unit id="161" resname="inapplicable">
+          <source>&lt;Inapplicable&gt;</source>
+          <target>&lt;Nepoužitelný&gt;</target>
+        </trans-unit>
+        <trans-unit id="166" resname="systemFont">
+          <source>System Font</source>
+          <target>Systémové písmo</target>
+        </trans-unit>
+      </group>
+      <group resname="Fields">
+        <trans-unit id="178" resname="listOfFields">
+          <source>List of Fields</source>
+          <target>Seznam polí</target>
+        </trans-unit>
+        <trans-unit id="179" resname="listOfFieldsTips">
+          <source>Double click to append a column
+                  Drag &amp; drop to insert or replace a column</source>
+          <target>K přidání sloupce poklepejte
+Potáhnout &amp; pustit k přidání nebo náhradě sloupce</target>
+        </trans-unit>
+        <trans-unit id="180" resname="fieldsLabel">
+          <source>Fields</source>
+          <target>Pole</target>
+        </trans-unit>
+      </group>
+      <group resname="Settings">
+        <trans-unit id="181" resname="addFormula">
+          <source>Add Formula...</source>
+          <target>Přidat výraz...</target>
+        </trans-unit>
+        <trans-unit id="182" resname="availableFields">
+          <source>Available Fields</source>
+          <target>Dostupná pole</target>
+        </trans-unit>
+        <trans-unit id="183" resname="modify">
+          <source>Modify...</source>
+          <target>Upravit...</target>
+        </trans-unit>
+        <trans-unit id="185" resname="reportColumns">
+          <source>Report Columns</source>
+          <target>Sloupce zprávy</target>
+        </trans-unit>
+      </group>
+      <group resname="CrossReport">
+        <trans-unit id="185" resname="columns">
+          <source>&lt;Columns&gt;</source>
+          <target>&lt;Sloupce&gt;</target>
+        </trans-unit>
+        <trans-unit id="186" resname="rows">
+          <source>&lt;Rows&gt;</source>
+          <target>&lt;Řádky&gt;</target>
+        </trans-unit>
+        <trans-unit id="187" resname="cells">
+          <source>&lt;Cells&gt;</source>
+          <target>&lt;Buňky&gt;</target>
+        </trans-unit>
+        <trans-unit id="188" resname="assignAsDatasourceForColumns">
+          <source>Use as datasource for Columns</source>
+          <target>Užít jako zdroj dat pro sloupce</target>
+        </trans-unit>
+        <trans-unit id="189" resname="assignAsDatasourceForRows">
+          <source>Use as datasource for Rows</source>
+          <target>Užít jako zdroj dat pro řádky</target>
+        </trans-unit>
+        <trans-unit id="190" resname="assignAsDatasourceForCells">
+          <source>Use as datasource for Cells</source>
+          <target>Užít jako zdroj dat pro buňky</target>
+        </trans-unit>
+        <trans-unit id="195" resname="defaultLastColumnTitle">
+          <source>Totals</source>
+          <target>Součty</target>
+        </trans-unit>
+        <trans-unit id="196" resname="defaultLastRowTitle">
+          <source>Grand Total</source>
+          <target>Celkový součet</target>
+        </trans-unit>
+        <trans-unit id="197" resname="tipsRowDataSource">
+          <source>Data Source for Rows</source>
+          <target>Zdroj dat pro řádky</target>
+        </trans-unit>
+        <trans-unit id="198" resname="tipsColumnDataSource">
+          <source>Data Source for Columns</source>
+          <target>Zdroj dat pro sloupce</target>
+        </trans-unit>
+        <trans-unit id="199" resname="tipsCellDataSource">
+          <source>Data Source for Cells</source>
+          <target>Zdroj dat pro buňky</target>
+        </trans-unit>
+      </group>
+      <group resname="templates">
+        <trans-unit id="200" resname="title_1">
+          <source>Person</source>
+          <target>Zaměstnanec</target>
+        </trans-unit>
+        <trans-unit id="201" resname="title_2">
+          <source>Department</source>
+          <target>Oddělení</target>
+        </trans-unit>
+        <trans-unit id="202" resname="title_3">
+          <source>Area</source>
+          <target>Oblast</target>
+        </trans-unit>
+        <trans-unit id="203" resname="title_4">
+          <source>Sales</source>
+          <target>Prodeje</target>
+        </trans-unit>
+        <trans-unit id="204" resname="person_4">
+          <source>Vincent</source>
+          <target>Vincent</target>
+        </trans-unit>
+        <trans-unit id="205" resname="person_5">
+          <source>Natalie</source>
+          <target>Natalie</target>
+        </trans-unit>
+        <trans-unit id="206" resname="person_1">
+          <source>Peter</source>
+          <target>Peter</target>
+        </trans-unit>
+        <trans-unit id="207" resname="person_2">
+          <source>Helene</source>
+          <target>Helene</target>
+        </trans-unit>
+        <trans-unit id="208" resname="person_3">
+          <source>François</source>
+          <target>Francis</target>
+        </trans-unit>
+        <trans-unit id="209" resname="service">
+          <source>Sales</source>
+          <target>Prodeje</target>
+        </trans-unit>
+        <trans-unit id="210" resname="sector_1">
+          <source>North-East</source>
+          <target>Severovýchod</target>
+        </trans-unit>
+        <trans-unit id="211" resname="sector_2">
+          <source>South-West</source>
+          <target>Jihozápad</target>
+        </trans-unit>
+        <trans-unit id="212" resname="sector">
+          <source>{sector} Area</source>
+          <target>{sector} Oblast</target>
+        </trans-unit>
+        <trans-unit id="213" resname="departement">
+          <source>{service} Department</source>
+          <target>{service} Oddělení</target>
+        </trans-unit>
+        <trans-unit id="214" resname="button_apply">
+          <source>Apply</source>
+          <target>Použít</target>
+        </trans-unit>
+      </group>
+      <group resname="errors">
+        <trans-unit id="215" resname="ERROR_4DQR_1">
+          <source>The quick report area type must be Numeric.</source>
+          <target>Tato oblast rychlé zprávy musí být Numeric.</target>
+        </trans-unit>
+      </group>
+    
+      <group resname="Tips">
+        <trans-unit id="Mx3dx03ndviL1DPMjrRypQ" resname="ascendingSortOrder">
+          <source>Ascending sort order</source>
+          <target>Pořadí třídění vzestupně</target>
+        </trans-unit>
+        <trans-unit id="Sy3GZtSXmevEXXGJiGJPNw" resname="descendingSortOrder">
+          <source>Descending sort order</source>
+          <target>Pořadí třídění sestupně</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+
+</xliff>

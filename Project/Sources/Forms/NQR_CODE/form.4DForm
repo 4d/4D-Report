@@ -1,0 +1,44 @@
+﻿{
+	"destination": "detailScreen",
+	"memorizeGeometry": true,
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"code": {
+					"type": "input",
+					"top": 0,
+					"left": 0,
+					"width": 334,
+					"height": 368,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"focusable": false,
+					"borderStyle": "solid",
+					"enterable": false,
+					"hideFocusRing": true,
+					"styledText": true,
+					"contextMenu": "none",
+					"scrollbarVertical": "automatic",
+					"scrollbarHorizontal": "automatic",
+					"dropping": "none"
+				}
+			}
+		}
+	]
+}

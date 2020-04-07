@@ -1,0 +1,210 @@
+﻿{
+	"destination": "detailScreen",
+	"rightMargin": 19,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"dynamic-object": {
+					"type": "input",
+					"top": 86,
+					"left": 23,
+					"width": 112,
+					"height": 16,
+					"visibility": "hidden",
+					"dataSourceTypeHint": "undefined",
+					"stroke": "#FF8000",
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Button": {
+					"type": "button",
+					"top": 84,
+					"left": 301,
+					"width": 126,
+					"height": 18,
+					"action": "cancel",
+					"text": "Close",
+					"events": [
+						"onClick"
+					]
+				},
+				"dynamic-bool": {
+					"type": "checkbox",
+					"top": 12,
+					"left": 23,
+					"width": 183,
+					"height": 22,
+					"text": "dynamic-bool",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"dynamic-text": {
+					"type": "input",
+					"top": 41,
+					"left": 23,
+					"width": 183,
+					"height": 16,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"List Box": {
+					"type": "listbox",
+					"top": 149,
+					"left": 23,
+					"width": 271,
+					"height": 204,
+					"resizingMode": "legacy",
+					"hideFocusRing": true,
+					"rowHeight": "20px",
+					"rowHeightAutoMin": "20px",
+					"rowHeightAutoMax": "20px",
+					"showHeaders": false,
+					"selectionMode": "none",
+					"scrollbarHorizontal": "hidden",
+					"method": "ObjectMethods/List Box.4dm",
+					"events": [
+						"onLoad",
+						"onDeleteAction"
+					],
+					"columns": [
+						{
+							"name": "Column1",
+							"width": 256,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header1",
+								"text": "Header1"
+							},
+							"footer": {
+								"name": "Footer1",
+								"timeFormat": "hh_mm_ss"
+							}
+						}
+					]
+				},
+				"Popup Drop down List": {
+					"type": "dropdown",
+					"top": 202,
+					"left": 373,
+					"width": 100,
+					"height": 20,
+					"choiceList": [
+						"un",
+						"deux",
+						"trois"
+					],
+					"method": "ObjectMethods/Popup Drop down List.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"Variable": {
+					"type": "input",
+					"top": 277,
+					"left": 321,
+					"width": 137,
+					"height": 16,
+					"dataSourceTypeHint": "date",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/Variable.4dm",
+					"events": [
+						"onLosingFocus",
+						"onGettingFocus",
+						"onDataChange"
+					]
+				},
+				"test": {
+					"type": "input",
+					"top": 390,
+					"left": 42,
+					"width": 265,
+					"height": 33,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 393,
+					"left": 335,
+					"width": 138,
+					"height": 24,
+					"text": "Test",
+					"method": "ObjectMethods/Button1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"test1": {
+					"type": "input",
+					"top": 443,
+					"left": 42,
+					"width": 265,
+					"height": 113,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"toolbar.opened.type": {
+					"type": "subform",
+					"top": 594,
+					"left": 48,
+					"width": 223,
+					"height": 78,
+					"visibility": "hidden",
+					"sizingY": "move",
+					"dataSourceTypeHint": "number",
+					"detailForm": "NQR_TOOLBAR_REPORT_TYPE",
+					"focusable": false,
+					"hideFocusRing": true,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/toolbar.opened.type.4dm"
+				}
+			}
+		}
+	]
+}

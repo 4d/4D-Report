@@ -1,0 +1,1 @@
+NQR_TOOLBAR (OB Get:C1224(ob_area;"currentTool";Is text:K8:3))

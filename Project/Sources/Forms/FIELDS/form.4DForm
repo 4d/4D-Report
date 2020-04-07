@@ -1,0 +1,154 @@
+﻿{
+	"destination": "detailScreen",
+	"width": 245,
+	"height": 458,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onUnload",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 245,
+					"height": 458,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"stroke": "transparent"
+				}
+			}
+		},
+		{
+			"objects": {
+				"field.list.frame": {
+					"type": "rectangle",
+					"top": 54,
+					"left": 5,
+					"width": 235,
+					"height": 404,
+					"sizingY": "grow",
+					"fill": "transparent",
+					"stroke": "#AAAAAA"
+				},
+				"field.search.frame": {
+					"type": "rectangle",
+					"top": 27,
+					"left": 5,
+					"width": 235,
+					"height": 22,
+					"stroke": "#AAAAAA"
+				},
+				"field.search.box": {
+					"type": "input",
+					"top": 30,
+					"left": 24,
+					"width": 211,
+					"height": 17,
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"multiline": "no",
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/field.search.box.4dm",
+					"events": [
+						"onLosingFocus",
+						"onGettingFocus",
+						"onAfterEdit"
+					]
+				},
+				"field.list": {
+					"type": "list",
+					"top": 56,
+					"left": 8,
+					"width": 231,
+					"height": 402,
+					"sizingY": "grow",
+					"tooltip": ":xliff:listOfFieldsTips",
+					"enterable": false,
+					"hideFocusRing": true,
+					"scrollbarHorizontal": "hidden",
+					"dragging": "custom",
+					"borderStyle": "none",
+					"method": "ObjectMethods/field.list.4dm",
+					"events": [
+						"onLoad",
+						"onDoubleClick",
+						"onLosingFocus",
+						"onGettingFocus",
+						"onUnload",
+						"onSelectionChange",
+						"onBeginDragOver"
+					]
+				},
+				"field.search.glass": {
+					"type": "picture",
+					"top": 31,
+					"left": 8,
+					"width": 14,
+					"height": 14,
+					"pictureFormat": "truncatedTopLeft",
+					"picture": "/RESOURCES/images/glass.png"
+				},
+				"field.search.focus": {
+					"type": "rectangle",
+					"top": 26,
+					"left": 3,
+					"width": 239,
+					"height": 24,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#FF6600",
+					"strokeWidth": 3
+				},
+				"Text": {
+					"type": "text",
+					"top": 6,
+					"left": 19,
+					"width": 138,
+					"height": 17,
+					"fontWeight": "bold",
+					"text": ":xliff:listOfFields"
+				},
+				"action": {
+					"type": "button",
+					"top": 1,
+					"left": 217,
+					"width": 23,
+					"height": 23,
+					"icon": "/RESOURCES/Images/actionArrow.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/action.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"right-line": {
+					"type": "line",
+					"top": 0,
+					"left": 244,
+					"width": 1,
+					"height": 458,
+					"sizingY": "grow",
+					"stroke": "#AAAAAA",
+					"startPoint": "bottomLeft"
+				}
+			}
+		}
+	]
+}

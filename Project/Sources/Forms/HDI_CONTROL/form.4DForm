@@ -1,0 +1,181 @@
+﻿{
+	"destination": "detailScreen",
+	"rightMargin": 19,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"style": {
+					"type": "subform",
+					"top": 16,
+					"left": 22,
+					"width": 112,
+					"height": 23,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textStyle",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/style.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"style.value": {
+					"type": "input",
+					"top": 19,
+					"left": 144,
+					"width": 48,
+					"height": 16,
+					"dataSourceTypeHint": "number",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/style.value.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"frontcolor": {
+					"type": "subform",
+					"top": 16,
+					"left": 331,
+					"width": 36,
+					"height": 24,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textFrontColor",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"backcolor": {
+					"type": "subform",
+					"top": 16,
+					"left": 377,
+					"width": 36,
+					"height": 24,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textBackColor",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Button": {
+					"type": "button",
+					"top": 48,
+					"left": 331,
+					"width": 110,
+					"height": 17,
+					"text": "Front Color…",
+					"focusable": false,
+					"method": "ObjectMethods/Button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"justification": {
+					"type": "subform",
+					"top": 65,
+					"left": 22,
+					"width": 129,
+					"height": 23,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textAlign_LCRD",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/justification.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"justification.value": {
+					"type": "input",
+					"top": 68,
+					"left": 163,
+					"width": 48,
+					"height": 16,
+					"dataSourceTypeHint": "number",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/justification.value.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 72,
+					"left": 331,
+					"width": 110,
+					"height": 17,
+					"text": "Back Color…",
+					"focusable": false,
+					"method": "ObjectMethods/Button1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Subform": {
+					"type": "subform",
+					"top": 108,
+					"left": 19,
+					"width": 249,
+					"height": 32,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_computations",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable"
+				},
+				"3D Button": {
+					"type": "button",
+					"top": 16,
+					"left": 527,
+					"width": 189,
+					"height": 29,
+					"text": "menu with unicode",
+					"popupPlacement": "linked",
+					"style": "bevel",
+					"method": "ObjectMethods/3D Button.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

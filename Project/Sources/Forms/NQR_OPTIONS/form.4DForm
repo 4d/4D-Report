@@ -1,0 +1,572 @@
+﻿{
+	"destination": "detailScreen",
+	"formSizeAnchor": "shadow",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onActivate",
+		"onTimer",
+		"onPageChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 94,
+					"sizingX": "grow",
+					"fill": "#FFFEFE",
+					"stroke": "transparent"
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 138,
+					"left": 12,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"shadow": {
+					"type": "picture",
+					"top": 94,
+					"left": 0,
+					"width": 1060,
+					"height": 9,
+					"sizingX": "grow",
+					"pictureFormat": "tiled",
+					"picture": "/RESOURCES/Images/tbShadow.png"
+				},
+				"Text": {
+					"type": "text",
+					"top": 14,
+					"left": 10,
+					"width": 170,
+					"height": 23,
+					"stroke": "#313131",
+					"fontFamily": "System Font",
+					"fontSize": 20,
+					"text": ":xliff:toolbar_options"
+				},
+				"close": {
+					"type": "button",
+					"top": 0,
+					"left": 1040,
+					"width": 20,
+					"height": 20,
+					"sizingX": "move",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"stroke": "#313131",
+					"icon": "/RESOURCES/Images/close.png",
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/close.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"left": {
+					"type": "input",
+					"top": 162,
+					"left": 10,
+					"width": 51,
+					"height": 12,
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 10,
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"top": {
+					"type": "input",
+					"top": 178,
+					"left": 10,
+					"width": 51,
+					"height": 12,
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 10,
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Line": {
+					"type": "line",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 14,
+					"left": 0,
+					"width": 1060,
+					"visibility": "hidden",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"Line2": {
+					"type": "line",
+					"top": 29,
+					"left": 0,
+					"width": 1060,
+					"visibility": "hidden",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"Line3": {
+					"type": "line",
+					"top": 46,
+					"left": 0,
+					"width": 1060,
+					"visibility": "hidden",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"Line4": {
+					"type": "line",
+					"top": -1,
+					"left": 267,
+					"height": 211,
+					"visibility": "hidden",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1",
+					"width": 0,
+					"startPoint": "topLeft"
+				},
+				"Line5": {
+					"type": "line",
+					"top": -1,
+					"left": 275,
+					"height": 211,
+					"visibility": "hidden",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1",
+					"width": 0,
+					"startPoint": "topLeft"
+				}
+			}
+		},
+		{
+			"objects": {
+				"print.pageSetup": {
+					"type": "button",
+					"top": 46,
+					"left": 131,
+					"width": 151,
+					"height": 22,
+					"text": ":xliff:menu_page_setup",
+					"focusable": false,
+					"method": "ObjectMethods/print.pageSetup.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text1": {
+					"type": "text",
+					"top": 38,
+					"left": 10,
+					"width": 110,
+					"height": 15,
+					"stroke": "#919191",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:menu_printer"
+				},
+				"print.no_dialog": {
+					"type": "checkbox",
+					"top": 47,
+					"left": 336,
+					"width": 410,
+					"height": 20,
+					"text": ":xliff:dontDisplayPrintSetting",
+					"focusable": false,
+					"method": "ObjectMethods/print.no_dialog.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text12": {
+					"type": "text",
+					"top": 14,
+					"left": 105,
+					"width": 890,
+					"height": 16,
+					"sizingX": "grow",
+					"stroke": "#888888",
+					"text": ":xliff:tipsPrint"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Text2": {
+					"type": "text",
+					"top": 38,
+					"left": 10,
+					"width": 150,
+					"height": 15,
+					"stroke": "#919191",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:menu_text_file"
+				},
+				"text.path.template": {
+					"type": "rectangle",
+					"top": 66,
+					"left": 275,
+					"width": 705,
+					"height": 22,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"fill": "transparent",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1"
+				},
+				"text.path": {
+					"type": "subform",
+					"top": 66,
+					"left": 275,
+					"width": 380,
+					"height": 22,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "text",
+					"detailForm": "PATH PICKER",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/text.path.4dm",
+					"events": [
+						"onLoad",
+						"onGettingFocus",
+						"onDataChange"
+					]
+				},
+				"Text8": {
+					"type": "text",
+					"top": 69,
+					"left": 96,
+					"width": 172,
+					"height": 16,
+					"stroke": "#444444",
+					"textAlign": "right",
+					"text": ":xliff:DestinationFile"
+				},
+				"Text10": {
+					"type": "text",
+					"top": 38,
+					"left": 137,
+					"width": 131,
+					"height": 16,
+					"sizingX": "move",
+					"stroke": "#444444",
+					"textAlign": "right",
+					"text": ":xliff:ColumnDelimiter"
+				},
+				"FldDelimit": {
+					"type": "input",
+					"top": 38,
+					"left": 277,
+					"width": 31,
+					"height": 16,
+					"sizingX": "move",
+					"dataSourceTypeHint": "number",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"multiline": "no",
+					"numberFormat": "###",
+					"entryFilter": "&9",
+					"min": 1,
+					"max": 255,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/FldDelimit.4dm",
+					"events": [
+						"onLosingFocus",
+						"onGettingFocus",
+						"onDataChange"
+					]
+				},
+				"Text11": {
+					"type": "text",
+					"top": 38,
+					"left": 326,
+					"width": 157,
+					"height": 16,
+					"sizingX": "move",
+					"stroke": "#444444",
+					"textAlign": "right",
+					"text": ":xliff:LineDelimiter"
+				},
+				"RecDelimit": {
+					"type": "input",
+					"top": 38,
+					"left": 494,
+					"width": 31,
+					"height": 16,
+					"sizingX": "move",
+					"dataSourceTypeHint": "number",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"multiline": "no",
+					"numberFormat": "###",
+					"entryFilter": "&9",
+					"min": 1,
+					"max": 255,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/RecDelimit.4dm",
+					"events": [
+						"onLosingFocus",
+						"onGettingFocus",
+						"onDataChange"
+					]
+				},
+				"Text14": {
+					"type": "text",
+					"top": 14,
+					"left": 105,
+					"width": 890,
+					"height": 16,
+					"sizingX": "grow",
+					"stroke": "#888888",
+					"text": ":xliff:tipsFile"
+				},
+				"action": {
+					"type": "button",
+					"top": 34,
+					"left": 313,
+					"width": 23,
+					"height": 23,
+					"visibility": "hidden",
+					"icon": "/RESOURCES/Images/actionArrow.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/action.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"Text3": {
+					"type": "text",
+					"top": 38,
+					"left": 10,
+					"width": 110,
+					"height": 15,
+					"stroke": "#919191",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:menu_4d_view"
+				},
+				"Text6": {
+					"type": "text",
+					"top": 14,
+					"left": 105,
+					"width": 890,
+					"height": 16,
+					"sizingX": "grow",
+					"stroke": "#888888",
+					"text": ":xliff:tipsView"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Text4": {
+					"type": "text",
+					"top": 38,
+					"left": 12,
+					"width": 170,
+					"height": 15,
+					"stroke": "#EE0000",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": "Chart"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Text5": {
+					"type": "text",
+					"top": 38,
+					"left": 10,
+					"width": 130,
+					"height": 15,
+					"stroke": "#919191",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": "HTML"
+				},
+				"html.path.template": {
+					"type": "rectangle",
+					"top": 66,
+					"left": 275,
+					"width": 700,
+					"height": 22,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"fill": "transparent",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1"
+				},
+				"html.path": {
+					"type": "subform",
+					"top": 66,
+					"left": 275,
+					"width": 380,
+					"height": 22,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "text",
+					"detailForm": "PATH PICKER",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/html.path.4dm",
+					"events": [
+						"onLoad",
+						"onGettingFocus",
+						"onDataChange"
+					]
+				},
+				"Text7": {
+					"type": "text",
+					"top": 69,
+					"left": 108,
+					"width": 159,
+					"height": 16,
+					"stroke": "#444444",
+					"textAlign": "right",
+					"text": ":xliff:DestinationFile"
+				},
+				"Text13": {
+					"type": "text",
+					"top": 14,
+					"left": 105,
+					"width": 890,
+					"height": 16,
+					"sizingX": "grow",
+					"stroke": "#888888",
+					"text": ":xliff:tipsHTML"
+				},
+				"Text15": {
+					"type": "text",
+					"top": 38,
+					"left": 108,
+					"width": 159,
+					"height": 16,
+					"stroke": "#444444",
+					"textAlign": "right",
+					"text": ":xliff:HtmlTemplate"
+				},
+				"html.browse": {
+					"type": "button",
+					"top": 36,
+					"left": 447,
+					"width": 116,
+					"height": 20,
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"text": ":xliff:load",
+					"iconFrames": 4,
+					"style": "bevel",
+					"dropping": "custom",
+					"method": "ObjectMethods/html.browse.4dm",
+					"events": [
+						"onClick",
+						"onDrop",
+						"onDragOver"
+					]
+				},
+				"html.template.default": {
+					"type": "checkbox",
+					"top": 37,
+					"left": 275,
+					"width": 164,
+					"height": 18,
+					"text": ":xliff:default",
+					"focusable": false,
+					"method": "ObjectMethods/html.template.default.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"html.view": {
+					"type": "button",
+					"top": 36,
+					"left": 583,
+					"width": 105,
+					"height": 20,
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"text": ":xliff:view",
+					"iconFrames": 4,
+					"style": "bevel",
+					"dropping": "custom",
+					"method": "ObjectMethods/html.view.4dm",
+					"events": [
+						"onClick",
+						"onDrop",
+						"onDragOver"
+					]
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

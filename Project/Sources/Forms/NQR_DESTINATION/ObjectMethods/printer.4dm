@@ -1,0 +1,1 @@
+NQR_SET_DESTINATION (qr printer:K14903:1)

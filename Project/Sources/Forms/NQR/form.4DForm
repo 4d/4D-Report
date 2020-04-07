@@ -1,0 +1,782 @@
+﻿{
+	"destination": "detailScreen",
+	"windowTitle": "Report",
+	"memorizeGeometry": true,
+	"windowMinWidth": 1060,
+	"windowMinHeight": 498,
+	"formSizeAnchor": "myQR",
+	"rightMargin": 0,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onCloseBox",
+		"onUnload",
+		"onTimer",
+		"onResize"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"status.background": {
+					"type": "rectangle",
+					"top": 478,
+					"left": 0,
+					"width": 1060,
+					"height": 20,
+					"sizingX": "grow",
+					"sizingY": "move",
+					"fill": "#F0F0F0",
+					"stroke": "transparent"
+				},
+				"status.records": {
+					"type": "text",
+					"top": 481,
+					"left": 5,
+					"width": 1048,
+					"height": 15,
+					"sizingX": "grow",
+					"sizingY": "move",
+					"stroke": "#444444",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": "Number of records: xxxxx"
+				},
+				".devBack": {
+					"type": "rectangle",
+					"top": 521,
+					"left": 6,
+					"width": 744,
+					"height": 146,
+					"visibility": "hidden",
+					"sizingY": "move",
+					"fill": "#FFFF00",
+					"stroke": "transparent"
+				},
+				"toolbar.background": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 93,
+					"sizingX": "grow",
+					"fill": "#F0F0F0",
+					"stroke": "transparent"
+				},
+				"myQR": {
+					"type": "subform",
+					"top": 22,
+					"left": 0,
+					"width": 1060,
+					"height": 456,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "QR_area",
+					"dataSourceTypeHint": "number",
+					"detailForm": "%report",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/myQR.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"tool.mask.grey": {
+					"type": "picture",
+					"top": 112,
+					"left": 0,
+					"width": 1060,
+					"height": 386,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"pictureFormat": "scaled",
+					"picture": "Images/tool.mask.grey.png"
+				},
+				"tool.mask.button": {
+					"type": "button",
+					"top": 112,
+					"left": -1,
+					"width": 1060,
+					"height": 386,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"display": false,
+					"method": "ObjectMethods/tool.mask.button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"toolbar.opened.new": {
+					"type": "button",
+					"top": 27,
+					"left": 13,
+					"width": 47,
+					"height": 51,
+					"shortcutKey": "n",
+					"shortcutAccel": true,
+					"shortcutControl": true,
+					"shortcutShift": true,
+					"shortcutAlt": true,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_new",
+					"icon": "/RESOURCES/Images/tbNew.png",
+					"iconFrames": 4,
+					"popupPlacement": "linked",
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.new.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"toolbar.opened.data": {
+					"type": "subform",
+					"top": 8,
+					"left": 397,
+					"width": 91,
+					"height": 77,
+					"dataSourceTypeHint": "number",
+					"detailForm": "NQR_TOOLBAR_DATA",
+					"focusable": false,
+					"hideFocusRing": true,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/toolbar.opened.data.4dm"
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 528,
+					"left": 591,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"sizingY": "move",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"inited": {
+					"type": "checkbox",
+					"top": 549,
+					"left": 13,
+					"width": 56,
+					"height": 15,
+					"visibility": "hidden",
+					"sizingY": "move",
+					"text": "inited",
+					"stroke": "#FF6600",
+					"focusable": false,
+					"memorizeValue": true
+				},
+				"toolbar.opened.sep.1": {
+					"type": "picture",
+					"top": 12,
+					"left": 395,
+					"width": 2,
+					"height": 72,
+					"pictureFormat": "tiled",
+					"picture": "/RESOURCES/Images/tbSeparator.png"
+				},
+				"toolbar.opened.sep.2": {
+					"type": "picture",
+					"top": 12,
+					"left": 492,
+					"width": 2,
+					"height": 72,
+					"pictureFormat": "tiled",
+					"picture": "/RESOURCES/Images/tbSeparator.png"
+				},
+				"toolbar.opened.sep.3": {
+					"type": "picture",
+					"top": 12,
+					"left": 643,
+					"width": 2,
+					"height": 72,
+					"pictureFormat": "tiled",
+					"picture": "/RESOURCES/Images/tbSeparator.png"
+				},
+				"toolbar.opened.sep.4": {
+					"type": "picture",
+					"top": 12,
+					"left": 781,
+					"width": 2,
+					"height": 72,
+					"pictureFormat": "tiled",
+					"picture": "/RESOURCES/Images/tbSeparator.png"
+				},
+				"tool.selected": {
+					"type": "rectangle",
+					"top": 528,
+					"left": 139,
+					"width": 31,
+					"height": 34,
+					"visibility": "hidden",
+					"stroke": "#AAAAAA",
+					"strokeWidth": 2
+				},
+				"toolbar.opened.open": {
+					"type": "button",
+					"top": 27,
+					"left": 63,
+					"width": 47,
+					"height": 51,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_open",
+					"icon": "/RESOURCES/Images/tbOpen.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.open.4dm",
+					"events": [
+						"onClick",
+						"onAlternateClick",
+						"onLongClick"
+					]
+				},
+				"toolbar.opened.run": {
+					"type": "button",
+					"top": 27,
+					"left": 270,
+					"width": 65,
+					"height": 51,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_run",
+					"icon": "/RESOURCES/Images/tbRun.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.run.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"toolbar.opened": {
+					"type": "button",
+					"top": 0,
+					"left": 1034,
+					"width": 26,
+					"height": 93,
+					"sizingX": "move",
+					"icon": "/RESOURCES/Images/toolbarClose.png",
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"toolbar.closed": {
+					"type": "button",
+					"top": 0,
+					"left": 1034,
+					"width": 26,
+					"height": 23,
+					"sizingX": "move",
+					"icon": "/RESOURCES/Images/toolbarOpen.png",
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.closed.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"QR_Line": {
+					"type": "line",
+					"top": 22,
+					"left": 0,
+					"width": 1060,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				".devWarning": {
+					"type": "text",
+					"top": 533,
+					"left": 190,
+					"width": 323,
+					"height": 46,
+					"visibility": "hidden",
+					"sizingY": "move",
+					"stroke": "#EE0000",
+					"text": "Warnings: \r- objects are in different views\r- preserves object's levels"
+				},
+				".devWarning1": {
+					"type": "text",
+					"top": 599,
+					"left": 190,
+					"width": 323,
+					"height": 46,
+					"visibility": "hidden",
+					"sizingY": "move",
+					"stroke": "#EE0000",
+					"fontWeight": "bold",
+					"text": "The toolbar's objects are organized by the code according to the localization & to the available features"
+				},
+				"toolbar.opened.preview": {
+					"type": "button",
+					"top": 27,
+					"left": 330,
+					"width": 65,
+					"height": 51,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_preview",
+					"icon": "/RESOURCES/Images/tbPreview.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.preview.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"toolbar.opened.h&f": {
+					"type": "subform",
+					"top": 8,
+					"left": 500,
+					"width": 135,
+					"height": 77,
+					"dataSourceTypeHint": "number",
+					"detailForm": "NQR_TOOLBAR_H&F",
+					"focusable": false,
+					"hideFocusRing": true,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/toolbar.opened.h&f.4dm"
+				},
+				"toolbar.opened.graphic": {
+					"type": "subform",
+					"top": 8,
+					"left": 651,
+					"width": 117,
+					"height": 78,
+					"dataSourceTypeHint": "number",
+					"detailForm": "NQR_TOOLBAR_GRAPHIC",
+					"focusable": false,
+					"hideFocusRing": true,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/toolbar.opened.graphic.4dm"
+				},
+				"tool.destination": {
+					"type": "subform",
+					"top": 92,
+					"left": 0,
+					"width": 1060,
+					"height": 103,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "NQR_DESTINATION",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/tool.destination.4dm"
+				},
+				"timerEvent": {
+					"type": "input",
+					"top": 556,
+					"left": 591,
+					"width": 103,
+					"height": 12,
+					"visibility": "hidden",
+					"sizingY": "move",
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"fontFamily": "Monaco",
+					"fontSize": 10,
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Line": {
+					"type": "line",
+					"top": 478,
+					"left": 0,
+					"width": 1060,
+					"height": 1,
+					"sizingX": "grow",
+					"sizingY": "move",
+					"stroke": "#AAAAAA",
+					"startPoint": "topLeft"
+				},
+				"tool.headerAndFooter": {
+					"type": "subform",
+					"top": 92,
+					"left": 0,
+					"width": 1000,
+					"height": 144,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "NQR_HEADER_AND_FOOTER",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/tool.headerAndFooter.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"tool.options": {
+					"type": "subform",
+					"top": 92,
+					"left": 0,
+					"width": 1060,
+					"height": 103,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "NQR_OPTIONS",
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/tool.options.4dm"
+				},
+				"shortcut_close_window": {
+					"type": "button",
+					"top": 588,
+					"left": 591,
+					"width": 150,
+					"height": 34,
+					"sizingY": "move",
+					"shortcutKey": "w",
+					"shortcutAccel": true,
+					"text": "Cmd-W",
+					"focusable": false,
+					"method": "ObjectMethods/shortcut_close_window.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text": {
+					"type": "text",
+					"top": 528,
+					"left": 13,
+					"width": 56,
+					"height": 17,
+					"visibility": "hidden",
+					"sizingY": "move",
+					"fill": "automatic",
+					"stroke": "#FF6600",
+					"text": "Page 0"
+				},
+				"toolbar.opened.destination": {
+					"type": "button",
+					"top": 27,
+					"left": 193,
+					"width": 75,
+					"height": 51,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_output",
+					"icon": "/RESOURCES/Images/tbDestination.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.destination.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"toolbar.opened.options": {
+					"type": "button",
+					"top": 27,
+					"left": 803,
+					"width": 47,
+					"height": 51,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_options",
+					"icon": "/RESOURCES/Images/tbOptions.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.options.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"toolbar.opened.fields": {
+					"type": "button",
+					"top": 27,
+					"left": 980,
+					"width": 47,
+					"height": 51,
+					"sizingX": "move",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:fieldsLabel",
+					"icon": "/RESOURCES/Images/tbFields.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.fields.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Line3": {
+					"type": "line",
+					"top": 53,
+					"left": 17,
+					"width": 1065,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"Line4": {
+					"type": "line",
+					"top": 29,
+					"left": 17,
+					"width": 1065,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"Line5": {
+					"type": "line",
+					"top": 78,
+					"left": 17,
+					"width": 1065,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"tool.templates": {
+					"type": "subform",
+					"top": 92,
+					"left": 0,
+					"width": 1060,
+					"height": 343,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"detailForm": "NQR_TEMPLATES",
+					"deletableInList": false,
+					"doubleClickInRowAction": "editSubrecord",
+					"doubleClickInEmptyAreaAction": "addSubrecord",
+					"selectionMode": "multiple",
+					"printFrame": "variable",
+					"method": "ObjectMethods/tool.templates.4dm"
+				},
+				"toolbar.opened.save": {
+					"type": "button",
+					"top": 27,
+					"left": 113,
+					"width": 47,
+					"height": 51,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_save",
+					"icon": "/RESOURCES/Images/tbsave.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/toolbar.opened.save.4dm",
+					"events": [
+						"onClick",
+						"onAlternateClick",
+						"onLongClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				".devBack1": {
+					"type": "rectangle",
+					"top": 521,
+					"left": 756,
+					"width": 188,
+					"height": 128,
+					"visibility": "hidden",
+					"fill": "#FFFF00",
+					"stroke": "transparent"
+				},
+				"plus.line": {
+					"type": "line",
+					"top": 587,
+					"left": 785,
+					"height": 42,
+					"visibility": "hidden",
+					"sizingY": "grow",
+					"stroke": "#EE0000",
+					"strokeWidth": 2,
+					"width": 0,
+					"startPoint": "topLeft"
+				},
+				"plus.button": {
+					"type": "button",
+					"top": 564,
+					"left": 775,
+					"width": 20,
+					"height": 20,
+					"visibility": "hidden",
+					"tooltip": ":xliff:tips_add",
+					"icon": "/RESOURCES/Images/miniPlus.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"customBackgroundPicture": "/RESOURCES/\"\"",
+					"method": "ObjectMethods/plus.button.4dm",
+					"events": [
+						"onClick",
+						"onMouseEnter",
+						"onMouseLeave",
+						"onMouseMove"
+					]
+				},
+				"Text1": {
+					"type": "text",
+					"top": 528,
+					"left": 761,
+					"width": 42,
+					"height": 17,
+					"visibility": "hidden",
+					"sizingX": "move",
+					"sizingY": "move",
+					"fill": "#FFFFFF",
+					"stroke": "#FF6600",
+					"text": "Page 1"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 631,
+					"left": 214,
+					"width": 0,
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"alert.mask": {
+					"type": "picture",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 498,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"pictureFormat": "scaled",
+					"picture": "Images/alert.mask.png"
+				},
+				"alert.button": {
+					"type": "button",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 498,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"display": false,
+					"events": [
+						"onDragOver"
+					]
+				},
+				"alert.box": {
+					"type": "subform",
+					"top": 127,
+					"left": 290,
+					"width": 420,
+					"height": 160,
+					"visibility": "hidden",
+					"dataSourceTypeHint": "undefined",
+					"detailForm": "MESSAGE",
+					"deletableInList": false,
+					"doubleClickInRowAction": "editSubrecord",
+					"doubleClickInEmptyAreaAction": "addSubrecord",
+					"selectionMode": "multiple",
+					"printFrame": "variable",
+					"method": "ObjectMethods/alert.box.4dm"
+				},
+				"settings.mask": {
+					"type": "picture",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 498,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"pictureFormat": "scaled",
+					"picture": "Images/settings.mask.png"
+				},
+				"settings.button": {
+					"type": "button",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 498,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"display": false,
+					"events": [
+						"onDragOver"
+					]
+				},
+				"settings.dial": {
+					"type": "subform",
+					"top": 109,
+					"left": 230,
+					"width": 540,
+					"height": 280,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"detailForm": "SETTINGS",
+					"deletableInList": false,
+					"doubleClickInRowAction": "editSubrecord",
+					"doubleClickInEmptyAreaAction": "addSubrecord",
+					"selectionMode": "multiple",
+					"printFrame": "variable",
+					"method": "ObjectMethods/settings.dial.4dm"
+				},
+				"toolbar.opened.tab.list": {
+					"type": "rectangle",
+					"top": 582,
+					"left": 139,
+					"width": 31,
+					"height": 34,
+					"visibility": "hidden",
+					"sizingX": "move",
+					"stroke": "#AAAAAA"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

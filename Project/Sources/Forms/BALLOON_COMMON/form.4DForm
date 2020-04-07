@@ -1,0 +1,596 @@
+﻿{
+	"destination": "detailScreen",
+	"windowTitle": "_menu",
+	"width": 280,
+	"height": 210,
+	"markerBreak": 141,
+	"markerFooter": 141,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"border": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 280,
+					"height": 210,
+					"sizingX": "grow",
+					"fill": "#E7E7E7",
+					"stroke": "transparent"
+				},
+				"Rectangle3": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 263,
+					"width": 17,
+					"height": 225,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				},
+				"Rectangle5": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 280,
+					"height": 17,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				},
+				"Rectangle4": {
+					"type": "rectangle",
+					"top": 331,
+					"left": 0,
+					"width": 533,
+					"height": 138,
+					"fill": "#FFFF00"
+				},
+				"font.picker": {
+					"type": "input",
+					"top": 20,
+					"left": 23,
+					"width": 77,
+					"height": 16,
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"allowFontColorPicker": true,
+					"contextMenu": "none",
+					"multiline": "no",
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/font.picker.4dm",
+					"events": [
+						"onAfterEdit"
+					]
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 343,
+					"left": 15,
+					"width": 112,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"close": {
+					"type": "button",
+					"top": 0,
+					"left": 260,
+					"width": 20,
+					"height": 20,
+					"sizingX": "move",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"stroke": "#313131",
+					"icon": "/RESOURCES/Images/close.png",
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/close.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button": {
+					"type": "button",
+					"top": 371,
+					"left": 15,
+					"width": 63,
+					"height": 23,
+					"shortcutKey": "[Esc]",
+					"style": "flat",
+					"text": "escape",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 10,
+					"stroke": "#FF6600",
+					"method": "ObjectMethods/Button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Rectangle2": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 17,
+					"height": 225,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				},
+				"Rectangle7": {
+					"type": "rectangle",
+					"top": 208,
+					"left": 0,
+					"width": 280,
+					"height": 17,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 16,
+					"left": 0,
+					"width": 280,
+					"height": 72,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				},
+				"Rectangle6": {
+					"type": "rectangle",
+					"top": 208,
+					"left": 0,
+					"width": 280,
+					"height": 41,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				},
+				"Rectangle8": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 16,
+					"width": 76,
+					"height": 325,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				},
+				"Rectangle9": {
+					"type": "rectangle",
+					"top": 87,
+					"left": 0,
+					"width": 280,
+					"height": 77,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				},
+				"caller": {
+					"type": "input",
+					"top": 415,
+					"left": 15,
+					"width": 112,
+					"height": 16,
+					"stroke": "#FF6600",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Rectangle1": {
+					"type": "rectangle",
+					"top": 163,
+					"left": 0,
+					"width": 280,
+					"height": 46,
+					"visibility": "hidden",
+					"fill": "transparent",
+					"stroke": "#0099FF"
+				}
+			}
+		},
+		{
+			"objects": {
+				"format.back": {
+					"type": "rectangle",
+					"top": 174,
+					"left": 92,
+					"width": 172,
+					"height": 24,
+					"sizingX": "grow",
+					"stroke": "#c0c0c0",
+					"fill": "#FFFFFF"
+				},
+				"format.label": {
+					"type": "input",
+					"top": 180,
+					"left": 95,
+					"width": 165,
+					"height": 14,
+					"sizingX": "grow",
+					"stroke": "#444444",
+					"textAlign": "left",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"font.size.back": {
+					"type": "rectangle",
+					"top": 16,
+					"left": 141,
+					"width": 46,
+					"height": 24,
+					"stroke": "#c0c0c0"
+				},
+				"font.size.label": {
+					"type": "input",
+					"top": 22,
+					"left": 144,
+					"width": 36,
+					"height": 13,
+					"stroke": "#444444",
+					"textAlign": "center",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"font.back": {
+					"type": "rectangle",
+					"top": 16,
+					"left": 16,
+					"width": 122,
+					"height": 24,
+					"stroke": "#c0c0c0"
+				},
+				"font.family.label": {
+					"type": "input",
+					"top": 22,
+					"left": 22,
+					"width": 105,
+					"height": 13,
+					"stroke": "#444444",
+					"textAlign": "left",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"font.style": {
+					"type": "subform",
+					"top": 55,
+					"left": 16,
+					"width": 117,
+					"height": 23,
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textStyle",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/font.style.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"separator": {
+					"type": "line",
+					"top": 88,
+					"left": 0,
+					"width": 280,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"justification": {
+					"type": "subform",
+					"top": 55,
+					"left": 135,
+					"width": 129,
+					"height": 23,
+					"sizingX": "move",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textAlign_LCRD",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/justification.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"format.title": {
+					"type": "text",
+					"top": 180,
+					"left": 17,
+					"width": 67,
+					"height": 13,
+					"stroke": "#444444",
+					"textAlign": "right",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"text": ":xliff:menu_format"
+				},
+				"font.family": {
+					"type": "button",
+					"top": 17,
+					"left": 17,
+					"width": 120,
+					"height": 22,
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"stroke": "#AAAAAA",
+					"popupPlacement": "linked",
+					"textPlacement": "left",
+					"style": "custom",
+					"method": "ObjectMethods/font.family.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"font.size": {
+					"type": "button",
+					"top": 17,
+					"left": 142,
+					"width": 44,
+					"height": 22,
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"stroke": "#AAAAAA",
+					"popupPlacement": "linked",
+					"textPlacement": "left",
+					"style": "custom",
+					"method": "ObjectMethods/font.size.4dm",
+					"events": [
+						"onClick"
+					],
+					"text": ""
+				},
+				"font.front.color": {
+					"type": "subform",
+					"top": 16,
+					"left": 190,
+					"width": 36,
+					"height": 24,
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textFrontColor",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/font.front.color.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"font.back.color": {
+					"type": "subform",
+					"top": 16,
+					"left": 228,
+					"width": 36,
+					"height": 24,
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textBackColor",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/font.back.color.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"font.alternate.back.color": {
+					"type": "subform",
+					"top": 16,
+					"left": 266,
+					"width": 36,
+					"height": 24,
+					"visibility": "hidden",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_textBackColor",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/font.alternate.back.color.4dm",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"borders.controls": {
+					"type": "subform",
+					"top": 95,
+					"left": 15,
+					"width": 65,
+					"height": 64,
+					"dataSourceTypeHint": "object",
+					"detailForm": "control_border",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": ""
+				},
+				"font.back1": {
+					"type": "rectangle",
+					"top": 97,
+					"left": 132,
+					"width": 132,
+					"height": 24,
+					"stroke": "#c0c0c0",
+					"sizingX": "grow"
+				},
+				"border.style.label": {
+					"type": "input",
+					"top": 103,
+					"left": 138,
+					"width": 115,
+					"height": 13,
+					"stroke": "#444444",
+					"textAlign": "left",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"sizingX": "grow"
+				},
+				"border.style": {
+					"type": "button",
+					"top": 98,
+					"left": 132,
+					"width": 130,
+					"height": 22,
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"stroke": "#AAAAAA",
+					"popupPlacement": "linked",
+					"textPlacement": "left",
+					"style": "custom",
+					"method": "ObjectMethods/border.style.4dm",
+					"events": [
+						"onClick"
+					],
+					"sizingX": "grow"
+				},
+				"separator1": {
+					"type": "line",
+					"top": 164,
+					"left": 0,
+					"width": 280,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"border.color1": {
+					"type": "subform",
+					"top": 97,
+					"left": 91,
+					"width": 36,
+					"height": 24,
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_borderColor",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"events": [
+						"onDataChange"
+					],
+					"method": "ObjectMethods/border.color.4dm"
+				},
+				"format": {
+					"type": "button",
+					"top": 175,
+					"left": 92,
+					"width": 171,
+					"height": 22,
+					"sizingX": "grow",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"stroke": "#AAAAAA",
+					"popupPlacement": "linked",
+					"textPlacement": "left",
+					"style": "custom",
+					"method": "ObjectMethods/format.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"border.add": {
+					"type": "button",
+					"text": ":xliff:button_addBorder",
+					"top": 131,
+					"left": 91,
+					"width": 80,
+					"height": 19,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/border.add.4dm",
+					"style": "regular"
+				},
+				"border.clear": {
+					"type": "button",
+					"text": ":xliff:button_clearBorder",
+					"top": 131,
+					"left": 184,
+					"width": 80,
+					"height": 19,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/border.clear.4dm",
+					"sizingX": "move",
+					"style": "regular",
+					"stroke": "automatic"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"method": "method.4dm"
+}

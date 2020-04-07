@@ -1,0 +1,3 @@
+//%attributes = {"invisible":true}
+C_TEXT:C284(NQR_SETTING_HANDLER ;$1)
+C_LONGINT:C283(NQR_SETTING_HANDLER ;$2)

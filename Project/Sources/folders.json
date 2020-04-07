@@ -1,0 +1,421 @@
+﻿{
+	"_": {
+		"methods": [
+			"_colorToStyled",
+			"_hexToDec",
+			"_max",
+			"COMPILER__",
+			"test__"
+		]
+	},
+	"00_DEV": {
+		"groups": [
+			"STRUCTURE",
+			"TESTS"
+		],
+		"methods": [
+			"00_OPEN_WIZARD",
+			"COMPILER_TEMPO",
+			"DEBUG"
+		],
+		"forms": [
+			"00_TEST_AREA",
+			"BORDERS"
+		]
+	},
+	"4D": {
+		"methods": [
+			"4D_MainProcess",
+			"4D_SET_OBJECT",
+			"COMPILER_4D"
+		]
+	},
+	"BALLOON": {
+		"forms": [
+			"BALLOON_COLUMN",
+			"BALLOON_COMMON",
+			"BALLOON_CROSS_DATA",
+			"BALLOON_EMPTY",
+			"BALLOON_FONT",
+			"BALLOON_LINE",
+			"BALLOON_SUBTOTALLINE"
+		]
+	},
+	"CONTROL": {
+		"methods": [
+			"COMPILER_CONTROL",
+			"CONTROL_Area_hdl",
+			"CONTROL_BorderHdl",
+			"CONTROL_DRAW_SEGMENTS",
+			"CONTROL_Form_hdl",
+			"CONTROL_Get_color",
+			"CONTROL_INIT",
+			"CONTROL_SET_COLORS"
+		],
+		"forms": [
+			"control_border",
+			"control_borderColor",
+			"control_computations",
+			"control_textAlign_LCRD",
+			"control_textBackColor",
+			"control_textFrontColor",
+			"control_textStyle",
+			"HDI_CONTROL"
+		]
+	},
+	"db": {
+		"methods": [
+			"_o_db_Get_field_pointer",
+			"COMPILER_db",
+			"db_designFieldName",
+			"db_Get_field_icon",
+			"db_Get_field_list",
+			"db_INIT_STRUCTURE",
+			"db_virtualFieldName"
+		]
+	},
+	"doc": {
+		"methods": [
+			"Compiler_doc",
+			"doc_getFromPath",
+			"doc_volumeName"
+		]
+	},
+	"env": {
+		"methods": [
+			"COMPILER_env",
+			"env_4D_Resources_folder_path",
+			"env_Substitute_font"
+		]
+	},
+	"FIELD LIST": {
+		"forms": [
+			"FIELDS"
+		]
+	},
+	"lib": {
+		"groups": [
+			"_",
+			"4D",
+			"db",
+			"doc",
+			"env",
+			"list",
+			"misc",
+			"mnu",
+			"ob",
+			"obj",
+			"Rgx",
+			"subform",
+			"svg",
+			"xml"
+		],
+		"methods": [
+			"no_error"
+		]
+	},
+	"list": {
+		"methods": [
+			"COMPILER_list",
+			"list_ITEM_COPY_METADATA",
+			"list_SET_DRAG_ICON"
+		]
+	},
+	"MESSAGE": {
+		"methods": [
+			"COMPILER_mess",
+			"mess_DISPLAY",
+			"mess_Preferences"
+		],
+		"forms": [
+			"MESSAGE"
+		]
+	},
+	"misc": {
+		"methods": [
+			"ALIGN_OBJECTS",
+			"COMPILER_misc",
+			"DO NOT OPEN"
+		]
+	},
+	"mnu": {
+		"methods": [
+			"COMPILER_mnu",
+			"menu_format",
+			"mnu_border",
+			"mnu_borderSubMenu",
+			"mnu_borderThickness",
+			"mnu_breakSpacing",
+			"mnu_Color",
+			"mnu_Font",
+			"mnu_FontSize",
+			"mnu_FontSyle",
+			"mnu_Justification"
+		]
+	},
+	"ob": {
+		"methods": [
+			"COMPILER_ob",
+			"ob_GATHER"
+		]
+	},
+	"obj": {
+		"methods": [
+			"COMPILER_Obj",
+			"Obj_ALIGN",
+			"Obj_BEST_WIDTH",
+			"Obj_BOUND_WITH_LIST",
+			"Obj_CENTER",
+			"Obj_SET_ENABLED"
+		]
+	},
+	"PATH PICKER": {
+		"methods": [
+			"COMPILER_PATH PICKER",
+			"HDI_PATH_PICKER",
+			"path_picker_Get_object",
+			"path_picker_INIT",
+			"path_picker_SET_LABEL",
+			"path_picker_SET_TEXT_ATTRIBUTE",
+			"path_picker_UPDATE_UI",
+			"PathPicker Get message",
+			"PathPicker Get option",
+			"PathPicker Get placeholder",
+			"PathPicker Get type",
+			"pathPicker SET DIRECTORY",
+			"pathPicker SET FILE TYPES",
+			"pathPicker SET MESSAGE",
+			"PathPicker SET OPTIONS",
+			"PathPicker SET PLACEHOLDER",
+			"PathPicker SET SELECTION OPTION",
+			"PathPicker SET TYPE"
+		],
+		"forms": [
+			"HDI_PATH_PICKER",
+			"PATH PICKER"
+		]
+	},
+	"QR commands": {
+		"methods": [
+			"COMPILER_QR",
+			"QR_CLEAR_CONTENTS",
+			"QR_DUPLICATE_COLUMN",
+			"QR_Get_border_properties",
+			"QR_Get_cell_object",
+			"QR_Get_cell_text",
+			"QR_Get_color",
+			"QR_Get_column_format",
+			"QR_Get_column_type",
+			"QR_Get_computation",
+			"QR_Get_font_name",
+			"QR_Get_font_size",
+			"QR_Get_font_style",
+			"QR_Get_justification",
+			"QR_get_TotalsSpacing",
+			"QR_is_valid_area",
+			"QR_isValidField",
+			"QR_returnBorderFromCollection",
+			"QR_SET_BORDER_PROPERTIES",
+			"QR_SET_CELL_DATA",
+			"QR_SET_CELL_DATA_from_widget",
+			"QR_SET_CELL_OBJECT",
+			"QR_SET_CELL_TEXT",
+			"QR_SET_COLUMN_FORMAT",
+			"QR_SET_COLUMN_WIDTH",
+			"QR_SET_TEXT_PROPERTY",
+			"QR_SET_TITLE",
+			"QR_SWAP_COLUMNS",
+			"QR_SWAP_ROWS"
+		]
+	},
+	"QUICK REPORT": {
+		"groups": [
+			"BALLOON",
+			"FIELD LIST",
+			"SETTINGS",
+			"TEMPLATES",
+			"TOOLBAR"
+		],
+		"methods": [
+			"COMPILER_NQR",
+			"NQR_AREA_HANDLE",
+			"NQR_CLEAR",
+			"NQR_CLOSE",
+			"NQR_DIGEST",
+			"NQR_DO_IT",
+			"NQR_doAction",
+			"NQR_DRAW_TABS",
+			"NQR_GENERATE",
+			"NQR_GET_HEADER_AND_FOOTER",
+			"NQR_HEADER_AND_FOOTER_ACTION",
+			"NQR_HEADER_AND_FOOTER_ON_RESIZE",
+			"NQR_MENU_CELLS",
+			"NQR_MENU_COLUMN",
+			"NQR_NEW",
+			"NQR_OPEN",
+			"NQR_OPTIONS_ACTION",
+			"NQR_PAGESETUP",
+			"NQR_PREVIEW",
+			"NQR_RELOAD",
+			"NQR_Save",
+			"NQR_SaveAs",
+			"NQR_SET_DESTINATION",
+			"NQR_SET_HEADER_AND_FOOTER",
+			"NQR_SET_SELECTION",
+			"NQR_STATUS_BAR"
+		],
+		"forms": [
+			"NQR",
+			"NQR_CODE",
+			"NQR_DESTINATION",
+			"NQR_HEADER_AND_FOOTER",
+			"NQR_OPTIONS"
+		]
+	},
+	"REPORT AREA": {
+		"methods": [
+			"area_ADJUST",
+			"COMPILER_report",
+			"report_ADD_COLUMN",
+			"report_AFTER_EDIT",
+			"report_AREA_OBJECT_METHOD",
+			"report_AREA_UPDATE",
+			"report_BALLOON_HDL",
+			"report_catchErrors",
+			"report_cell_content",
+			"report_cell_styled_content",
+			"report_cell_tips",
+			"report_CONTEXTUAL_MENUS",
+			"report_CREATE_AREA",
+			"report_DISPLAY_AREA",
+			"report_DISPLAY_COMMON",
+			"report_DISPLAY_CROSS",
+			"report_DISPLAY_LIST",
+			"report_EDIT_COLUMN_FORMULA",
+			"report_Get_table",
+			"report_Get_target",
+			"report_INIT",
+			"report_SELECTION",
+			"report_SET_CELL_BACKGROUND",
+			"report_SET_CELL_FORMAT",
+			"report_SET_COLUMN_WIDTH",
+			"report_SET_EVENTS"
+		],
+		"forms": [
+			"%report"
+		]
+	},
+	"Rgx": {
+		"methods": [
+			"Compiler_Rgx",
+			"Rgx_ExtractText",
+			"Rgx_Get_Pattern",
+			"Rgx_MatchText",
+			"rgx_NO_ERROR",
+			"rgx_Options",
+			"Rgx_SplitText",
+			"Rgx_SubstituteText"
+		]
+	},
+	"SETTINGS": {
+		"methods": [
+			"COMPILER_SETTINGS",
+			"NQR_SETTING_GEOMETRY",
+			"NQR_SETTING_HANDLER",
+			"SETTINGS_DRAW_CROSS_REPORT"
+		],
+		"forms": [
+			"SETTINGS"
+		]
+	},
+	"STRUCTURE": {
+		"tables": [
+			"All_types",
+			"Clients",
+			"Society",
+			"Table_1",
+			"Table_2",
+			"Table_3",
+			"Table_4"
+		],
+		"forms": [
+			"[Clients]Form2",
+			"[Clients]Form3",
+			"[Society]Input",
+			"[Society]Output",
+			"[Table_1]Input",
+			"[Table_1]Output",
+			"[Table_2]Input",
+			"[Table_2]Output",
+			"[Table_4]Input",
+			"[Table_4]Output"
+		]
+	},
+	"subform": {
+		"methods": [
+			"COMPILER_subform",
+			"subform_SET_DYNAMIC_VARIABLES",
+			"subform_SET_OFFSET",
+			"subform_SET_TIMER"
+		]
+	},
+	"svg": {
+		"methods": [
+			"COMPILER_svg",
+			"svg_Get_string_width"
+		]
+	},
+	"TEMPLATES": {
+		"methods": [
+			"COMPILER_templates",
+			"template_DRAW",
+			"template_Get_style",
+			"template_LOAD"
+		],
+		"forms": [
+			"NQR_TEMPLATES"
+		]
+	},
+	"TESTS": {
+		"methods": [
+			"00_TESTS"
+		],
+		"forms": [
+			"[All_types]Input",
+			"embeded",
+			"parent_form",
+			"test",
+			"widget"
+		]
+	},
+	"TOOLBAR": {
+		"methods": [
+			"NQR_TOOLBAR"
+		],
+		"forms": [
+			"NQR_TOOLBAR_DATA",
+			"NQR_TOOLBAR_GRAPHIC",
+			"NQR_TOOLBAR_H&F",
+			"NQR_TOOLBAR_REPORT_TYPE"
+		]
+	},
+	"unitTest": {
+		"methods": [
+			"unit_EXECUTE_ALL"
+		]
+	},
+	"widgets": {
+		"groups": [
+			"CONTROL",
+			"MESSAGE",
+			"PATH PICKER"
+		]
+	},
+	"xml": {
+		"methods": [
+			"COMPILER_xml",
+			"xmlColoredSyntax"
+		]
+	},
+	"trash": {}
+}

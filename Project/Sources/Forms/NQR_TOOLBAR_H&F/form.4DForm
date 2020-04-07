@@ -1,0 +1,129 @@
+﻿{
+	"destination": "detailScreen",
+	"width": 136,
+	"height": 78,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"tool.selected": {
+					"type": "rectangle",
+					"top": 143,
+					"left": 16,
+					"width": 31,
+					"height": 34,
+					"visibility": "hidden",
+					"stroke": "#AAAAAA",
+					"strokeWidth": 2
+				},
+				"Invisible Button": {
+					"type": "button",
+					"top": 16,
+					"left": 2,
+					"width": 130,
+					"height": 60,
+					"visibility": "hidden",
+					"sizingX": "grow",
+					"display": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"title": {
+					"type": "text",
+					"top": 0,
+					"left": 1,
+					"width": 134,
+					"height": 13,
+					"stroke": "#919191",
+					"textAlign": "center",
+					"fontFamily": "System Font",
+					"fontSize": 11,
+					"text": ":xliff:toolbar_header&footer"
+				},
+				"footer": {
+					"type": "button",
+					"top": 52,
+					"left": 15,
+					"width": 109,
+					"height": 17,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_footer",
+					"icon": "/RESOURCES/Images/tbFooter.png",
+					"iconFrames": 4,
+					"popupPlacement": "linked",
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/footer.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"header": {
+					"type": "button",
+					"top": 23,
+					"left": 16,
+					"width": 108,
+					"height": 17,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_header",
+					"icon": "/RESOURCES/Images/tbHeader.png",
+					"iconFrames": 4,
+					"popupPlacement": "linked",
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/header.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 114,
+					"left": 16,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"Text": {
+					"type": "text",
+					"top": 9,
+					"left": 174,
+					"width": 528,
+					"height": 16,
+					"visibility": "hidden",
+					"fill": "#FFFF00",
+					"stroke": "#EE0000",
+					"text": "The invisible button is only hier to force the redraw of the select rectangle !"
+				}
+			}
+		}
+	]
+}

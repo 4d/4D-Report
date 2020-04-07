@@ -1,0 +1,537 @@
+{
+	"list": 
+		[
+			{
+				"name":"Classic",
+				"default": {
+						"font":["Times New Roman","Times"],
+						"fontSize":14,
+						"fontColor":"black",
+						"textAlignement":["left","left","left","right"],
+						"color":"none",
+						"alternateColor":"none"
+				},
+				"titles": [
+						{
+							"fontSyle":["bold","underline"],
+							"textAlignement":["left","left","left","left"]
+						}
+					],
+				"subtotal_1": [
+					{
+						"fontSyle":["underline"]
+					}
+				],
+				"subtotal_2": [
+					{
+						"fontSyle":["bold","underline"]
+					}
+				],
+				"grandTotal": [
+					{
+						"fontSyle":["bold","underline"]
+					}
+				]
+			},
+			{
+				"name":"Listing",
+				"default": {
+						"font":["Courier New","Courier"],
+						"fontSize":14,
+						"fontColor":"black",
+						"textAlignement":"left",
+						"color":"none",
+						"alternateColor":"none"
+					},
+				"titles": [
+						{
+							"fontSyle":["bold"]
+						}
+					],
+				"subtotal_1": [
+						{
+							"fontSyle":["italic"]
+						}
+					],
+				"subtotal_2": [
+						{
+							"fontSyle":["italic"]
+						}
+					],
+				"grandTotal": [
+						{
+							"fontSyle":["italic","bold"]
+						}
+					]
+				},
+			{
+				"name":"Spreadsheet",
+				"default": {
+						"font":"Arial",
+						"fontSize":12,
+						"fontColor":"black",
+						"textAlignement":["left","left","left","right"],
+						"color":"none",
+						"alternateColor":"none",
+						"borders": {
+							"all": {
+									"thickness":1,
+									"color":"black"
+							}
+						}
+					},
+				"titles": [
+						{
+							"fontSyle":["bold"],
+							"textAlignement":"center"
+						}
+					],
+				"subtotal_1": [
+						{
+							"fontSyle":["italic"],
+							"textAlignement":"right"
+						}
+					],
+				"subtotal_2": [
+						{
+							"fontSyle":["italic"],
+							"textAlignement":"right"
+						}
+					],
+				"grandTotal": [
+						{
+							"fontSyle":["italic","bold"],
+							"textAlignement":"right"
+						}
+					]
+				},
+			{
+				"name":"Modern Low",
+				"default": {
+						"font":["Times New Roman","Times"],
+						"fontSize":14,
+						"fontColor":"black",
+						"textAlignement":["left","left","left","left"],
+						"color":"none",
+						"alternateColor":"none"
+					},
+				"titles": [
+						{
+							"fontSyle":["bold"],
+							"borders": {
+								"bottom": {
+										"thickness":1,
+										"color":"grey"
+								}
+							}
+						}
+					],
+				"details": [
+						{
+							"borders": {
+								"left": {
+										"thickness":1,
+										"color":"grey"
+								},
+								"right": {
+										"thickness":1,
+										"color":"grey"
+								}
+							}
+						}
+					],
+				"subtotal_1": [
+						{
+							"fontSyle":["italic"],
+							"borders": {
+								"top": {
+										"thickness":1,
+										"color":"grey"
+								},
+								"bottom": {
+										"thickness":1,
+										"color":"grey"
+								}
+							}
+						}
+					],
+				"subtotal_2": [
+						{
+							"fontSyle":["italic"],
+							"borders": {
+								"top": {
+										"thickness":2,
+										"color":"grey"
+								},
+								"bottom": {
+										"thickness":1,
+										"color":"grey"
+								}
+							}
+						}
+					],
+				"grandTotal": [
+						{
+							"fontSyle":["italic","bold"]
+						}
+					]
+				},
+			{
+				"name":"Modern Medium",
+				"default": {
+						"font":["Times New Roman","Times"],
+						"fontSize":14,
+						"fontColor":"black",
+						"textAlignement":["left","left","left","left"],
+						"color":"none",
+						"alternateColor":"none",
+						"borders": {
+							"all": {
+									"thickness":1,
+									"color":"grey"
+								}
+							}
+					},
+				"titles": [
+						{
+							"fontSyle":["bold"],
+							"borders": {
+								"bottom": {
+									"thickness":1,
+									"color":"grey"
+								}
+							}
+						}
+					],
+				"details": [
+						{
+							"borders": {
+							"left": {
+									"thickness":1,
+									"color":"grey"
+								},
+							"right": {
+									"thickness":1,
+									"color":"grey"
+								}
+							}
+						}
+					],
+				"subtotal_1": [
+						{
+							"fontSyle":["italic"],
+							"color":["none","none","gainsboro","none"],
+							"textAlignement":["left","left","left","right"]
+						}
+					],
+				"subtotal_2": [
+						{
+							"fontSyle":["italic"],
+							"color":["none","none","lightgrey","none"],
+							"textAlignement":["left","left","left","right"]
+						}
+					],
+				"grandTotal": [
+						{
+							"fontSyle":["italic","bold"],
+							"color":["none","none","silver","none"],
+							"textAlignement":["left","left","left","right"]
+						}
+					]
+				},
+			{
+				"name":"Modern High",
+				"default": {
+						"font":["Times New Roman","Times"],
+						"fontSize":14,
+						"fontColor":"black",
+						"textAlignement":"left",
+						"color":"none",
+						"alternateColor":"none",
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"grey"
+								}
+							}
+					},
+				"titles": [
+						{
+							"fontSyle":["bold"],
+							"borders": {
+								"bottom": {
+									"thickness":1,
+									"color":"grey"
+								}
+							}
+						}
+					],
+				"details": [
+						{
+							"borders": {
+							"left": {
+									"thickness":1,
+									"color":"grey"
+								},
+							"right": {
+									"thickness":1,
+									"color":"grey"
+								}
+							}
+						}
+					],
+				"subtotal_1": [
+						{
+							"fontSyle":["italic"],
+							"color":"gainsboro"
+						}
+					],
+				"subtotal_2": [
+						{
+							"fontSyle":["italic"],
+							"color":["none","none","lightgrey","lightgrey"]
+						}
+					],
+				"grandTotal": [
+						{
+							"fontSyle":["italic","bold"],
+							"color":["none","none","silver","silver"]
+						}
+					]
+				},
+			{
+				"name":"Modern Blue",
+				"default": {
+						"font":"Verdana",
+						"fontSize":12,
+						"fontColor":"black",
+						"textAlignement":"left",
+						"color":"rgb(228,233,248)",
+						"alternateColor":"rgb(192,210,253)"
+					},
+				"titles": [
+						{
+							"fontSyle":["bold"],
+							"fontColor":"white",
+							"textAlignement":"center",
+							"color":"rgb(2,24,113)",
+							"borders": {
+							"all": {
+									"thickness":1,
+									"color":"white"
+								}
+							}
+						}
+					],
+				"details": [
+						{
+							"textAlignement":["left","left","left","right"],
+							"borders": {
+								"left": {
+										"thickness":1,
+										"color":"white"
+									},
+								"right": {
+										"thickness":1,
+										"color":"white"
+									}
+							}
+						}
+					],
+				"subtotal_1": [
+						{
+							"color":"rgb(129,160,216)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"white"
+									}
+							}
+						}
+					],
+				"subtotal_2": [
+						{
+							"fontColor":"white",
+							"color":"rgb(61,71,125)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"white"
+									}
+							}
+						}
+					],
+				"grandTotal": [
+						{
+							"fontSyle":["bold"],
+							"fontColor":"white",
+							"color":"rgb(2,24,113)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"white"
+									}
+							}
+						}
+					]
+				},
+			{
+				"name":"Modern Green",
+				"default": {
+						"font":"Verdana",
+						"fontSize":12,
+						"fontColor":"black",
+						"textAlignement":"left",
+						"color":"rgb(198,254,193)",
+						"alternateColor":"rgb(226,254,224)"
+					},
+				"titles": [
+						{
+							"fontSyle":["bold"],
+							"fontColor":"white",
+							"textAlignement":"center",
+							"color":"rgb(13,114,15)",
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"black"
+									}
+							}
+						}
+					],
+				"details": [
+						{
+							"textAlignement":["left","left","left","right"],
+							"borders": {
+								"left": {
+										"thickness":1,
+										"color":"black"
+									},
+								"right": {
+										"thickness":1,
+										"color":"black"
+									}
+							}
+						}
+					],
+				"subtotal_1": [
+						{
+							"color":"rgb(113,199,114)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"black"
+									}
+							}
+						}
+					],
+				"subtotal_2": [
+						{
+							"fontColor":"white",
+							"color":"rgb(38,148,40)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"black"
+									}
+							}
+						}
+					],
+				"grandTotal": [
+						{
+							"fontSyle":["bold"],
+							"fontColor":"white",
+							"color":"rgb(13,114,15)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"black"
+									}
+							}
+						}
+					]
+				},
+			{
+				"name":"Modern Orange",
+				"default": {
+						"font":"Verdana",
+						"fontSize":12,
+						"fontColor":"black",
+						"textAlignement":"left",
+						"color":"rgb(255,254,194)",
+						"alternateColor":"rgb(254,223,193)"
+					},
+				"titles": [
+						{
+							"fontSyle":["bold"],
+							"textAlignement":"center",
+							"color":"rgb(233,119,32)",
+							"borders": {
+								"all": {
+										"thickness":1,
+										"color":"black"
+									}
+							}
+						}
+					],
+				"details": [
+						{
+							"textAlignement":["left","left","left","right"],
+							"borders": {
+								"left": {
+								"thickness":1,
+								"color":"black"
+								},
+							"right": {
+								"thickness":1,
+								"color":"black"
+								}
+							}
+						}
+					],
+				"subtotal_1": [
+						{
+							"color":"rgb(254,189,132)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+								"all": {
+									"thickness":1,
+									"color":"black"
+								}
+							}
+						}
+					],
+				"subtotal_2": [
+						{
+							"color":"rgb(253,144,50)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+							"all": {
+									"thickness":1,
+									"color":"black"
+								}
+							}
+						}
+					],
+				"grandTotal": [
+						{
+							"fontSyle":["bold"],
+							"color":"rgb(233,119,32)",
+							"textAlignement":["left","left","right","right"],
+							"borders": {
+							"all": {
+									"thickness":1,
+									"color":"black"
+								}
+							}
+						}
+					]
+				}
+		]
+}

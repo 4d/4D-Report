@@ -1,0 +1,137 @@
+﻿{
+	"destination": "detailScreen",
+	"formSizeAnchor": "background",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerHeader": 15,
+	"markerBody": 160,
+	"markerBreak": 160,
+	"markerFooter": 160,
+	"events": [
+		"onLoad",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"background": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 420,
+					"height": 160,
+					"stroke": "#868B92"
+				},
+				"ok": {
+					"type": "button",
+					"top": 128,
+					"left": 325,
+					"width": 75,
+					"height": 22,
+					"dataSource": "OK",
+					"text": "OK",
+					"focusable": false,
+					"defaultButton": true,
+					"method": "ObjectMethods/ok.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"cancel": {
+					"type": "button",
+					"top": 128,
+					"left": 211,
+					"width": 94,
+					"height": 22,
+					"visibility": "hidden",
+					"shortcutKey": "[Esc]",
+					"text": "Cancel",
+					"focusable": false,
+					"method": "ObjectMethods/cancel.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"checkbox": {
+					"type": "checkbox",
+					"top": 103,
+					"left": 20,
+					"width": 148,
+					"height": 16,
+					"text": ":xliff:doNotAskAgain",
+					"focusable": false,
+					"method": "ObjectMethods/checkbox.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"text": {
+					"type": "input",
+					"top": 20,
+					"left": 20,
+					"width": 380,
+					"height": 33,
+					"fontTheme": "main",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"showSelection": true,
+					"contextMenu": "none",
+					"dropping": "none"
+				},
+				"forget": {
+					"type": "button",
+					"top": 128,
+					"left": 17,
+					"width": 98,
+					"height": 22,
+					"text": "Forget",
+					"focusable": false,
+					"method": "ObjectMethods/forget.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text1": {
+					"type": "text",
+					"top": 195,
+					"left": 57,
+					"width": 324,
+					"height": 17,
+					"visibility": "hidden",
+					"fill": "#FFFF00",
+					"stroke": "#EE0000",
+					"textAlign": "center",
+					"borderStyle": "dotted",
+					"text": "#ACI0094705 - Cancel is Invisible by Default"
+				},
+				"additional": {
+					"type": "input",
+					"top": 61,
+					"left": 20,
+					"width": 380,
+					"height": 28,
+					"fontTheme": "additional",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"showSelection": true,
+					"contextMenu": "none",
+					"dropping": "none"
+				}
+			}
+		}
+	]
+}

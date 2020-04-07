@@ -1,0 +1,54 @@
+﻿{
+	"destination": "detailScreen",
+	"rightMargin": 19,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"dynamic-bool": {
+					"type": "checkbox",
+					"top": 15,
+					"left": 38,
+					"width": 123,
+					"height": 22,
+					"text": "dynamic-bool",
+					"focusable": false,
+					"method": "ObjectMethods/dynamic-bool.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"dynamic-text": {
+					"type": "input",
+					"top": 67,
+					"left": 38,
+					"width": 123,
+					"height": 16,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/dynamic-text.4dm",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		}
+	]
+}

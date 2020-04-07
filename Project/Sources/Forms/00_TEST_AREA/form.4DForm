@@ -1,0 +1,64 @@
+﻿{
+	"destination": "detailScreen",
+	"width": 500,
+	"height": 400,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onUnload",
+		"onTimer"
+	],
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"Subform": {
+					"type": "subform",
+					"top": 0,
+					"left": 0,
+					"width": 500,
+					"height": 345,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "%report",
+					"deletableInList": false,
+					"doubleClickInRowAction": "editSubrecord",
+					"doubleClickInEmptyAreaAction": "addSubrecord",
+					"selectionMode": "multiple",
+					"printFrame": "variable",
+					"borderStyle": "system",
+					"events": [
+						"onLoad"
+					]
+				},
+				"Button": {
+					"type": "button",
+					"top": 365,
+					"left": 395,
+					"width": 92,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"action": "cancel",
+					"text": "Close",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

@@ -1,0 +1,560 @@
+﻿{
+	"destination": "detailScreen",
+	"formSizeAnchor": "shadow",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onActivate",
+		"onDeactivate",
+		"onUnload",
+		"onTimer",
+		"onBoundVariableChange",
+		"onPageChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 44,
+					"sizingX": "grow",
+					"fill": "#FFFEFE",
+					"stroke": "transparent"
+				},
+				"ribbon": {
+					"type": "input",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 134,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "picture",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/ribbon.4dm",
+					"events": [
+						"onClick",
+						"onMouseMove"
+					]
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 173,
+					"left": 0,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"title": {
+					"type": "text",
+					"top": 10,
+					"left": 10,
+					"width": 126,
+					"height": 24,
+					"fontFamily": "System Font",
+					"fontSize": 20,
+					"text": ":xliff:toolbar_header"
+				},
+				"selector": {
+					"type": "input",
+					"top": 209,
+					"left": 0,
+					"width": 93,
+					"height": 16,
+					"visibility": "hidden",
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"close": {
+					"type": "button",
+					"top": 0,
+					"left": 1040,
+					"width": 20,
+					"height": 20,
+					"sizingX": "move",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"stroke": "#313131",
+					"icon": "/RESOURCES/Images/close.png",
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/close.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Line": {
+					"type": "line",
+					"top": 0,
+					"left": 0,
+					"width": 1000,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"height.unit": {
+					"type": "input",
+					"top": 245,
+					"left": 0,
+					"width": 93,
+					"height": 16,
+					"visibility": "hidden",
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"alignment": {
+					"type": "input",
+					"top": 281,
+					"left": 0,
+					"width": 93,
+					"height": 16,
+					"visibility": "hidden",
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"shadow": {
+					"type": "picture",
+					"top": 135,
+					"left": 0,
+					"width": 1060,
+					"height": 9,
+					"sizingX": "grow",
+					"pictureFormat": "tiled",
+					"picture": "/RESOURCES/Images/tbShadow.png"
+				},
+				"current_1": {
+					"type": "input",
+					"top": 173,
+					"left": 170,
+					"width": 79,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"current_2": {
+					"type": "input",
+					"top": 173,
+					"left": 269,
+					"width": 79,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"height.points": {
+					"type": "input",
+					"top": 245,
+					"left": 113,
+					"width": 101,
+					"height": 16,
+					"visibility": "hidden",
+					"dataSourceTypeHint": "number",
+					"stroke": "#FF6600",
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"text.style": {
+					"type": "input",
+					"top": 317,
+					"left": 0,
+					"width": 93,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"focusable": false,
+					"fill": "#FFFF00",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				}
+			}
+		},
+		{
+			"objects": {
+				"textbox": {
+					"type": "rectangle",
+					"top": 199,
+					"left": 112,
+					"width": 38,
+					"height": 36,
+					"stroke": "transparent"
+				},
+				"Matrix": {
+					"type": "picture",
+					"top": 74,
+					"left": 30,
+					"width": 939,
+					"height": 51,
+					"sizingX": "grow",
+					"pictureFormat": "scaled",
+					"picture": "Images/Matrix.svg"
+				},
+				"label.left": {
+					"type": "text",
+					"top": 54,
+					"left": 118,
+					"width": 96,
+					"height": 15,
+					"stroke": "#666666",
+					"textAlign": "center",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:left"
+				},
+				"label.center": {
+					"type": "text",
+					"top": 54,
+					"left": 444,
+					"width": 96,
+					"height": 15,
+					"sizingX": "move",
+					"stroke": "#666666",
+					"textAlign": "center",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:center"
+				},
+				"label.right": {
+					"type": "text",
+					"top": 55,
+					"left": 800,
+					"width": 96,
+					"height": 15,
+					"sizingX": "move",
+					"stroke": "#666666",
+					"textAlign": "center",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:right"
+				},
+				"box.left": {
+					"type": "input",
+					"top": 79,
+					"left": 35,
+					"width": 280,
+					"height": 42,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/box.left.4dm",
+					"events": [
+						"onClick",
+						"onLosingFocus",
+						"onGettingFocus"
+					]
+				},
+				"box.center": {
+					"type": "input",
+					"top": 79,
+					"left": 361,
+					"width": 280,
+					"height": 42,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/box.center.4dm",
+					"events": [
+						"onClick",
+						"onLosingFocus",
+						"onGettingFocus"
+					]
+				},
+				"box.right": {
+					"type": "input",
+					"top": 79,
+					"left": 667,
+					"width": 280,
+					"height": 42,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"method": "ObjectMethods/box.right.4dm",
+					"events": [
+						"onClick",
+						"onLosingFocus",
+						"onGettingFocus"
+					]
+				},
+				"action": {
+					"type": "button",
+					"top": 55,
+					"left": 316,
+					"width": 23,
+					"height": 23,
+					"visibility": "hidden",
+					"icon": "/RESOURCES/Images/actionArrow.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/action.4dm",
+					"events": [
+						"onClick"
+					],
+					"focusable": false
+				}
+			}
+		},
+		{
+			"objects": {
+				"label.height": {
+					"type": "text",
+					"top": 54,
+					"left": 39,
+					"width": 71,
+					"height": 15,
+					"textAlign": "right",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:height"
+				},
+				"height": {
+					"type": "input",
+					"top": 54,
+					"left": 120,
+					"width": 40,
+					"height": 15,
+					"dataSourceTypeHint": "number",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"entryFilter": "&\"0-9;.\"",
+					"dragging": "none",
+					"method": "ObjectMethods/height.4dm",
+					"events": [
+						"onGettingFocus",
+						"onAfterEdit"
+					]
+				},
+				"label.picture": {
+					"type": "text",
+					"top": 54,
+					"left": 343,
+					"width": 71,
+					"height": 15,
+					"textAlign": "right",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:picture"
+				},
+				"picture": {
+					"type": "input",
+					"top": 54,
+					"left": 425,
+					"width": 98,
+					"height": 70,
+					"dataSourceTypeHint": "picture",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"pictureFormat": "proportionalTopLeft",
+					"method": "ObjectMethods/picture.4dm",
+					"events": [
+						"onLosingFocus",
+						"onGettingFocus",
+						"onAfterEdit"
+					]
+				},
+				"action.picture": {
+					"type": "button",
+					"top": 46,
+					"left": 529,
+					"width": 23,
+					"height": 23,
+					"visibility": "hidden",
+					"icon": "/RESOURCES/Images/actionArrow.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/action.picture.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"label.text": {
+					"type": "text",
+					"top": 85,
+					"left": 9,
+					"width": 100,
+					"height": 15,
+					"textAlign": "right",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:textStyle"
+				},
+				"pangram": {
+					"type": "input",
+					"top": 85,
+					"left": 118,
+					"width": 230,
+					"height": 16,
+					"stroke": "#2A93FB",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"showSelection": true,
+					"allowFontColorPicker": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"method": "ObjectMethods/pangram.4dm",
+					"events": [
+						"onGettingFocus",
+						"onAfterEdit"
+					]
+				},
+				"unit": {
+					"type": "input",
+					"top": 52,
+					"left": 165,
+					"width": 90,
+					"height": 18,
+					"dataSourceTypeHint": "picture",
+					"stroke": "#FF8000",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"method": "ObjectMethods/unit.4dm",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onMouseEnter",
+						"onMouseLeave"
+					]
+				},
+				"text": {
+					"type": "input",
+					"top": 85,
+					"left": 118,
+					"width": 230,
+					"height": 20,
+					"dataSourceTypeHint": "picture",
+					"stroke": "#FF8000",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"method": "ObjectMethods/text.4dm",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onMouseEnter",
+						"onMouseLeave"
+					]
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

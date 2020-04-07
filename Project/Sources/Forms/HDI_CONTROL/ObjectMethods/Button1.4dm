@@ -1,0 +1,1 @@
+(OBJECT Get pointer:C1124(Object named:K67:5;"backcolor"))->:=Select RGB color:C956

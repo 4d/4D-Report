@@ -1,0 +1,62 @@
+﻿{
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"formSizeAnchor": "control_area",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerBreak": 23,
+	"markerFooter": 23,
+	"events": [
+		"onLoad",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"control_area": {
+					"type": "input",
+					"top": 0,
+					"left": 0,
+					"width": 36,
+					"height": 24,
+					"dataSourceTypeHint": "picture",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"pictureFormat": "proportionalCenter",
+					"dragging": "none",
+					"method": "ObjectMethods/control_area.4dm",
+					"events": [
+						"onLoad",
+						"onClick"
+					]
+				},
+				"Picture4": {
+					"type": "picture",
+					"top": 0,
+					"left": 0,
+					"width": 36,
+					"height": 24,
+					"visibility": "hidden",
+					"pictureFormat": "scaled",
+					"picture": "Images/Picture4.png"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

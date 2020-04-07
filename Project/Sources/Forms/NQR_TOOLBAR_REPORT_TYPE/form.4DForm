@@ -1,0 +1,111 @@
+﻿{
+	"destination": "detailScreen",
+	"memorizeGeometry": true,
+	"width": 220,
+	"height": 78,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"title": {
+					"type": "text",
+					"top": 0,
+					"left": 1,
+					"width": 218,
+					"height": 13,
+					"stroke": "#919191",
+					"textAlign": "center",
+					"fontFamily": "System Font",
+					"fontSize": 11,
+					"text": ":xliff:toolbar_reportType"
+				},
+				"matrix": {
+					"type": "picture",
+					"top": 16,
+					"left": 1,
+					"width": 218,
+					"height": 54,
+					"pictureFormat": "scaled",
+					"picture": "Images/matrix.svg"
+				},
+				"list": {
+					"type": "button",
+					"top": 21,
+					"left": 0,
+					"width": 110,
+					"height": 57,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_list",
+					"icon": "/RESOURCES/Images/tbList.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/list.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"cross": {
+					"type": "button",
+					"top": 21,
+					"left": 110,
+					"width": 110,
+					"height": 57,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_crossTable",
+					"icon": "/RESOURCES/Images/tbCross.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/cross.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"selection": {
+					"type": "rectangle",
+					"top": 98,
+					"left": 13,
+					"width": 31,
+					"height": 34,
+					"fill": "transparent",
+					"stroke": "#BADDF6",
+					"strokeWidth": 3
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 107,
+					"left": 70,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				}
+			}
+		}
+	]
+}

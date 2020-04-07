@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><preferences stamp="2854">
+	<com.4d>
+		<general execute_host_database_event="true"/>
+		<compiler>
+			<options compilation_path="3" fat_binary="true"/>
+			<typage default_for_button="2"/>
+			<method_suffix arrays="" interprocess_arrays="" interprocess_variables="" methods="" variables=""/>
+		</compiler>
+		<web>
+			<standalone_server>
+				<configuration automatic_session_management="true" port_number="80"/>
+				<misc/>
+			</standalone_server>
+			<remote>
+				<configuration automatic_session_management="true"/>
+				<misc/>
+			</remote>
+		</web>
+		<interface>
+			<shortcuts>
+				<cancel_input_form alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+				<accept_input_form alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+				<add_subform alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+			</shortcuts>
+		</interface>
+		<database>
+			<misc/>
+		</database>
+		<sql>
+			<engine case_sensitive="true"/>
+			<publication port_number="19812"/>
+		</sql>
+		<server>
+			<network>
+				<options publication_name="4D Report" use_legacy_network_layer="false"/>
+			</network>
+		</server>
+		<deployment>
+			<options/>
+		</deployment>
+		<php ip_address="127.0.0.1"/>
+	</com.4d>
+</preferences>

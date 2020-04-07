@@ -1,0 +1,27 @@
+﻿{
+	"foo": {
+		"lineHeight": 18,
+		"editable": true
+	},
+	"sortOrder": {
+		"lineHeight": 18,
+		"editable": true,
+		"items": [
+			{
+				"text": ":xliff:menu_sort_none",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": ":xliff:menu_sort_ascending",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": ":xliff:menu_sort_descending",
+				"ref": 3,
+				"editable": true
+			}
+		]
+	}
+}

@@ -1,0 +1,217 @@
+﻿{
+	"destination": "detailScreen",
+	"formSizeAnchor": "shadow",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onActivate",
+		"onUnload",
+		"onTimer",
+		"onResize"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Rectangle2": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 756,
+					"height": 334,
+					"sizingX": "grow",
+					"fill": "#F0F0F0",
+					"stroke": "transparent"
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 756,
+					"width": 304,
+					"height": 334,
+					"sizingX": "move",
+					"fill": "#FFFEFE",
+					"stroke": "transparent"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 1,
+					"left": 756,
+					"height": 333,
+					"sizingX": "move",
+					"sizingY": "grow",
+					"stroke": "#AAAAAA"
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 358,
+					"left": 12,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				},
+				"shadow": {
+					"type": "picture",
+					"top": 334,
+					"left": 0,
+					"width": 1060,
+					"height": 9,
+					"sizingX": "grow",
+					"pictureFormat": "tiled",
+					"picture": "/RESOURCES/Images/tbShadow.png"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Line": {
+					"type": "line",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA"
+				},
+				"Text": {
+					"type": "text",
+					"top": 11,
+					"left": 10,
+					"width": 164,
+					"height": 23,
+					"stroke": "#313131",
+					"fontFamily": "System Font",
+					"fontSize": 20,
+					"text": ":xliff:toolbar_templates"
+				},
+				"close": {
+					"type": "button",
+					"top": 0,
+					"left": 1040,
+					"width": 20,
+					"height": 20,
+					"sizingX": "move",
+					"icon": "/RESOURCES/Images/close.png",
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/close.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"preview": {
+					"type": "input",
+					"top": 42,
+					"left": 12,
+					"width": 731,
+					"height": 282,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "picture",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"pictureFormat": "proportionalCenter",
+					"dragging": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 6,
+					"left": 637,
+					"width": 48,
+					"height": 16,
+					"sizingX": "move",
+					"style": "flat",
+					"text": "reload",
+					"fontFamily": ".SF NS Text",
+					"fontSize": 11,
+					"stroke": "#FF6600",
+					"focusable": false,
+					"method": "ObjectMethods/Button1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button": {
+					"type": "button",
+					"top": 6,
+					"left": 695,
+					"width": 48,
+					"height": 16,
+					"sizingX": "move",
+					"style": "flat",
+					"text": "update",
+					"fontFamily": ".SF NS Text",
+					"fontSize": 11,
+					"stroke": "#FF6600",
+					"focusable": false,
+					"method": "ObjectMethods/Button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"subform_apply": {
+					"type": "button",
+					"top": 298,
+					"left": 861,
+					"width": 83,
+					"height": 22,
+					"sizingX": "move",
+					"text": ":xliff:button_apply",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"list": {
+					"type": "list",
+					"top": 18,
+					"left": 775,
+					"width": 266,
+					"height": 266,
+					"sizingX": "move",
+					"enterable": false,
+					"hideFocusRing": true,
+					"scrollbarHorizontal": "hidden",
+					"borderStyle": "none",
+					"method": "ObjectMethods/list.4dm",
+					"events": [
+						"onSelectionChange"
+					]
+				},
+				"Rectangle1": {
+					"type": "rectangle",
+					"top": 17,
+					"left": 774,
+					"width": 267,
+					"height": 267,
+					"sizingX": "move",
+					"fill": "transparent",
+					"stroke": "#999898"
+				}
+			}
+		}
+	]
+}

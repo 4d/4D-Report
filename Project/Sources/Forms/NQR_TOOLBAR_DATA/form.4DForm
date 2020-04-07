@@ -1,0 +1,93 @@
+﻿{
+	"destination": "detailScreen",
+	"width": 98,
+	"height": 78,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"title": {
+					"type": "text",
+					"top": 0,
+					"left": 1,
+					"width": 96,
+					"height": 13,
+					"stroke": "#919191",
+					"textAlign": "center",
+					"fontFamily": "System Font",
+					"fontSize": 11,
+					"text": ":xliff:toolbar_data"
+				},
+				"clear": {
+					"type": "button",
+					"top": 23,
+					"left": 19,
+					"width": 73,
+					"height": 17,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_clear",
+					"icon": "/RESOURCES/Images/tbclear.png",
+					"iconFrames": 4,
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/clear.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"reload": {
+					"type": "button",
+					"top": 52,
+					"left": 19,
+					"width": 73,
+					"height": 17,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_reload",
+					"icon": "/RESOURCES/Images/tbReload.png",
+					"iconFrames": 4,
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/reload.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"automatic_font": {
+					"type": "input",
+					"top": 112,
+					"left": 11,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				}
+			}
+		}
+	]
+}

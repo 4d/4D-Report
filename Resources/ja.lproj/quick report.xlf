@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+   <!--Translation file.
+This file is distributed under the same license as the product package.-->
+
+<xliff version="1.0">
+   <file datatype="x-STR#" original="undefined" source-language="en" target-language="ja">
+      <header>
+         <prop-group name="Xliff-Editor.4dbase">
+            <prop prop-type="version">1.0</prop>
+         </prop-group>
+      </header>
+      <body>
+         <group resname="toolbar">
+             <trans-unit id="35" resname="toolbar_borders">
+                <source>Borders</source>
+                <target>境界線</target>
+             </trans-unit>
+             <trans-unit id="7" resname="toolbar_clear">
+                <source>Clear</source>
+                <target>消去</target>
+             </trans-unit>
+             <trans-unit id="6" resname="toolbar_crossTable">
+                <source>Cross-table</source>
+                <target>クロステーブル</target>
+             </trans-unit>
+             <trans-unit id="12" resname="toolbar_data">
+                <source>Report</source>
+                <target>レポート</target>
+             </trans-unit>
+             <trans-unit id="79" resname="toolbar_destination_4dview">
+                <source>4D view</source>
+                <target>4D view</target>
+             </trans-unit>
+             <trans-unit id="80" resname="toolbar_destination_file">
+                <source>File</source>
+                <target>ファイル</target>
+             </trans-unit>
+             <trans-unit id="82" resname="toolbar_destination_HTML">
+                <source>HTML</source>
+                <target>HTML</target>
+             </trans-unit>
+             <trans-unit id="81" resname="toolbar_destination_print">
+                <source>Print</source>
+                <target>印刷</target>
+             </trans-unit>
+             <trans-unit id="84" resname="toolbar_destination_SendYourReportTo">
+                <source>Send your report to...</source>
+                <target>レポートを送る...</target>
+             </trans-unit>
+             <trans-unit id="83" resname="toolbar_destination_title">
+                <source>Destination</source>
+                <target>送信先</target>
+             </trans-unit>
+             <trans-unit id="10" resname="toolbar_footer">
+                <source>Footer</source>
+                <target>フッター</target>
+             </trans-unit>
+             <trans-unit id="34" resname="toolbar_graphicAttributes">
+                <source>Graphic attributes</source>
+                <target>グラフィック属性</target>
+             </trans-unit>
+             <trans-unit id="9" resname="toolbar_header">
+                <source>Header</source>
+                <target>ヘッダー</target>
+             </trans-unit>
+             <trans-unit id="13" resname="toolbar_header&amp;footer">
+                <source>Header and footer</source>
+                <target>ヘッダー&amp;フッター</target>
+             </trans-unit>
+             <trans-unit id="5" resname="toolbar_list">
+                <source>List</source>
+                <target>リスト</target>
+             </trans-unit>
+             <trans-unit id="33" resname="toolbar_new">
+                <source>New</source>
+                <target>新規</target>
+             </trans-unit>
+            <trans-unit id="1" resname="toolbar_open">
+               <source>Open…</source>
+               <target>開く…</target>
+            </trans-unit>
+            <trans-unit id="2" resname="toolbar_output">
+               <source>Destination</source>
+               <target>出力先</target>
+            </trans-unit>
+            <trans-unit id="4" resname="toolbar_preview">
+               <source>Preview</source>
+               <target>印刷プレビュー</target>
+            </trans-unit>
+            <trans-unit id="8" resname="toolbar_reload">
+               <source>Revert</source>
+               <target>元に戻す</target>
+            </trans-unit>
+            <trans-unit id="11" resname="toolbar_reportType">
+               <source>Report type</source>
+               <target>レポートタイプ</target>
+            </trans-unit>
+            <trans-unit id="39" resname="toolbar_run">
+               <source>Execute</source>
+               <target>実行</target>
+            </trans-unit>
+            <trans-unit id="36" resname="toolbar_templates">
+               <source>Templates</source>
+               <target>テンプレート</target>
+            </trans-unit>
+            <trans-unit id="79" resname="toolbar_options">
+               <source>Options</source>
+               <target>オプション</target>
+            </trans-unit>
+            <trans-unit id="96" resname="toolbar_save">
+               <source>Save</source>
+               <target>保存</target>
+            </trans-unit>
+            <trans-unit id="97" resname="toolbar_saveAs">
+               <source>Save as...</source>
+               <target>名前をつけて保存...</target>
+            </trans-unit>
+         </group>
+         <group resname="header &amp; footer">
+            <trans-unit id="13" resname="left">
+               <source>Left</source>
+               <target>左</target>
+            </trans-unit>
+            <trans-unit id="14" resname="center">
+               <source>Center</source>
+               <target>中央</target>
+            </trans-unit>
+            <trans-unit id="15" resname="right">
+               <source>Right</source>
+               <target>右</target>
+            </trans-unit>
+            <trans-unit id="16" resname="tab_content">
+               <source>CONTENT</source>
+               <target>内容</target>
+            </trans-unit>
+            <trans-unit id="17" resname="tab_settings">
+               <source>SETTINGS</source>
+               <target>設定</target>
+            </trans-unit>
+            <trans-unit id="18" resname="pageNumber">
+               <source>Current page number</source>
+               <target>カレントのページ番号</target>
+            </trans-unit>
+            <trans-unit id="19" resname="executionDate">
+               <source>Date of execution</source>
+               <target>実行日</target>
+            </trans-unit>
+            <trans-unit id="20" resname="executionTime">
+               <source>Time of execution</source>
+               <target>実行時刻</target>
+            </trans-unit>
+            <trans-unit id="21" resname="points">
+               <source>Points</source>
+               <target>ポイント</target>
+            </trans-unit>
+            <trans-unit id="22" resname="inches">
+               <source>Inches</source>
+               <target>インチ</target>
+            </trans-unit>
+            <trans-unit id="23" resname="centimeters">
+               <source>Centimeters</source>
+               <target>センチメートル</target>
+            </trans-unit>
+            <trans-unit id="24" resname="alignedToLeft">
+               <source>Aligned to left</source>
+               <target>左揃え</target>
+            </trans-unit>
+            <trans-unit id="25" resname="centered">
+               <source>Centered</source>
+               <target>中央揃え</target>
+            </trans-unit>
+            <trans-unit id="26" resname="alignedToRight">
+               <source>Aligned to right</source>
+               <target>右揃え</target>
+            </trans-unit>
+            <trans-unit id="27" resname="affectTheHeightOfThePictureToTheArea">
+               <source>Apply the height of the picture to the area</source>
+               <target>ピクチャーの高さをエリアに反映させる</target>
+            </trans-unit>
+            <trans-unit id="28" resname="height">
+               <source>Height:</source>
+               <target>高さ:</target>
+            </trans-unit>
+            <trans-unit id="29" resname="picture">
+               <source>Picture:</source>
+               <target>ピクチャー:</target>
+            </trans-unit>
+            <trans-unit id="30" resname="textStyle">
+               <source>Text style:</source>
+               <target>テキストスタイル:</target>
+            </trans-unit>
+            <trans-unit id="31" resname="pangram">
+               <source>The quick brown fox jumps over the lazy dog</source>
+               <target>The quick brown fox jumps over the lazy dog</target>
+            </trans-unit>
+            <trans-unit id="32" resname="pts">
+               <source>Pts</source>
+               <target>ポイント</target>
+            </trans-unit>
+         </group>
+         <group resname="menus">
+            <trans-unit id="38" resname="allFields">
+               <source>All fields</source>
+               <target>全フィールド</target>
+            </trans-unit>
+            <trans-unit id="39" resname="formula">
+               <source>Formula…</source>
+               <target>フォーミュラ…</target>
+            </trans-unit>
+            <trans-unit id="41" resname="clear">
+               <source>Clear</source>
+               <target>消去</target>
+            </trans-unit>
+            <trans-unit id="42" resname="load">
+               <source>Load…</source>
+               <target>読み込み…</target>
+            </trans-unit>
+            <trans-unit id="89" resname="sortByName">
+               <source>Sort by Name</source>
+               <target>名前で並べ替え</target>
+            </trans-unit>
+            <trans-unit id="90" resname="defaultSort">
+               <source>Default Sort</source>
+               <target>デフォルトの並べ替え</target>
+            </trans-unit>
+            <trans-unit id="91" resname="addSelected">
+               <source>Add the selected field(s)</source>
+               <target>選択したフィールドを追加</target>
+            </trans-unit>
+            <trans-unit id="92" resname="AddMissing">
+               <source>Add missing field(s)</source>
+               <target>未出力フィールドを追加</target>
+            </trans-unit>
+         </group>
+         <group resname="statusBar">
+            <trans-unit id="40" resname="stb_selection">
+               <source>Master table "{table}": {sel}/{all}</source>
+               <target>マスターテーブル "{table}": {sel}/{all}</target>
+            </trans-unit>
+            <trans-unit id="43" resname="stb_newQuery">
+               <source>New query</source>
+               <target>新しいクエリ</target>
+            </trans-unit>
+            <trans-unit id="45" resname="stb_numberOfRecords">
+               <source>Number of records: {sel}</source>
+               <target>レコード数: {sel}</target>
+            </trans-unit>
+         </group>
+         <group resname="options">
+            <trans-unit id="47" resname="tipsView">
+               <source>For this output type, the report engine will generate the report into a 4D View document. </source>
+               <target>この出力タイプでは、レポートエンジンはレポートを4D View ドキュメント形式で出力します。</target>
+            </trans-unit>
+            <trans-unit id="48" resname="tipsPrint">
+               <source>For this output type, the report engine will use the standard printer settings dialog before printing.</source>
+               <target>この出力タイプでは、レポートエンジンは標準のプリンター設定ダイアログを印刷の前に使用します。</target>
+            </trans-unit>
+            <trans-unit id="49" resname="tipsHTML">
+               <source>For this output type, the report engine will use an HTML template to build the report in an HTML file.</source>
+               <target>この出力タイプでは、レポートエンジンはHTMLテンプレートを使用してレポートをHTMLファイル形式でビルドします。</target>
+            </trans-unit>
+            <trans-unit id="50" resname="tipsFile">
+               <source>For this output type, you will need to enter a column delimiter, a line delimiter, and a destination file name.</source>
+               <target>この出力タイプでは、カラム区切り文字、ライン区切り文字、そして出力ファイル名を入力する必要があります。</target>
+            </trans-unit>
+            <trans-unit id="50" resname="DestinationFile">
+               <source>Destination file</source>
+               <target>出力ファイル</target>
+            </trans-unit>
+            <trans-unit id="51" resname="LineDelimiter">
+               <source>Line delimiter</source>
+               <target>ライン区切り文字</target>
+            </trans-unit>
+            <trans-unit id="52" resname="HtmlTemplate">
+               <source>HTML template</source>
+               <target>HTML テンプレート</target>
+            </trans-unit>
+            <trans-unit id="53" resname="ColumnDelimiter">
+               <source>Column delimiter</source>
+               <target>カラム</target>
+            </trans-unit>
+            <trans-unit id="54" resname="Browse ...">
+               <source>Browse ...</source>
+               <target>参照 ...</target>
+            </trans-unit>
+            <trans-unit id="55" resname="html_default_template" translate="no">
+               <source><![CDATA[<html><br/>   <head><br/>     <meta http-equiv="Content-Type" content="text/html;charset=<!--#4DQRCharSet-->"><br/>   </head><br/>   <body bgcolor="#FFFFFF" text="#000000"><br/>      <table border=1><br/>         <!--#4DQRHeader--><br/>            <tr><br/>             <!--#4DQRCol--><br/>             <td bgcolor="<!--#4DQRBgcolor-->"><br/>               <!--#4DQRFont--><br/>               <!--#4DQRFace--><br/>                   <!--#4DQRData--><br/>               <!--/#4DQRFace--><br/>               <!--/#4DQRFont--><br/>            </td><br/>            <!--/#4DQRCol--><br/>         </tr><br/>      <!--/#4DQRHeader--><br/>      <!--#4DQRRow--><br/>         <tr><br/>            <!--#4DQRCol--><br/>            <td bgcolor="<!--#4DQRBgcolor-->"><br/>               <!--#4DQRFont--><br/>               <!--#4DQRFace--><br/>                 <!--#4DQRData--><br/>               <!--/#4DQRFace--><br/>               <!--/#4DQRFont--><br/>            </td><br/>            <!--/#4DQRCol--><br/>          </tr><br/>      <!--/#4DQRRow--><br/>    </table><br/> </body><br/></html> ]]></source>
+            </trans-unit>
+            <trans-unit id="56" resname="SelectTemplate">
+               <source>Select a template for the report presentation. </source>
+               <target>レポート表示のためのテンプレートを選択して下さい。</target>
+            </trans-unit>
+            <trans-unit id="57" resname="view">
+               <source>View…</source>
+               <target>閲覧…</target>
+            </trans-unit>
+            <trans-unit id="59" resname="default">
+               <source>Default</source>
+               <target>デフォルト</target>
+            </trans-unit>
+            <trans-unit id="59" resname="invalidHTML">
+               <source>This document is not valid, it must have tags formatting.</source>
+               <target>このドキュメントは無効です。HTMLタグに問題がないか確認して下さい。</target>
+            </trans-unit>
+            <trans-unit id="60" resname="dontDisplayPrintSetting">
+               <source>Don't display print setting</source>
+               <target>印刷設定を表示しない</target>
+            </trans-unit>			
+         </group>		 
+         <group resname="messages">
+             <trans-unit id="61" resname="areYouSure">
+                 <source>Are you sure?</source>
+                 <target>よろしいですか?</target>
+             </trans-unit>
+             <trans-unit id="62" resname="cancel">
+                 <source>Cancel</source>
+                 <target>キャンセル</target>
+             </trans-unit>
+             <trans-unit id="63" resname="ok">
+                 <source>OK</source>
+                 <target>OK</target>
+             </trans-unit>
+             <trans-unit id="64" resname="doNotAskAgain">
+                 <source>Do not ask again</source>
+                 <target>次回から確認しない</target>
+             </trans-unit>
+             <trans-unit id="65" resname="youWillLoseChangesMadeToThisDocument">
+                 <source>You will lose changes made to the document{document}.</source>
+                 <target>ドキュメント『{document}』に加えられた変更は失われます。</target>
+             </trans-unit>
+             <trans-unit id="66" resname="doYouWantToSaveChanges">
+                 <source>Do you want to save the document to disk?</source>
+                 <target>ドキュメントをディスクに保存しますか?</target>
+             </trans-unit>
+             <trans-unit id="67" resname="save">
+                 <source>Save</source>
+                 <target>保存する</target>
+             </trans-unit>
+             <trans-unit id="68" resname="doNotSave">
+                 <source>Do not save</source>
+                 <target>保存しない</target>
+             </trans-unit>
+
+             <trans-unit id="70" resname="remove">
+                <source>Remove</source>
+                <target>削除する</target>
+             </trans-unit>
+             <trans-unit id="71" resname="thisColumnWillNoMoreBeSorted">
+                <source>The associated column will no more be sorted.</source>
+                <target>関連づけられたカラムの並べ替えは解除されます。</target>
+             </trans-unit>
+             <trans-unit id="72" resname="youCanHideTheLineAndKeepTheSortingData">
+                <source>You can hide the line and thus keep the sorting of the data.</source>
+                <target>データの並べ替えを保ったまま行を非表示にすることができます。</target>
+             </trans-unit>
+             <trans-unit id="93" resname="SaveInNewDocument">
+                <source>Save in a new document</source>
+                <target>新しいドキュメントに保存</target>
+             </trans-unit>
+             <trans-unit id="93" resname="DoYouWantToSaveChangesInThisDocument">
+                <source>Do you want to save changes in this document?</source>
+                <target>このドキュメントに変更を保存しますか？</target>
+             </trans-unit>
+             <trans-unit id="94" resname="youCanHideTheColumnAndKeepTheSortingData">
+                <source>You can hide the column to keep the subtotal row.</source>
+                <target>小計行を保つためにカラムを非表示にすることができます。</target>
+             </trans-unit>
+             <trans-unit id="95" resname="theSubtotalRowAssociatedWillBeRemoved.">
+                <source>The subtotal row associated with this column will be removed.</source>
+                <target>このカラムに関連づけられた小計行は削除されます。</target>
+             </trans-unit>
+             <trans-unit id="96" resname="previewIsNotPossible">
+                <source>The preview is not possible. Please check your PDF driver or viewer.</source>
+                <target>プレビューはご利用いただけません。PDFドライバーまたはビューアーをチェックして下さい。</target>
+             </trans-unit>
+         </group>
+         <group resname="Help tips">
+             <trans-unit id="69" resname="tips_add">
+                 <source>Click to add a field
+                     Right click for more options</source>
+                 <target>フィールドを追加するにはクリック&#xD;右クリックですべてのオプションを表示</target>
+             </trans-unit>
+         </group>         
+
+         <group resname="delimiters">
+            <trans-unit id="80" resname="tabulation">
+               <source>Tabulation</source>
+               <target>TAB</target>
+            </trans-unit>
+            <trans-unit id="81" resname="comma">
+               <source>Comma</source>
+               <target>カンマ</target>
+            </trans-unit>
+            <trans-unit id="82" resname="semicolumn">
+               <source>Semicolumn</source>
+               <target>セミコロン</target>
+            </trans-unit>
+            <trans-unit id="83" resname="colon">
+               <source>Colon</source>
+               <target>コロン</target>
+            </trans-unit>
+            <trans-unit id="84" resname="verticalBar">
+               <source>Vertical Bar</source>
+               <target>縦線</target>
+            </trans-unit>
+            <trans-unit id="85" resname="space">
+               <source>Space</source>
+               <target>スペース</target>
+            </trans-unit>
+            <trans-unit id="86" resname="carriageReturn">
+               <source>Carriage Return</source>
+               <target>キャリッジリターン</target>
+            </trans-unit>
+            <trans-unit id="87" resname="lineFeed">
+               <source>Line Feed</source>
+               <target>ラインフィード</target>
+            </trans-unit>
+            <trans-unit id="88" resname="recordSeparator">
+               <source>Record Separator</source>
+               <target>レコード区切り</target>
+            </trans-unit>
+         </group>
+
+      </body>
+   </file>
+</xliff>

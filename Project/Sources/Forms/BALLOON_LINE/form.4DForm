@@ -1,0 +1,63 @@
+﻿{
+	"destination": "detailScreen",
+	"windowTitle": "_menu",
+	"inheritedForm": "BALLOON_COMMON",
+	"width": 280,
+	"height": 210,
+	"markerBreak": 141,
+	"markerFooter": 141,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onActivate",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"border": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 280,
+					"height": 225,
+					"sizingX": "grow",
+					"fill": "transparent",
+					"stroke": "#AAAAAA"
+				}
+			}
+		},
+		{
+			"objects": {
+				"computations": {
+					"type": "subform",
+					"top": 170,
+					"left": 16,
+					"width": 249,
+					"height": 33,
+					"sizingX": "grow",
+					"dataSourceTypeHint": "number",
+					"detailForm": "control_computations",
+					"focusable": false,
+					"enterableInList": false,
+					"deletableInList": false,
+					"printFrame": "variable",
+					"method": "ObjectMethods/computations.4dm",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

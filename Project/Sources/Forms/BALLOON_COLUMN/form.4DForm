@@ -1,0 +1,153 @@
+﻿{
+	"destination": "detailScreen",
+	"windowTitle": "_menu",
+	"inheritedForm": "BALLOON_COMMON",
+	"width": 280,
+	"height": 305,
+	"markerBreak": 141,
+	"markerFooter": 141,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onActivate",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"border": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 280,
+					"height": 305,
+					"fill": "transparent",
+					"stroke": "#AAAAAA"
+				}
+			}
+		},
+		{
+			"objects": {
+				"sort.back": {
+					"type": "rectangle",
+					"top": 218,
+					"left": 92,
+					"width": 172,
+					"height": 24,
+					"sizingX": "grow",
+					"stroke": "#c0c0c0",
+					"fill": "#FFFFFF"
+				},
+				"sort.label": {
+					"type": "input",
+					"top": 224,
+					"left": 95,
+					"width": 165,
+					"height": 13,
+					"sizingX": "grow",
+					"stroke": "#444444",
+					"textAlign": "center",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"sort.title": {
+					"type": "text",
+					"top": 224,
+					"left": 6,
+					"width": 78,
+					"height": 13,
+					"stroke": "#444444",
+					"textAlign": "right",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"text": ":xliff:menu_sort_order"
+				},
+				"repeatedValues": {
+					"type": "checkbox",
+					"top": 282,
+					"left": 92,
+					"width": 171,
+					"height": 16,
+					"text": ":xliff:menu_repeated_values",
+					"stroke": "#444444",
+					"focusable": false,
+					"method": "ObjectMethods/repeatedValues.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"automaticWidth": {
+					"type": "checkbox",
+					"top": 260,
+					"left": 92,
+					"width": 171,
+					"height": 16,
+					"text": ":xliff:menu_automatic_width",
+					"stroke": "#444444",
+					"focusable": false,
+					"method": "ObjectMethods/automaticWidth.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"separator2": {
+					"type": "line",
+					"top": 248,
+					"left": 0,
+					"width": 280,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"sort": {
+					"type": "button",
+					"top": 219,
+					"left": 93,
+					"width": 170,
+					"height": 22,
+					"sizingX": "grow",
+					"fontFamily": ".Lucida Grande UI",
+					"fontSize": 11,
+					"stroke": "#AAAAAA",
+					"popupPlacement": "linked",
+					"textPlacement": "left",
+					"style": "custom",
+					"borderStyle": "none",
+					"method": "ObjectMethods/sort.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"separator3": {
+					"type": "line",
+					"top": 209,
+					"left": 0,
+					"width": 279,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA",
+					"height": 0,
+					"startPoint": "topLeft"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

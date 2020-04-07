@@ -1,0 +1,41 @@
+﻿{
+	"destination": "detailScreen",
+	"windowTitle": "_menu",
+	"inheritedForm": "BALLOON_COMMON",
+	"width": 280,
+	"height": 165,
+	"markerBreak": 141,
+	"markerFooter": 141,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onActivate",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"border": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 280,
+					"height": 164,
+					"fill": "transparent",
+					"stroke": "#AAAAAA"
+				}
+			}
+		},
+		null
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

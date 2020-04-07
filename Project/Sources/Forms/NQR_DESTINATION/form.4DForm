@@ -1,0 +1,196 @@
+﻿{
+	"destination": "detailScreen",
+	"formSizeAnchor": "shadow",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"automatic_font": {
+					"type": "input",
+					"top": 138,
+					"left": 12,
+					"width": 150,
+					"height": 16,
+					"visibility": "hidden",
+					"stroke": "#FF6600",
+					"fill": "transparent",
+					"borderStyle": "dotted",
+					"enterable": false,
+					"hideFocusRing": true,
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/automatic_font.4dm",
+					"events": [
+						"onLoad"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"height": 94,
+					"sizingX": "grow",
+					"fill": "#FFFEFE",
+					"stroke": "transparent"
+				},
+				"select": {
+					"type": "rectangle",
+					"top": 11,
+					"left": 175,
+					"width": 59,
+					"height": 76,
+					"fill": "transparent",
+					"stroke": "#BADDF6",
+					"strokeWidth": 3
+				},
+				"shadow": {
+					"type": "picture",
+					"top": 94,
+					"left": 0,
+					"width": 1060,
+					"height": 9,
+					"sizingX": "grow",
+					"pictureFormat": "tiled",
+					"picture": "/RESOURCES/Images/tbShadow.png"
+				},
+				"Line": {
+					"type": "line",
+					"top": 0,
+					"left": 0,
+					"width": 1060,
+					"sizingX": "grow",
+					"stroke": "#AAAAAA"
+				},
+				"file": {
+					"type": "radio",
+					"top": 16,
+					"left": 175,
+					"width": 59,
+					"height": 66,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_destination_file",
+					"icon": "/RESOURCES/Images/dest_file.png",
+					"iconFrames": 1,
+					"style": "custom",
+					"method": "ObjectMethods/file.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"printer": {
+					"type": "radio",
+					"top": 16,
+					"left": 248,
+					"width": 59,
+					"height": 66,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_destination_print",
+					"icon": "/RESOURCES/Images/dest_print.png",
+					"iconFrames": 1,
+					"style": "custom",
+					"method": "ObjectMethods/printer.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"4Dview": {
+					"type": "radio",
+					"top": 16,
+					"left": 394,
+					"width": 59,
+					"height": 66,
+					"visibility": "hidden",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_destination_4dview",
+					"icon": "/RESOURCES/Images/dest_4D.png",
+					"iconFrames": 4,
+					"style": "custom",
+					"method": "ObjectMethods/4Dview.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"html": {
+					"type": "radio",
+					"top": 16,
+					"left": 321,
+					"width": 59,
+					"height": 66,
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_destination_HTML",
+					"icon": "/RESOURCES/Images/dest_clipboard.png",
+					"iconFrames": 1,
+					"style": "custom",
+					"method": "ObjectMethods/html.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text": {
+					"type": "text",
+					"top": 11,
+					"left": 10,
+					"width": 164,
+					"height": 23,
+					"stroke": "#313131",
+					"fontFamily": "System Font",
+					"fontSize": 20,
+					"text": ":xliff:toolbar_destination_title"
+				},
+				"Text1": {
+					"type": "text",
+					"top": 34,
+					"left": 10,
+					"width": 170,
+					"height": 15,
+					"stroke": "#919191",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"text": ":xliff:toolbar_destination_SendYourReportTo"
+				},
+				"close": {
+					"type": "button",
+					"top": 0,
+					"left": 1040,
+					"width": 20,
+					"height": 20,
+					"sizingX": "move",
+					"fontFamily": "System Font",
+					"fontSize": 12,
+					"stroke": "#313131",
+					"icon": "/RESOURCES/Images/close.png",
+					"textPlacement": "right",
+					"style": "custom",
+					"method": "ObjectMethods/close.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,217 @@
+﻿{
+	"destination": "detailScreen",
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"markerBreak": 23,
+	"markerFooter": 23,
+	"events": [
+		"onLoad",
+		"onDataChange",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"control_area": {
+					"type": "input",
+					"top": 94,
+					"left": 0,
+					"width": 112,
+					"height": 23,
+					"dataSourceTypeHint": "picture",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"method": "ObjectMethods/control_area.4dm",
+					"events": [
+						"onLoad",
+						"onClick"
+					]
+				},
+				"_poster": {
+					"type": "picture",
+					"top": 123,
+					"left": 0,
+					"width": 112,
+					"height": 23,
+					"visibility": "hidden",
+					"pictureFormat": "scaled",
+					"picture": "Images/_poster.png"
+				},
+				"bOutside": {
+					"type": "checkbox",
+					"text": "",
+					"top": 0,
+					"left": 0,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/01Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left"
+				},
+				"bInside": {
+					"type": "checkbox",
+					"text": "",
+					"top": 0,
+					"left": 22,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/02Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button1.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left"
+				},
+				"bAll": {
+					"type": "checkbox",
+					"text": "",
+					"top": 0,
+					"left": 44,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/03Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button2.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left"
+				},
+				"bLeft": {
+					"type": "checkbox",
+					"text": "",
+					"top": 22,
+					"left": 0,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/04Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button3.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left"
+				},
+				"bVertical": {
+					"type": "checkbox",
+					"text": "",
+					"top": 22,
+					"left": 22,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/05Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button4.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left"
+				},
+				"bRight": {
+					"type": "checkbox",
+					"text": "",
+					"top": 22,
+					"left": 44,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/06Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button5.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left"
+				},
+				"bTop": {
+					"type": "checkbox",
+					"text": "",
+					"top": 44,
+					"left": 0,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/07Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button6.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left"
+				},
+				"bHorizontal": {
+					"type": "checkbox",
+					"text": "",
+					"top": 44,
+					"left": 22,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/08Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button7.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left"
+				},
+				"bBottom": {
+					"type": "checkbox",
+					"text": "",
+					"top": 44,
+					"left": 44,
+					"width": 20,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"icon": "/RESOURCES/Images/widgets/borders/09Off.png",
+					"iconFrames": 1,
+					"method": "ObjectMethods/Button8.4dm",
+					"radioGroup": "borderGroup",
+					"textPlacement": "left",
+					"customOffset": 0,
+					"customBorderY": 0
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"width": 64,
+	"height": 64
+}
