@@ -20,6 +20,11 @@ Case of
 		  //______________________________________________________
 	: ($Lon_formEvent=-1)  //Call from the widget
 		
+		
+		If (ob_dialog=Null:C1517)
+			ob_dialog:=New object:C1471
+		End if 
+		
 		If ((OB Is defined:C1231(ob_dialog)) & (Undefined:C82(ob_dialog.action)))
 			
 			ob_dialog.action:="update"
