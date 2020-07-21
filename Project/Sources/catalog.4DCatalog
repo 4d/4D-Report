@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
-<base name="" uuid="22F9CCF450E04D12A5AA3E1D212C150E" collation_locale="en">
+<base name="4D Report" uuid="22F9CCF450E04D12A5AA3E1D212C150E" collation_locale="en">
 	<schema name="DEFAULT_SCHEMA"/>
 	<table name="Clients" uuid="50302DE30F2D4D65901048C55B2893DD" id="1" hide_in_REST="true" prevent_journaling="true">
 		<field name="ID" uuid="DF781DB933D64FB49F51324DE5910F22" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
-		<field name="Name" uuid="7D2296BD982949D290A1F25A891F09A8" type="10" limiting_length="255" never_null="true" id="2"/>
+		<field name="Name" uuid="7D2296BD982949D290A1F25A891F09A8" type="10" limiting_length="255" never_null="true" id="2">
+			<field_extra visible="false"/>
+		</field>
 		<field name="Activity" uuid="75E37D348A98493291559008E3659B78" type="10" limiting_length="255" never_null="true" id="3"/>
 		<field name="Society_ID" uuid="611743081005491591619440DB956C77" type="4" never_null="true" id="4"/>
 		<field name="First_name" uuid="3AB26EB108E44928AA21D138A7AC3E22" type="10" limiting_length="255" never_null="true" id="5"/>
@@ -106,9 +108,9 @@
 		<field name="Picture" uuid="3C8A1DF9D9DA4FD7A71A7FE454648F6C" type="12" never_null="true" id="12"/>
 		<field name="Object" uuid="CCB857169F064C2184DBE2A1CDBCD04C" type="21" never_null="true" id="13"/>
 		<table_extra input_form="Input" output_form="Input">
-			<editor_table_info displayable_fields_count="13">
+			<editor_table_info displayable_fields_count="16">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="7" top="28" width="220.890625" height="322.7578125"/>
+				<coordinates left="7" top="28" width="323.66015625" height="383.46875"/>
 			</editor_table_info>
 		</table_extra>
 	</table>

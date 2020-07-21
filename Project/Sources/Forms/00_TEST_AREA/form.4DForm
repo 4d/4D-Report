@@ -38,14 +38,15 @@
 					"borderStyle": "system",
 					"events": [
 						"onLoad"
-					]
+					],
+					"dataSource": ""
 				},
 				"Button": {
 					"type": "button",
-					"top": 365,
-					"left": 395,
-					"width": 92,
-					"height": 22,
+					"top": 363,
+					"left": 346,
+					"width": 140,
+					"height": 20,
 					"sizingX": "move",
 					"sizingY": "move",
 					"action": "cancel",
@@ -53,6 +54,34 @@
 					"events": [
 						"onClick"
 					]
+				},
+				"Check Box": {
+					"type": "checkbox",
+					"text": "cross",
+					"top": 363,
+					"left": 10,
+					"width": 140,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Check Box.4dm",
+					"sizingX": "fixed",
+					"sizingY": "move"
+				},
+				"Button1": {
+					"type": "button",
+					"text": "Generate report",
+					"top": 363,
+					"left": 178,
+					"width": 140,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button1.4dm",
+					"sizingX": "fixed",
+					"sizingY": "move"
 				}
 			}
 		}
@@ -60,5 +89,7 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
-	}
+	},
+	"geometryStamp": 28,
+	"method": "method.4dm"
 }

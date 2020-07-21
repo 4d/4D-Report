@@ -1,14 +1,14 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : db_virtualFieldName
-  // Database: 4D Report
-  // ID[BA59074409434018BB33D9BAB8FF7E54]
-  // Created #15-7-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
+// ----------------------------------------------------
+// Project method : db_virtualFieldName
+// Database: 4D Report
+// ID[BA59074409434018BB33D9BAB8FF7E54]
+// Created #15-7-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 C_TEXT:C284($0)
 C_TEXT:C284($1)
 
@@ -16,31 +16,31 @@ C_LONGINT:C283($Lon_fieldID;$Lon_parameters;$Lon_tableID;$Lon_x;$Lon_y)
 C_TEXT:C284($kTxt_pattern;$Txt_structure_name;$Txt_virtual_name)
 
 If (False:C215)
-	C_TEXT:C284(db_virtualFieldName ;$0)
-	C_TEXT:C284(db_virtualFieldName ;$1)
+	C_TEXT:C284(db_virtualFieldName;$0)
+	C_TEXT:C284(db_virtualFieldName;$1)
 End if 
 
 ARRAY TEXT:C222($tTxt_results;0x0000;0x0000)
 
-  // ----------------------------------------------------
-  // Initialisations
+// ----------------------------------------------------
+// Initialisations
 $Lon_parameters:=Count parameters:C259
 
 If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
 	
-	  //Required parameters
+	//Required parameters
 	$Txt_structure_name:=$1
 	
-	  //Optional parameters
+	//Optional parameters
 	If ($Lon_parameters>=2)
 		
-		  // <NONE>
+		// <NONE>
 		
 	End if 
 	
 	$Txt_virtual_name:=$Txt_structure_name
 	
-	  //extract the table name and the field name
+	//extract the table name and the field name
 	$kTxt_pattern:="(?mi-s)^\\[+([^\\]]*)\\]+([^-+*/(&?>]*)$"
 	
 Else 
@@ -49,21 +49,21 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-If (Form_C_UseVirtualStructure=1)
+// ----------------------------------------------------
+If (useVirtualStructure=1)
 	
-	If (Rgx_ExtractText ($kTxt_pattern;$Txt_structure_name;"1 2";->$tTxt_results;0)=0)
+	If (Rgx_ExtractText($kTxt_pattern;$Txt_structure_name;"1 2";->$tTxt_results;0)=0)
 		
-		  //mapped to the virtual structure
+		//mapped to the virtual structure
 		
-		  //#ACI0093166
-		  //$Lon_tableID:=Find in array(tTxt_tableNames;$tTxt_results{1}{1})
+		//#ACI0093166
+		//$Lon_tableID:=Find in array(tTxt_tableNames;$tTxt_results{1}{1})
 		$Lon_tableID:=Find in array:C230(report_structureDefinition{0};$tTxt_results{1}{1})
 		
 		If ($Lon_tableID>0)
 			
-			  //#ACI0093166
-			  //$Lon_fieldID:=Find in array(tTxt_fieldNames{$Lon_tableID};$tTxt_results{1}{2})
+			//#ACI0093166
+			//$Lon_fieldID:=Find in array(tTxt_fieldNames{$Lon_tableID};$tTxt_results{1}{2})
 			$Lon_fieldID:=Find in array:C230(report_structureDefinition{$Lon_tableID};$tTxt_results{1}{2})
 			
 			If ($Lon_fieldID>0)
@@ -85,9 +85,9 @@ If (Form_C_UseVirtualStructure=1)
 	End if 
 End if 
 
-  // ----------------------------------------------------
-  // Return
+// ----------------------------------------------------
+// Return
 $0:=$Txt_virtual_name
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

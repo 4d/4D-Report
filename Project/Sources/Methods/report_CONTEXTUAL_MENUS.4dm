@@ -1,14 +1,14 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : report_CONTEXTUAL_MENUS
-  // Database: 4D Report
-  // ID[BC611413B32340529067731443FBED5A]
-  // Created #24-3-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
+// ----------------------------------------------------
+// Project method : report_CONTEXTUAL_MENUS
+// Database: 4D Report
+// ID[BC611413B32340529067731443FBED5A]
+// Created #24-3-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 C_LONGINT:C283($1)
 C_LONGINT:C283($2)
 C_LONGINT:C283($3)
@@ -22,13 +22,13 @@ C_TEXT:C284($File_path;$Mnu_main;$Mnu_submenu;$Txt_action;$Txt_buffer;$Txt_colum
 C_TEXT:C284($Txt_data;$Txt_format;$Txt_formula;$Txt_object;$Txt_title;$Txt_templateName;$txt_value)
 
 If (False:C215)
-	C_LONGINT:C283(report_CONTEXTUAL_MENUS ;$1)
-	C_LONGINT:C283(report_CONTEXTUAL_MENUS ;$2)
-	C_LONGINT:C283(report_CONTEXTUAL_MENUS ;$3)
+	C_LONGINT:C283(report_CONTEXTUAL_MENUS;$1)
+	C_LONGINT:C283(report_CONTEXTUAL_MENUS;$2)
+	C_LONGINT:C283(report_CONTEXTUAL_MENUS;$3)
 End if 
 
-  // ----------------------------------------------------
-  // Initialisations
+// ----------------------------------------------------
+// Initialisations
 $Lon_parameters:=Count parameters:C259
 
 If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
@@ -65,19 +65,19 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-  //Get columns that have a sort order
+// ----------------------------------------------------
+//Get columns that have a sort order
 ARRAY LONGINT:C221($tLon_sortedColumns;0x0000)
 ARRAY LONGINT:C221($tLon_sortOrder;0x0000)
 QR GET SORTS:C753($Lon_area;$tLon_sortedColumns;$tLon_sortOrder)
 
-  //Number of columns & rows of the QR
+//Number of columns & rows of the QR
 $Lon_lineNumber:=Size of array:C274($tLon_sortedColumns)+3
 $Lon_columnNumber:=QR Count columns:C764($Lon_area)
 
 $Lon_columnType:=Is undefined:K8:13
 
-  //Retrieve column properties and common values
+//Retrieve column properties and common values
 If (($Lon_column>0)\
  & ($Lon_column<=$Lon_columnNumber))\
  | $Boo_crossReport
@@ -90,21 +90,21 @@ If (($Lon_column>0)\
 	
 	If ($Lon_column#-1)
 		
-		$Lon_fontStyle:=QR_Get_font_style ($Lon_area;$Lon_column;$Lon_row)
-		$Lon_fontSize:=QR_Get_font_size ($Lon_area;$Lon_column;$Lon_row)
-		$Lon_justification:=QR_Get_justification ($Lon_area;$Lon_column;$Lon_row)
-		$Lon_fontColor:=QR_Get_color ($Lon_area;$Lon_column;$Lon_row)
+		$Lon_fontStyle:=QR_Get_font_style($Lon_area;$Lon_column;$Lon_row)
+		$Lon_fontSize:=QR_Get_font_size($Lon_area;$Lon_column;$Lon_row)
+		$Lon_justification:=QR_Get_justification($Lon_area;$Lon_column;$Lon_row)
+		$Lon_fontColor:=QR_Get_color($Lon_area;$Lon_column;$Lon_row)
 		
-		  //************************************************
-		  //*                   #TO_BE_DONE                *
-		  //************************************************
-		$Lon_backColor:=QR_Get_color ($Lon_area;$Lon_column;$Lon_row;qr background color:K14904:8)
-		$Lon_altBackColor:=QR_Get_color ($Lon_area;$Lon_column;$Lon_row;qr alternate background color:K14904:9)
+		//************************************************
+		//*                   #TO_BE_DONE                *
+		//************************************************
+		$Lon_backColor:=QR_Get_color($Lon_area;$Lon_column;$Lon_row;qr background color:K14904:8)
+		$Lon_altBackColor:=QR_Get_color($Lon_area;$Lon_column;$Lon_row;qr alternate background color:K14904:9)
 		
-		$Lon_columnType:=QR_Get_column_type ($Lon_area;$Lon_column)
+		$Lon_columnType:=QR_Get_column_type($Lon_area;$Lon_column)
 		$Boo_notBinary:=($Lon_columnType#Is BLOB:K8:12) & ($Lon_columnType#Is picture:K8:10) & ($Lon_columnType#Is subtable:K8:11)
 		
-		$Txt_columnFormat:=QR_Get_column_format ($Lon_area;$Lon_column;$Lon_columnType)
+		$Txt_columnFormat:=QR_Get_column_format($Lon_area;$Lon_column;$Lon_columnType)
 		
 		
 	End if 
@@ -128,11 +128,11 @@ Else
 	End if 
 End if 
 
-  // retrieve subtotal spacing if any
+// retrieve subtotal spacing if any
 If (Not:C34($Boo_crossReport)\
  & ($Lon_row>0))
 	
-	$Lon_SubBreakSpacing:=QR_get_TotalsSpacing ($Lon_area;$Lon_row)
+	$Lon_SubBreakSpacing:=QR_get_TotalsSpacing($Lon_area;$Lon_row)
 	
 End if 
 
@@ -142,7 +142,7 @@ If ($Boo_crossReport)
 	
 	Case of 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: (($Lon_column=1)\
 			 & ($Lon_row=2))\
 			 | (($Lon_column=2) & ($Lon_row<3))
@@ -152,7 +152,7 @@ If ($Boo_crossReport)
 			
 			APPEND MENU ITEM:C411($Mnu_main;"-")
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: (($Lon_column=1)\
 			 & ($Lon_row=3))\
 			 | (($Lon_column=3) & ($Lon_row=1))
@@ -162,26 +162,26 @@ If ($Boo_crossReport)
 			
 			APPEND MENU ITEM:C411($Mnu_main;"-")
 			
-			  //______________________________________________________
+			//______________________________________________________
 	End case 
 End if 
 
 Case of 
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Lon_column>$Lon_columnNumber)\
 		 | ($Lon_row>$Lon_lineNumber)
 		
-		  //{n+1,x} | {x, n+1} = external
+		//{n+1,x} | {x, n+1} = external
 		
 		APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_add_column")
 		SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"add")
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Lon_column=0)\
 		 & ($Lon_row=0)
 		
-		  //{0,0} = All
+		//{0,0} = All
 		
 		$Mnu_submenu:=Create menu:C408
 		
@@ -216,7 +216,7 @@ Case of
 			
 			$Mnu_submenu:=Create menu:C408
 			
-			$Mnu_submenu:=mnu_border 
+			$Mnu_submenu:=mnu_border
 			APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_borders";$Mnu_submenu)
 			SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 			RELEASE MENU:C978($Mnu_submenu)
@@ -235,10 +235,10 @@ Case of
 		
 		$Boo_text:=($Lon_columnNumber>0)
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Lon_row=0)
 		
-		  //{n,0} = header
+		//{n,0} = header
 		
 		$Lon_sort_index:=Find in array:C230($tLon_sortedColumns;$Lon_column)
 		
@@ -288,7 +288,7 @@ Case of
 			
 			$Mnu_submenu:=Create menu:C408
 			
-			$Mnu_submenu:=mnu_border 
+			$Mnu_submenu:=mnu_border
 			APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_borders";$Mnu_submenu)
 			SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 			RELEASE MENU:C978($Mnu_submenu)
@@ -325,10 +325,10 @@ Case of
 		
 		$Boo_text:=True:C214
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Lon_column=0)
 		
-		  //{1,n} = line header
+		//{1,n} = line header
 		
 		$Boo_text:=($Lon_columnNumber>0)
 		$Boo_data:=(($Lon_row>0) | ($Lon_row=qr grand total:K14906:3)) & ($Lon_columnNumber>0)
@@ -355,7 +355,7 @@ Case of
 				
 				$Mnu_submenu:=Create menu:C408
 				
-				$Mnu_submenu:=mnu_border 
+				$Mnu_submenu:=mnu_border
 				APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_borders";$Mnu_submenu)
 				SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 				RELEASE MENU:C978($Mnu_submenu)
@@ -364,10 +364,10 @@ Case of
 			End if 
 		End if 
 		
-		  //______________________________________________________
+		//______________________________________________________
 	Else 
 		
-		  //{n,n} - Cell
+		//{n,n} - Cell
 		
 		If ($Lon_column#-1)
 			
@@ -378,7 +378,7 @@ Case of
 				
 				$Mnu_submenu:=Create menu:C408
 				
-				$Mnu_submenu:=mnu_border 
+				$Mnu_submenu:=mnu_border
 				APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_borders";$Mnu_submenu)
 				SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 				RELEASE MENU:C978($Mnu_submenu)
@@ -388,7 +388,7 @@ Case of
 		End if 
 		
 		
-		  //______________________________________________________
+		//______________________________________________________
 End case 
 
 If ($Boo_data)\
@@ -443,51 +443,51 @@ If ($Boo_text)
 			
 		End if 
 		
-		$Mnu_submenu:=mnu_Font 
+		$Mnu_submenu:=mnu_Font
 		APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_font";$Mnu_submenu)
 		SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 		RELEASE MENU:C978($Mnu_submenu)
 		
-		$Mnu_submenu:=mnu_FontSize ($Lon_fontSize)
+		$Mnu_submenu:=mnu_FontSize($Lon_fontSize)
 		APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_size";$Mnu_submenu)
 		SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 		RELEASE MENU:C978($Mnu_submenu)
 		
-		$Mnu_submenu:=mnu_FontSyle ($Lon_fontStyle)
+		$Mnu_submenu:=mnu_FontSyle($Lon_fontStyle)
 		APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_style";$Mnu_submenu)
 		SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 		RELEASE MENU:C978($Mnu_submenu)
 		
-		$Mnu_submenu:=mnu_Justification ($Lon_justification)
+		$Mnu_submenu:=mnu_Justification($Lon_justification)
 		APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_justification";$Mnu_submenu)
 		SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 		RELEASE MENU:C978($Mnu_submenu)
 		
-		$Mnu_submenu:=mnu_Color ($Lon_fontColor)
+		$Mnu_submenu:=mnu_Color($Lon_fontColor)
 		APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_font_color";$Mnu_submenu)
 		SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 		RELEASE MENU:C978($Mnu_submenu)
 		
 	End if 
 	
-	$Mnu_submenu:=mnu_Color ($Lon_backColor;"back")
+	$Mnu_submenu:=mnu_Color($Lon_backColor;"back")
 	APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_background_color";$Mnu_submenu)
 	SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 	RELEASE MENU:C978($Mnu_submenu)
 	
 	If ($Lon_row=qr detail:K14906:2)
 		
-		$Mnu_submenu:=mnu_Color ($Lon_altBackColor;"backAlt")
+		$Mnu_submenu:=mnu_Color($Lon_altBackColor;"backAlt")
 		APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_alternate_background_color";$Mnu_submenu)
 		SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"")
 		RELEASE MENU:C978($Mnu_submenu)
 		
 	End if 
 	
-	  // (<>withFeature92478)
+	// (<>withFeature92478)
 	If ($Lon_row>0)
 		
-		$Mnu_submenu:=mnu_breakSpacing ($Lon_SubBreakSpacing)
+		$Mnu_submenu:=mnu_breakSpacing($Lon_SubBreakSpacing)
 		
 		APPEND MENU ITEM:C411($Mnu_main;"-")
 		APPEND MENU ITEM:C411($Mnu_main;":xliff:menu_subtotalSpacingItem";$Mnu_submenu)
@@ -495,12 +495,12 @@ If ($Boo_text)
 		RELEASE MENU:C978($Mnu_submenu)
 		
 	End if 
-	  //End if 
+	//End if 
 	
 	
-	If ($Lon_row=0)  //The format is global for a column
+	If ($Lon_row=0)//The format is global for a column
 		
-		$Mnu_submenu:=menu_format ($Lon_columnType;$Txt_columnFormat)
+		$Mnu_submenu:=menu_format($Lon_columnType;$Txt_columnFormat)
 		
 		If (Count menu items:C405($Mnu_submenu)>0)
 			
@@ -523,12 +523,12 @@ If (Length:C16($Txt_action)#0)
 	
 	Case of 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="dest_@")
 			
 			$Lon_destination:=Num:C11(Replace string:C233($Txt_action;"dest_";""))
 			
-			  //ACI0099118 : set destination is erasing the html template, so we need to save it and re-set it. 
+			//ACI0099118 : set destination is erasing the html template, so we need to save it and re-set it. 
 			$Txt_templateName:=QR Get HTML template:C751($Lon_area)
 			If (($Txt_templateName="") & Not:C34(ob_dialog.optionHTMLtemplate=Null:C1517))
 				$Txt_templateName:=ob_dialog.optionHTMLtemplate
@@ -537,12 +537,13 @@ If (Length:C16($Txt_action)#0)
 			QR SET DESTINATION:C745($Lon_area;$Lon_destination)
 			QR SET HTML TEMPLATE:C750($Lon_area;$Txt_templateName)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="add")\
 			 | ($Txt_action="insert")
 			
 			CLEAR VARIABLE:C89($Txt_formula)
 			EDIT FORMULA:C806(Table:C252(QR Get report table:C758($Lon_area))->;$Txt_formula)
+			
 			
 			If (OK=1)
 				
@@ -551,54 +552,54 @@ If (Length:C16($Txt_action)#0)
 				QR INSERT COLUMN:C748($Lon_area;$Lon_column;$Txt_formula)
 				QR SET INFO COLUMN:C765($Lon_area;$Lon_column;"";$Txt_formula;0;-1;1;"")
 				
-				QR_SET_TITLE ($Lon_area;$Lon_column)
+				QR_SET_TITLE($Lon_area;$Lon_column)
 				
 			End if 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="edit")
 			
 			$Txt_buffer:=Choose:C955($Lon_column=1;"headers";"QR_column_2")
 			OBJECT SET ENTERABLE:C238(*;$Txt_buffer;True:C214)
 			EDIT ITEM:C870(*;$Txt_buffer;$Lon_row)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="header_edit")
 			
 			If ($Boo_crossReport)
 				
-				report_EDIT_COLUMN_FORMULA ($Lon_area;1+Choose:C955($Lon_row>1;$Lon_column;0))
+				report_EDIT_COLUMN_FORMULA($Lon_area;1+Choose:C955($Lon_row>1;$Lon_column;0))
 				
 			Else 
 				
-				report_EDIT_COLUMN_FORMULA ($Lon_area;$Lon_column)
+				report_EDIT_COLUMN_FORMULA($Lon_area;$Lon_column)
 				
 			End if 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="delete")
 			
 			QR DELETE COLUMN:C749($Lon_area;$Lon_column)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="hide")
 			
 			If ($Lon_column=0)
 				
-				  //hide the row
+				//hide the row
 				QR SET INFO ROW:C763($Lon_area;$Lon_row;Abs:C99(1-$Lon_hidden))
 				
 			Else 
 				
-				  //hide the column
+				//hide the column
 				QR SET INFO COLUMN:C765($Lon_area;$Lon_column;$Txt_title;$Txt_formula;Abs:C99(1-$Lon_hidden);$Lon_width;$Lon_repeated;$Txt_format)
 				
 			End if 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="border@")
 			
-			  //QR EXECUTE COMMAND($Lon_area;qr cmd borders)
+			//QR EXECUTE COMMAND($Lon_area;qr cmd borders)
 			C_BOOLEAN:C305($boo_isColor)
 			C_LONGINT:C283($lon_border;$Lon_thickness;$lon_columnCount)
 			ARRAY LONGINT:C221($_arrColumns;0)
@@ -606,7 +607,7 @@ If (Length:C16($Txt_action)#0)
 			
 			$Txt_action:=Substring:C12($Txt_action;7)
 			$boo_isColor:=Choose:C955($Txt_action="@color@";True:C214;False:C215)
-			  //$Txt_action:=Substring($Txt_action;1;3)
+			//$Txt_action:=Substring($Txt_action;1;3)
 			
 			
 			Case of 
@@ -643,12 +644,12 @@ If (Length:C16($Txt_action)#0)
 			
 			
 			If (Not:C34(($lon_border=15) | ($lon_border=63)))
-				  // if not mixed we get the previous value
+				// if not mixed we get the previous value
 				QR GET BORDERS:C798($Lon_area;$Lon_column;$Lon_row;$lon_border;$Lon_thickness;$Lon_color)
 				
 			Else 
 				
-				  // if mixed we set the default value
+				// if mixed we set the default value
 				$Lon_thickness:=1
 				$Lon_color:=1
 				
@@ -663,8 +664,8 @@ If (Length:C16($Txt_action)#0)
 			End if 
 			
 			Case of 
-					  //________________________________________
-				: (($Lon_column=0) & ($Lon_row=0))  // global cells
+					//________________________________________
+				: (($Lon_column=0) & ($Lon_row=0))// global cells
 					
 					$lon_columnCount:=QR Count columns:C764($Lon_area)
 					QR GET SORTS:C753($Lon_area;$_arrColumns;$_arrOrders)
@@ -681,8 +682,8 @@ If (Length:C16($Txt_action)#0)
 						
 					End for 
 					
-					  //________________________________________
-				: ($Lon_column=0)  //  We are in row section
+					//________________________________________
+				: ($Lon_column=0)//  We are in row section
 					
 					For ($Lon_column;1;QR Count columns:C764($Lon_area))
 						
@@ -690,8 +691,8 @@ If (Length:C16($Txt_action)#0)
 						
 					End for 
 					
-					  //________________________________________
-				: ($Lon_row=0)  // we are in a column 
+					//________________________________________
+				: ($Lon_row=0)// we are in a column 
 					
 					QR GET SORTS:C753($Lon_area;$_arrColumns;$_arrOrders)
 					
@@ -706,41 +707,41 @@ If (Length:C16($Txt_action)#0)
 					End for 
 					
 					
-					  //________________________________________
-				Else   // we are in a cell
+					//________________________________________
+				Else // we are in a cell
 					
 					QR SET BORDERS:C797($Lon_area;$Lon_column;$Lon_row;$lon_border;$Lon_thickness;$Lon_color)
 					
 			End case 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="header&footer")
 			
 			QR EXECUTE COMMAND:C791($Lon_area;qr cmd header and footer:K14900:23)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="total_spacing")
 			
 			QR EXECUTE COMMAND:C791($Lon_area;qr cmd totals spacing:K14900:47)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="repeted_values")
 			
 			QR SET INFO COLUMN:C765($Lon_area;$Lon_column;$Txt_title;$Txt_formula;$Lon_hidden;$Lon_width;Abs:C99(1-$Lon_repeated);$Txt_format)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="automatic_width")
 			
-			QR_SET_COLUMN_WIDTH ($Lon_area;$Lon_column;Choose:C955($Lon_width=-1;128;-1))
+			QR_SET_COLUMN_WIDTH($Lon_area;$Lon_column;Choose:C955($Lon_width=-1;128;-1))
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="sort_@")
 			
 			$Txt_action:=Replace string:C233($Txt_action;"sort_";"")
 			
 			Case of 
 					
-					  //------------------------------------
+					//------------------------------------
 				: ($Txt_action="none")
 					
 					If ($Lon_sort_index>0)
@@ -750,7 +751,7 @@ If (Length:C16($Txt_action)#0)
 						
 					End if 
 					
-					  //------------------------------------
+					//------------------------------------
 				: ($Txt_action="ascending")
 					
 					If ($Lon_sort_index>0)
@@ -764,7 +765,7 @@ If (Length:C16($Txt_action)#0)
 						
 					End if 
 					
-					  //------------------------------------
+					//------------------------------------
 				: ($Txt_action="descending")
 					
 					If ($Lon_sort_index>0)
@@ -778,129 +779,129 @@ If (Length:C16($Txt_action)#0)
 						
 					End if 
 					
-					  //------------------------------------
+					//------------------------------------
 				Else 
 					
 					TRACE:C157
 					
-					  //------------------------------------
+					//------------------------------------
 			End case 
 			
 			QR SET SORTS:C752($Lon_area;$tLon_sortedColumns;$tLon_sortOrder)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="font_picker")
 			
 			GOTO OBJECT:C206(*;"font_picker")
 			OPEN FONT PICKER:C1303(1)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="font_@")
 			
-			QR_SET_TEXT_PROPERTY ($Lon_area;qr font name:K14904:10;Replace string:C233($Txt_action;"font_";"");$Lon_column;$Lon_row)
+			QR_SET_TEXT_PROPERTY($Lon_area;qr font name:K14904:10;Replace string:C233($Txt_action;"font_";"");$Lon_column;$Lon_row)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="fontSize_@")
 			
 			$Txt_buffer:=Replace string:C233($Txt_action;"fontSize_";"")
-			QR_SET_TEXT_PROPERTY ($Lon_area;qr font size:K14904:2;$Txt_buffer;$Lon_column;$Lon_row)
+			QR_SET_TEXT_PROPERTY($Lon_area;qr font size:K14904:2;$Txt_buffer;$Lon_column;$Lon_row)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="fontStyle_@")
 			
 			$Txt_action:=Replace string:C233($Txt_action;"fontStyle_";"")
 			
 			Case of 
 					
-					  //------------------------------
+					//------------------------------
 				: ($Txt_action="plain")
 					
-					QR_SET_TEXT_PROPERTY ($Lon_area;qr bold:K14904:3;"0";$Lon_column;$Lon_row)
-					QR_SET_TEXT_PROPERTY ($Lon_area;qr italic:K14904:4;"0";$Lon_column;$Lon_row)
-					QR_SET_TEXT_PROPERTY ($Lon_area;qr underline:K14904:5;"0";$Lon_column;$Lon_row)
+					QR_SET_TEXT_PROPERTY($Lon_area;qr bold:K14904:3;"0";$Lon_column;$Lon_row)
+					QR_SET_TEXT_PROPERTY($Lon_area;qr italic:K14904:4;"0";$Lon_column;$Lon_row)
+					QR_SET_TEXT_PROPERTY($Lon_area;qr underline:K14904:5;"0";$Lon_column;$Lon_row)
 					
-					  //------------------------------
+					//------------------------------
 				: ($Txt_action="bold")
 					
-					QR_SET_TEXT_PROPERTY ($Lon_area;qr bold:K14904:3;String:C10(1-Num:C11($Lon_fontStyle ?? 0));$Lon_column;$Lon_row)
+					QR_SET_TEXT_PROPERTY($Lon_area;qr bold:K14904:3;String:C10(1-Num:C11($Lon_fontStyle ?? 0));$Lon_column;$Lon_row)
 					
-					  //------------------------------
+					//------------------------------
 				: ($Txt_action="italic")
 					
-					QR_SET_TEXT_PROPERTY ($Lon_area;qr italic:K14904:4;String:C10(1-Num:C11($Lon_fontStyle ?? 1));$Lon_column;$Lon_row)
+					QR_SET_TEXT_PROPERTY($Lon_area;qr italic:K14904:4;String:C10(1-Num:C11($Lon_fontStyle ?? 1));$Lon_column;$Lon_row)
 					
-					  //------------------------------
+					//------------------------------
 				: ($Txt_action="underline")
 					
-					QR_SET_TEXT_PROPERTY ($Lon_area;qr underline:K14904:5;String:C10(1-Num:C11($Lon_fontStyle ?? 2));$Lon_column;$Lon_row)
+					QR_SET_TEXT_PROPERTY($Lon_area;qr underline:K14904:5;String:C10(1-Num:C11($Lon_fontStyle ?? 2));$Lon_column;$Lon_row)
 					
-					  //------------------------------
+					//------------------------------
 				Else 
 					
 					TRACE:C157
 					
-					  //------------------------------
+					//------------------------------
 			End case 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="justification_@")
 			
-			  //WARNING
-			  //There is an offset of -1 between 4D justification and QR justification
+			//WARNING
+			//There is an offset of -1 between 4D justification and QR justification
 			$Txt_action:=Replace string:C233($Txt_action;"justification_";"")
 			$Txt_action:=String:C10(Num:C11($Txt_action)-1)
 			
-			QR_SET_TEXT_PROPERTY ($Lon_area;qr justification:K14904:7;$Txt_action;$Lon_column;$Lon_row)
+			QR_SET_TEXT_PROPERTY($Lon_area;qr justification:K14904:7;$Txt_action;$Lon_column;$Lon_row)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="@Color_@")
 			
 			$Txt_buffer:=Delete string:C232($Txt_action;1;Position:C15("_";$Txt_action))
-			$Lon_color:=_hexToDec ($Txt_buffer)
+			$Lon_color:=_hexToDec($Txt_buffer)
 			
 			Case of 
 					
-					  //------------------------------------
-				: ($Lon_color=1)  //automatic
+					//------------------------------------
+				: ($Lon_color=1)//automatic
 					
 					$Lon_color:=Choose:C955($Txt_action="back@";Background color none:K23:10;Foreground color:K23:1)
 					
-					  //------------------------------------
-				: ($Lon_color=0)  //personalized
+					//------------------------------------
+				: ($Lon_color=0)//personalized
 					
-					  //displays the system color selection window and returns the RGB value of the color selected by the user
+					//displays the system color selection window and returns the RGB value of the color selected by the user
 					$Lon_color:=Select RGB color:C956($Lon_color)
 					
-					  //------------------------------------
+					//------------------------------------
 				Else 
 					
-					  //NOTHING MORE TO DO
+					//NOTHING MORE TO DO
 					
-					  //------------------------------------
+					//------------------------------------
 			End case 
 			
-			QR_SET_TEXT_PROPERTY ($Lon_area;\
+			QR_SET_TEXT_PROPERTY($Lon_area;\
 				Choose:C955($Txt_action="front@";qr text color:K14904:6;\
 				Choose:C955($Txt_action="backAlt@";qr alternate background color:K14904:9;qr background color:K14904:8));\
 				String:C10($Lon_color);\
 				$Lon_column;$Lon_row)
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="data_@")
 			
 			$Txt_action:=Replace string:C233($Txt_action;"data_";"")
 			
-			QR_SET_CELL_DATA ($Lon_area;$Lon_column;$Lon_row;Num:C11($Txt_action))
+			QR_SET_CELL_DATA($Lon_area;$Lon_column;$Lon_row;Num:C11($Txt_action))
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="format_@")
 			
 			$Txt_action:=Replace string:C233($Txt_action;"format_";"")
 			
-			QR_SET_COLUMN_FORMAT ($Lon_area;$Lon_column;$Txt_action)
+			QR_SET_COLUMN_FORMAT($Lon_area;$Lon_column;$Txt_action)
 			
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Txt_action="spacing@")
 			
 			QR GET TOTALS SPACING:C762($Lon_area;$Lon_row;$lon_value)
@@ -918,7 +919,7 @@ If (Length:C16($Txt_action)#0)
 						$lon_value:=(Abs:C99(Num:C11($txt_value)))
 						
 					End if 
-					  //______________________________________________________
+					//______________________________________________________
 				: ($Txt_action="spacingPercent")
 					
 					$lon_value:=Choose:C955($lon_value=32000;0;$lon_value)
@@ -930,7 +931,7 @@ If (Length:C16($Txt_action)#0)
 						
 					End if 
 					
-					  //______________________________________________________
+					//______________________________________________________
 				: ($Txt_action="spacingPageBreak")
 					
 					$lon_value:=Choose:C955($lon_value=32000;0;32000)
@@ -947,15 +948,15 @@ If (Length:C16($Txt_action)#0)
 			
 			ASSERT:C1129(False:C215;"Action not yet available: \""+$Txt_action+"\"")
 			
-			  //______________________________________________________
+			//______________________________________________________
 	End case 
 	
 	If ($Txt_action#"font_picker")
 		
-		report_AREA_UPDATE 
+		report_AREA_UPDATE
 		
 	End if 
 End if 
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

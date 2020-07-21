@@ -13,28 +13,39 @@ End if
 
 If (False:C215)
 	
-	  // =======================================
-	C_PICTURE:C286(db_Get_field_icon ;$0)
-	C_LONGINT:C283(db_Get_field_icon ;$1)
+	// =======================================
+	C_PICTURE:C286(db_Get_field_icon;$0)
+	C_LONGINT:C283(db_Get_field_icon;$1)
 	
-	  // =======================================
-	C_LONGINT:C283(db_Get_field_list ;$0)
-	C_LONGINT:C283(db_Get_field_list ;$1)
-	C_TEXT:C284(db_Get_field_list ;$2)
-	C_BOOLEAN:C305(db_Get_field_list ;$3)
+	// =======================================
+	C_LONGINT:C283(db_Get_field_list;$0)
+	C_LONGINT:C283(db_Get_field_list;$1)
+	C_TEXT:C284(db_Get_field_list;$2)
+	C_BOOLEAN:C305(db_Get_field_list;$3)
 	
-	  // =======================================
-	C_POINTER:C301(_o_db_Get_field_pointer ;$0)
-	C_TEXT:C284(_o_db_Get_field_pointer ;$1)
+	// =======================================
+	C_POINTER:C301(_o_db_Get_field_pointer;$0)
+	C_TEXT:C284(_o_db_Get_field_pointer;$1)
 	
-	  // =======================================
-	C_TEXT:C284(db_designFieldName ;$0)
-	C_LONGINT:C283(db_designFieldName ;$1)
-	C_LONGINT:C283(db_designFieldName ;$2)
+	// =======================================
+	C_TEXT:C284(db_designFieldName;$0)
+	C_LONGINT:C283(db_designFieldName;$1)
+	C_LONGINT:C283(db_designFieldName;$2)
 	
-	  // =======================================
-	C_TEXT:C284(db_virtualFieldName ;$0)
-	C_TEXT:C284(db_virtualFieldName ;$1)
+	// =======================================
+	C_TEXT:C284(db_virtualFieldName;$0)
+	C_TEXT:C284(db_virtualFieldName;$1)
 	
-	  // =======================================
+	// =======================================
+	
+	
+	C_TEXT:C284(db_virtualTableName;$0)
+	C_LONGINT:C283(db_virtualTableName;$1)
+	
+	// =======================================
+	
+	C_TEXT:C284(db_virtualFormulaName;$0)
+	C_TEXT:C284(db_virtualFormulaName;$1)
+	
+	
 End if 
