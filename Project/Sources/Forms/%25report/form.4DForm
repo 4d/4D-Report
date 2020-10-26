@@ -444,5 +444,18 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 1
+	"geometryStamp": 1,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"poster": {
+				"visible": false,
+				"objects": [
+					"poster_picture"
+				]
+			}
+		}
+	}
 }
