@@ -133,7 +133,13 @@ If (True:C214)  // 1st column
 	
 	If (Length:C16($Txt_object)>0)
 		
-		$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+		If (boo_useVirtualStructure)
+			$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+			
+		Else 
+			$Txt_title:=$Txt_object
+			
+		End if 
 		
 		$tPtr_columns{$Lon_column}->{$Lon_row}:=report_cell_styled_content($Lon_area; $Txt_title; $Lon_column; $Lon_row; $tTxt_columns{$Lon_column})
 		
@@ -190,7 +196,13 @@ If (True:C214)  // 2nd column
 	
 	If (Length:C16($Txt_object)>0)
 		
-		$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+		If (boo_useVirtualStructure)
+			$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+			
+		Else 
+			$Txt_title:=$Txt_object
+			
+		End if 
 		
 		$tPtr_columns{$Lon_column}->{$Lon_row}:=report_cell_styled_content($Lon_area; $Txt_title; $Lon_column; $Lon_row; $tTxt_columns{$Lon_column})
 		
@@ -218,7 +230,13 @@ If (True:C214)  // 2nd column
 	
 	If (Length:C16($Txt_object)>0)
 		
-		$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+		If (boo_useVirtualStructure)
+			$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+			
+		Else 
+			$Txt_title:=$Txt_object
+			
+		End if 
 		
 		QR GET TOTALS DATA:C768($Lon_area; $Lon_column; $Lon_row; $Lon_operator; $Txt_data)
 		
@@ -309,7 +327,9 @@ LISTBOX SET STATIC COLUMNS:C1153(*; $kTxt_reportObject; 4)
 LISTBOX SET LOCKED COLUMNS:C1151(*; $kTxt_reportObject; 0)
 
 //headers
-OBJECT SET VISIBLE:C603(*; $tTxt_headers{1}; True:C214)
+//#ACI0101126 
+//OBJECT SET VISIBLE(*; $tTxt_headers{1}; true)
+OBJECT SET VISIBLE:C603(*; $tTxt_headers{1}; False:C215)
 LISTBOX SET HEADERS HEIGHT:C1143(*; $kTxt_reportObject; 3; lk pixels:K53:22)  //On Mac minimum value seems to be 15px
 
 For ($Lon_i; 1; Size of array:C274($tTxt_headers); 1)

@@ -47,8 +47,11 @@ End if
 QR GET INFO COLUMN:C766($Lon_area; $Lon_column; $Txt_title; $Txt_object; $Lon_hidden; $Lon_width; $Lon_repeated; $Txt_format; $Txt_variableName)
 
 If (Length:C16($Txt_variableName)=0)
-	
-	$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+	If (boo_useVirtualStructure)
+		
+		$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+		
+	End if 
 	
 End if 
 

@@ -46,16 +46,33 @@ OB GET ARRAY:C1229((OBJECT Get pointer:C1124(Object subform container:K67:4))->;
 
 If (Size of array:C274($tObj_columns)>0)
 	
-	$Txt_formula_1:=Parse formula:C1576(OB Get:C1224($tObj_columns{1}; "formula"; Is text:K8:3); Formula out with virtual structure:K88:2)
+	If (boo_useVirtualStructure)
+		$Txt_formula_1:=Parse formula:C1576(OB Get:C1224($tObj_columns{1}; "formula"; Is text:K8:3); Formula out with virtual structure:K88:2)
+		
+	Else 
+		$Txt_formula_1:=OB Get:C1224($tObj_columns{1}; "formula"; Is text:K8:3)
+		
+	End if 
 	
 	If (Size of array:C274($tObj_columns)>1)
 		
-		$Txt_formula_2:=Parse formula:C1576((OB Get:C1224($tObj_columns{2}; "formula"; Is text:K8:3)); Formula out with virtual structure:K88:2)
+		If (boo_useVirtualStructure)
+			$Txt_formula_2:=Parse formula:C1576((OB Get:C1224($tObj_columns{2}; "formula"; Is text:K8:3)); Formula out with virtual structure:K88:2)
+			
+		Else 
+			$Txt_formula_2:=(OB Get:C1224($tObj_columns{2}; "formula"; Is text:K8:3))
+			
+		End if 
 		
 		If (Size of array:C274($tObj_columns)>2)
 			
-			$Txt_formula_3:=Parse formula:C1576((OB Get:C1224($tObj_columns{3}; "formula"; Is text:K8:3)); Formula out with virtual structure:K88:2)
-			
+			If (boo_useVirtualStructure)
+				$Txt_formula_3:=Parse formula:C1576((OB Get:C1224($tObj_columns{3}; "formula"; Is text:K8:3)); Formula out with virtual structure:K88:2)
+				
+			Else 
+				$Txt_formula_3:=(OB Get:C1224($tObj_columns{3}; "formula"; Is text:K8:3))
+				
+			End if 
 		End if 
 	End if 
 End if 

@@ -12,8 +12,8 @@ C_OBJECT:C1216(<>report_params)
 C_BOOLEAN:C305(<>Boo_debug)
 
 If (False:C215)
-	ARRAY TEXT:C222(<>tTxt_nqr_data_styled;0x0000)
-	ARRAY TEXT:C222(<>tTxt_nqr_data_tag;0x0000)
+	ARRAY TEXT:C222(<>tTxt_nqr_data_styled; 0x0000)
+	ARRAY TEXT:C222(<>tTxt_nqr_data_tag; 0x0000)
 End if 
 
 // ===============================================
@@ -22,11 +22,11 @@ End if
 C_LONGINT:C283(Form_C_UseVirtualStructure)
 
 // ===============================================
-C_OBJECT:C1216(ob_dialog;ob_area;object_selection)
+C_OBJECT:C1216(ob_dialog; ob_area; object_selection)
 
-ARRAY LONGINT:C221(tLon_rowHeights;0)
+ARRAY LONGINT:C221(tLon_rowHeights; 0)
 
-C_LONGINT:C283(useVirtualStructure)
+C_BOOLEAN:C305(boo_useVirtualStructure)
 
 
 // ----------------------------------------------------
@@ -47,17 +47,16 @@ C_BOOLEAN:C305(<>withFeature111172)  // Virtual structure
 <>Boo_debug:=Not:C34(Is compiled mode:C492)
 
 //Assertions are enabled in dev mode
-SET ASSERT ENABLED:C1131(<>Boo_debug;*)
+SET ASSERT ENABLED:C1131(<>Boo_debug; *)
 
 C_BOOLEAN:C305(<>withFeature111172)  // Virtual structure
 <>withFeature111172:=True:C214
 
 If (<>withFeature111172)
-	useVirtualStructure:=1
+	boo_useVirtualStructure:=True:C214  //// by default we use the Virtual structure. (Form_C_UseVirtualStructure=1)
 Else 
-	useVirtualStructure:=Form_C_UseVirtualStructure
+	boo_useVirtualStructure:=False:C215
 End if 
-
 
 report_INIT
 
@@ -66,100 +65,100 @@ report_INIT
 If (False:C215)
 	
 	//----------------------------------
-	C_TEXT:C284(report_ADD_COLUMN;$1)
-	C_OBJECT:C1216(report_ADD_COLUMN;$2)
+	C_TEXT:C284(report_ADD_COLUMN; $1)
+	C_OBJECT:C1216(report_ADD_COLUMN; $2)
 	
 	//----------------------------------
-	C_OBJECT:C1216(report_BALLOON_HDL;$1)
+	C_OBJECT:C1216(report_BALLOON_HDL; $1)
 	
 	//----------------------------------
-	C_TEXT:C284(report_catchErrors;$0)
-	C_TEXT:C284(report_catchErrors;$1)
-	C_TEXT:C284(report_catchErrors;$2)
+	C_TEXT:C284(report_catchErrors; $0)
+	C_TEXT:C284(report_catchErrors; $1)
+	C_TEXT:C284(report_catchErrors; $2)
 	
 	//----------------------------------
-	C_TEXT:C284(report_cell_content;$0)
-	C_TEXT:C284(report_cell_content;$1)
-	C_LONGINT:C283(report_cell_content;$2)
-	C_BOOLEAN:C305(report_cell_content;$3)
-	C_BOOLEAN:C305(report_cell_content;$4)
+	C_TEXT:C284(report_cell_content; $0)
+	C_TEXT:C284(report_cell_content; $1)
+	C_LONGINT:C283(report_cell_content; $2)
+	C_BOOLEAN:C305(report_cell_content; $3)
+	C_BOOLEAN:C305(report_cell_content; $4)
 	
 	//----------------------------------
-	C_TEXT:C284(report_cell_styled_content;$0)
-	C_LONGINT:C283(report_cell_styled_content;$1)
-	C_TEXT:C284(report_cell_styled_content;$2)
-	C_LONGINT:C283(report_cell_styled_content;$3)
-	C_LONGINT:C283(report_cell_styled_content;$4)
-	C_TEXT:C284(report_cell_styled_content;$5)
+	C_TEXT:C284(report_cell_styled_content; $0)
+	C_LONGINT:C283(report_cell_styled_content; $1)
+	C_TEXT:C284(report_cell_styled_content; $2)
+	C_LONGINT:C283(report_cell_styled_content; $3)
+	C_LONGINT:C283(report_cell_styled_content; $4)
+	C_TEXT:C284(report_cell_styled_content; $5)
 	
 	//----------------------------------
-	C_TEXT:C284(report_cell_tips;$0)
-	C_TEXT:C284(report_cell_tips;$1)
+	C_TEXT:C284(report_cell_tips; $0)
+	C_TEXT:C284(report_cell_tips; $1)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_CONTEXTUAL_MENUS;$1)
-	C_LONGINT:C283(report_CONTEXTUAL_MENUS;$2)
-	C_LONGINT:C283(report_CONTEXTUAL_MENUS;$3)
+	C_LONGINT:C283(report_CONTEXTUAL_MENUS; $1)
+	C_LONGINT:C283(report_CONTEXTUAL_MENUS; $2)
+	C_LONGINT:C283(report_CONTEXTUAL_MENUS; $3)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_EDIT_COLUMN_FORMULA;$1)
-	C_LONGINT:C283(report_EDIT_COLUMN_FORMULA;$2)
+	C_LONGINT:C283(report_EDIT_COLUMN_FORMULA; $1)
+	C_LONGINT:C283(report_EDIT_COLUMN_FORMULA; $2)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_Get_table;$0)
-	C_LONGINT:C283(report_Get_table;$1)
+	C_LONGINT:C283(report_Get_table; $0)
+	C_LONGINT:C283(report_Get_table; $1)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_Get_target;$0)
-	C_OBJECT:C1216(report_Get_target;$1)
-	C_POINTER:C301(report_Get_target;$2)
-	C_POINTER:C301(report_Get_target;$3)
-	C_BOOLEAN:C305(report_Get_target;$4)
+	C_LONGINT:C283(report_Get_target; $0)
+	C_OBJECT:C1216(report_Get_target; $1)
+	C_POINTER:C301(report_Get_target; $2)
+	C_POINTER:C301(report_Get_target; $3)
+	C_BOOLEAN:C305(report_Get_target; $4)
 	
 	//----------------------------------
-	C_POINTER:C301(report_CREATE_AREA;$1)
+	C_POINTER:C301(report_CREATE_AREA; $1)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_DISPLAY_AREA;$1)
+	C_LONGINT:C283(report_DISPLAY_AREA; $1)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_DISPLAY_CROSS;$1)
+	C_LONGINT:C283(report_DISPLAY_CROSS; $1)
 	
 	//----------------------------------
-	C_OBJECT:C1216(report_DISPLAY_COMMON;$1)
+	C_OBJECT:C1216(report_DISPLAY_COMMON; $1)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_DISPLAY_LIST;$1)
+	C_LONGINT:C283(report_DISPLAY_LIST; $1)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_SET_CELL_FORMAT;$1)
-	C_TEXT:C284(report_SET_CELL_FORMAT;$2)
-	C_LONGINT:C283(report_SET_CELL_FORMAT;$3)
-	C_LONGINT:C283(report_SET_CELL_FORMAT;$4)
-	C_LONGINT:C283(report_SET_CELL_FORMAT;$5)
-	C_TEXT:C284(report_SET_CELL_FORMAT;$6)
-	C_POINTER:C301(report_SET_CELL_FORMAT;$7)
-	C_LONGINT:C283(report_SET_CELL_FORMAT;$8)
+	C_LONGINT:C283(report_SET_CELL_FORMAT; $1)
+	C_TEXT:C284(report_SET_CELL_FORMAT; $2)
+	C_LONGINT:C283(report_SET_CELL_FORMAT; $3)
+	C_LONGINT:C283(report_SET_CELL_FORMAT; $4)
+	C_LONGINT:C283(report_SET_CELL_FORMAT; $5)
+	C_TEXT:C284(report_SET_CELL_FORMAT; $6)
+	C_POINTER:C301(report_SET_CELL_FORMAT; $7)
+	C_LONGINT:C283(report_SET_CELL_FORMAT; $8)
 	
 	//----------------------------------
-	C_TEXT:C284(report_SELECTION;$1)
-	C_LONGINT:C283(report_SELECTION;$2)
-	C_LONGINT:C283(report_SELECTION;$3)
+	C_TEXT:C284(report_SELECTION; $1)
+	C_LONGINT:C283(report_SELECTION; $2)
+	C_LONGINT:C283(report_SELECTION; $3)
 	
 	//----------------------------------
-	C_LONGINT:C283(report_SET_CELL_BACKGROUND;$1)
-	C_TEXT:C284(report_SET_CELL_BACKGROUND;$2)
-	C_LONGINT:C283(report_SET_CELL_BACKGROUND;$3)
-	C_LONGINT:C283(report_SET_CELL_BACKGROUND;$4)
-	C_LONGINT:C283(report_SET_CELL_BACKGROUND;$5)
+	C_LONGINT:C283(report_SET_CELL_BACKGROUND; $1)
+	C_TEXT:C284(report_SET_CELL_BACKGROUND; $2)
+	C_LONGINT:C283(report_SET_CELL_BACKGROUND; $3)
+	C_LONGINT:C283(report_SET_CELL_BACKGROUND; $4)
+	C_LONGINT:C283(report_SET_CELL_BACKGROUND; $5)
 	
 	//----------------------------------
-	C_TEXT:C284(report_SET_COLUMN_WIDTH;$1)
-	C_LONGINT:C283(report_SET_COLUMN_WIDTH;$2)
+	C_TEXT:C284(report_SET_COLUMN_WIDTH; $1)
+	C_LONGINT:C283(report_SET_COLUMN_WIDTH; $2)
 	
 	//----------------------------------
-	C_TEXT:C284(report_SET_EVENTS;$1)
-	C_TEXT:C284(report_SET_EVENTS;$2)
+	C_TEXT:C284(report_SET_EVENTS; $1)
+	C_TEXT:C284(report_SET_EVENTS; $2)
 	
 	//----------------------------------
 End if 

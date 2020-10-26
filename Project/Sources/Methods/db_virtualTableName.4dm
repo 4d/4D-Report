@@ -9,15 +9,15 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_parameters;$lon_Found;$lon_table_ID;$1)
-C_TEXT:C284($0;$Txt_table)
+C_LONGINT:C283($Lon_parameters; $lon_Found; $lon_table_ID; $1)
+C_TEXT:C284($0; $Txt_table)
 
 
 // ----------------------------------------------------
 // Initialisations
 $Lon_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
 	$lon_table_ID:=$1
@@ -40,21 +40,21 @@ End if
 
 // ----------------------------------------------------
 
-ARRAY TEXT:C222($tTxt_tableTitle;0)
-ARRAY LONGINT:C221($tLon_tableID;0)
-GET TABLE TITLES:C803($tTxt_tableTitle;$tLon_tableID)
+ARRAY TEXT:C222($tTxt_tableTitle; 0)
+ARRAY LONGINT:C221($tLon_tableID; 0)
+GET TABLE TITLES:C803($tTxt_tableTitle; $tLon_tableID)
 
-$lon_Found:=Find in array:C230($tLon_tableID;$lon_table_ID)
+$lon_Found:=Find in array:C230($tLon_tableID; $lon_table_ID)
 
 
 
-If ($lon_Found>0)
+If (($lon_Found>0) & (boo_useVirtualStructure))
 	
 	$Txt_table:=$tTxt_tableTitle{$lon_Found}
 	
 Else 
 	
-	$Txt_table:=Table name:C256($lon_table_ID)// that's not the title when in a virtual structure. 
+	$Txt_table:=Table name:C256($lon_table_ID)  // that's not the title when in a virtual structure.
 	
 End if 
 

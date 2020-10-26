@@ -94,7 +94,12 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	
 	QR GET INFO COLUMN:C766($Lon_area; $Lon_i; $Txt_title; $Txt_object; $Lon_hidden; $Lon_width; $Lon_repeated; $Txt_format; $Txt_variableName)
 	
-	OBJECT SET TITLE:C194(*; $Txt_header; Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2))
+	If (boo_useVirtualStructure)
+		$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+	End if 
+	
+	OBJECT SET TITLE:C194(*; $Txt_header; $Txt_object)
+	
 	
 End for 
 
@@ -237,14 +242,18 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 		
 	End if 
 	
+	If (boo_useVirtualStructure)
+		$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+	End if 
+	
 	If ($Boo_isFormula)
 		
-		OBJECT SET TITLE:C194(*; $Txt_header; Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2))
+		OBJECT SET TITLE:C194(*; $Txt_header; $Txt_object)
 		OBJECT SET HORIZONTAL ALIGNMENT:C706(*; $Txt_header; Align center:K42:3)
 		
 	Else 
 		
-		OBJECT SET TITLE:C194(*; $Txt_header; Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2))
+		OBJECT SET TITLE:C194(*; $Txt_header; $Txt_object)
 		OBJECT SET HORIZONTAL ALIGNMENT:C706(*; $Txt_header; Align left:K42:2)
 		
 	End if 

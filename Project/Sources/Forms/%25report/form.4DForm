@@ -149,6 +149,7 @@
 						"onDeleteAction",
 						"onScroll"
 					],
+					"showHeaders": false,
 					"columns": [
 						{
 							"name": "headers",

@@ -389,7 +389,9 @@ If (OB Is defined:C1231($Obj_param; "action"))
 			
 			If (Length:C16($Txt_formula)=0)
 				
-				$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+				If (boo_useVirtualStructure)
+					$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+				End if 
 				
 			End if 
 			

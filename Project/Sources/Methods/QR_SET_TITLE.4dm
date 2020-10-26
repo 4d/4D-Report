@@ -64,9 +64,13 @@ Case of
 		
 		If (<>withFeature111172)
 			
-			//$Txt_title:=db_virtualFormulaName($Txt_object)
-			
-			$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+			If (boo_useVirtualStructure)
+				$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+				
+			Else 
+				$Txt_title:=$Txt_object
+				
+			End if 
 			
 			
 			QR SET INFO COLUMN:C765($Lon_area; \
@@ -86,12 +90,10 @@ Case of
 		
 		$Txt_pattern:="(?mi-s)^\\[([^\\]]*)\\]([^-+*/\\\\%=?&|>,:\"(\\[\\$]{1,31})$"  //[table]field
 		
-		If (<>withFeature111172)
-			
+		If (boo_useVirtualStructure)
 			$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
 			
 		Else 
-			
 			$Txt_title:=$Txt_object
 			
 		End if 

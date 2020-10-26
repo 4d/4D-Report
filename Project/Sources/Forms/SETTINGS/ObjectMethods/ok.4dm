@@ -176,7 +176,11 @@ Case of
 					
 					If ($Txt_label#"C@")
 						
-						QR SET INFO COLUMN:C765($Lon_area; $Lon_i; $Txt_; Parse formula:C1576($Txt_label; Formula in with virtual structure:K88:1); 0; $Lon_width; 0; $Txt_format)
+						If (boo_useVirtualStructure)
+							$Txt_label:=Parse formula:C1576($Txt_label; Formula in with virtual structure:K88:1)
+						End if 
+						
+						QR SET INFO COLUMN:C765($Lon_area; $Lon_i; $Txt_; $Txt_label; 0; $Lon_width; 0; $Txt_format)
 						
 					End if 
 					

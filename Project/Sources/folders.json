@@ -72,7 +72,6 @@
 			"db_Get_field_list",
 			"db_INIT_STRUCTURE",
 			"db_virtualFieldName",
-			"db_virtualFormulaName",
 			"db_virtualTableName"
 		]
 	},

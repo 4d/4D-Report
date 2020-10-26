@@ -55,7 +55,6 @@ Else
 End if 
 
 ASSERT:C1129(Not:C34(Shift down:C543) & Not:C34(Is compiled mode:C492))
-
 // ----------------------------------------------------
 Case of 
 		

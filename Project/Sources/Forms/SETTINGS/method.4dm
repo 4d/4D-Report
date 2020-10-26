@@ -60,10 +60,19 @@ Case of
 			Else 
 				
 				//APPEND TO LIST($Ptr_list->; Parse formula(String($o.formula); Formula out with virtual structure); $o.column)
-				If (Num:C11(ob_area.reportType)=qr list report:K14902:1)
-					$txt_formula:=Parse formula:C1576(String:C10($o.formula); Formula out with virtual structure:K88:2)
+				If (boo_useVirtualStructure)
+					
+					If (Num:C11(ob_area.reportType)=qr list report:K14902:1)
+						
+						$txt_formula:=Parse formula:C1576(String:C10($o.formula); Formula out with virtual structure:K88:2)
+					Else 
+						$txt_formula:=Parse formula:C1576(String:C10($o.formula); Formula out with tokens:K88:3)
+						
+					End if 
+					
 				Else 
-					$txt_formula:=Parse formula:C1576(String:C10($o.formula); Formula out with tokens:K88:3)
+					$txt_formula:=String:C10($o.formula)
+					
 				End if 
 				
 				APPEND TO LIST:C376($Ptr_list->; $txt_formula; $o.column)

@@ -329,5 +329,10 @@
 				}
 			}
 		}
-	]
+	],
+	"geometryStamp": 2,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }
