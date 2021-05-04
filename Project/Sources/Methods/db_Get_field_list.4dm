@@ -73,7 +73,7 @@ End if
 // ----------------------------------------------------
 If ($Lon_tableID#0)
 	
-	If (boo_useVirtualStructure)
+	If (True:C214)  //boo_useVirtualStructure)
 		
 		GET FIELD TITLES:C804((Table:C252($Lon_tableID))->; $tTxt_fieldNames; $tLon_fieldIDs)
 		
@@ -126,7 +126,7 @@ If ($Lon_tableID#0)
 					If ($Lon_relationTableID#0)\
 						 & ($Lon_relationFieldID#0)
 						
-						If (boo_useVirtualStructure)
+						If (True:C214)  //boo_useVirtualStructure)
 							
 							GET FIELD TITLES:C804((Table:C252($Lon_relationTableID))->; $tTxt_relationFieldNames; $tLon_relationFieldIDs)
 							
