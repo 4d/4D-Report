@@ -1,425 +1,845 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <!--Translation file.
+
 This file is distributed under the same license as the product package.-->
 <xliff version="1.0">
+
    <file datatype="x-STR#" original="undefined" source-language="en" target-language="pt">
+
       <header>
+
          <prop-group name="Xliff-Editor.4dbase">
+
             <prop prop-type="version">1.0</prop>
+
          </prop-group>
+
       </header>
+
       <body>
+
          <group resname="toolbar">
+
             <trans-unit id="35" resname="toolbar_borders">
+
                <source>Borders</source>
+
                <target>Bordas</target>
+
             </trans-unit>
+
             <trans-unit id="7" resname="toolbar_clear">
+
                <source>Clear</source>
+
                <target>Limpar</target>
+
             </trans-unit>
+
             <trans-unit id="6" resname="toolbar_crossTable">
+
                <source>Cross-table</source>
+
                <target>Tabela cruzada</target>
+
             </trans-unit>
+
             <trans-unit id="12" resname="toolbar_data">
+
                <source>Report</source>
+
                <target>Relatório</target>
+
             </trans-unit>
+
             <trans-unit id="79" resname="toolbar_destination_4dview">
+
                <source>4D view</source>
+
                <target>4D View</target>
+
             </trans-unit>
+
             <trans-unit id="80" resname="toolbar_destination_file">
+
                <source>File</source>
+
                <target>Arquivo</target>
+
             </trans-unit>
+
             <trans-unit id="82" resname="toolbar_destination_HTML">
+
                <source>HTML</source>
+
                <target>HTML</target>
+
             </trans-unit>
+
             <trans-unit id="81" resname="toolbar_destination_print">
+
                <source>Print</source>
+
                <target>Imprimir</target>
+
             </trans-unit>
+
             <trans-unit id="84" resname="toolbar_destination_SendYourReportTo">
+
                <source>Send your report to...</source>
+
                <target>Envie o seu relatório para...</target>
+
             </trans-unit>
+
             <trans-unit id="83" resname="toolbar_destination_title">
+
                <source>Destination</source>
+
                <target>Destino</target>
+
             </trans-unit>
+
             <trans-unit id="10" resname="toolbar_footer">
+
                <source>Footer</source>
+
                <target>Rodapé</target>
+
             </trans-unit>
+
             <trans-unit id="34" resname="toolbar_graphicAttributes">
+
                <source>Graphic attributes</source>
+
                <target>Atributos gráficos</target>
+
             </trans-unit>
+
             <trans-unit id="9" resname="toolbar_header">
+
                <source>Header</source>
+
                <target>Cabeçalho</target>
+
             </trans-unit>
+
             <trans-unit id="13" resname="toolbar_header&amp;footer">
+
                <source>Header and footer</source>
+
                <target>Cabeçalho e rodapé</target>
+
             </trans-unit>
+
             <trans-unit id="5" resname="toolbar_list">
+
                <source>List</source>
+
                <target>Lista</target>
+
             </trans-unit>
+
             <trans-unit id="33" resname="toolbar_new">
+
                <source>New</source>
+
                <target>Novo</target>
+
             </trans-unit>
+
             <trans-unit id="1" resname="toolbar_open">
+
                <source>Open…</source>
+
                <target>Abrir...</target>
+
             </trans-unit>
+
             <trans-unit id="2" resname="toolbar_output">
+
                <source>Destination</source>
+
                <target>Destino</target>
+
             </trans-unit>
+
             <trans-unit id="4" resname="toolbar_preview">
+
                <source>Preview</source>
+
                <target>Visualização</target>
+
             </trans-unit>
+
             <trans-unit id="8" resname="toolbar_reload">
+
                <source>Revert</source>
+
                <target>Recarregar</target>
+
             </trans-unit>
+
             <trans-unit id="11" resname="toolbar_reportType">
+
                <source>Report type</source>
+
                <target>Tipo de relatório</target>
+
             </trans-unit>
+
             <trans-unit id="39" resname="toolbar_run">
+
                <source>Execute</source>
+
                <target>Executar</target>
+
             </trans-unit>
+
             <trans-unit id="36" resname="toolbar_templates">
+
                <source>Templates</source>
+
                <target>Modelos</target>
+
             </trans-unit>
+
             <trans-unit id="79" resname="toolbar_options">
+
                <source>Options</source>
+
                <target>Opções</target>
+
             </trans-unit>
+
             <trans-unit id="96" resname="toolbar_save">
+
                <source>Save</source>
+
                <target>Salvar</target>
+
             </trans-unit>
+
             <trans-unit id="97" resname="toolbar_saveAs">
+
                <source>Save as...</source>
+
                <target>Salvar como...</target>
+
             </trans-unit>
+
          </group>
+
          <group resname="header &amp; footer">
+
             <trans-unit id="13" resname="left">
+
                <source>Left</source>
+
                <target>Esquerda</target>
+
             </trans-unit>
+
             <trans-unit id="14" resname="center">
+
                <source>Center</source>
+
                <target>Centro</target>
+
             </trans-unit>
+
             <trans-unit id="15" resname="right">
+
                <source>Right</source>
+
                <target>Direita</target>
+
             </trans-unit>
+
             <trans-unit id="16" resname="tab_content">
+
                <source>CONTENT</source>
+
                <target>Conteúdo</target>
+
             </trans-unit>
+
             <trans-unit id="17" resname="tab_settings">
+
                <source>SETTINGS</source>
+
                <target>Propriedades</target>
+
             </trans-unit>
+
             <trans-unit id="18" resname="pageNumber">
+
                <source>Current page number</source>
+
                <target>Número da página atual</target>
+
             </trans-unit>
+
             <trans-unit id="19" resname="executionDate">
+
                <source>Date of execution</source>
+
                <target>Data de execução</target>
+
             </trans-unit>
+
             <trans-unit id="20" resname="executionTime">
+
                <source>Time of execution</source>
+
                <target>Hora de Execução</target>
+
             </trans-unit>
+
             <trans-unit id="21" resname="points">
+
                <source>Points</source>
+
                <target>Pontos</target>
+
             </trans-unit>
+
             <trans-unit id="22" resname="inches">
+
                <source>Inches</source>
+
                <target>Polegadas</target>
+
             </trans-unit>
+
             <trans-unit id="23" resname="centimeters">
+
                <source>Centimeters</source>
+
                <target>Centímetros</target>
+
             </trans-unit>
+
             <trans-unit id="24" resname="alignedToLeft">
+
                <source>Aligned to left</source>
+
                <target>Alinhado à esquerda</target>
+
             </trans-unit>
+
             <trans-unit id="25" resname="centered">
+
                <source>Centered</source>
+
                <target>Centralizado</target>
+
             </trans-unit>
+
             <trans-unit id="26" resname="alignedToRight">
+
                <source>Aligned to right</source>
+
                <target>Alinhado à direita</target>
+
             </trans-unit>
+
             <trans-unit id="27" resname="affectTheHeightOfThePictureToTheArea">
+
                <source>Apply the height of the picture to the area</source>
+
                <target>Afectar a altura da imagem para a área</target>
+
             </trans-unit>
+
             <trans-unit id="28" resname="height">
+
                <source>Height:</source>
+
                <target>Altura:</target>
+
             </trans-unit>
+
             <trans-unit id="29" resname="picture">
+
                <source>Picture:</source>
+
                <target>Imagem:</target>
+
             </trans-unit>
+
             <trans-unit id="30" resname="textStyle">
+
                <source>Text style:</source>
+
                <target>Estilo do texto:</target>
+
             </trans-unit>
+
             <trans-unit id="31" resname="pangram">
+
                <source>The quick brown fox jumps over the lazy dog</source>
+
                <target>Zebras caolhas de Java querem mandar fax para gigante em New York.</target>
+
             </trans-unit>
+
             <trans-unit id="32" resname="pts">
+
                <source>Pts</source>
+
                <target>Pts</target>
+
             </trans-unit>
+
          </group>
+
          <group resname="menus">
+
             <trans-unit id="38" resname="allFields">
+
                <source>All fields</source>
+
                <target>Todos os campos</target>
+
             </trans-unit>
+
             <trans-unit id="39" resname="formula">
+
                <source>Formula…</source>
+
                <target>Fórmula…</target>
+
             </trans-unit>
+
             <trans-unit id="41" resname="clear">
+
                <source>Clear</source>
+
                <target>Limpar</target>
+
             </trans-unit>
+
             <trans-unit id="42" resname="load">
+
                <source>Load…</source>
+
                <target>Carregar...</target>
+
             </trans-unit>
+
             <trans-unit id="89" resname="sortByName">
+
                <source>Sort by Name</source>
+
                <target>Ordenar por nome</target>
+
             </trans-unit>
+
             <trans-unit id="90" resname="defaultSort">
+
                <source>Default Sort</source>
+
                <target>Ordem por padrão</target>
+
             </trans-unit>
+
             <trans-unit id="91" resname="addSelected">
+
                <source>Add the selected field(s)</source>
+
                <target>Adicionar campo(s) selecionado(s)</target>
+
             </trans-unit>
+
             <trans-unit id="92" resname="AddMissing">
+
                <source>Add missing field(s)</source>
+
                <target>Adicionar campos que estão faltando</target>
+
             </trans-unit>
+
          </group>
+
          <group resname="statusBar">
+
             <trans-unit id="40" resname="stb_selection">
+
                <source>Master table "{table}": {sel}/{all}</source>
+
                <target>Tabela mestre "{table}": {sel}/{all}</target>
+
             </trans-unit>
+
             <trans-unit id="43" resname="stb_newQuery">
+
                <source>New query</source>
+
                <target>Nova pesquisa</target>
+
             </trans-unit>
+
             <trans-unit id="45" resname="stb_numberOfRecords">
+
                <source>Number of records: {sel}</source>
+
                <target>Número de registros: {sel}</target>
+
             </trans-unit>
+
          </group>
+
          <group resname="options">
+
             <trans-unit id="47" resname="tipsView">
+
                <source>For this output type, the report engine will generate the report into a 4D View document. </source>
+
                <target>O gerador de relatórios gerará o relatório em um documento 4D View.</target>
+
             </trans-unit>
+
             <trans-unit id="48" resname="tipsPrint">
+
                <source>For this output type, the report engine will use the standard printer settings dialog before printing.</source>
+
                <target>O gerador de relatórios utilizará a caixa de diálogo padrão de parâmetros de impressão antes de imprimir.</target>
+
             </trans-unit>
+
             <trans-unit id="49" resname="tipsHTML">
+
                <source>For this output type, the report engine will use an HTML template to build the report in an HTML file.</source>
+
                <target>O gerador de relatório utilizará o modelo HTML, para gerar o relatório em formato HTML.</target>
+
             </trans-unit>
+
             <trans-unit id="50" resname="tipsFile">
+
                <source>For this output type, you will need to enter a column delimiter, a line delimiter, and a destination file name.</source>
+
                <target>Para este tipo de saída, você terá que digitar um delimitador de coluna, um delimitador de linha e um nome de arquivo de destino.</target>
+
             </trans-unit>
+
             <trans-unit id="50" resname="DestinationFile">
+
                <source>Destination file</source>
+
                <target>Arquivo de destino</target>
+
             </trans-unit>
+
             <trans-unit id="51" resname="LineDelimiter">
+
                <source>Line delimiter</source>
+
                <target>Delimitador de linha</target>
+
             </trans-unit>
+
             <trans-unit id="52" resname="HtmlTemplate">
+
                <source>HTML template</source>
+
                <target>Template HTML</target>
+
             </trans-unit>
+
             <trans-unit id="53" resname="ColumnDelimiter">
+
                <source>Column delimiter</source>
+
                <target>Delimitador de coluna</target>
+
             </trans-unit>
+
             <trans-unit id="54" resname="Browse ...">
+
                <source>Browse ...</source>
+
                <target>Procurar...</target>
+
             </trans-unit>
+
             <trans-unit id="55" resname="html_default_template" translate="no">
+
                <source><![CDATA[<html><br/>   <head><br/>     <meta http-equiv="Content-Type" content="text/html;charset=<!--#4DQRCharSet-->"><br/>   </head><br/>   <body bgcolor="#FFFFFF" text="#000000"><br/>      <table border=1><br/>         <!--#4DQRHeader--><br/>            <tr><br/>             <!--#4DQRCol--><br/>             <td bgcolor="<!--#4DQRBgcolor-->"><br/>               <!--#4DQRFont--><br/>               <!--#4DQRFace--><br/>                   <!--#4DQRData--><br/>               <!--/#4DQRFace--><br/>               <!--/#4DQRFont--><br/>            </td><br/>            <!--/#4DQRCol--><br/>         </tr><br/>      <!--/#4DQRHeader--><br/>      <!--#4DQRRow--><br/>         <tr><br/>            <!--#4DQRCol--><br/>            <td bgcolor="<!--#4DQRBgcolor-->"><br/>               <!--#4DQRFont--><br/>               <!--#4DQRFace--><br/>                 <!--#4DQRData--><br/>               <!--/#4DQRFace--><br/>               <!--/#4DQRFont--><br/>            </td><br/>            <!--/#4DQRCol--><br/>          </tr><br/>      <!--/#4DQRRow--><br/>    </table><br/> </body><br/></html> ]]></source>
+
             </trans-unit>
+
             <trans-unit id="56" resname="SelectTemplate">
+
                <source>Select a template for the report presentation. </source>
+
                <target>Selecione um modelo de apresentação para o relatório</target>
+
             </trans-unit>
+
             <trans-unit id="57" resname="view">
+
                <source>View…</source>
+
                <target>Apresentação...</target>
+
             </trans-unit>
+
             <trans-unit id="59" resname="default">
+
                <source>Default</source>
+
                <target>Padrão</target>
+
             </trans-unit>
+
             <trans-unit id="59" resname="invalidHTML">
+
                <source>This document is not valid, it must have tags formatting.</source>
+
                <target>Este documento não é válido, ele deve ter as tags de formatação.</target>
+
             </trans-unit>
+
             <trans-unit id="60" resname="dontDisplayPrintSetting">
+
                <source>Don't display print setting</source>
+
                <target>Não exibir as configurações de impressão</target>
+
             </trans-unit>
+
          </group>
+
          <group resname="messages">
+
             <trans-unit id="61" resname="areYouSure">
+
                <source>Are you sure?</source>
+
                <target>Tem certeza?</target>
+
             </trans-unit>
+
             <trans-unit id="62" resname="cancel">
+
                <source>Cancel</source>
+
                <target>Cancelar</target>
+
             </trans-unit>
+
             <trans-unit id="63" resname="ok">
+
                <source>OK</source>
+
                <target>OK</target>
+
             </trans-unit>
+
             <trans-unit id="64" resname="doNotAskAgain">
+
                <source>Do not ask again</source>
+
                <target>Não perguntar novamente</target>
+
             </trans-unit>
+
             <trans-unit id="65" resname="youWillLoseChangesMadeToThisDocument">
+
                <source>You will lose changes made to the document{document}.</source>
+
                <target>Você perderá todas as alterações feitas no documento {document}.</target>
+
             </trans-unit>
+
             <trans-unit id="66" resname="doYouWantToSaveChanges">
+
                <source>Do you want to save the document to disk?</source>
+
                <target>Você deseja salvar as alterações?</target>
+
             </trans-unit>
+
             <trans-unit id="67" resname="save">
+
                <source>Save</source>
+
                <target>Salvar</target>
+
             </trans-unit>
+
             <trans-unit id="68" resname="doNotSave">
+
                <source>Do not save</source>
+
                <target>Não salvar</target>
+
             </trans-unit>
+
             <trans-unit id="70" resname="remove">
+
                <source>Remove</source>
+
                <target>Remover</target>
+
             </trans-unit>
+
             <trans-unit id="71" resname="thisColumnWillNoMoreBeSorted">
+
                <source>The associated column will no more be sorted.</source>
+
                <target>A coluna associada não vai mais ser ordenada.</target>
+
             </trans-unit>
+
             <trans-unit id="72" resname="youCanHideTheLineAndKeepTheSortingData">
+
                <source>You can hide the line and thus keep the sorting of the data.</source>
+
                <target>Você pode ocultar a linha e assim manter a ordenação dos dados.</target>
+
             </trans-unit>
+
             <trans-unit id="93" resname="SaveInNewDocument">
+
                <source>Save in a new document</source>
+
                <target>Salvar em um novo documento</target>
+
             </trans-unit>
+
             <trans-unit id="93" resname="DoYouWantToSaveChangesInThisDocument">
+
                <source>Do you want to save changes in this document?</source>
+
                <target>Você quer salvar as alterações neste documento?</target>
+
             </trans-unit>
+
             <trans-unit id="94" resname="youCanHideTheColumnAndKeepTheSortingData">
+
                <source>You can hide the column to keep the subtotal row.</source>
+
                <target>Você pode ocultar a coluna para manter a linha de subtotal.</target>
+
             </trans-unit>
+
             <trans-unit id="95" resname="theSubtotalRowAssociatedWillBeRemoved.">
+
                <source>The subtotal row associated with this column will be removed.</source>
+
                <target>A linha de subtotal associada a esta coluna será removida.</target>
+
             </trans-unit>
+
             <trans-unit id="96" resname="previewIsNotPossible">
+
                <source>The preview is not possible. Please check your PDF driver or viewer.</source>
+
                <target>A visualização não é possível. Por favor, verifique o seu driver PDF ou Visualizador.</target>
+
             </trans-unit>
+
             
+
             
+
          </group>
+
          <group resname="Help tips">
+
             <trans-unit id="69" resname="tips_add">
+
                <source>Click to add a field
 Right click for more options</source>
+
                <target>Clique para adicionar um campo
 Botão direito do mouse para mais opções</target>
+
             </trans-unit>
+
          </group>
+
          <group resname="delimiters">
+
             <trans-unit id="80" resname="tabulation">
+
                <source>Tabulation</source>
+
                <target>Tabulação</target>
+
             </trans-unit>
+
             <trans-unit id="81" resname="comma">
+
                <source>Comma</source>
+
                <target>Vírgula</target>
+
             </trans-unit>
+
             <trans-unit id="82" resname="semicolumn">
+
                <source>Semicolumn</source>
+
                <target>Ponto e vírgula</target>
+
             </trans-unit>
+
             <trans-unit id="83" resname="colon">
+
                <source>Colon</source>
+
                <target>Dois pontos</target>
+
             </trans-unit>
+
             <trans-unit id="84" resname="verticalBar">
+
                <source>Vertical Bar</source>
+
                <target>Barra vertical</target>
+
             </trans-unit>
+
             <trans-unit id="85" resname="space">
+
                <source>Space</source>
+
                <target>Espaço</target>
+
             </trans-unit>
+
             <trans-unit id="86" resname="carriageReturn">
+
                <source>Carriage Return</source>
+
                <target>Retorno de carro</target>
+
             </trans-unit>
+
             <trans-unit id="87" resname="lineFeed">
+
                <source>Line Feed</source>
+
                <target>Sem linha</target>
+
             </trans-unit>
+
             <trans-unit id="88" resname="recordSeparator">
+
                <source>Record Separator</source>
+
                <target>Separador de registro</target>
+
             </trans-unit>
+
          </group>
+
       </body>
+
    </file>
+
 </xliff>

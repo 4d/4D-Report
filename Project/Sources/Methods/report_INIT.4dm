@@ -9,7 +9,8 @@
 // initialisation of the 'nqr' module
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_parameters; $Lon_platform)
+C_LONGINT:C283($Lon_parameters; $Lon_platform; $lon_backcolor; $lon_strokecolor; $lon_backcolor)
+
 C_TEXT:C284($Txt_buffer; $Txt_fontFamily; $Txt_label; $Txt_template)
 
 // ----------------------------------------------------
@@ -37,12 +38,21 @@ End if
 db_INIT_STRUCTURE
 
 
-
-<>withFeature92478:=True:C214
-
 If (Not:C34(OB Is defined:C1231(<>report_params)))  //| Shift down
 	
 	_O_PLATFORM PROPERTIES:C365($Lon_platform)
+	
+	
+	If (FORM Get color scheme:C1761="light")
+		
+		$lon_strokecolor:=Black:K11:16
+		$lon_backcolor:=Choose:C955($Lon_platform=Windows:K25:3; 0x00FBFBFB; 0x00F4F4F4)
+		
+	Else 
+		$lon_strokecolor:=White:K11:1
+		$lon_backcolor:=0x00303133
+		
+	End if 
 	
 	OB SET:C1220(<>report_params; \
 		"form-object"; "nqr"; \
@@ -50,12 +60,14 @@ If (Not:C34(OB Is defined:C1231(<>report_params)))  //| Shift down
 		"header-button-offset"; 8; \
 		"header-button-width"; 23; \
 		"locked-columns"; 1; \
-		"header-background-color"; Choose:C955($Lon_platform=Windows:K25:3; 0x00FBFBFB; 0x00F4F4F4); \
+		"header-background-color"; $lon_backcolor; \
+		"headerFontColor"; $lon_strokecolor; \
 		"add-sensitive"; 15; \
 		"default-column-width"; 128; \
 		"default-row-height"; 30; \
 		"selected-background-color"; Highlight menu background color:K23:7; \
-		"selected-foreground-color"; Highlight text color:K23:6)
+		"selected-foreground-color"; Highlight text color:K23:6\
+		)
 	
 	//======================================================
 	//                       DEV FLAGS

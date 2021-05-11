@@ -24,8 +24,9 @@
 					"width": 280,
 					"height": 210,
 					"sizingX": "grow",
-					"fill": "#E7E7E7",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background",
+					"fill": "automatic"
 				},
 				"Rectangle3": {
 					"type": "rectangle",
@@ -227,8 +228,8 @@
 					"width": 172,
 					"height": 24,
 					"sizingX": "grow",
-					"stroke": "#c0c0c0",
-					"fill": "#FFFFFF"
+					"stroke": "automatic",
+					"class": "background"
 				},
 				"format.label": {
 					"type": "input",
@@ -237,7 +238,7 @@
 					"width": 165,
 					"height": 14,
 					"sizingX": "grow",
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"textAlign": "left",
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
@@ -256,7 +257,8 @@
 					"left": 141,
 					"width": 46,
 					"height": 24,
-					"stroke": "#c0c0c0"
+					"stroke": "automatic",
+					"class": "background"
 				},
 				"font.size.label": {
 					"type": "input",
@@ -264,7 +266,7 @@
 					"left": 144,
 					"width": 36,
 					"height": 13,
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"textAlign": "center",
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
@@ -283,7 +285,8 @@
 					"left": 16,
 					"width": 122,
 					"height": 24,
-					"stroke": "#c0c0c0"
+					"stroke": "automatic",
+					"class": "background"
 				},
 				"font.family.label": {
 					"type": "input",
@@ -291,7 +294,7 @@
 					"left": 22,
 					"width": 105,
 					"height": 13,
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"textAlign": "left",
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
@@ -355,7 +358,7 @@
 					"left": 17,
 					"width": 67,
 					"height": 13,
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"textAlign": "right",
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
@@ -369,7 +372,7 @@
 					"height": 22,
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
-					"stroke": "#AAAAAA",
+					"stroke": "automatic",
 					"popupPlacement": "linked",
 					"textPlacement": "left",
 					"style": "custom",
@@ -386,7 +389,7 @@
 					"height": 22,
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
-					"stroke": "#AAAAAA",
+					"stroke": "automatic",
 					"popupPlacement": "linked",
 					"textPlacement": "left",
 					"style": "custom",
@@ -446,7 +449,8 @@
 					"method": "ObjectMethods/font.alternate.back.color.4dm",
 					"events": [
 						"onDataChange"
-					]
+					],
+					"class": ""
 				},
 				"borders.controls": {
 					"type": "subform",
@@ -471,8 +475,9 @@
 					"left": 132,
 					"width": 132,
 					"height": 24,
-					"stroke": "#c0c0c0",
-					"sizingX": "grow"
+					"stroke": "automatic",
+					"sizingX": "grow",
+					"class": "background"
 				},
 				"border.style.label": {
 					"type": "input",
@@ -480,7 +485,7 @@
 					"left": 138,
 					"width": 115,
 					"height": 13,
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"textAlign": "left",
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
@@ -502,7 +507,7 @@
 					"height": 22,
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
-					"stroke": "#AAAAAA",
+					"stroke": "automatic",
 					"popupPlacement": "linked",
 					"textPlacement": "left",
 					"style": "custom",
@@ -592,5 +597,27 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"method": "method.4dm"
+	"method": "method.4dm",
+	"geometryStamp": 56,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"blueLines": {
+				"visible": false,
+				"objects": [
+					"Rectangle3",
+					"Rectangle5",
+					"Rectangle2",
+					"Rectangle7",
+					"Rectangle",
+					"Rectangle6",
+					"Rectangle8",
+					"Rectangle9",
+					"Rectangle1"
+				]
+			}
+		}
+	}
 }

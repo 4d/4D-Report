@@ -32,8 +32,8 @@
 					"width": 1060,
 					"height": 44,
 					"sizingX": "grow",
-					"fill": "#FFFEFE",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background"
 				},
 				"ribbon": {
 					"type": "input",
@@ -266,7 +266,8 @@
 					"left": 112,
 					"width": 38,
 					"height": 36,
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"fill": "automatic"
 				},
 				"Matrix": {
 					"type": "picture",
@@ -556,5 +557,6 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
-	}
+	},
+	"geometryStamp": 12
 }

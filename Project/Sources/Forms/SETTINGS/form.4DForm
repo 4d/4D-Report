@@ -32,7 +32,8 @@
 					"height": 280,
 					"sizingX": "grow",
 					"sizingY": "grow",
-					"stroke": "#868B92"
+					"stroke": "#868B92",
+					"class": "background"
 				},
 				"field.list": {
 					"type": "list",
@@ -80,7 +81,9 @@
 					"left": 9,
 					"width": 241,
 					"height": 22,
-					"stroke": "#787878"
+					"stroke": "#787878",
+					"class": "background",
+					"fill": "transparent"
 				},
 				"field.search.box": {
 					"type": "input",
@@ -99,7 +102,8 @@
 						"onLosingFocus",
 						"onGettingFocus",
 						"onAfterEdit"
-					]
+					],
+					"fill": "transparent"
 				},
 				"field.search.focus": {
 					"type": "rectangle",
@@ -110,7 +114,8 @@
 					"visibility": "hidden",
 					"fill": "transparent",
 					"stroke": "#FF6600",
-					"strokeWidth": 3
+					"strokeWidth": 3,
+					"class": ""
 				},
 				"action": {
 					"type": "button",
@@ -287,7 +292,6 @@
 					"visibility": "hidden",
 					"dataSourceTypeHint": "object",
 					"stroke": "#FF6600",
-					"fontFamily": ".SF NS Text",
 					"fontSize": 11,
 					"focusable": false,
 					"fill": "#FFFF00",
@@ -298,7 +302,8 @@
 					"dropping": "custom",
 					"events": [
 						"onDataChange"
-					]
+					],
+					"fontTheme": "normal"
 				}
 			}
 		},
@@ -330,7 +335,7 @@
 			}
 		}
 	],
-	"geometryStamp": 2,
+	"geometryStamp": 16,
 	"$4d": {
 		"version": "1",
 		"kind": "form"

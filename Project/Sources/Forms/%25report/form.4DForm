@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"shared": true,
 	"windowTitle": ":xliff:qr_windowTitle",
@@ -32,7 +32,9 @@
 					"height": 110,
 					"sizingX": "grow",
 					"sizingY": "grow",
-					"stroke": "#FFFFFF"
+					"stroke": "transparent",
+					"class": "backgroundqrArea",
+					"visibility": "hidden"
 				},
 				"font_picker": {
 					"type": "input",
@@ -127,7 +129,7 @@
 					"selectionMode": "none",
 					"scrollbarHorizontal": "automatic",
 					"scrollbarVertical": "automatic",
-					"fill": "#FFFFFF",
+					"fill": "transparent",
 					"verticalAlign": "middle",
 					"borderStyle": "dotted",
 					"method": "ObjectMethods/nqr.4dm",
@@ -150,6 +152,7 @@
 						"onScroll"
 					],
 					"showHeaders": false,
+					"alternateFill": "automatic",
 					"columns": [
 						{
 							"name": "headers",
@@ -275,7 +278,8 @@
 					"width": 31,
 					"height": 28,
 					"visibility": "hidden",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "backgroundqrArea"
 				},
 				"top-left-filler": {
 					"type": "rectangle",
@@ -284,7 +288,8 @@
 					"width": 31,
 					"height": 28,
 					"visibility": "hidden",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "backgroundqrArea"
 				},
 				"page.break": {
 					"type": "line",
@@ -337,7 +342,7 @@
 					"width": 247,
 					"height": 187,
 					"visibility": "hidden",
-					"fill": "#FFFFA0"
+					"fill": "#fffacd"
 				},
 				"balloon.mask": {
 					"type": "button",
@@ -421,7 +426,7 @@
 					"width": 215,
 					"height": 16,
 					"visibility": "hidden",
-					"stroke": "#FFFFFF",
+					"stroke": "automatic",
 					"fontWeight": "bold",
 					"text": ":xliff:qr_windowTitle"
 				},
@@ -444,7 +449,7 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 1,
+	"geometryStamp": 163,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",

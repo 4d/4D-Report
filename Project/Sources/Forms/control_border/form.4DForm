@@ -17,7 +17,9 @@
 		"paperHeight": "842pt"
 	},
 	"pages": [
-		null,
+		{
+			"objects": {}
+		},
 		{
 			"objects": {
 				"control_area": {
@@ -213,5 +215,6 @@
 		"kind": "form"
 	},
 	"width": 64,
-	"height": 64
+	"height": 64,
+	"geometryStamp": 10
 }

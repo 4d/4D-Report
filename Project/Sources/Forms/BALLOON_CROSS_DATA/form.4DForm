@@ -29,7 +29,7 @@
 					"height": 225,
 					"sizingX": "grow",
 					"fill": "transparent",
-					"stroke": "#AAAAAA"
+					"stroke": "automatic"
 				}
 			}
 		},

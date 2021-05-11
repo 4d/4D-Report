@@ -42,7 +42,7 @@
 					"height": 24,
 					"sizingX": "grow",
 					"stroke": "#c0c0c0",
-					"fill": "#FFFFFF"
+					"class": "background"
 				},
 				"sort.label": {
 					"type": "input",
@@ -51,7 +51,7 @@
 					"width": 165,
 					"height": 13,
 					"sizingX": "grow",
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"textAlign": "center",
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
@@ -70,7 +70,7 @@
 					"left": 6,
 					"width": 78,
 					"height": 13,
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"textAlign": "right",
 					"fontFamily": ".Lucida Grande UI",
 					"fontSize": 11,
@@ -83,7 +83,7 @@
 					"width": 171,
 					"height": 16,
 					"text": ":xliff:menu_repeated_values",
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"focusable": false,
 					"method": "ObjectMethods/repeatedValues.4dm",
 					"events": [
@@ -97,7 +97,7 @@
 					"width": 171,
 					"height": 16,
 					"text": ":xliff:menu_automatic_width",
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"focusable": false,
 					"method": "ObjectMethods/automaticWidth.4dm",
 					"events": [
@@ -149,5 +149,6 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
-	}
+	},
+	"geometryStamp": 2
 }

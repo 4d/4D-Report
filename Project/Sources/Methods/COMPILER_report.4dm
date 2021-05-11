@@ -34,9 +34,6 @@ C_BOOLEAN:C305(boo_useVirtualStructure)
 C_BOOLEAN:C305(<>withFeature105739)
 <>withFeature105739:=True:C214
 
-C_BOOLEAN:C305(<>withFeature92478)
-<>withFeature92478:=True:C214
-
 C_BOOLEAN:C305(<>withFeature110931)  // border managment
 <>withFeature110931:=False:C215
 

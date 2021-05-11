@@ -50,8 +50,8 @@
 					"width": 1060,
 					"height": 94,
 					"sizingX": "grow",
-					"fill": "#FFFEFE",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background"
 				},
 				"select": {
 					"type": "rectangle",
@@ -156,7 +156,7 @@
 					"left": 10,
 					"width": 164,
 					"height": 23,
-					"stroke": "#313131",
+					"stroke": "automatic",
 					"fontFamily": "System Font",
 					"fontSize": 20,
 					"text": ":xliff:toolbar_destination_title"
@@ -167,7 +167,7 @@
 					"left": 10,
 					"width": 170,
 					"height": 15,
-					"stroke": "#919191",
+					"stroke": "automatic",
 					"fontFamily": "System Font",
 					"fontSize": 12,
 					"text": ":xliff:toolbar_destination_SendYourReportTo"
@@ -192,5 +192,10 @@
 				}
 			}
 		}
-	]
+	],
+	"geometryStamp": 2,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }

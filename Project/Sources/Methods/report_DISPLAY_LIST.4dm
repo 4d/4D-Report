@@ -12,7 +12,7 @@
 C_LONGINT:C283($1)
 
 C_BOOLEAN:C305($Boo_isFormula)
-C_LONGINT:C283($kLon_bestListRowHeight; $kLon_defaultColumnWidth; $kLon_headerColor; $kLon_headerHeight; $Lon_area; $Lon_bottom)
+C_LONGINT:C283($kLon_bestListRowHeight; $kLon_defaultColumnWidth; $kLon_headerBackColor; $kLon_headerHeight; $kLon_headerStrokeColor; $Lon_area; $Lon_bottom)
 C_LONGINT:C283($Lon_columnType; $Lon_height; $Lon_hidden; $Lon_i; $Lon_j; $Lon_left)
 C_LONGINT:C283($Lon_operator; $Lon_parameters; $Lon_qrColumnNumber; $Lon_qrDestination; $Lon_repeated; $Lon_right)
 C_LONGINT:C283($Lon_row; $Lon_rowNumber; $Lon_sortNumber; $Lon_top; $Lon_width)
@@ -54,7 +54,8 @@ If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 	$kLon_defaultColumnWidth:=OB Get:C1224(<>report_params; "default-column-width"; Is longint:K8:6)  //width for automatic size
 	$kLon_bestListRowHeight:=OB Get:C1224(<>report_params; "default-row-height"; Is longint:K8:6)  //default height (pixels) for rows in the list mode
 	$kLon_headerHeight:=OB Get:C1224(<>report_params; "header-height"; Is longint:K8:6)
-	$kLon_headerColor:=OB Get:C1224(<>report_params; "header-background-color"; Is longint:K8:6)
+	$kLon_headerBackColor:=OB Get:C1224(<>report_params; "header-background-color"; Is longint:K8:6)
+	$kLon_headerStrokeColor:=<>report_params.headerFontColor
 	$kTxt_fontFamily:=env_Substitute_font  //default font is the platform and language font
 	
 	$Ptr_bestObectSize:=OBJECT Get pointer:C1124(Object named:K67:5; "bestobjectsize")
@@ -152,19 +153,27 @@ OBJECT SET SCROLLBAR:C843(*; $kTxt_reportObject; 2; 2)
 //events
 report_SET_EVENTS($kTxt_reportObject)
 
+
+
 //__________________________ 1st column
+
 $Txt_column:=$tTxt_columns{1}
 $Ptr_column:=$tPtr_columns{1}
 $Ptr_column->{1}:=Get localized string:C991("head_title")
 ST SET ATTRIBUTES:C1093($Ptr_column->{1}; \
 ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955(QR Get info row:C769($Lon_area; qr title:K14906:1); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 1; Choose:C955(QR Get info row:C769($Lon_area; qr title:K14906:1); Black:K11:16; 0x007F7F7F); lk font color:K53:24)
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 1; $kLon_headerColor; lk background color:K53:25)
+
+//https://project.4d.com/issues/126067 : let automatic handle the color
+//LISTBOX SET ROW COLOR(*; $Txt_column; 1; Choose(QR Get info row($Lon_area; qr title); Automatic; $kLon_headerStrokeColor); lk font color)
+//LISTBOX SET ROW COLOR(*; $Txt_column; 1; $kLon_headerBackColor; lk background color)
+
 $Ptr_column->{2}:=Get localized string:C991("head_details")
 ST SET ATTRIBUTES:C1093($Ptr_column->{2}; \
 ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955(QR Get info row:C769($Lon_area; qr detail:K14906:2); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2; Choose:C955(QR Get info row:C769($Lon_area; qr detail:K14906:2); lk font color:K53:24; 0x007F7F7F); White:K11:1)
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2; $kLon_headerColor; lk background color:K53:25)
+
+//https://project.4d.com/issues/126067 : let automatic handle the color
+//LISTBOX SET ROW COLOR(*; $Txt_column; 2; Choose(QR Get info row($Lon_area; qr detail); Automatic; $kLon_headerStrokeColor); lk font color)
+//LISTBOX SET ROW COLOR(*; $Txt_column; 2; $kLon_headerBackColor; lk background color)
 
 //the sort order is inverted !
 If ($Lon_sortNumber>0)
@@ -188,8 +197,9 @@ If ($Lon_sortNumber>0)
 		ST SET ATTRIBUTES:C1093($Ptr_column->{2+$Lon_i}; \
 			ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955($Lon_hidden=0; Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 		
-		LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2+$Lon_i; Choose:C955($Lon_hidden=0; lk font color:K53:24; 0x007F7F7F); White:K11:1)
-		LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2+$Lon_i; $kLon_headerColor; lk background color:K53:25)
+		//https://project.4d.com/issues/126067 : let automatic handle the color
+		//LISTBOX SET ROW COLOR(*; $Txt_column; 2+$Lon_i; $kLon_headerBackColor; lk background color)
+		//LISTBOX SET ROW COLOR(*; $Txt_column; 2+$Lon_i; $kLon_headerStrokeColor; lk font color)
 		
 		$Lon_row:=$Lon_row+1
 		
@@ -200,9 +210,10 @@ End if
 $Ptr_column->{$Lon_rowNumber}:=Get localized string:C991("head_grand_total")
 ST SET ATTRIBUTES:C1093($Ptr_column->{$Lon_rowNumber}; ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; \
 Choose:C955(QR Get info row:C769($Lon_area; qr grand total:K14906:3); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; $Lon_rowNumber; \
-Choose:C955(QR Get info row:C769($Lon_area; qr grand total:K14906:3); lk font color:K53:24; 0x007F7F7F); White:K11:1)
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; $Lon_rowNumber; $kLon_headerColor; lk background color:K53:25)
+
+//https://project.4d.com/issues/126067 : let automatic handle the color
+//LISTBOX SET ROW COLOR(*; $Txt_column; $Lon_rowNumber; $kLon_headerStrokeColor; lk font color)
+//LISTBOX SET ROW COLOR(*; $Txt_column; $Lon_rowNumber; $kLon_headerBackColor; lk background color)
 
 //set header column width
 OB SET:C1220($Obj_params; \
@@ -259,7 +270,8 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	End if 
 	
 	OBJECT SET FONT STYLE:C166(*; $Txt_header; Choose:C955($Lon_hidden; Bold:K14:2; Plain:K14:1))
-	OBJECT SET RGB COLORS:C628(*; $Txt_header; Choose:C955($Lon_hidden; Foreground color:K23:1; 0x007F7F7F); Background color:K23:2)  // /!\ background color is ignored
+	//https://project.4d.com/issues/126067 : let automatic handle the color
+	//OBJECT SET RGB COLORS(*; $Txt_header; Choose($Lon_hidden; Foreground color; 0x007F7F7F))
 	
 	LISTBOX SET COLUMN WIDTH:C833(*; $Txt_column; Choose:C955($Lon_width=-1; $kLon_defaultColumnWidth; $Lon_width))
 	

@@ -29,8 +29,8 @@
 					"width": 1060,
 					"height": 94,
 					"sizingX": "grow",
-					"fill": "#FFFEFE",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background"
 				},
 				"automatic_font": {
 					"type": "input",
@@ -67,7 +67,6 @@
 					"left": 10,
 					"width": 170,
 					"height": 23,
-					"stroke": "#313131",
 					"fontFamily": "System Font",
 					"fontSize": 20,
 					"text": ":xliff:toolbar_options"
@@ -568,5 +567,13 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
+	},
+	"geometryStamp": 20,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
 	}
 }
