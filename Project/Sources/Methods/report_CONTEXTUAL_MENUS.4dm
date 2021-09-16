@@ -568,13 +568,12 @@ If (Length:C16($Txt_action)#0)
 			
 			If ($Lon_column=0)
 				
-				//hide the row
+				//hide/show the row
 				QR SET INFO ROW:C763($Lon_area; $Lon_row; Abs:C99(1-$Lon_hidden))
 				
 			Else 
-				
-				//hide the column
-				QR SET INFO COLUMN:C765($Lon_area; $Lon_column; $Txt_title; $Txt_formula; Abs:C99(1-$Lon_hidden); $Lon_width; $Lon_repeated; $Txt_format)
+				//hide/show the column
+				QR SET INFO COLUMN:C765($Lon_area; $Lon_column; $Txt_title; $Txt_object; Abs:C99(1-$Lon_hidden); $Lon_width; $Lon_repeated; $Txt_format)
 				
 			End if 
 			

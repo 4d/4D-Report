@@ -14,8 +14,8 @@ C_TEXT:C284(${1})
 C_LONGINT:C283($kLon_fontSize; $kLon_height; $Lon_bottom; $Lon_i; $Lon_left; $Lon_parameters)
 C_LONGINT:C283($Lon_platform; $Lon_right; $Lon_selected; $Lon_start; $Lon_tabs; $Lon_top)
 C_LONGINT:C283($Lon_width)
-C_TEXT:C284($kTxt_font; $kTxt_highlightColor; $Svg_group; $Svg_groupLabels; $Svg_groupTabs; $Svg_object)
-C_TEXT:C284($Svg_root; $Txt_backgroundColor; $Txt_data; $Txt_object; $Txt_value; $txt_viewPortfill)
+C_TEXT:C284($kTxt_font; $kTxt_highlightColor; $Svg_group; $Svg_groupLabels; $Svg_groupTabs; $Svg_object; $Txt_txtColor)
+C_TEXT:C284($Svg_root; $Txt_backgroundColor; $Txt_data; $Txt_object; $Txt_value; $txt_viewPortfill; $Txt_strokeColor)
 C_BOOLEAN:C305($boo_colorSchemeIsLight)
 
 If (False:C215)
@@ -56,12 +56,17 @@ $Lon_bottom:=$Lon_bottom-1
 
 $kLon_height:=44
 
-_O_PLATFORM PROPERTIES:C365($Lon_platform)
-$kTxt_font:=Choose:C955($Lon_platform=Windows:K25:3; "Segoe UI"; "Lucida Grande")
+$kTxt_font:=Choose:C955(Is Windows:C1573; "Segoe UI"; "Lucida Grande")
 
 $kLon_fontSize:=12
 
-$kTxt_highlightColor:="dodgerblue"
+//color definition
+$boo_colorSchemeIsLight:=(FORM Get color scheme:C1761="light")
+
+$txt_viewPortfill:=Choose:C955($boo_colorSchemeIsLight; "white"; "black")
+$Txt_backgroundColor:=Choose:C955($boo_colorSchemeIsLight; "rgb(220,220,220)"; "rgb(30,30,30)")
+$Txt_txtColor:=Choose:C955($boo_colorSchemeIsLight; "rgb(220,220,220)"; "rgb(30,30,30)")  // not used
+$kTxt_highlightColor:=Choose:C955($boo_colorSchemeIsLight; "dodgerblue"; "rgb(66,144,246)")  // much lighter blue
 
 $Lon_tabs:=Size of array:C274($tTxt_label)
 
@@ -78,23 +83,21 @@ For ($Lon_i; 1; $Lon_tabs; 1)
 	End if 
 End for 
 
-$boo_colorSchemeIsLight:=(FORM Get color scheme:C1761="light")
 $Lon_selected:=Choose:C955($Lon_selected=0; 1; $Lon_selected)
 
 $Svg_root:=DOM Create XML Ref:C861("svg"; "http://www.w3.org/2000/svg")
 
-$txt_viewPortfill:=Choose:C955($boo_colorSchemeIsLight; "white"; "blue")
+
+
 DOM SET XML ATTRIBUTE:C866($Svg_root; \
 "xmlns:xlink"; "http://www.w3.org/1999/xlink"; \
 "viewport-fill"; $txt_viewPortfill)
-
-$Txt_backgroundColor:=Choose:C955($boo_colorSchemeIsLight; "rgb(240,240,240)"; "dimgray")
 
 //Define style for the tabs
 $Svg_object:=DOM Create XML element:C865($Svg_root; "style"; \
 "type"; "text/css")
 
-DOM SET XML ELEMENT VALUE:C868($Svg_object; "path{fill:"+$Txt_backgroundColor+";stroke:"+$Txt_backgroundColor+";stroke-width:1}")
+DOM SET XML ELEMENT VALUE:C868($Svg_object; "path{fill:"+$Txt_backgroundColor+";stroke:"+$Txt_txtColor+";stroke-width:1}")
 
 //background
 $Svg_groupTabs:=DOM Create XML element:C865($Svg_root; "g"; \
@@ -135,7 +138,7 @@ For ($Lon_i; 1; $Lon_tabs; 1)
 		"width"; $Lon_width; \
 		"height"; $kLon_height; \
 		"stroke"; "none"; \
-		"fill"; $Txt_backgroundColor; \
+		"fill"; $Txt_txtColor; \
 		"fill-opacity"; 0.01)
 	
 	//Draw the tab

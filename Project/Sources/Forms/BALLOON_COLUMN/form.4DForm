@@ -41,8 +41,7 @@
 					"width": 172,
 					"height": 24,
 					"sizingX": "grow",
-					"stroke": "#c0c0c0",
-					"class": "background"
+					"class": "backControlsColors"
 				},
 				"sort.label": {
 					"type": "input",
@@ -150,5 +149,5 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 2
+	"geometryStamp": 4
 }

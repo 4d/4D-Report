@@ -175,6 +175,16 @@
 		},
 		{
 			"objects": {
+				"report.list.border": {
+					"type": "rectangle",
+					"top": 26,
+					"left": 290,
+					"width": 241,
+					"height": 212,
+					"sizingY": "grow",
+					"fill": "transparent",
+					"stroke": "#787878"
+				},
 				"report.list": {
 					"type": "list",
 					"top": 27,
@@ -184,7 +194,7 @@
 					"sizingY": "grow",
 					"enterable": false,
 					"hideFocusRing": true,
-					"selectionMode": "multiple",
+					"selectionMode": "single",
 					"scrollbarHorizontal": "hidden",
 					"dragging": "custom",
 					"dropping": "custom",
@@ -201,10 +211,10 @@
 				},
 				"b.add.one": {
 					"type": "button",
-					"top": 88,
+					"top": 86,
 					"left": 258,
 					"width": 24,
-					"height": 24,
+					"height": 30,
 					"shortcutKey": "[right arrow]",
 					"icon": "/RESOURCES/images/common/next.png",
 					"iconFrames": 4,
@@ -219,7 +229,7 @@
 					"top": 171,
 					"left": 258,
 					"width": 24,
-					"height": 24,
+					"height": 30,
 					"shortcutKey": "[left arrow]",
 					"shortcutShift": true,
 					"focusable": false,
@@ -236,7 +246,7 @@
 					"top": 143,
 					"left": 258,
 					"width": 24,
-					"height": 24,
+					"height": 30,
 					"shortcutKey": "[left arrow]",
 					"focusable": false,
 					"icon": "/RESOURCES/images/common/previous.png",
@@ -252,7 +262,7 @@
 					"top": 115,
 					"left": 258,
 					"width": 24,
-					"height": 24,
+					"height": 30,
 					"shortcutKey": "[right arrow]",
 					"shortcutShift": true,
 					"focusable": false,
@@ -272,16 +282,6 @@
 					"height": 16,
 					"fontWeight": "bold",
 					"text": ":xliff:reportColumns"
-				},
-				"report.list.border": {
-					"type": "rectangle",
-					"top": 26,
-					"left": 290,
-					"width": 241,
-					"height": 212,
-					"sizingY": "grow",
-					"fill": "transparent",
-					"stroke": "#787878"
 				},
 				"dial": {
 					"type": "input",
@@ -335,9 +335,16 @@
 			}
 		}
 	],
-	"geometryStamp": 16,
+	"geometryStamp": 56,
 	"$4d": {
 		"version": "1",
 		"kind": "form"
+	},
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
 	}
 }

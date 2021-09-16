@@ -131,7 +131,6 @@ Case of
 		If ($Lon_x<0)
 			
 			LISTBOX INSERT COLUMN:C829(*; $kTxt_reportObject; Size of array:C274($tTxt_columns)+1; $Txt_column; $Ptr_nil; "head_filler"; $Ptr_nil)
-			
 			//set the type - [ARRAY OBJECT] for future use ;-)
 			EXECUTE FORMULA:C63("ARRAY OBJECT:C1221((OBJECT Get pointer:C1124(Object named:K67:5;\""+$Txt_column+"\"))->;0)")
 			

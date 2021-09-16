@@ -1,5 +1,6 @@
 ﻿{
 	"destination": "detailScreen",
+	"windowTitle": "_menu",
 	"inheritedForm": "BALLOON_COMMON",
 	"width": 280,
 	"height": 250,
@@ -17,8 +18,7 @@
 	"pageFormat": {
 		"paperName": "A4",
 		"paperWidth": "842pt",
-		"paperHeight": "595pt",
-		"orientation": "landscape"
+		"paperHeight": "595pt"
 	},
 	"pages": [
 		{
@@ -32,6 +32,16 @@
 					"stroke": "#AAAAAA",
 					"height": 0,
 					"startPoint": "topLeft"
+				},
+				"border": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 280,
+					"height": 250,
+					"sizingX": "grow",
+					"fill": "transparent",
+					"stroke": "#AAAAAA"
 				}
 			}
 		},
@@ -58,9 +68,8 @@
 					"width": 35,
 					"height": 24,
 					"sizingX": "grow",
-					"stroke": "automatic",
 					"strokeWidth": 1,
-					"class": "background"
+					"class": "backControlsColors"
 				},
 				"subtotalProp.back": {
 					"type": "rectangle",
@@ -69,8 +78,7 @@
 					"width": 102,
 					"height": 24,
 					"sizingX": "grow",
-					"stroke": "automatic",
-					"class": "background"
+					"class": "backControlsColors"
 				},
 				"subtotalProp.label": {
 					"type": "input",
@@ -121,7 +129,8 @@
 					"method": "ObjectMethods/subtotalProp.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"class": "backControlsColors"
 				},
 				"computations": {
 					"type": "subform",
@@ -173,8 +182,7 @@
 					"width": 25,
 					"height": 24,
 					"sizingX": "grow",
-					"stroke": "automatic",
-					"class": "background"
+					"class": "backControlsColors"
 				},
 				"totalSpacing.unit.label": {
 					"type": "input",
@@ -222,5 +230,5 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 14
+	"geometryStamp": 30
 }

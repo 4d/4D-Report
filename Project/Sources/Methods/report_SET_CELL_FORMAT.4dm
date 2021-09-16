@@ -69,7 +69,6 @@ End if
 // ----------------------------------------------------
 If ($Lon_hidden>0)
 	
-	LISTBOX SET ROW COLOR:C1270(*; $Txt_colName; $Lon_row; <>report_params.headerFontColor; lk font color:K53:24)
 	LISTBOX SET ROW COLOR:C1270(*; $Txt_colName; $Lon_row; OB Get:C1224(<>report_params; "header-background-color"; Is longint:K8:6); lk background color:K53:25)
 	
 Else 

@@ -57,9 +57,10 @@
 					"text": "",
 					"top": 0,
 					"left": 0,
-					"width": 20,
-					"height": 20,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -73,10 +74,11 @@
 					"type": "checkbox",
 					"text": "",
 					"top": 0,
-					"left": 22,
-					"width": 20,
-					"height": 20,
+					"left": 23,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -90,10 +92,11 @@
 					"type": "checkbox",
 					"text": "",
 					"top": 0,
-					"left": 44,
-					"width": 20,
-					"height": 20,
+					"left": 46,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -106,11 +109,12 @@
 				"bLeft": {
 					"type": "checkbox",
 					"text": "",
-					"top": 22,
+					"top": 23,
 					"left": 0,
-					"width": 20,
-					"height": 20,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -123,11 +127,12 @@
 				"bVertical": {
 					"type": "checkbox",
 					"text": "",
-					"top": 22,
-					"left": 22,
-					"width": 20,
-					"height": 20,
+					"top": 23,
+					"left": 23,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -140,11 +145,12 @@
 				"bRight": {
 					"type": "checkbox",
 					"text": "",
-					"top": 22,
-					"left": 44,
-					"width": 20,
-					"height": 20,
+					"top": 23,
+					"left": 46,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -157,11 +163,12 @@
 				"bTop": {
 					"type": "checkbox",
 					"text": "",
-					"top": 44,
+					"top": 46,
 					"left": 0,
-					"width": 20,
-					"height": 20,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -174,11 +181,12 @@
 				"bHorizontal": {
 					"type": "checkbox",
 					"text": "",
-					"top": 44,
-					"left": 22,
-					"width": 20,
-					"height": 20,
+					"top": 46,
+					"left": 23,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -191,11 +199,12 @@
 				"bBottom": {
 					"type": "checkbox",
 					"text": "",
-					"top": 44,
-					"left": 44,
-					"width": 20,
-					"height": 20,
+					"top": 46,
+					"left": 46,
+					"width": 23,
+					"height": 23,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"style": "custom",
@@ -214,7 +223,14 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"width": 64,
-	"height": 64,
-	"geometryStamp": 10
+	"width": 68,
+	"height": 68,
+	"geometryStamp": 72,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
 }

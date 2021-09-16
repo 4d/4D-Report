@@ -550,6 +550,7 @@ If (Not:C34($Boo_skip)\
 			//Get the previous position and the new position of the column moved in the list box
 			LISTBOX MOVED COLUMN NUMBER:C844(*; $Txt_me; $Lon_oldPosition; $Lon_newPosition)
 			
+			
 			If ($Lon_newPosition#$Lon_oldPosition)
 				
 				//#ACI0095333 [
@@ -559,14 +560,15 @@ If (Not:C34($Boo_skip)\
 					LISTBOX MOVE COLUMN:C1274(*; $tTxt_columnNames{$Lon_newPosition}; $Lon_oldPosition)
 				End if 
 				//]
-				
 				//Is it an authorized moving?
-				If (($Lon_newPosition-1)<=$Lon_qrColumnNumber)
+				If ((($Lon_newPosition-1)<=$Lon_qrColumnNumber) & (($Lon_oldPosition-1)<=$Lon_qrColumnNumber))
+					
 					
 					// #21-8-2014 - use the new command QR MOVE COLUMN
 					//QR_SWAP_COLUMNS ($Lon_area;$Lon_oldPosition-1;$Lon_newPosition-1)
 					QR MOVE COLUMN:C1325($Lon_area; $Lon_oldPosition-1; $Lon_newPosition-1)
 					QR SET SELECTION:C794($Lon_area; $Lon_newPosition-1; 0; $Lon_newPosition-1; 0)
+					
 					
 				Else 
 					
@@ -574,8 +576,12 @@ If (Not:C34($Boo_skip)\
 					//LISTBOX MOVE COLUMN(*;$tTxt_columnNames{$Lon_newPosition};$Lon_qrColumnNumber+1)
 					//]
 					// move in last position
+					LISTBOX MOVE COLUMN:C1274(*; $tTxt_columnNames{$Lon_newPosition}; $Lon_oldPosition)
+					
 					If (ob_area.qrColumn<0)  // if no column no movement
-						QR MOVE COLUMN:C1325($Lon_area; $Lon_oldPosition-1; $Lon_qrColumnNumber)
+						
+						QR MOVE COLUMN:C1325($Lon_area; $Lon_oldPosition-1; $Lon_qrColumnNumber-1)
+						
 					End if 
 					
 				End if 

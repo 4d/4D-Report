@@ -14,7 +14,7 @@
 C_TEXT:C284($0)
 C_OBJECT:C1216($1)
 
-C_BOOLEAN:C305($Boo_selected; $boo_isBorder)
+C_BOOLEAN:C305($Boo_selected; $boo_isBorder; $boo_isColorSchemeLight)
 C_LONGINT:C283($Lon_color; $Lon_fontSize; $Lon_formEvent; $Lon_i; $Lon_id; $Lon_number)
 C_LONGINT:C283($Lon_offset; $Lon_parameters; $Lon_pictHeight; $Lon_pictWidth; $Lon_platform; $Lon_round)
 C_LONGINT:C283($Lon_size; $Lon_state; $Lon_type; $Lon_x; $Lon_y)
@@ -56,11 +56,11 @@ If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	$kTxt_highlithColor:=Replace string:C233($kTxt_highlithColor; "{green}"; String:C10((<>ctrl_highlitColor & 0xFF00) >> 8))
 	$kTxt_highlithColor:=Replace string:C233($kTxt_highlithColor; "{blue}"; String:C10((<>ctrl_highlitColor & 0x00FF)))
 	
-	If (Shift down:C543)
+	If (True:C214)
 		
 		$kTxt_defaultColor:=Choose:C955((FORM Get color scheme:C1761="light"); "black"; "white")
 	Else 
-		$kTxt_defaultColor:="black"
+		//$kTxt_defaultColor:="black"
 	End if 
 	
 	$kNum_highlithOpacity:=0.4  //opacity of a selected item
@@ -235,19 +235,22 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 				"class"; "color"; \
 				"id"; "sample")
 			
+			
+			$boo_isColorSchemeLight:=(FORM Get color scheme:C1761="light")
+			
 			//place icon - /!\ the relative paths don't operate from a component
 			If ($boo_isBorder)
 				$File_icon:=Get 4D folder:C485(Current resources folder:K5:16)\
 					+"Images"+Folder separator:K24:12\
 					+"widgets"+Folder separator:K24:12\
 					+"controls"+Folder separator:K24:12\
-					+"typo_border.png"
+					+"typo_border"+Choose:C955($boo_isColorSchemeLight; ".png"; "_dark.png")
 			Else 
 				$File_icon:=Get 4D folder:C485(Current resources folder:K5:16)\
 					+"Images"+Folder separator:K24:12\
 					+"widgets"+Folder separator:K24:12\
 					+"controls"+Folder separator:K24:12\
-					+"typo_"+Choose:C955($Txt_mode="back"; "back"; "front")+".png"
+					+"typo_"+Choose:C955($Txt_mode="back"; "back"; "front")+Choose:C955($boo_isColorSchemeLight; ".png"; "_dark.png")
 			End if 
 			
 			
@@ -515,7 +518,7 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 					
 					If (OB Is defined:C1231($Obj_definition; "font-color"))
 						
-						If (OB Get type:C1230($Obj_definition; "font-color")=Object array:K8:28)
+						If (OB Get type:C1230($Obj_definition; "font-color")=Is collection:K8:32)
 							
 							OB GET ARRAY:C1229($Obj_definition; "font-color"; $tTxt_fontColors)
 							

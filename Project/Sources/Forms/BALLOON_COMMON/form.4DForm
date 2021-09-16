@@ -228,8 +228,7 @@
 					"width": 172,
 					"height": 24,
 					"sizingX": "grow",
-					"stroke": "automatic",
-					"class": "background"
+					"class": "backControlsColors"
 				},
 				"format.label": {
 					"type": "input",
@@ -257,8 +256,7 @@
 					"left": 141,
 					"width": 46,
 					"height": 24,
-					"stroke": "automatic",
-					"class": "background"
+					"class": "backControlsColors"
 				},
 				"font.size.label": {
 					"type": "input",
@@ -285,8 +283,7 @@
 					"left": 16,
 					"width": 122,
 					"height": 24,
-					"stroke": "automatic",
-					"class": "background"
+					"class": "backControlsColors"
 				},
 				"font.family.label": {
 					"type": "input",
@@ -454,10 +451,10 @@
 				},
 				"borders.controls": {
 					"type": "subform",
-					"top": 95,
-					"left": 15,
-					"width": 65,
-					"height": 64,
+					"top": 92,
+					"left": 14,
+					"width": 70,
+					"height": 70,
 					"dataSourceTypeHint": "object",
 					"detailForm": "control_border",
 					"focusable": false,
@@ -475,9 +472,8 @@
 					"left": 132,
 					"width": 132,
 					"height": 24,
-					"stroke": "automatic",
 					"sizingX": "grow",
-					"class": "background"
+					"class": "backControlsColors"
 				},
 				"border.style.label": {
 					"type": "input",
@@ -515,7 +511,8 @@
 					"events": [
 						"onClick"
 					],
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"class": ""
 				},
 				"separator1": {
 					"type": "line",
@@ -565,7 +562,7 @@
 				"border.add": {
 					"type": "button",
 					"text": ":xliff:button_addBorder",
-					"top": 131,
+					"top": 134,
 					"left": 91,
 					"width": 80,
 					"height": 19,
@@ -578,7 +575,7 @@
 				"border.clear": {
 					"type": "button",
 					"text": ":xliff:button_clearBorder",
-					"top": 131,
+					"top": 134,
 					"left": 184,
 					"width": 80,
 					"height": 19,
@@ -589,6 +586,16 @@
 					"sizingX": "move",
 					"style": "regular",
 					"stroke": "automatic"
+				},
+				"Ligne": {
+					"type": "line",
+					"top": 0,
+					"left": 15,
+					"width": 1,
+					"height": 257,
+					"stroke": "#1e90ff",
+					"startPoint": "bottomLeft",
+					"visibility": "hidden"
 				}
 			}
 		}
@@ -598,7 +605,7 @@
 		"kind": "form"
 	},
 	"method": "method.4dm",
-	"geometryStamp": 56,
+	"geometryStamp": 96,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
