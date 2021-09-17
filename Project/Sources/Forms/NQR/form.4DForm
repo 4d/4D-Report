@@ -35,8 +35,8 @@
 					"height": 20,
 					"sizingX": "grow",
 					"sizingY": "move",
-					"fill": "#F0F0F0",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background"
 				},
 				"status.records": {
 					"type": "text",
@@ -46,7 +46,7 @@
 					"height": 15,
 					"sizingX": "grow",
 					"sizingY": "move",
-					"stroke": "#444444",
+					"stroke": "automatic",
 					"fontFamily": "System Font",
 					"fontSize": 12,
 					"text": "Number of records: xxxxx"
@@ -69,8 +69,8 @@
 					"width": 1060,
 					"height": 93,
 					"sizingX": "grow",
-					"fill": "#F0F0F0",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background"
 				},
 				"myQR": {
 					"type": "subform",
@@ -93,7 +93,7 @@
 				},
 				"tool.mask.grey": {
 					"type": "picture",
-					"top": 112,
+					"top": 92,
 					"left": 0,
 					"width": 1060,
 					"height": 386,
@@ -233,7 +233,8 @@
 					"height": 34,
 					"visibility": "hidden",
 					"stroke": "#AAAAAA",
-					"strokeWidth": 2
+					"strokeWidth": 2,
+					"class": "background"
 				},
 				"toolbar.opened.open": {
 					"type": "button",
@@ -665,7 +666,7 @@
 					"visibility": "hidden",
 					"sizingX": "move",
 					"sizingY": "move",
-					"fill": "#FFFFFF",
+					"fill": "automatic",
 					"stroke": "#FF6600",
 					"text": "Page 1"
 				},
@@ -770,7 +771,8 @@
 					"height": 34,
 					"visibility": "hidden",
 					"sizingX": "move",
-					"stroke": "#AAAAAA"
+					"stroke": "#AAAAAA",
+					"class": "background"
 				}
 			}
 		}
@@ -778,5 +780,13 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
+	},
+	"geometryStamp": 25,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
 	}
 }

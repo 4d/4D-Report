@@ -168,8 +168,8 @@ Case of
 			GET LIST ITEM:C378($Ptr_source->; $Lon_source; $Lon_reference; $Txt_label)
 			
 			GET LIST ITEM ICON:C951($Ptr_source->; $Lon_reference; $Pic_icon)
-			GET LIST ITEM PARAMETER:C985($Ptr_source->; $Lon_ID; "tableId"; $Lon_table)
-			GET LIST ITEM PARAMETER:C985($Ptr_source->; $Lon_ID; "fieldId"; $Lon_field)
+			GET LIST ITEM PARAMETER:C985($Ptr_source->; $Lon_reference; "tableId"; $Lon_table)
+			GET LIST ITEM PARAMETER:C985($Ptr_source->; $Lon_reference; "fieldId"; $Lon_field)
 			
 			//delete the dragged element
 			DELETE FROM LIST:C624($Ptr_source->; $Lon_reference)
@@ -177,7 +177,6 @@ Case of
 			If ($Lon_destination=-1)
 				
 				APPEND TO LIST:C376($Ptr_source->; $Txt_label; $Lon_reference)
-				$Lon_destination:=Count list items:C380($Ptr_report->)
 				
 			Else 
 				
@@ -190,11 +189,12 @@ Case of
 				GET LIST ITEM:C378($Ptr_source->; $Lon_destination; $Lon_destRef; $Txt_)
 				INSERT IN LIST:C625($Ptr_source->; $Lon_destRef; $Txt_label; $Lon_reference)
 				
+				
 			End if 
 			
-			SET LIST ITEM ICON:C950($Ptr_report->; 0; $Pic_icon)
-			SET LIST ITEM PARAMETER:C986($Ptr_report->; 0; "tableId"; $Lon_table)
-			SET LIST ITEM PARAMETER:C986($Ptr_report->; 0; "fieldId"; $Lon_field)
+			SET LIST ITEM ICON:C950($Ptr_report->; $Lon_reference; $Pic_icon)
+			SET LIST ITEM PARAMETER:C986($Ptr_report->; $Lon_reference; "tableId"; $Lon_table)
+			SET LIST ITEM PARAMETER:C986($Ptr_report->; $Lon_reference; "fieldId"; $Lon_field)
 			
 			//update the indexes
 			$Lon_count:=Count list items:C380($Ptr_report->)

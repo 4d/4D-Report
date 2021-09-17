@@ -2,38 +2,73 @@
 <!--Translation file.
 This file is distributed under the same license as the product package.-->
 <xliff version="1.0">
+
    <file datatype="x-STR#" original="undefined" source-language="en" target-language="pt">
+
       <header>
+
          <prop-group name="Xliff-Editor.4dbase">
+
             <prop prop-type="version">1.0</prop>
+
          </prop-group>
+
       </header>
+
       <body>
+
          <group resname="path">
+
             <trans-unit id="1" resname="FileInVolume">
+
                <source>"{file}" in volume "{volume}"</source>
+
                <target>"{file}" no volume "{volume}"</target>
+
             </trans-unit>
+
             <trans-unit id="2" resname="ShowOnDisk">
+
                <source>Show on disk</source>
+
                <target>Mostrar no disco</target>
+
             </trans-unit>
+
             <trans-unit id="3" resname="CopyPath">
+
                <source>Copy the path</source>
+
                <target>Copiar o endereço</target>
+
             </trans-unit>
+
          </group>
+
          <group resname="Characters">
+
             <trans-unit id="4" resname="CommonEllipse" translate="no">
+
                <source>...</source>
+
             </trans-unit>
+
             <trans-unit id="5" resname="CommonQuote" translate="no">
+
                <source>"</source>
+
             </trans-unit>
+
             <trans-unit id="6" resname="CommonApostrophe" translate="no">
+
                <source>'</source>
+
             </trans-unit>
+
          </group>
+
       </body>
+
    </file>
+
 </xliff>

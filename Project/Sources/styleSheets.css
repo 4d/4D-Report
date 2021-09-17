@@ -1,0 +1,41 @@
+﻿.background {
+	background-color: rgb(238, 238, 238);
+
+  }
+  .backControlsColors {
+	background-color: rgb(238, 238, 238);
+	stroke: rgb(184, 184, 184);
+  }
+.backgroundqrArea{
+	background-color: rgb(255, 255, 255);
+	stroke: rgb(0,0,0);
+  }
+
+.topLeftFiller{
+	background-color: rgb(246, 246, 246);
+  }
+
+.backgroundHeaderqrArea{
+	background-color: rgb(244, 244, 244);
+  }
+
+@media (prefers-color-scheme: dark) {
+	.background {
+		background-color: rgb(53, 53, 53);
+	  } 
+	.backControlsColors {
+		background-color: rgb(30, 30, 30);
+		stroke: rgb(169, 169, 169);
+	  }
+	  .backgroundHeaderqrArea{
+		background-color: rgb(30, 30, 30);
+	  }
+	  .backgroundqrArea{
+		background-color: rgb(30, 30, 30);
+		stroke: rgb(255, 255, 255);
+	  }
+	  .topLeftFiller{
+		background-color: rgb(30, 30, 30);
+	  }
+
+}

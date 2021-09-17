@@ -28,7 +28,8 @@
 					"height": 458,
 					"sizingX": "grow",
 					"sizingY": "grow",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background"
 				}
 			}
 		},
@@ -50,7 +51,9 @@
 					"left": 5,
 					"width": 235,
 					"height": 22,
-					"stroke": "#AAAAAA"
+					"stroke": "#AAAAAA",
+					"class": "background",
+					"fill": "transparent"
 				},
 				"field.search.box": {
 					"type": "input",
@@ -150,5 +153,10 @@
 				}
 			}
 		}
-	]
+	],
+	"geometryStamp": 10,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }

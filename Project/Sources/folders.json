@@ -400,11 +400,7 @@
 			"NQR_TOOLBAR_REPORT_TYPE"
 		]
 	},
-	"unitTest": {
-		"methods": [
-			"unit_EXECUTE_ALL"
-		]
-	},
+	"unitTest": {},
 	"widgets": {
 		"groups": [
 			"CONTROL",

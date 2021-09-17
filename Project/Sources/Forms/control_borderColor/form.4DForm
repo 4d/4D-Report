@@ -29,7 +29,7 @@
 					"height": 24,
 					"visibility": "hidden",
 					"pictureFormat": "scaled",
-					"picture": "Images/Picture4.png"
+					"picture": "/RESOURCES/Images/widgets/controls/typo_border.png"
 				},
 				"control_area": {
 					"type": "input",
@@ -57,5 +57,13 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
+	},
+	"geometryStamp": 20,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"formSizeAnchor": "control_area",
 	"rightMargin": 0,
@@ -56,5 +56,6 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
-	}
+	},
+	"geometryStamp": 4
 }

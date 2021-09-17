@@ -28,7 +28,8 @@
 					"left": 0,
 					"width": 420,
 					"height": 160,
-					"stroke": "#868B92"
+					"stroke": "#868B92",
+					"class": "background"
 				},
 				"ok": {
 					"type": "button",
@@ -43,7 +44,8 @@
 					"method": "ObjectMethods/ok.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"stroke": "automatic"
 				},
 				"cancel": {
 					"type": "button",
@@ -58,7 +60,8 @@
 					"method": "ObjectMethods/cancel.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"stroke": "automatic"
 				},
 				"checkbox": {
 					"type": "checkbox",
@@ -71,7 +74,8 @@
 					"method": "ObjectMethods/checkbox.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"stroke": "automatic"
 				},
 				"text": {
 					"type": "input",
@@ -87,7 +91,8 @@
 					"hideFocusRing": true,
 					"showSelection": true,
 					"contextMenu": "none",
-					"dropping": "none"
+					"dropping": "none",
+					"stroke": "automatic"
 				},
 				"forget": {
 					"type": "button",
@@ -100,7 +105,8 @@
 					"method": "ObjectMethods/forget.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"stroke": "automatic"
 				},
 				"Text1": {
 					"type": "text",
@@ -129,9 +135,15 @@
 					"hideFocusRing": true,
 					"showSelection": true,
 					"contextMenu": "none",
-					"dropping": "none"
+					"dropping": "none",
+					"stroke": "automatic"
 				}
 			}
 		}
-	]
+	],
+	"geometryStamp": 2,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }

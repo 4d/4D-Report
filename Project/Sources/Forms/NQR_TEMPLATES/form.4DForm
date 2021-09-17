@@ -30,8 +30,8 @@
 					"width": 756,
 					"height": 334,
 					"sizingX": "grow",
-					"fill": "#F0F0F0",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background"
 				},
 				"Rectangle": {
 					"type": "rectangle",
@@ -40,8 +40,8 @@
 					"width": 304,
 					"height": 334,
 					"sizingX": "move",
-					"fill": "#FFFEFE",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "background"
 				},
 				"Line1": {
 					"type": "line",
@@ -145,7 +145,7 @@
 					"sizingX": "move",
 					"style": "flat",
 					"text": "reload",
-					"fontFamily": ".SF NS Text",
+					"fontFamily": "System Font Regular",
 					"fontSize": 11,
 					"stroke": "#FF6600",
 					"focusable": false,
@@ -163,7 +163,7 @@
 					"sizingX": "move",
 					"style": "flat",
 					"text": "update",
-					"fontFamily": ".SF NS Text",
+					"fontFamily": "System Font Regular",
 					"fontSize": 11,
 					"stroke": "#FF6600",
 					"focusable": false,
@@ -213,5 +213,10 @@
 				}
 			}
 		}
-	]
+	],
+	"geometryStamp": 4,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }

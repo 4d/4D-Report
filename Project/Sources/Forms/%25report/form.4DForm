@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"shared": true,
 	"windowTitle": ":xliff:qr_windowTitle",
@@ -32,7 +32,9 @@
 					"height": 110,
 					"sizingX": "grow",
 					"sizingY": "grow",
-					"stroke": "#FFFFFF"
+					"stroke": "transparent",
+					"class": "backgroundqrArea",
+					"visibility": "hidden"
 				},
 				"font_picker": {
 					"type": "input",
@@ -127,7 +129,6 @@
 					"selectionMode": "none",
 					"scrollbarHorizontal": "automatic",
 					"scrollbarVertical": "automatic",
-					"fill": "#FFFFFF",
 					"verticalAlign": "middle",
 					"borderStyle": "dotted",
 					"method": "ObjectMethods/nqr.4dm",
@@ -150,6 +151,7 @@
 						"onScroll"
 					],
 					"showHeaders": false,
+					"class": "backgroundqrArea",
 					"columns": [
 						{
 							"name": "headers",
@@ -159,7 +161,6 @@
 							"styledText": true,
 							"contextMenu": "none",
 							"truncateMode": "none",
-							"fill": "#FFFFFF",
 							"verticalAlign": "middle",
 							"events": [
 								"onLosingFocus"
@@ -167,7 +168,8 @@
 							"method": "ObjectMethods/headers.4dm",
 							"header": {
 								"name": "head_headers",
-								"verticalAlign": "middle"
+								"verticalAlign": "middle",
+								"class": "backgroundqrArea"
 							},
 							"footer": {
 								"name": "Footer1",
@@ -186,7 +188,6 @@
 							"contextMenu": "none",
 							"visibility": "hidden",
 							"truncateMode": "none",
-							"fill": "#FFFFFF",
 							"textAlign": "left",
 							"verticalAlign": "middle",
 							"fontFamily": "Monaco",
@@ -250,8 +251,8 @@
 				},
 				"_sel": {
 					"type": "picture",
-					"top": 236,
-					"left": 151,
+					"top": 216,
+					"left": 134,
 					"width": 40,
 					"height": 40,
 					"visibility": "hidden",
@@ -270,20 +271,22 @@
 				},
 				"right-filler": {
 					"type": "rectangle",
-					"top": 177,
-					"left": 151,
+					"top": 139,
+					"left": 171,
 					"width": 31,
 					"height": 28,
 					"visibility": "hidden",
-					"stroke": "transparent"
+					"stroke": "transparent",
+					"class": "backgroundqrArea"
 				},
 				"top-left-filler": {
 					"type": "rectangle",
 					"top": 138,
-					"left": 151,
+					"left": 134,
 					"width": 31,
 					"height": 28,
 					"visibility": "hidden",
+					"class": "topLeftFiller",
 					"stroke": "transparent"
 				},
 				"page.break": {
@@ -325,6 +328,16 @@
 					"events": [
 						"onClick"
 					]
+				},
+				"headerBackgroundFiller": {
+					"type": "rectangle",
+					"top": 175,
+					"left": 134,
+					"width": 31,
+					"height": 28,
+					"visibility": "hidden",
+					"stroke": "transparent",
+					"class": "backgroundHeaderqrArea"
 				}
 			}
 		},
@@ -337,7 +350,7 @@
 					"width": 247,
 					"height": 187,
 					"visibility": "hidden",
-					"fill": "#FFFFA0"
+					"fill": "#fffacd"
 				},
 				"balloon.mask": {
 					"type": "button",
@@ -421,7 +434,7 @@
 					"width": 215,
 					"height": 16,
 					"visibility": "hidden",
-					"stroke": "#FFFFFF",
+					"stroke": "automatic",
 					"fontWeight": "bold",
 					"text": ":xliff:qr_windowTitle"
 				},
@@ -444,7 +457,7 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 1,
+	"geometryStamp": 206,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",

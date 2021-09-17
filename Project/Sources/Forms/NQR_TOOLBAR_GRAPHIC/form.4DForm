@@ -60,7 +60,8 @@
 					"height": 34,
 					"visibility": "hidden",
 					"stroke": "#AAAAAA",
-					"strokeWidth": 2
+					"strokeWidth": 2,
+					"class": "background"
 				},
 				"templates": {
 					"type": "button",
@@ -96,5 +97,10 @@
 				}
 			}
 		}
-	]
+	],
+	"geometryStamp": 2,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }

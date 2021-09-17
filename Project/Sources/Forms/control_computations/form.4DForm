@@ -43,8 +43,8 @@
 				},
 				"Picture8": {
 					"type": "picture",
-					"top": 0,
-					"left": 0,
+					"top": 52,
+					"left": 1,
 					"width": 248,
 					"height": 32,
 					"visibility": "hidden",
@@ -57,5 +57,6 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
-	}
+	},
+	"geometryStamp": 1
 }
