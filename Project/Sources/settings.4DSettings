@@ -24,7 +24,7 @@
 			</shortcuts>
 		</interface>
 		<database>
-			<misc/>
+			<misc win_form_text_directwrite="true"/>
 		</database>
 		<sql>
 			<engine case_sensitive="true"/>
