@@ -1,55 +1,57 @@
-  // ----------------------------------------------------
-  // Form method : BALLOON_LINE - (4D Report)
-  // ID[AE0839FF36DF46ABA43FACB47FC0849E]
-  // Created #25-6-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($Lon_formEvent;$Lon_row;$Lon_column;$Lon_area)
-C_OBJECT:C1216($Obj_param;$obj_buffer;$Obj_caller)
+// ----------------------------------------------------
+// Form method : BALLOON_LINE - (4D Report)
+// ID[AE0839FF36DF46ABA43FACB47FC0849E]
+// Created #25-6-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Declarations
+C_LONGINT:C283($Lon_formEvent; $Lon_row; $Lon_column; $Lon_area)
+C_OBJECT:C1216($Obj_param; $obj_buffer; $Obj_caller)
 
-  // ----------------------------------------------------
-  // Initialisations
+// ----------------------------------------------------
+// Initialisations
 $Lon_formEvent:=Form event code:C388
 SET TIMER:C645(0)
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 
 Case of 
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Lon_formEvent=On Load:K2:1)
 		
-		(OBJECT Get pointer:C1124(Object named:K67:5;"caller"))->:="{}"
+		(OBJECT Get pointer:C1124(Object named:K67:5; "caller"))->:="{}"
 		
 		SET TIMER:C645(-1)
 		
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Lon_formEvent=On Clicked:K2:4)
 		
-		  //triggered for the font picker
+		//triggered for the font picker
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Lon_formEvent=On Activate:K2:9)
 		
 		SET TIMER:C645(-1)
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Lon_formEvent=On Timer:K2:25)
 		
-		OB SET:C1220($Obj_param;\
-			"action";"update";\
-			"form";Current method name:C684)
+		SET TIMER:C645(0)
 		
-		report_BALLOON_HDL ($Obj_param)
+		OB SET:C1220($Obj_param; \
+			"action"; "update"; \
+			"form"; Current method name:C684)
 		
-		  //______________________________________________________
+		report_BALLOON_HDL($Obj_param)
+		
+		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215;"Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
+		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
 		
-		  //______________________________________________________
+		//______________________________________________________
 End case 
 
-  //Always return to the variable that allow to use the Fonts dialog to keep the sync
-GOTO OBJECT:C206(*;"font.picker")
+//Always return to the variable that allow to use the Fonts dialog to keep the sync
+GOTO OBJECT:C206(*; "font.picker")

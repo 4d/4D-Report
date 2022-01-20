@@ -394,13 +394,14 @@ Case of
 																																																																																																																																																																																																																																																																					\
 																				\
 																														\
-																																							Q\
-																																								R_Get_comp\
-																																																		utation ($\
-																																																												Lon_area;2\
-																																																																						;$Lon_row)\
-																																																																																;\
-																																																																																																																																																																																																																																																																																																		QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
+																																								\
+																																																	Q\
+																																																		R_Get_comp\
+																																																												utation ($\
+																																																																						Lon_area;2\
+																																																																																;$Lon_row)\
+																																																																																										;\
+																																																																																																																																																																																																																																																																																																												QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
 									If ($Lon_reportType=qr cross report:K14902:2) & ($Lon_column=3)
 										
 										// Cross - report
@@ -581,18 +582,18 @@ Case of
 								OBJECT SET VISIBLE:C603(*; "format.back"; True:C214)
 								OBJECT SET VISIBLE:C603(*; "format.label"; True:C214)
 								
-								//ACI0100940{
-								
+								//ACI0100940{ACI0100938
+/*
 								If ($Lon_columnData=2)\
 									 | ($Lon_columnData=3)  //apply to line
-									
-									$lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
-								Else 
-									$lon_columnTempo:=$Lon_columnData
-								End if 
-								//}
 								
-								$Txt_buffer:=QR_Get_column_format($Lon_area; $lon_columnTempo; $Lon_columnType)
+$lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
+Else 
+$lon_columnTempo:=$Lon_columnData
+End if 
+//}*/
+								
+								$Txt_buffer:=QR_Get_column_format($Lon_area; $Lon_columnData; $Lon_columnType)
 								OB SET:C1220($Obj_caller; \
 									"columnFormat"; $Txt_buffer)
 								

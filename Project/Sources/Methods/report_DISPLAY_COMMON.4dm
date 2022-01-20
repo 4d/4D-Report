@@ -231,8 +231,12 @@ Case of
 			
 			$Lon_hOffset:=$Lon_posLeft-$Lon_left
 			
-			OBJECT MOVE:C664(*; "header_action"; $Lon_hOffset; 0)
-			OBJECT MOVE:C664(*; "balloon.subform"; $Lon_hOffset; 0)
+			If (Not:C34(ob_area.crossReport))
+				
+				OBJECT MOVE:C664(*; "header_action"; $Lon_hOffset; 0)
+				OBJECT MOVE:C664(*; "balloon.subform"; $Lon_hOffset; 0)
+				
+			End if 
 			
 		End if 
 		
