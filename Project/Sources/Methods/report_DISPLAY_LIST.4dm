@@ -255,7 +255,7 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	
 	If ($Boo_isFormula)
 		
-		OBJECT SET TITLE:C194(*; $Txt_header; $Txt_object)
+		OBJECT SET TITLE:C194(*; $Txt_header; $Txt_variableName)
 		OBJECT SET HORIZONTAL ALIGNMENT:C706(*; $Txt_header; Align center:K42:3)
 		
 	Else 

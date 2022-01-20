@@ -124,7 +124,8 @@
 					"width": 322,
 					"height": 22,
 					"sizingX": "grow",
-					"stroke": "#AAAAAA"
+					"stroke": "#AAAAAA",
+					"fill": "transparent"
 				},
 				"_airbag": {
 					"type": "button",
@@ -193,5 +194,9 @@
 				}
 			}
 		}
-	]
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }

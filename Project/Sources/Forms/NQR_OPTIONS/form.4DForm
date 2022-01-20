@@ -295,7 +295,7 @@
 					"left": 96,
 					"width": 172,
 					"height": 16,
-					"stroke": "#444444",
+					"stroke": "#888888",
 					"textAlign": "right",
 					"text": ":xliff:DestinationFile"
 				},
@@ -306,7 +306,7 @@
 					"width": 131,
 					"height": 16,
 					"sizingX": "move",
-					"stroke": "#444444",
+					"stroke": "#888888",
 					"textAlign": "right",
 					"text": ":xliff:ColumnDelimiter"
 				},
@@ -341,7 +341,7 @@
 					"width": 157,
 					"height": 16,
 					"sizingX": "move",
-					"stroke": "#444444",
+					"stroke": "#888888",
 					"textAlign": "right",
 					"text": ":xliff:LineDelimiter"
 				},
@@ -486,7 +486,7 @@
 					"left": 108,
 					"width": 159,
 					"height": 16,
-					"stroke": "#444444",
+					"stroke": "#888888",
 					"textAlign": "right",
 					"text": ":xliff:DestinationFile"
 				},
@@ -506,7 +506,7 @@
 					"left": 108,
 					"width": 159,
 					"height": 16,
-					"stroke": "#444444",
+					"stroke": "#888888",
 					"textAlign": "right",
 					"text": ":xliff:HtmlTemplate"
 				},

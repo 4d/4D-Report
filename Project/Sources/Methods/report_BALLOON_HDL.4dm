@@ -10,7 +10,7 @@
 // Declarations
 C_OBJECT:C1216($1)
 
-C_LONGINT:C283($kLon_margin; $Lon_; $Lon_area; $Lon_bottom; $Lon_buffer; $Lon_column)
+C_LONGINT:C283($kLon_margin; $Lon_; $Lon_area; $Lon_bottom; $Lon_buffer; $Lon_column; $lon_columnTempo)
 C_LONGINT:C283($Lon_columnData; $Lon_columnType; $Lon_height; $Lon_hOffset; $Lon_left; $Lon_mouseX)
 C_LONGINT:C283($Lon_mouseY; $Lon_offset; $Lon_parameters; $Lon_repeated; $Lon_reportType; $Lon_right)
 C_LONGINT:C283($Lon_row; $Lon_rowData; $Lon_sort_index; $Lon_top; $Lon_type; $Lon_vOffset)
@@ -393,13 +393,14 @@ Case of
 									//$Lon_buffer:=Choose(($Lon_reportType=qr cross report) & ($Lon_column=3);\
 																																																																																																																																																																																																																																																																					\
 																				\
-																													Q\
-																														R_Get_comp\
-																																								utation ($\
-																																																		Lon_area;2\
-																																																												;$Lon_row)\
-																																																																						;\
-																																																																																																																																																																																																																																																																																								QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
+																														\
+																																							Q\
+																																								R_Get_comp\
+																																																		utation ($\
+																																																												Lon_area;2\
+																																																																						;$Lon_row)\
+																																																																																;\
+																																																																																																																																																																																																																																																																																																		QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
 									If ($Lon_reportType=qr cross report:K14902:2) & ($Lon_column=3)
 										
 										// Cross - report
@@ -580,10 +581,18 @@ Case of
 								OBJECT SET VISIBLE:C603(*; "format.back"; True:C214)
 								OBJECT SET VISIBLE:C603(*; "format.label"; True:C214)
 								
-								//#ACI0095708
-								//$Txt_buffer:=QR_Get_column_format ($Lon_area;$Lon_column)
-								$Txt_buffer:=QR_Get_column_format($Lon_area; $Lon_columnData; $Lon_columnType)
+								//ACI0100940{
 								
+								If ($Lon_columnData=2)\
+									 | ($Lon_columnData=3)  //apply to line
+									
+									$lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
+								Else 
+									$lon_columnTempo:=$Lon_columnData
+								End if 
+								//}
+								
+								$Txt_buffer:=QR_Get_column_format($Lon_area; $lon_columnTempo; $Lon_columnType)
 								OB SET:C1220($Obj_caller; \
 									"columnFormat"; $Txt_buffer)
 								
