@@ -26,7 +26,6 @@
 	"4D": {
 		"methods": [
 			"4D_MainProcess",
-			"4D_SET_OBJECT",
 			"COMPILER_4D"
 		]
 	},

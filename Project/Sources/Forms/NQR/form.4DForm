@@ -711,7 +711,7 @@
 					"width": 420,
 					"height": 160,
 					"visibility": "hidden",
-					"dataSourceTypeHint": "undefined",
+					"dataSourceTypeHint": "object",
 					"detailForm": "MESSAGE",
 					"deletableInList": false,
 					"doubleClickInRowAction": "editSubrecord",
@@ -783,10 +783,23 @@
 	},
 	"geometryStamp": 25,
 	"editor": {
-		"activeView": "View 1",
+		"activeView": "alertBox",
 		"defaultView": "View 1",
 		"views": {
-			"View 1": {}
+			"View 1": {
+				"visible": false
+			},
+			"fieldList": {
+				"visible": false,
+				"objects": [
+					"settings.dial"
+				]
+			},
+			"alertBox": {
+				"objects": [
+					"alert.box"
+				]
+			}
 		}
 	}
 }
