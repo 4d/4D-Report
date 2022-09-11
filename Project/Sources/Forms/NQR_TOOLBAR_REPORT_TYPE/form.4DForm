@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"memorizeGeometry": true,
 	"width": 220,
@@ -26,12 +26,12 @@
 					"top": 0,
 					"left": 1,
 					"width": 218,
-					"height": 13,
+					"height": 16,
 					"stroke": "#919191",
 					"textAlign": "center",
-					"fontFamily": "System Font",
-					"fontSize": 11,
-					"text": ":xliff:toolbar_reportType"
+					"text": ":xliff:toolbar_reportType",
+					"fontTheme": "normal",
+					"fontSize": 11
 				},
 				"matrix": {
 					"type": "picture",
@@ -48,8 +48,6 @@
 					"left": 0,
 					"width": 110,
 					"height": 57,
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_list",
 					"icon": "/RESOURCES/Images/tbList.png",
 					"iconFrames": 4,
@@ -57,7 +55,8 @@
 					"method": "ObjectMethods/list.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"fontSize": 12
 				},
 				"cross": {
 					"type": "button",
@@ -65,8 +64,6 @@
 					"left": 110,
 					"width": 110,
 					"height": 57,
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_crossTable",
 					"icon": "/RESOURCES/Images/tbCross.png",
 					"iconFrames": 4,
@@ -74,7 +71,8 @@
 					"method": "ObjectMethods/cross.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"fontSize": 12
 				},
 				"selection": {
 					"type": "rectangle",
@@ -85,27 +83,20 @@
 					"fill": "transparent",
 					"stroke": "#BADDF6",
 					"strokeWidth": 3
-				},
-				"automatic_font": {
-					"type": "input",
-					"top": 107,
-					"left": 70,
-					"width": 150,
-					"height": 16,
-					"visibility": "hidden",
-					"stroke": "#FF6600",
-					"fill": "transparent",
-					"borderStyle": "dotted",
-					"enterable": false,
-					"hideFocusRing": true,
-					"dragging": "none",
-					"dropping": "none",
-					"method": "ObjectMethods/automatic_font.4dm",
-					"events": [
-						"onLoad"
-					]
 				}
 			}
 		}
-	]
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"geometryStamp": 1,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
 }

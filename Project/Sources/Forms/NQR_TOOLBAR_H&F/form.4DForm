@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"width": 136,
 	"height": 78,
@@ -48,12 +48,12 @@
 					"top": 0,
 					"left": 1,
 					"width": 134,
-					"height": 13,
+					"height": 16,
 					"stroke": "#919191",
 					"textAlign": "center",
-					"fontFamily": "System Font",
-					"fontSize": 11,
-					"text": ":xliff:toolbar_header&footer"
+					"text": ":xliff:toolbar_header&footer",
+					"fontTheme": "normal",
+					"fontSize": 11
 				},
 				"footer": {
 					"type": "button",
@@ -61,8 +61,6 @@
 					"left": 15,
 					"width": 109,
 					"height": 17,
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_footer",
 					"icon": "/RESOURCES/Images/tbFooter.png",
 					"iconFrames": 4,
@@ -72,7 +70,8 @@
 					"method": "ObjectMethods/footer.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"fontSize": 12
 				},
 				"header": {
 					"type": "button",
@@ -80,8 +79,6 @@
 					"left": 16,
 					"width": 108,
 					"height": 17,
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_header",
 					"icon": "/RESOURCES/Images/tbHeader.png",
 					"iconFrames": 4,
@@ -91,26 +88,8 @@
 					"method": "ObjectMethods/header.4dm",
 					"events": [
 						"onClick"
-					]
-				},
-				"automatic_font": {
-					"type": "input",
-					"top": 114,
-					"left": 16,
-					"width": 150,
-					"height": 16,
-					"visibility": "hidden",
-					"stroke": "#FF6600",
-					"fill": "transparent",
-					"borderStyle": "dotted",
-					"enterable": false,
-					"hideFocusRing": true,
-					"dragging": "none",
-					"dropping": "none",
-					"method": "ObjectMethods/automatic_font.4dm",
-					"events": [
-						"onLoad"
-					]
+					],
+					"fontSize": 12
 				},
 				"Text": {
 					"type": "text",
@@ -125,5 +104,10 @@
 				}
 			}
 		}
-	]
+	],
+	"geometryStamp": 1,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }

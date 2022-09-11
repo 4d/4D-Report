@@ -8,13 +8,6 @@
 // Compiler directives
 // ----------------------------------------------------
 // Declarations
-C_OBJECT:C1216(<>report_params)
-C_BOOLEAN:C305(<>Boo_debug)
-
-If (False:C215)
-	ARRAY TEXT:C222(<>tTxt_nqr_data_styled; 0x0000)
-	ARRAY TEXT:C222(<>tTxt_nqr_data_tag; 0x0000)
-End if 
 
 // ===============================================
 // DON'T RENAME THESE VARIABLES LINKED TO C++ CODE
@@ -23,6 +16,7 @@ C_LONGINT:C283(Form_C_UseVirtualStructure)
 
 // ===============================================
 C_OBJECT:C1216(ob_dialog; ob_area; object_selection)
+ob_area:=ob_area || New object:C1471
 
 ARRAY LONGINT:C221(tLon_rowHeights; 0)
 
@@ -40,19 +34,20 @@ C_BOOLEAN:C305(<>withFeature110931)  // border managment
 C_BOOLEAN:C305(<>withFeature111172)  // Virtual structure
 <>withFeature111172:=True:C214
 
-
-<>Boo_debug:=Not:C34(Is compiled mode:C492)
-
 //Assertions are enabled in dev mode
-SET ASSERT ENABLED:C1131(<>Boo_debug; *)
+SET ASSERT ENABLED:C1131(Not:C34(Is compiled mode:C492); *)
 
 C_BOOLEAN:C305(<>withFeature111172)  // Virtual structure
 <>withFeature111172:=True:C214
 
 If (<>withFeature111172)
-	boo_useVirtualStructure:=True:C214  //// by default we use the Virtual structure. (Form_C_UseVirtualStructure=1)
+	
+	boo_useVirtualStructure:=True:C214  //// By default we use the Virtual structure. (Form_C_UseVirtualStructure=1)
+	
 Else 
+	
 	boo_useVirtualStructure:=False:C215
+	
 End if 
 
 report_INIT

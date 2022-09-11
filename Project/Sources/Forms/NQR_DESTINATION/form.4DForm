@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"formSizeAnchor": "shadow",
 	"rightMargin": 0,
@@ -122,8 +122,6 @@
 					"width": 59,
 					"height": 66,
 					"visibility": "hidden",
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_destination_4dview",
 					"icon": "/RESOURCES/Images/dest_4D.png",
 					"iconFrames": 4,
@@ -131,7 +129,9 @@
 					"method": "ObjectMethods/4Dview.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"fontFamily": "System Font",
+					"fontSize": 12
 				},
 				"html": {
 					"type": "radio",

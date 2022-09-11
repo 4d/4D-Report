@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"width": 98,
 	"height": 78,
@@ -25,12 +25,12 @@
 					"top": 0,
 					"left": 1,
 					"width": 96,
-					"height": 13,
+					"height": 16,
 					"stroke": "#919191",
 					"textAlign": "center",
-					"fontFamily": "System Font",
-					"fontSize": 11,
-					"text": ":xliff:toolbar_data"
+					"text": ":xliff:toolbar_data",
+					"fontTheme": "normal",
+					"fontSize": 11
 				},
 				"clear": {
 					"type": "button",
@@ -38,8 +38,6 @@
 					"left": 19,
 					"width": 73,
 					"height": 17,
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_clear",
 					"icon": "/RESOURCES/Images/tbclear.png",
 					"iconFrames": 4,
@@ -48,7 +46,8 @@
 					"method": "ObjectMethods/clear.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"fontSize": 12
 				},
 				"reload": {
 					"type": "button",
@@ -56,8 +55,6 @@
 					"left": 19,
 					"width": 73,
 					"height": 17,
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_reload",
 					"icon": "/RESOURCES/Images/tbReload.png",
 					"iconFrames": 4,
@@ -66,28 +63,22 @@
 					"method": "ObjectMethods/reload.4dm",
 					"events": [
 						"onClick"
-					]
-				},
-				"automatic_font": {
-					"type": "input",
-					"top": 112,
-					"left": 11,
-					"width": 150,
-					"height": 16,
-					"visibility": "hidden",
-					"stroke": "#FF6600",
-					"fill": "transparent",
-					"borderStyle": "dotted",
-					"enterable": false,
-					"hideFocusRing": true,
-					"dragging": "none",
-					"dropping": "none",
-					"method": "ObjectMethods/automatic_font.4dm",
-					"events": [
-						"onLoad"
-					]
+					],
+					"fontSize": 12
 				}
 			}
 		}
-	]
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"geometryStamp": 1,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
 }

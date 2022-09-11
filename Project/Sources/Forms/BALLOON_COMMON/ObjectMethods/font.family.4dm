@@ -1,20 +1,20 @@
-  // ----------------------------------------------------
-  // Object method : BALLOON_COMMON.font.family - (4D Report)
-  // ID[F370EEDE38454504A8EB44EFCC0D1056]
-  // Created #18-9-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($Lon_area;$Lon_column;$Lon_formEvent;$Lon_row)
-C_POINTER:C301($Ptr_caller;$Ptr_me)
-C_TEXT:C284($kTxt_key;$Mnu_main;$Txt_action;$Txt_fontName;$Txt_me)
+// ----------------------------------------------------
+// Object method : BALLOON_COMMON.font.family - (4D Report)
+// ID[F370EEDE38454504A8EB44EFCC0D1056]
+// Created #18-9-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Declarations
+C_LONGINT:C283($Lon_area; $Lon_column; $Lon_formEvent; $Lon_row)
+C_POINTER:C301($Ptr_caller; $Ptr_me)
+C_TEXT:C284($kTxt_key; $Mnu_main; $Txt_action; $Txt_fontName; $Txt_me)
 C_OBJECT:C1216($Obj_caller)
 
-  // ----------------------------------------------------
-  // Initialisations
+// ----------------------------------------------------
+// Initialisations
 $Lon_formEvent:=Form event code:C388
 $Txt_me:=OBJECT Get name:C1087(Object current:K67:2)
 $Ptr_me:=OBJECT Get pointer:C1124(Object current:K67:2)
-$Ptr_caller:=OBJECT Get pointer:C1124(Object named:K67:5;"caller")
+$Ptr_caller:=OBJECT Get pointer:C1124(Object named:K67:5; "caller")
 
 $kTxt_key:="fontName"
 
@@ -22,57 +22,57 @@ $Obj_caller:=JSON Parse:C1218($Ptr_caller->)
 
 If (OB Is defined:C1231($Obj_caller))
 	
-	$Lon_area:=report_Get_target ($Obj_caller;->$Lon_column;->$Lon_row)
+	$Lon_area:=report_Get_target($Obj_caller; ->$Lon_column; ->$Lon_row)
 	
-	  // ----------------------------------------------------
+	// ----------------------------------------------------
 	Case of 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		: ($Lon_formEvent=On Clicked:K2:4)
 			
-			$Mnu_main:=mnu_Font   //($Txt_fontName)
+			$Mnu_main:=mnu_Font  //($Txt_fontName)
 			
 			$Txt_action:=Dynamic pop up menu:C1006($Mnu_main)
 			RELEASE MENU:C978($Mnu_main)
 			
 			Case of 
 					
-					  //______________________________________________________
+					//______________________________________________________
 				: (Length:C16($Txt_action)=0)
 					
-					  // nothing selected
+					// nothing selected
 					
-					  //______________________________________________________
+					//______________________________________________________
 				: ($Txt_action="font_picker")
 					
-					GOTO OBJECT:C206(*;"font.picker")
+					GOTO OBJECT:C206(*; "font.picker")
 					OPEN FONT PICKER:C1303(1)
 					
-					  //______________________________________________________
+					//______________________________________________________
 				: ($Txt_action="font_@")
 					
-					$Txt_fontName:=Delete string:C232($Txt_action;1;5)
+					$Txt_fontName:=Delete string:C232($Txt_action; 1; 5)
 					
-					  //update UI
+					//update UI
 					If ($Txt_fontName=".@")
 						
 						$Txt_fontName:=Get localized string:C991("systemFont")
 						
 					End if 
 					
-					(OBJECT Get pointer:C1124(Object named:K67:5;$Txt_me+".label"))->:=$Txt_fontName
-					OBJECT SET FONT:C164(*;"font.picker";$Txt_fontName)
+					(OBJECT Get pointer:C1124(Object named:K67:5; $Txt_me+".label"))->:=$Txt_fontName
+					OBJECT SET FONT:C164(*; "font.picker"; $Txt_fontName)
 					
-					If ($Txt_fontName#OB Get:C1224($Obj_caller;$kTxt_key;Is text:K8:3))
+					If ($Txt_fontName#OB Get:C1224($Obj_caller; $kTxt_key; Is text:K8:3))
 						
-						  //keep value
-						OB SET:C1220($Obj_caller;\
-							$kTxt_key;$Txt_fontName)
+						//keep value
+						OB SET:C1220($Obj_caller; \
+							$kTxt_key; $Txt_fontName)
 						
 						$Ptr_caller->:=JSON Stringify:C1217($Obj_caller)
 						
-						  //update selection
-						QR_SET_TEXT_PROPERTY ($Lon_area;qr font name:K14904:10;$Txt_fontName;$Lon_column;$Lon_row)
+						//update selection
+						QR_SET_TEXT_PROPERTY($Lon_area; qr font name:K14904:10; $Txt_fontName; $Lon_column; $Lon_row)
 						
 						If (QR Get report kind:C755($Lon_area)=qr cross report:K14902:2)
 							
@@ -80,28 +80,31 @@ If (OB Is defined:C1231($Obj_caller))
 								 | ($Lon_column=3)  //apply to line
 								
 								$Lon_column:=$Lon_column+(3-$Lon_column)+(2-$Lon_column)
-								QR_SET_TEXT_PROPERTY ($Lon_area;qr font name:K14904:10;$Txt_fontName;$Lon_column;$Lon_row)
+								QR_SET_TEXT_PROPERTY($Lon_area; qr font name:K14904:10; $Txt_fontName; $Lon_column; $Lon_row)
 								
 							End if 
 						End if 
+						
+						ob_area.modified:=True:C214
+						
 					End if 
 					
-					  //______________________________________________________
+					//______________________________________________________
 				Else 
 					
-					ASSERT:C1129(False:C215;"Unknown menu action ("+$Txt_action+")")
+					ASSERT:C1129(False:C215; "Unknown menu action ("+$Txt_action+")")
 					
-					  //______________________________________________________
+					//______________________________________________________
 			End case 
 			
-			  //______________________________________________________
+			//______________________________________________________
 		Else 
 			
-			ASSERT:C1129(False:C215;"Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
+			ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
 			
-			  //______________________________________________________
+			//______________________________________________________
 	End case 
 End if 
 
-  //Always return to the variable that allow to use the Fonts dialog to keep the sync
-GOTO OBJECT:C206(*;"font.picker")
+//Always return to the variable that allow to use the Fonts dialog to keep the sync
+GOTO OBJECT:C206(*; "font.picker")

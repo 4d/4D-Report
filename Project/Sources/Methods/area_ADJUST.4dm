@@ -1,97 +1,62 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : area_ADJUST
-  // Database: 4D Report
-  // ID[35F464BA350A4BBDBC8ACDFBFEE1FF93]
-  // Created #13-11-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  // updates the area's coordinates & the filling
-  // according to the size of the container subform
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($Lon_;$Lon_bottom;$Lon_height;$Lon_left;$Lon_parameters;$Lon_right)
-C_LONGINT:C283($Lon_rowNumber;$Lon_top;$Lon_width)
-C_TEXT:C284($kTxt_reportObject)
+// ----------------------------------------------------
+// Project method : area_ADJUST
+// Database: 4D Report
+// ID[35F464BA350A4BBDBC8ACDFBFEE1FF93]
+// Created #13-11-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+// Updates the area's coordinates & the filling
+// According to the size of the container subform
+// ----------------------------------------------------
+// Declarations
+var $horizontal; $vertical : Boolean
+var $bottom; $dummy; $height; $left; $right; $rowNumber : Integer
+var $top; $width : Integer
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+// ----------------------------------------------------
+// Initialisations
+OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
+$rowNumber:=LISTBOX Get number of rows:C915(*; Form:C1466.areaObject)
 
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+// ----------------------------------------------------
+// Restore grid
+LISTBOX SET GRID:C841(*; Form:C1466.areaObject; True:C214; True:C214)
+
+// Set the listbox coordinates
+OBJECT SET COORDINATES:C1248(*; Form:C1466.areaObject; 0; 0; $width; $height)
+
+// Calculate the corrected area coordinates with the scrollbar widths
+OBJECT GET SCROLLBAR:C1076(*; Form:C1466.areaObject; $horizontal; $vertical)
+$width:=$width-(LISTBOX Get property:C917(*; Form:C1466.areaObject; lk ver scrollbar width:K53:9)*Num:C11($vertical))
+$height:=$height-(LISTBOX Get property:C917(*; Form:C1466.areaObject; lk hor scrollbar height:K53:7)*Num:C11($horizontal))
+
+If (Num:C11(ob_area.reportType)=qr list report:K14902:1)
 	
-	  //NO PARAMETERS REQUIRED
+	// Right-filler
+	OBJECT GET COORDINATES:C663(*; "head_filler"; $left; $dummy; $dummy; $top)
+	$top:=0  //set $top to 0 to hide the last header
+	OBJECT SET COORDINATES:C1248(*; "right-filler"; $left; $top; $width; $height)
+	OBJECT SET VISIBLE:C603(*; "right-filler"; $left<$width)
 	
-	  //Optional parameters
-	If ($Lon_parameters>=1)
-		
-		  // <NONE>
-		
-	End if 
+	// Place the top-left filler
+	OBJECT GET COORDINATES:C663(*; "head_headers"; $left; $top; $right; $bottom)
+	OBJECT SET COORDINATES:C1248(*; "top-left-filler"; $left; $top; $right-2; $bottom-2)
+	OBJECT SET VISIBLE:C603(*; "top-left-filler"; True:C214)
 	
-	OBJECT GET SUBFORM CONTAINER SIZE:C1148($Lon_width;$Lon_height)
+	// Page break
+	OBJECT GET COORDINATES:C663(*; "page.break"; $left; $dummy; $dummy; $dummy)
+	OBJECT SET COORDINATES:C1248(*; "page.break"; $left; 0; $left; $height)
 	
-	$kTxt_reportObject:=OB Get:C1224(<>report_params;"form-object";Is text:K8:3)
-	
-	$Lon_rowNumber:=LISTBOX Get number of rows:C915(*;$kTxt_reportObject)
+	report_SELECTION("adjust")
 	
 Else 
 	
-	ABORT:C156
+	OBJECT SET VISIBLE:C603(*; "top-left-filler"; False:C215)
+	
+	OBJECT GET COORDINATES:C663(*; "filler"; $left; $dummy; $dummy; $top)
+	$top:=0  // Set $top to 0 to hide the last header
+	OBJECT SET COORDINATES:C1248(*; "right-filler"; $left; $top; $width; $height)
+	OBJECT SET VISIBLE:C603(*; "right-filler"; $left<$width)
 	
 End if 
-
-  // ----------------------------------------------------
-  //restore grid
-LISTBOX SET GRID:C841(*;"nqr";True:C214;True:C214)
-
-  //set the listbox coordinates
-OBJECT SET COORDINATES:C1248(*;$kTxt_reportObject;0;0;$Lon_width;$Lon_height)
-
-  //calculate the corrected area coordinates with the scrollbar widths
-$Lon_width:=$Lon_width-\
-(LISTBOX Get property:C917(*;$kTxt_reportObject;lk ver scrollbar width:K53:9)*LISTBOX Get property:C917(*;$kTxt_reportObject;_o_lk display ver scrollbar:K53:8))
-$Lon_height:=$Lon_height-\
-(LISTBOX Get property:C917(*;$kTxt_reportObject;lk hor scrollbar height:K53:7)*LISTBOX Get property:C917(*;$kTxt_reportObject;_o_lk display hor scrollbar:K53:6))
-
-If (OB Get:C1224(ob_area;"reportType";Is longint:K8:6)=qr list report:K14902:1)
-	
-	  //right-filler
-	OBJECT GET COORDINATES:C663(*;"head_filler";$Lon_left;$Lon_;$Lon_;$Lon_top)
-	$Lon_top:=0  //set $Lon_top to 0 to hide the last header
-	OBJECT SET COORDINATES:C1248(*;"right-filler";$Lon_left;$Lon_top;$Lon_width;$Lon_height)
-	OBJECT SET VISIBLE:C603(*;"right-filler";$Lon_left<$Lon_width)
-	
-	  //Place the top-left filler
-	OBJECT GET COORDINATES:C663(*;"head_headers";$Lon_left;$Lon_top;$Lon_right;$Lon_bottom)
-	OBJECT SET COORDINATES:C1248(*;"top-left-filler";$Lon_left;$Lon_top;$Lon_right-2;$Lon_bottom-2)
-	OBJECT SET VISIBLE:C603(*;"top-left-filler";True:C214)
-	
-	  //no longer necessary with the new property "Hide extra blank rows" [
-	  //LISTBOX GET CELL COORDINATES(*;$kTxt_reportObject;1;$Lon_rowNumber;$Lon_;$Lon_;$Lon_;$Lon_bottom)
-	  //OBJECT SET COORDINATES(*;"bottom-filler";0;$Lon_bottom;$Lon_width;$Lon_height)
-	  //OBJECT SET VISIBLE(*;"bottom-filler";$Lon_bottom<$Lon_height)
-	  //]
-	
-	  //page break
-	OBJECT GET COORDINATES:C663(*;"page.break";$Lon_left;$Lon_;$Lon_;$Lon_)
-	OBJECT SET COORDINATES:C1248(*;"page.break";$Lon_left;0;$Lon_left;$Lon_height)
-	
-	report_SELECTION ("adjust")
-	
-Else 
-	
-	OBJECT SET VISIBLE:C603(*;"top-left-filler";False:C215)
-	
-	OBJECT GET COORDINATES:C663(*;"filler";$Lon_left;$Lon_;$Lon_;$Lon_top)
-	$Lon_top:=0  //set $Lon_top to 0 to hide the last header
-	OBJECT SET COORDINATES:C1248(*;"right-filler";$Lon_left;$Lon_top;$Lon_width;$Lon_height)
-	OBJECT SET VISIBLE:C603(*;"right-filler";$Lon_left<$Lon_width)
-	
-End if 
-
-  // ----------------------------------------------------
-  // Return
-  // <NONE>
-  // ----------------------------------------------------
-  // End

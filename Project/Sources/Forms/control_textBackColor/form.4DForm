@@ -1,4 +1,4 @@
-﻿{
+{
 	"windowSizingX": "fixed",
 	"windowSizingY": "fixed",
 	"formSizeAnchor": "control_area",
@@ -63,7 +63,13 @@
 		"activeView": "View 1",
 		"defaultView": "View 1",
 		"views": {
-			"View 1": {}
+			"View 1": {},
+			"_poster": {
+				"visible": false,
+				"objects": [
+					"Picture4"
+				]
+			}
 		}
 	},
 	"geometryStamp": 19

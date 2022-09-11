@@ -11,11 +11,11 @@
 // Declarations
 C_LONGINT:C283($1)
 
-C_LONGINT:C283($kLon_bestListRowHeight; $kLon_columnNumber; $kLon_defaultColumnWidth; $kLon_rowNumber; $Lon_; $Lon_area)
+C_LONGINT:C283($kLon_columnNumber; $kLon_rowNumber; $Lon_; $Lon_area)
 C_LONGINT:C283($Lon_column; $Lon_i; $Lon_operator; $Lon_parameters; $Lon_qrDestination; $Lon_row)
 C_LONGINT:C283($Lon_width)
 C_POINTER:C301($Ptr_bestObectSize)
-C_TEXT:C284($kTxt_fontFamily; $kTxt_reportObject; $Txt_; $Txt_data; $Txt_format; $Txt_object; $Txt_variableName; $Txt_title)
+C_TEXT:C284($kTxt_fontFamily; $Txt_; $Txt_data; $Txt_format; $Txt_object; $Txt_variableName; $Txt_title)
 C_OBJECT:C1216($Obj_params)
 C_BOOLEAN:C305($Boo_isFormula)
 
@@ -46,10 +46,6 @@ If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 		
 	End if 
 	
-	$kTxt_reportObject:=OB Get:C1224(<>report_params; "form-object"; Is text:K8:3)
-	$kLon_defaultColumnWidth:=OB Get:C1224(<>report_params; "default-column-width"; Is longint:K8:6)  //width for automatic size
-	$kLon_bestListRowHeight:=OB Get:C1224(<>report_params; "default-row-height"; Is longint:K8:6)  //default height (pixels) for rows in the list mode
-	
 	$kTxt_fontFamily:=env_Substitute_font  //default font is the platform and language font
 	
 	//the number of columns & rows are fixed
@@ -68,7 +64,7 @@ End if
 //adjust the number of columns, if any {
 OB SET:C1220($Obj_params; \
 "action"; "adjustColumnNumber"; \
-"object"; $kTxt_reportObject; \
+"object"; Form:C1466.areaObject; \
 "columnsNumber"; $kLon_columnNumber)
 
 report_DISPLAY_COMMON($Obj_params)
@@ -77,21 +73,21 @@ report_DISPLAY_COMMON($Obj_params)
 //initialize columns {
 OB SET:C1220($Obj_params; \
 "action"; "createColumn"; \
-"object"; $kTxt_reportObject; \
+"object"; Form:C1466.areaObject; \
 "columnName"; "QR_column_1"; \
 "headerName"; "QR_header_1"; \
 "columnPosition"; 2; \
-"columnWidth"; $kLon_defaultColumnWidth*2)
+"columnWidth"; Form:C1466.defaultColumWidth*2)
 
 report_DISPLAY_COMMON($Obj_params)
 
 OB SET:C1220($Obj_params; \
 "action"; "createColumn"; \
-"object"; $kTxt_reportObject; \
+"object"; Form:C1466.areaObject; \
 "columnName"; "QR_column_2"; \
 "headerName"; "QR_header_2"; \
 "columnPosition"; 3; \
-"columnWidth"; $kLon_defaultColumnWidth*2)
+"columnWidth"; Form:C1466.defaultColumWidth*2)
 
 report_DISPLAY_COMMON($Obj_params)
 //}
@@ -99,7 +95,7 @@ report_DISPLAY_COMMON($Obj_params)
 //add a filler (resizable), if any {
 OB SET:C1220($Obj_params; \
 "action"; "filler"; \
-"object"; $kTxt_reportObject)
+"object"; Form:C1466.areaObject)
 
 report_DISPLAY_COMMON($Obj_params)
 //}
@@ -107,14 +103,14 @@ report_DISPLAY_COMMON($Obj_params)
 //keep 3 rows {
 OB SET:C1220($Obj_params; \
 "action"; "adjustRowsNumber"; \
-"object"; $kTxt_reportObject; \
+"object"; Form:C1466.areaObject; \
 "rowsNumber"; $kLon_rowNumber)
 
 report_DISPLAY_COMMON($Obj_params)
 //}
 
 //populate
-LISTBOX GET ARRAYS:C832(*; $kTxt_reportObject; $tTxt_columns; $tTxt_headers; $tPtr_columns; $tPtr_headers; $tBoo_visibles; $tPtr_arrays)
+LISTBOX GET ARRAYS:C832(*; Form:C1466.areaObject; $tTxt_columns; $tTxt_headers; $tPtr_columns; $tPtr_headers; $tBoo_visibles; $tPtr_arrays)
 
 $Lon_column:=1
 
@@ -312,25 +308,25 @@ End if
 //set the rows hight {
 OB SET:C1220($Obj_params; \
 "action"; "rowHeight"; \
-"object"; $kTxt_reportObject; \
+"object"; Form:C1466.areaObject; \
 "columnNumber"; $kLon_columnNumber; \
 "rowNumber"; $kLon_rowNumber; \
-"columnWidth"; $kLon_defaultColumnWidth; \
-"rowHeight"; OB Get:C1224(<>report_params; "default-row-height"; Is longint:K8:6))
+"columnWidth"; Form:C1466.defaultColumWidth; \
+"rowHeight"; Form:C1466.defaultRowHeight)
 
 report_DISPLAY_COMMON($Obj_params)
 //}
 
 //geometry {
 //static & locked columns
-LISTBOX SET STATIC COLUMNS:C1153(*; $kTxt_reportObject; 4)
-LISTBOX SET LOCKED COLUMNS:C1151(*; $kTxt_reportObject; 0)
+LISTBOX SET STATIC COLUMNS:C1153(*; Form:C1466.areaObject; 4)
+LISTBOX SET LOCKED COLUMNS:C1151(*; Form:C1466.areaObject; 0)
 
 //headers
 //#ACI0101126 
 //OBJECT SET VISIBLE(*; $tTxt_headers{1}; true)
 OBJECT SET VISIBLE:C603(*; $tTxt_headers{1}; False:C215)
-LISTBOX SET HEADERS HEIGHT:C1143(*; $kTxt_reportObject; 3; lk pixels:K53:22)  //On Mac minimum value seems to be 15px
+LISTBOX SET HEADERS HEIGHT:C1143(*; Form:C1466.areaObject; 3; lk pixels:K53:22)  //On Mac minimum value seems to be 15px
 
 For ($Lon_i; 1; Size of array:C274($tTxt_headers); 1)
 	
@@ -339,11 +335,11 @@ For ($Lon_i; 1; Size of array:C274($tTxt_headers); 1)
 End for 
 
 //hide the scrollbars
-OBJECT SET SCROLLBAR:C843(*; $kTxt_reportObject; 0; 0)
+OBJECT SET SCROLLBAR:C843(*; Form:C1466.areaObject; 0; 0)
 //}
 
 //events
-report_SET_EVENTS($kTxt_reportObject)
+report_SET_EVENTS(Form:C1466.areaObject)
 
 QR GET DESTINATION:C756($Lon_area; $Lon_qrDestination)
 
@@ -366,7 +362,7 @@ If (OB Get:C1224(ob_area; "4d-dialog"; Is boolean:K8:9))  //NQR
 		
 		OB SET:C1220($Obj_params; \
 			"action"; "adjustBalloon"; \
-			"object"; $kTxt_reportObject; \
+			"object"; Form:C1466.areaObject; \
 			"column"; OB Get:C1224(ob_area; "columnIndex"; Is longint:K8:6))
 		
 		report_DISPLAY_COMMON($Obj_params)

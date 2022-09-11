@@ -73,27 +73,7 @@ End if
 // ----------------------------------------------------
 If ($Lon_tableID#0)
 	
-	If (True:C214)  //boo_useVirtualStructure)
-		
-		GET FIELD TITLES:C804((Table:C252($Lon_tableID))->; $tTxt_fieldNames; $tLon_fieldIDs)
-		
-	Else 
-		
-		For ($Lon_i; 1; Get last field number:C255($Lon_tableID); 1)
-			
-			If (Is field number valid:C1000($Lon_tableID; $Lon_i))
-				
-				GET FIELD PROPERTIES:C258($Lon_tableID; $Lon_i; $Lon_; $Lon_; $Boo_; $Boo_; $Boo_invisible)
-				
-				If (Not:C34($Boo_invisible))
-					
-					APPEND TO ARRAY:C911($tTxt_fieldNames; Field name:C257($Lon_tableID; $Lon_i))
-					APPEND TO ARRAY:C911($tLon_fieldIDs; $Lon_i)
-					
-				End if 
-			End if 
-		End for 
-	End if 
+	GET FIELD TITLES:C804((Table:C252($Lon_tableID))->; $tTxt_fieldNames; $tLon_fieldIDs)
 	
 	For ($Lon_i; 1; Size of array:C274($tLon_fieldIDs); 1)
 		
@@ -126,27 +106,7 @@ If ($Lon_tableID#0)
 					If ($Lon_relationTableID#0)\
 						 & ($Lon_relationFieldID#0)
 						
-						If (True:C214)  //boo_useVirtualStructure)
-							
-							GET FIELD TITLES:C804((Table:C252($Lon_relationTableID))->; $tTxt_relationFieldNames; $tLon_relationFieldIDs)
-							
-						Else 
-							
-							For ($Lon_j; 1; Get last field number:C255($Lon_relationTableID); 1)
-								
-								If (Is field number valid:C1000($Lon_relationTableID; $Lon_j))
-									
-									GET FIELD PROPERTIES:C258($Lon_relationTableID; $Lon_j; $Lon_; $Lon_; $Boo_; $Boo_; $Boo_invisible)
-									
-									If (Not:C34($Boo_invisible))
-										
-										APPEND TO ARRAY:C911($tTxt_relationFieldNames; Field name:C257($Lon_relationTableID; $Lon_j))
-										APPEND TO ARRAY:C911($tLon_relationFieldIDs; $Lon_j)
-										
-									End if 
-								End if 
-							End for 
-						End if 
+						GET FIELD TITLES:C804((Table:C252($Lon_relationTableID))->; $tTxt_relationFieldNames; $tLon_relationFieldIDs)
 						
 						$Lst_child:=New list:C375
 						
@@ -196,6 +156,14 @@ If ($Lon_tableID#0)
 						Else 
 							
 							CLEAR LIST:C377($Lst_child)
+							//ACI0103108
+							$Lon_ID:=$Lon_ID+1
+							APPEND TO LIST:C376($Lst_list; $tTxt_fieldNames{$Lon_i}; $Lon_ID)
+							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "tableId"; $Lon_tableID)
+							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldId"; $Lon_fieldID)
+							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldType"; $Lon_fieldType)
+							$Pic_buffer:=db_Get_field_icon($Lon_fieldType)
+							SET LIST ITEM ICON:C950($Lst_list; 0; $Pic_buffer)
 							
 						End if 
 						

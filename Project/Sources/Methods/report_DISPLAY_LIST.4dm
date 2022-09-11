@@ -12,12 +12,12 @@
 C_LONGINT:C283($1)
 
 C_BOOLEAN:C305($Boo_isFormula)
-C_LONGINT:C283($kLon_bestListRowHeight; $kLon_defaultColumnWidth; $kLon_headerBackColor; $kLon_headerHeight; $kLon_headerStrokeColor; $Lon_area; $Lon_bottom)
+C_LONGINT:C283($Lon_area; $Lon_bottom)
 C_LONGINT:C283($Lon_columnType; $Lon_height; $Lon_hidden; $Lon_i; $Lon_j; $Lon_left)
 C_LONGINT:C283($Lon_operator; $Lon_parameters; $Lon_qrColumnNumber; $Lon_qrDestination; $Lon_repeated; $Lon_right)
 C_LONGINT:C283($Lon_row; $Lon_rowNumber; $Lon_sortNumber; $Lon_top; $Lon_width; $kLon_headerColor)
 C_POINTER:C301($Ptr_bestObectSize; $Ptr_column)
-C_TEXT:C284($kTxt_fontFamily; $kTxt_reportObject; $Txt_buffer; $Txt_column; $Txt_data; $Txt_format)
+C_TEXT:C284($kTxt_fontFamily; $Txt_buffer; $Txt_column; $Txt_data; $Txt_format)
 C_TEXT:C284($Txt_header; $Txt_object; $Txt_title; $Txt_type; $Txt_variableName)
 C_OBJECT:C1216($Obj_params)
 
@@ -50,12 +50,6 @@ If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 	
 	$Lon_row:=3  //minimum number of rows
 	
-	$kTxt_reportObject:=OB Get:C1224(<>report_params; "form-object"; Is text:K8:3)
-	$kLon_defaultColumnWidth:=OB Get:C1224(<>report_params; "default-column-width"; Is longint:K8:6)  //width for automatic size
-	$kLon_bestListRowHeight:=OB Get:C1224(<>report_params; "default-row-height"; Is longint:K8:6)  //default height (pixels) for rows in the list mode
-	$kLon_headerHeight:=OB Get:C1224(<>report_params; "header-height"; Is longint:K8:6)
-	$kLon_headerBackColor:=OB Get:C1224(<>report_params; "header-background-color"; Is longint:K8:6)
-	$kLon_headerStrokeColor:=<>report_params.headerFontColor
 	$kTxt_fontFamily:=env_Substitute_font  //default font is the platform and language font
 	
 	$Ptr_bestObectSize:=OBJECT Get pointer:C1124(Object named:K67:5; "bestobjectsize")
@@ -72,7 +66,7 @@ End if
 //adjust the number of columns, if any {
 OB SET:C1220($Obj_params; \
 "action"; "adjustColumnNumber"; \
-"object"; $kTxt_reportObject; \
+"object"; Form:C1466.areaObject; \
 "columnsNumber"; $Lon_qrColumnNumber+1)
 
 report_DISPLAY_COMMON($Obj_params)
@@ -86,7 +80,7 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	
 	OB SET:C1220($Obj_params; \
 		"action"; "createColumn"; \
-		"object"; $kTxt_reportObject; \
+		"object"; Form:C1466.areaObject; \
 		"columnName"; $Txt_column; \
 		"headerName"; $Txt_header; \
 		"columnPosition"; $Lon_i+1)
@@ -107,7 +101,7 @@ End for
 //add a filler (resizable) column, if any
 OB SET:C1220($Obj_params; \
 "action"; "filler"; \
-"object"; $kTxt_reportObject)
+"object"; Form:C1466.areaObject)
 
 report_DISPLAY_COMMON($Obj_params)
 
@@ -123,35 +117,35 @@ $Lon_rowNumber:=$Lon_row+$Lon_sortNumber
 //create rows {
 OB SET:C1220($Obj_params; \
 "action"; "adjustRowsNumber"; \
-"object"; $kTxt_reportObject; \
+"object"; Form:C1466.areaObject; \
 "rowsNumber"; $Lon_rowNumber)
 
 report_DISPLAY_COMMON($Obj_params)
 //}
 
-LISTBOX GET ARRAYS:C832(*; $kTxt_reportObject; $tTxt_columns; $tTxt_headers; $tPtr_columns; $tPtr_headers; $tBoo_visibles; $tPtr_arrays)
+LISTBOX GET ARRAYS:C832(*; Form:C1466.areaObject; $tTxt_columns; $tTxt_headers; $tPtr_columns; $tPtr_headers; $tBoo_visibles; $tPtr_arrays)
 
 //geometry {
 //default column width
-LISTBOX SET COLUMN WIDTH:C833(*; $kTxt_reportObject; $kLon_defaultColumnWidth; 0; MAXTEXTLENBEFOREV11:K35:3)
+LISTBOX SET COLUMN WIDTH:C833(*; Form:C1466.areaObject; Form:C1466.defaultColumWidth; 0; MAXTEXTLENBEFOREV11:K35:3)
 
 //static & locked columns
-LISTBOX SET STATIC COLUMNS:C1153(*; $kTxt_reportObject; 1)
-LISTBOX SET LOCKED COLUMNS:C1151(*; $kTxt_reportObject; 1)
+LISTBOX SET STATIC COLUMNS:C1153(*; Form:C1466.areaObject; 1)
+LISTBOX SET LOCKED COLUMNS:C1151(*; Form:C1466.areaObject; 1)
 
 //headers
 OBJECT SET VISIBLE:C603(*; $tTxt_headers{1}; True:C214)
-LISTBOX SET HEADERS HEIGHT:C1143(*; $kTxt_reportObject; $kLon_headerHeight)
+LISTBOX SET HEADERS HEIGHT:C1143(*; Form:C1466.areaObject; Form:C1466.headerHeight)
 
 //default row height
-LISTBOX SET ROWS HEIGHT:C835(*; $kTxt_reportObject; $kLon_bestListRowHeight)
+LISTBOX SET ROWS HEIGHT:C835(*; Form:C1466.areaObject; Form:C1466.defaultRowHeight)
 
 //automatic scrollbar
-OBJECT SET SCROLLBAR:C843(*; $kTxt_reportObject; 2; 2)
+OBJECT SET SCROLLBAR:C843(*; Form:C1466.areaObject; 2; 2)
 //}
 
 //events
-report_SET_EVENTS($kTxt_reportObject)
+report_SET_EVENTS(Form:C1466.areaObject)
 
 
 
@@ -164,14 +158,14 @@ ST SET ATTRIBUTES:C1093($Ptr_column->{1}; \
 ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955(QR Get info row:C769($Lon_area; qr title:K14906:1); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 
 LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 1; Choose:C955(QR Get info row:C769($Lon_area; qr title:K14906:1); lk inherited:K53:26; 0x007F7F7F); lk font color:K53:24)
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 1; $kLon_headerBackColor; lk background color:K53:25)
+LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 1; Form:C1466.headerBackgroundColor; lk background color:K53:25)
 
 $Ptr_column->{2}:=Get localized string:C991("head_details")
 ST SET ATTRIBUTES:C1093($Ptr_column->{2}; \
 ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955(QR Get info row:C769($Lon_area; qr detail:K14906:2); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 
 LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2; Choose:C955(QR Get info row:C769($Lon_area; qr detail:K14906:2); lk inherited:K53:26; 0x007F7F7F); lk font color:K53:24)
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2; $kLon_headerBackColor; lk background color:K53:25)
+LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2; Form:C1466.headerBackgroundColor; lk background color:K53:25)
 
 //the sort order is inverted !
 If ($Lon_sortNumber>0)
@@ -196,7 +190,7 @@ If ($Lon_sortNumber>0)
 			ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955($Lon_hidden=0; Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 		
 		LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2+$Lon_i; Choose:C955($Lon_hidden=0; lk inherited:K53:26; 0x007F7F7F); lk font color:K53:24)
-		LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2+$Lon_i; $kLon_headerBackColor; lk background color:K53:25)
+		LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2+$Lon_i; Form:C1466.headerBackgroundColor; lk background color:K53:25)
 		
 		$Lon_row:=$Lon_row+1
 		
@@ -209,7 +203,7 @@ ST SET ATTRIBUTES:C1093($Ptr_column->{$Lon_rowNumber}; ST Start text:K78:15; ST 
 Choose:C955(QR Get info row:C769($Lon_area; qr grand total:K14906:3); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 
 //1st column unvisible lines
-OBJECT SET RGB COLORS:C628(*; $Txt_column; Foreground color:K23:1; $kLon_headerBackColor)
+OBJECT SET RGB COLORS:C628(*; $Txt_column; Foreground color:K23:1; Form:C1466.headerBackgroundColor)
 
 //set header column width
 OB SET:C1220($Obj_params; \
@@ -270,7 +264,7 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	OBJECT SET RGB COLORS:C628(*; $Txt_header; Choose:C955($Lon_hidden; Foreground color:K23:1; 0x007F7F7F); Background color:K23:2)  // /!\ background color is ignored
 	
 	
-	LISTBOX SET COLUMN WIDTH:C833(*; $Txt_column; Choose:C955($Lon_width=-1; $kLon_defaultColumnWidth; $Lon_width))
+	LISTBOX SET COLUMN WIDTH:C833(*; $Txt_column; Choose:C955($Lon_width=-1; Form:C1466.defaultColumWidth; $Lon_width))
 	
 	
 	LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 0; $kLon_headerColor; lk background color:K53:25)
@@ -302,11 +296,11 @@ End for
 //set the rows hight {
 OB SET:C1220($Obj_params; \
 "action"; "rowHeight"; \
-"object"; $kTxt_reportObject; \
+"object"; Form:C1466.areaObject; \
 "columnNumber"; $Lon_qrColumnNumber; \
 "rowNumber"; $Lon_rowNumber; \
-"columnWidth"; $kLon_defaultColumnWidth; \
-"rowHeight"; OB Get:C1224(<>report_params; "default-row-height"; Is longint:K8:6))
+"columnWidth"; Form:C1466.defaultColumWidth; \
+"rowHeight"; Form:C1466.defaultRowHeight)
 
 report_DISPLAY_COMMON($Obj_params)
 //}
@@ -333,7 +327,7 @@ If ($Lon_qrDestination=qr printer:K14903:1)
 	OB SET:C1220(ob_area; \
 		"pageBreak"; $Lon_width)
 	
-	OBJECT GET COORDINATES:C663(*; $kTxt_reportObject; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+	OBJECT GET COORDINATES:C663(*; Form:C1466.areaObject; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
 	$Lon_width:=$Lon_width+LISTBOX Get column width:C834(*; "headers")
 	OBJECT SET COORDINATES:C1248(*; "page.break"; $Lon_width; $Lon_top; $Lon_width; $Lon_bottom)
 	
@@ -360,7 +354,7 @@ If (OB Get:C1224(ob_area; "4d-dialog"; Is boolean:K8:9))  //NQR
 			
 			OB SET:C1220($Obj_params; \
 				"action"; "adjustBalloon"; \
-				"object"; $kTxt_reportObject; \
+				"object"; Form:C1466.areaObject; \
 				"column"; OB Get:C1224(ob_area; "columnIndex"; Is longint:K8:6))
 			
 			report_DISPLAY_COMMON($Obj_params)

@@ -1,34 +1,34 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : NQR_SET_SELECTION
-  // Database: 4D Report
-  // ID[4F2C81B5B4674AB9959BA0C2BEDF546E]
-  // Created #9-12-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
+// ----------------------------------------------------
+// Project method : NQR_SET_SELECTION
+// Database: 4D Report
+// ID[4F2C81B5B4674AB9959BA0C2BEDF546E]
+// Created #9-12-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 C_TEXT:C284($1)
 
 C_LONGINT:C283($Lon_parameters)
 C_TEXT:C284($Txt_action)
 
 If (False:C215)
-	C_TEXT:C284(NQR_SET_SELECTION ;$1)
+	C_TEXT:C284(NQR_SET_SELECTION; $1)
 End if 
 
-  // ----------------------------------------------------
-  // Initialisations
+// ----------------------------------------------------
+// Initialisations
 $Lon_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	
-	  //NO PARAMETERS REQUIRED
+	//NO PARAMETERS REQUIRED
 	
 	$Txt_action:="none"
 	
-	  //Optional parameters
+	//Optional parameters
 	If ($Lon_parameters>=1)
 		
 		$Txt_action:=$1
@@ -41,26 +41,26 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 Case of 
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: ($Txt_action="none")
 		
-		QR SET SELECTION:C794(QR_area;-1;-1;-1;-1)
-		EXECUTE METHOD IN SUBFORM:C1085("myQR";"report_SELECTION";*;"select_none")
+		QR SET SELECTION:C794(QR_area; -1; -1; -1; -1)
+		EXECUTE METHOD IN SUBFORM:C1085("myQR"; Formula:C1597(report_SELECTION).source; *; "select_none")
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: (False:C215)
 		
-		  //______________________________________________________
+		//______________________________________________________
 	Else 
 		
-		  //______________________________________________________
+		//______________________________________________________
 End case 
 
-  // ----------------------------------------------------
-  // Return
-  // <NONE>
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// Return
+// <NONE>
+// ----------------------------------------------------
+// End

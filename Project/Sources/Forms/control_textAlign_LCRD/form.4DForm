@@ -57,5 +57,18 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 4
+	"geometryStamp": 4,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"_poster": {
+				"visible": false,
+				"objects": [
+					"_poster"
+				]
+			}
+		}
+	}
 }

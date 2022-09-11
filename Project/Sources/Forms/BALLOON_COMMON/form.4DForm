@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"windowTitle": "_menu",
 	"width": 280,
@@ -464,7 +464,8 @@
 					"events": [
 						"onDataChange"
 					],
-					"dataSource": ""
+					"dataSource": "",
+					"method": "ObjectMethods/borders.controls.4dm"
 				},
 				"font.back1": {
 					"type": "rectangle",

@@ -88,7 +88,7 @@ Case of
 				QR SET TOTALS SPACING:C761($Lon_area; $lon_subtotalNumber; $lon_value)
 				(OBJECT Get pointer:C1124(Object named:K67:5; "totalSpacing.unit.label"))->:=$txt_unit
 				
-				
+				ob_area.modified:=True:C214
 				
 			End if 
 		End if 

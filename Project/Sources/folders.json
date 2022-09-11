@@ -1,4 +1,4 @@
-﻿{
+{
 	"_": {
 		"methods": [
 			"_colorToStyled",
@@ -8,6 +8,7 @@
 			"test__"
 		]
 	},
+	"(unitTest)": {},
 	"00_DEV": {
 		"groups": [
 			"STRUCTURE",
@@ -399,7 +400,6 @@
 			"NQR_TOOLBAR_REPORT_TYPE"
 		]
 	},
-	"unitTest": {},
 	"widgets": {
 		"groups": [
 			"CONTROL",
@@ -413,5 +413,9 @@
 			"xmlColoredSyntax"
 		]
 	},
-	"trash": {}
+	"trash": {
+		"groups": [
+			"(unitTest)"
+		]
+	}
 }

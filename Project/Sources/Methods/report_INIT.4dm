@@ -6,136 +6,109 @@
 // Created #24-3-2014 by Vincent de Lachaux
 // ----------------------------------------------------
 // Description:
-// initialisation of the 'nqr' module
+// Initialisation of the 'nqr' module
 // ----------------------------------------------------
 // Declarations
-
-C_LONGINT:C283($Lon_parameters; $lon_colorFront; $lon_colorBack)
-C_TEXT:C284($Txt_buffer; $Txt_fontFamily; $Txt_label; $Txt_template)
-C_BOOLEAN:C305($boo_IsWindows)
+var $fontFamily; $t; $template : Text
+var $backgroundColor; $foregroundColor : Integer
 
 // ----------------------------------------------------
-// Initialisations
-$Lon_parameters:=Count parameters:C259
-$boo_IsWindows:=Is Windows:C1573
+// Mark:Initialisations
 
-If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
-	
-	//NO PARAMETERS REQUIRED
-	//$Txt_fontFamily:="'"+OBJECT Get font(*;"default_font")+"'"
-	$Txt_fontFamily:=Choose:C955($boo_IsWindows; "Segoe UI"; "Lucida Grande")
-	
-Else 
-	
-	ABORT:C156
-	
-End if 
+Form:C1466.areaObject:="nqr"
+Form:C1466.debug:=Not:C34(Is compiled mode:C492)
+Form:C1466.headerHeight:=30
+Form:C1466.headerButtonOffset:=8  // Margin for the shortcut button in the header
+Form:C1466.headerButtonWidth:=23  // Width of the shortcut button in the header
+Form:C1466.addSensitive:=15  // 1/2 width of the sensitive area to display the Add button
+Form:C1466.defaultColumWidth:=128  // Width for automatic size
+Form:C1466.defaultRowHeight:=30
+Form:C1466.selectedBackgroundColor:=Highlight menu background color:K23:7
+Form:C1466.selectedForegroundColor:=Highlight text color:K23:6
+
+OBJECT GET RGB COLORS:C1074(*; "headerBackgroundFiller"; $foregroundColor; $backgroundColor)
+Form:C1466.headerBackgroundColor:=$backgroundColor
+
+Form:C1466.timerEvent:=0
 
 // ----------------------------------------------------
-//Load structure definition and virtual structure
-
+// Mark:Load structure definition and virtual structure
 db_INIT_STRUCTURE
 
-OBJECT GET RGB COLORS:C1074(*; "headerBackgroundFiller"; $lon_colorFront; $lon_colorBack)
+// Mark:Labels for automatic calculations
+$template:="<span style=\"font-family:'"
+$template+=Choose:C955(Is Windows:C1573; "Segoe UI"; "Lucida Grande")
+$template+="';font-size:{size};font-weight:{weight};font-style:normal;text-decoration:none;color:{color}\">{value} </span>"
 
-OB SET:C1220(<>report_params; \
-"form-object"; "nqr"; \
-"header-height"; 30; \
-"header-button-offset"; 8; \
-"header-button-width"; 23; \
-"locked-columns"; 1; \
-"header-background-color"; $lon_colorBack; \
-"add-sensitive"; 15; \
-"default-column-width"; 128; \
-"default-row-height"; 30; \
-"selected-background-color"; Highlight menu background color:K23:7; \
-"selected-foreground-color"; Highlight text color:K23:6\
-)
-
-//======================================================
-//                       DEV FLAGS
-//======================================================
-<>Boo_debug:=Not:C34(Is compiled mode:C492)
-
-//======================================================
-//         Labels for automatic calculations
-//======================================================
-ARRAY TEXT:C222(<>tTxt_nqr_data_styled; 5)
-
-$Txt_template:="<span style=\"font-family:'"+$Txt_fontFamily+"';font-size:{size};font-weight:{bold};font-style:normal;text-decoration:none;color:{color}\">{value} </span>"
+Form:C1466.dataStyled:=New collection:C1472
 
 //------------------------- SUM -------------------------
-$Txt_buffer:=Replace string:C233($Txt_template; "{size}"; Choose:C955($boo_IsWindows; "16"; "18"))
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{bold}"; "normal")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{color}"; "#FF0000")  //red
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{value}"; Char:C90(0x2211))
+$t:=Replace string:C233($template; "{size}"; Choose:C955(Is Windows:C1573; "16"; "18"))
+$t:=Replace string:C233($t; "{weight}"; "normal")
+$t:=Replace string:C233($t; "{color}"; "red")
+$t:=Replace string:C233($t; "{value}"; Char:C90(0x2211))
 
-$Txt_label:=Get localized string:C991("nqr_sum")
-
-<>tTxt_nqr_data_styled{0}:=$Txt_buffer  //+$Txt_label+"\r"
+Form:C1466.dataStyled.push($t)
 
 //---------------------- AVERAGE ----------------------
-$Txt_buffer:=Replace string:C233($Txt_template; "{size}"; "18")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{bold}"; "normal")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{color}"; "#0000FF")  //blue
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{value}"; "n"+Char:C90(0x0305))
+$t:=Replace string:C233($template; "{size}"; "18")
+$t:=Replace string:C233($t; "{weight}"; "normal")
+$t:=Replace string:C233($t; "{color}"; "blue")
+$t:=Replace string:C233($t; "{value}"; "n"+Char:C90(0x0305))
 
-$Txt_label:=Get localized string:C991("nqr_average")
-
-<>tTxt_nqr_data_styled{1}:=$Txt_buffer  //+$Txt_label+"\r"
+Form:C1466.dataStyled.push($t)
 
 //------------------------ MIN ------------------------
-$Txt_buffer:=Replace string:C233($Txt_template; "{size}"; "18")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{bold}"; "bold")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{color}"; "#FFA500")  //orange
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{value}"; "&lt;")
+$t:=Replace string:C233($template; "{size}"; "18")
+$t:=Replace string:C233($t; "{weight}"; "bold")
+$t:=Replace string:C233($t; "{color}"; "orange")
+$t:=Replace string:C233($t; "{value}"; "&lt;")
 
-$Txt_label:=Get localized string:C991("nqr_min")
-
-<>tTxt_nqr_data_styled{2}:=$Txt_buffer  //+$Txt_label+"\r"
+Form:C1466.dataStyled.push($t)
 
 //------------------------ MAX ------------------------
-$Txt_buffer:=Replace string:C233($Txt_template; "{size}"; "18")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{bold}"; "bold")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{color}"; "#FFA500")  //orange
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{value}"; "&gt;")
+$t:=Replace string:C233($template; "{size}"; "18")
+$t:=Replace string:C233($t; "{weight}"; "bold")
+$t:=Replace string:C233($t; "{color}"; "orange")
+$t:=Replace string:C233($t; "{value}"; "&gt;")
 
-$Txt_label:=Get localized string:C991("nqr_max")
-
-<>tTxt_nqr_data_styled{3}:=$Txt_buffer  //+$Txt_label+"\r"
+Form:C1466.dataStyled.push($t)
 
 //------------------------ COUNT ------------------------
-$Txt_buffer:=Replace string:C233($Txt_template; "{size}"; Choose:C955($boo_IsWindows; "16"; "18"))
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{bold}"; "bold")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{color}"; "#0000FF")  //blue
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{value}"; "N")
+$t:=Replace string:C233($template; "{size}"; Choose:C955(Is Windows:C1573; "16"; "18"))
+$t:=Replace string:C233($t; "{weight}"; "bold")
+$t:=Replace string:C233($t; "{color}"; "blue")
+$t:=Replace string:C233($t; "{value}"; "N")
 
-$Txt_label:=Get localized string:C991("nqr_count")
-
-<>tTxt_nqr_data_styled{4}:=$Txt_buffer  //+$Txt_label+"\r"
+Form:C1466.dataStyled.push($t)
 
 //----------------- STANDARD DEVIATION ------------------
-$Txt_buffer:=Replace string:C233($Txt_template; "{size}"; "18")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{bold}"; "normal")
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{color}"; "#0000FF")  //blue
-$Txt_buffer:=Replace string:C233($Txt_buffer; "{value}"; Char:C90(0x03C3))
+$t:=Replace string:C233($template; "{size}"; "18")
+$t:=Replace string:C233($t; "{weight}"; "normal")
+$t:=Replace string:C233($t; "{color}"; "red")
+$t:=Replace string:C233($t; "{value}"; Char:C90(0x03C3))
 
-$Txt_label:=Get localized string:C991("nqr_standard_deviation")
+Form:C1466.dataStyled.push($t)
 
-<>tTxt_nqr_data_styled{5}:=$Txt_buffer  //+$Txt_label+"\r"
+// Mark:Tags for automatic calculations
+Form:C1466.dataTags:=New collection:C1472
 
-//======================================================
-//           Tags for automatic calculations
-//======================================================
-ARRAY TEXT:C222(<>tTxt_nqr_data_tag; 5)
-
-<>tTxt_nqr_data_tag{0}:="##S"  //\r"
-<>tTxt_nqr_data_tag{1}:="##A"  //\r"
-<>tTxt_nqr_data_tag{2}:="##N"  //\r"
-<>tTxt_nqr_data_tag{3}:="##X"  //\r"
-<>tTxt_nqr_data_tag{4}:="##C"  //\r"
-<>tTxt_nqr_data_tag{5}:="##D"  //\r"
+Form:C1466.dataTags.push("##S")
+Form:C1466.dataTags.push("##A")
+Form:C1466.dataTags.push("##N")
+Form:C1466.dataTags.push("##X")
+Form:C1466.dataTags.push("##C")
+Form:C1466.dataTags.push("##D")
 
 
-// ----------------------------------------------------
-// End
+// Mark:Labels for automatic calculations
+Form:C1466.dataLabels:=New collection:C1472
+
+$template:="<span style='font-weight: normal;text-decoration:none'> </span>"
+
+Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_sum")+"\r")
+Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_average")+"\r")
+Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_min")+"\r")
+Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_max")+"\r")
+Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_count")+"\r")
+Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_standard_deviation")+"\r")

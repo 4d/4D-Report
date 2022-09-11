@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"width": 200,
 	"height": 78,
@@ -21,36 +21,26 @@
 		null,
 		{
 			"objects": {
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 200,
+					"height": 78,
+					"fill": "#ffb6c1",
+					"stroke": "#ffb6c1"
+				},
 				"title": {
 					"type": "text",
 					"top": 0,
 					"left": 1,
 					"width": 115,
-					"height": 13,
+					"height": 16,
 					"stroke": "#919191",
 					"textAlign": "center",
-					"fontFamily": "System Font",
-					"fontSize": 11,
-					"text": ":xliff:toolbar_graphicAttributes"
-				},
-				"automatic_font": {
-					"type": "input",
-					"top": 110,
-					"left": -7,
-					"width": 150,
-					"height": 16,
-					"visibility": "hidden",
-					"stroke": "#FF6600",
-					"fill": "transparent",
-					"borderStyle": "dotted",
-					"enterable": false,
-					"hideFocusRing": true,
-					"dragging": "none",
-					"dropping": "none",
-					"method": "ObjectMethods/automatic_font.4dm",
-					"events": [
-						"onLoad"
-					]
+					"text": ":xliff:toolbar_graphicAttributes",
+					"fontTheme": "normal",
+					"fontSize": 11
 				},
 				"tool.selected": {
 					"type": "rectangle",
@@ -69,15 +59,15 @@
 					"left": 2,
 					"width": 59,
 					"height": 51,
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_templates",
 					"icon": "/RESOURCES/Images/tbTemplates.png",
 					"style": "custom",
 					"method": "ObjectMethods/templates.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"fontSize": 12,
+					"stroke": "#ff0000"
 				},
 				"borders": {
 					"type": "button",
@@ -85,22 +75,29 @@
 					"left": 65,
 					"width": 50,
 					"height": 51,
-					"fontFamily": "System Font",
-					"fontSize": 12,
 					"text": ":xliff:toolbar_borders",
 					"icon": "/RESOURCES/Images/tbBorders.png",
 					"style": "custom",
 					"method": "ObjectMethods/borders.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"fontSize": 12,
+					"stroke": "#ff0000"
 				}
 			}
 		}
 	],
-	"geometryStamp": 2,
+	"geometryStamp": 15,
 	"$4d": {
 		"version": "1",
 		"kind": "form"
+	},
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
 	}
 }

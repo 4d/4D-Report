@@ -210,6 +210,7 @@ Case of
 		RELEASE MENU:C978($Mnu_submenu)
 		
 		If (<>withFeature110931)
+			
 			APPEND MENU ITEM:C411($Mnu_main; "-")
 			
 			$Mnu_submenu:=Create menu:C408
@@ -219,10 +220,9 @@ Case of
 			SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; "")
 			RELEASE MENU:C978($Mnu_submenu)
 			
-			
 		End if 
 		
-		If (<>Boo_debug)
+		If (Form:C1466.debug)
 			
 			APPEND MENU ITEM:C411($Mnu_main; "-")
 			

@@ -23,22 +23,22 @@ Case of
 		$Mnu_main:=Create menu:C408
 		
 		APPEND MENU ITEM:C411($Mnu_main; Char:C90(0x2211)+"   "+Get localized string:C991("nqr_sum"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; <>tTxt_nqr_data_tag{0})
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[0])
 		
 		APPEND MENU ITEM:C411($Mnu_main; "n"+Char:C90(0x0305)+"   "+Get localized string:C991("nqr_average"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; <>tTxt_nqr_data_tag{1})
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[1])
 		
 		APPEND MENU ITEM:C411($Mnu_main; "<   "+Get localized string:C991("nqr_min"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; <>tTxt_nqr_data_tag{2})
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[2])
 		
 		APPEND MENU ITEM:C411($Mnu_main; ">   "+Get localized string:C991("nqr_max"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; <>tTxt_nqr_data_tag{3})
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[3])
 		
 		APPEND MENU ITEM:C411($Mnu_main; "N   "+Get localized string:C991("nqr_count"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; <>tTxt_nqr_data_tag{4})
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[4])
 		
 		APPEND MENU ITEM:C411($Mnu_main; Char:C90(0x03C3)+"   "+Get localized string:C991("nqr_standard_deviation"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; <>tTxt_nqr_data_tag{5})
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[5])
 		
 		$Txt_choice:=Dynamic pop up menu:C1006($Mnu_main)
 		RELEASE MENU:C978($Mnu_main)
@@ -48,10 +48,10 @@ Case of
 				//______________________________________________________
 			: (Length:C16($Txt_choice)=0)
 				
-				// nothing selected
+				// Nothing selected
 				
 				//______________________________________________________
-			: ($Txt_choice="##@")  //insert tag
+			: ($Txt_choice="##@")  // Insert tag
 				
 				$Ptr_box:=OBJECT Get pointer:C1124(Object with focus:K67:3)
 				
@@ -64,31 +64,24 @@ Case of
 					
 					If ($Lon_start=$Lon_length)
 						
-						//append
+						// Append
 						$Txt_buffer:=$Txt_buffer+$Txt_choice
 						
 					Else 
 						
-						//insert
+						// Insert
 						$Txt_buffer:=Insert string:C231($Txt_buffer; $Txt_choice; $Lon_start)
 						
 					End if 
 					
 				Else 
 					
-					//replace the selection
+					// Replace the selection
 					$Txt_buffer:=Substring:C12($Txt_buffer; 1; $Lon_start-1)+$Txt_choice+Substring:C12($Txt_buffer; $Lon_stop+1)
 					
 				End if 
 				
 				HIGHLIGHT TEXT:C210($Ptr_box->; $Lon_start+3; $Lon_start+3)
-				
-				//update the edited text
-				//%W-533.3
-				
-				//$Ptr_box->{$Ptr_box->}:=$Txt_buffer
-				
-				//%W+533.3
 				
 				//______________________________________________________
 			Else 

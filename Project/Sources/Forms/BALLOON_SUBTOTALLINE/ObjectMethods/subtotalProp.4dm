@@ -119,6 +119,8 @@ Case of
 						
 				End case   //______________________________________________________
 				
+				ob_area.modified:=True:C214
+				
 			End if 
 			
 		End if 

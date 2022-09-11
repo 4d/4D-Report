@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"width": 500,
 	"height": 400,
@@ -90,6 +90,6 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 28,
+	"geometryStamp": 29,
 	"method": "method.4dm"
 }

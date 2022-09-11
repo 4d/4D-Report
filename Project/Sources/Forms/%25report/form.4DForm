@@ -212,43 +212,6 @@
 						}
 					]
 				},
-				"automatic_font": {
-					"type": "input",
-					"top": 228,
-					"left": 11,
-					"width": 112,
-					"height": 16,
-					"visibility": "hidden",
-					"stroke": "#FF6600",
-					"fill": "transparent",
-					"borderStyle": "dotted",
-					"enterable": false,
-					"hideFocusRing": true,
-					"dragging": "none",
-					"dropping": "none",
-					"method": "ObjectMethods/automatic_font.4dm",
-					"events": [
-						"onLoad"
-					]
-				},
-				"default_font": {
-					"type": "input",
-					"top": 207,
-					"left": 11,
-					"width": 103,
-					"height": 16,
-					"visibility": "hidden",
-					"stroke": "#FF6600",
-					"fill": "transparent",
-					"borderStyle": "dotted",
-					"enterable": false,
-					"hideFocusRing": true,
-					"dragging": "none",
-					"dropping": "none",
-					"events": [
-						"onLoad"
-					]
-				},
 				"_sel": {
 					"type": "picture",
 					"top": 216,
@@ -420,8 +383,8 @@
 					"type": "text",
 					"top": 0,
 					"left": 6,
-					"width": 154,
-					"height": 16,
+					"width": 186,
+					"height": 77,
 					"visibility": "hidden",
 					"sizingX": "grow",
 					"stroke": "#EE0000",
@@ -457,7 +420,7 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 206,
+	"geometryStamp": 214,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
@@ -466,6 +429,7 @@
 			"poster": {
 				"visible": false,
 				"objects": [
+					"poster_title",
 					"poster_picture"
 				]
 			}

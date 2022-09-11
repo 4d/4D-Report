@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"formSizeAnchor": "shadow",
 	"rightMargin": 0,
@@ -52,25 +52,6 @@
 					"sizingY": "grow",
 					"stroke": "#AAAAAA"
 				},
-				"automatic_font": {
-					"type": "input",
-					"top": 358,
-					"left": 12,
-					"width": 150,
-					"height": 16,
-					"visibility": "hidden",
-					"stroke": "#FF6600",
-					"fill": "transparent",
-					"borderStyle": "dotted",
-					"enterable": false,
-					"hideFocusRing": true,
-					"dragging": "none",
-					"dropping": "none",
-					"method": "ObjectMethods/automatic_font.4dm",
-					"events": [
-						"onLoad"
-					]
-				},
 				"shadow": {
 					"type": "picture",
 					"top": 334,
@@ -98,11 +79,11 @@
 					"top": 11,
 					"left": 10,
 					"width": 164,
-					"height": 23,
+					"height": 16,
 					"stroke": "#313131",
-					"fontFamily": "System Font",
-					"fontSize": 20,
-					"text": ":xliff:toolbar_templates"
+					"text": ":xliff:toolbar_templates",
+					"fontTheme": "normal",
+					"fontSize": 20
 				},
 				"close": {
 					"type": "button",
@@ -214,7 +195,7 @@
 			}
 		}
 	],
-	"geometryStamp": 4,
+	"geometryStamp": 9,
 	"$4d": {
 		"version": "1",
 		"kind": "form"

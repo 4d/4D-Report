@@ -162,8 +162,8 @@ Case of
 				QR_SET_TITLE($Lon_area; $Lon_column)
 				
 				//scroll list
-				OBJECT GET SCROLL POSITION:C1114(*; "nqr"; $Lon_row)
-				OBJECT SET SCROLL POSITION:C906(*; "nqr"; $Lon_row; $Lon_column; *)
+				OBJECT GET SCROLL POSITION:C1114(*; Form:C1466.areaObject; $Lon_row)
+				OBJECT SET SCROLL POSITION:C906(*; Form:C1466.areaObject; $Lon_row; $Lon_column; *)
 				
 			End if 
 		End if 
@@ -292,6 +292,8 @@ Case of
 		
 		//______________________________________________________
 End case 
+
+ob_area.modified:=True:C214
 
 If ($Boo_update)
 	

@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"formSizeAnchor": "control_area",
 	"rightMargin": 0,
@@ -43,7 +43,7 @@
 				},
 				"Picture8": {
 					"type": "picture",
-					"top": 52,
+					"top": 0,
 					"left": 1,
 					"width": 248,
 					"height": 32,
@@ -58,5 +58,18 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 1
+	"geometryStamp": 3,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"_poster": {
+				"visible": false,
+				"objects": [
+					"Picture8"
+				]
+			}
+		}
+	}
 }

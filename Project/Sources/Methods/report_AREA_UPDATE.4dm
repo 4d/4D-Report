@@ -16,10 +16,10 @@ C_POINTER:C301($Ptr_timerEvent)
 // Initialisations
 $Lon_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	
 	//NO PARAMETERS REQUIRED
-	$Ptr_timerEvent:=OBJECT Get pointer:C1124(Object named:K67:5;"timerEvent")
+	$Ptr_timerEvent:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
 	
 Else 
 	

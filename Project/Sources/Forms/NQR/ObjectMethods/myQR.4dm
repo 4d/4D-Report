@@ -22,7 +22,9 @@ Case of
 		
 		
 		If (ob_dialog=Null:C1517)
+			
 			ob_dialog:=New object:C1471
+			
 		End if 
 		
 		If ((OB Is defined:C1231(ob_dialog)) & (Undefined:C82(ob_dialog.action)))
@@ -34,6 +36,8 @@ Case of
 		NQR_AREA_HANDLE(ob_dialog)  // probleme de réentrance et de positionnement
 		
 		NQR_TOOLBAR("update")
+		
+		NQR_AREA_HANDLE(New object:C1471("action"; "update"))
 		
 		//______________________________________________________
 	: ($Lon_formEvent=On Load:K2:1)

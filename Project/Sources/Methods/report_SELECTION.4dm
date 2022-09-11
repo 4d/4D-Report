@@ -14,11 +14,11 @@ C_LONGINT:C283($2)
 C_LONGINT:C283($3)
 
 C_BOOLEAN:C305($Boo_display; $Boo_OK)
-C_LONGINT:C283($Lon_; $Lon_area; $Lon_bottom; $Lon_column; $Lon_columnNumber; $Lon_headerHeight)
+C_LONGINT:C283($Lon_; $Lon_area; $Lon_bottom; $Lon_column; $Lon_columnNumber)
 C_LONGINT:C283($Lon_height; $Lon_indx_1; $Lon_indx_2; $Lon_left; $Lon_line; $Lon_lockedColumns)
 C_LONGINT:C283($Lon_lockedRight; $Lon_parameters; $Lon_reportType; $Lon_right; $Lon_rowNumber; $Lon_top)
 C_LONGINT:C283($Lon_width)
-C_TEXT:C284($kTxt_reportObject; $Txt_entrypoint)
+C_TEXT:C284($Txt_entrypoint)
 
 ARRAY BOOLEAN:C223($tBoo_visible; 0)
 ARRAY POINTER:C280($tPtr_columnVars; 0)
@@ -66,9 +66,7 @@ If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 		
 	End if 
 	
-	$kTxt_reportObject:=OB Get:C1224(<>report_params; "form-object"; Is text:K8:3)
-	
-	LISTBOX GET ARRAYS:C832(*; $kTxt_reportObject; \
+	LISTBOX GET ARRAYS:C832(*; Form:C1466.areaObject; \
 		$tTxt_columnNames; \
 		$tTxt_headerNames; \
 		$tPtr_columnVars; \
@@ -76,13 +74,15 @@ If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 		$tBoo_visible; \
 		$tPtr_styles)
 	
-	$Lon_lockedColumns:=LISTBOX Get locked columns:C1152(*; $kTxt_reportObject)
+	$Lon_lockedColumns:=LISTBOX Get locked columns:C1152(*; Form:C1466.areaObject)
 	
 Else 
 	
 	ABORT:C156
 	
 End if 
+
+//LOG EVENT(Into 4D debug message; "4D report - "+Current method name+" "+$Txt_entrypoint)
 
 // ----------------------------------------------------
 Case of 
@@ -195,7 +195,7 @@ Case of
 		OBJECT GET COORDINATES:C663(*; $tTxt_columnNames{$Lon_lockedColumns}; $Lon_; $Lon_; $Lon_left; $Lon_)
 		OBJECT GET COORDINATES:C663(*; $tTxt_headerNames{1}; $Lon_; $Lon_; $Lon_; $Lon_top)
 		OBJECT GET COORDINATES:C663(*; "filler"; $Lon_right; $Lon_; $Lon_; $Lon_)
-		LISTBOX GET CELL COORDINATES:C1330(*; $kTxt_reportObject; 1; LISTBOX Get number of rows:C915(*; $kTxt_reportObject); $Lon_; $Lon_; $Lon_; $Lon_bottom)
+		LISTBOX GET CELL COORDINATES:C1330(*; Form:C1466.areaObject; 1; LISTBOX Get number of rows:C915(*; Form:C1466.areaObject); $Lon_; $Lon_; $Lon_; $Lon_bottom)
 		
 		OB SET:C1220(ob_area; \
 			"selected-column"; -1; \
@@ -229,7 +229,7 @@ Case of
 					"selected-line"; $Lon_indx_1)
 				
 				OBJECT GET COORDINATES:C663(*; $tTxt_columnNames{$Lon_lockedColumns}; $Lon_; $Lon_; $Lon_left; $Lon_)
-				LISTBOX GET CELL COORDINATES:C1330(*; $kTxt_reportObject; 2; $Lon_indx_1; $Lon_; $Lon_top; $Lon_; $Lon_bottom)
+				LISTBOX GET CELL COORDINATES:C1330(*; Form:C1466.areaObject; 2; $Lon_indx_1; $Lon_; $Lon_top; $Lon_; $Lon_bottom)
 				OBJECT GET COORDINATES:C663(*; "filler"; $Lon_right; $Lon_; $Lon_; $Lon_)
 				
 				//…………………………………………………………………………………………
@@ -239,7 +239,7 @@ Case of
 					"selected-column"; $Lon_indx_1; \
 					"selected-line"; $Lon_indx_2)
 				
-				LISTBOX GET CELL COORDINATES:C1330(*; $kTxt_reportObject; $Lon_indx_1; $Lon_indx_2; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+				LISTBOX GET CELL COORDINATES:C1330(*; Form:C1466.areaObject; $Lon_indx_1; $Lon_indx_2; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
 				
 				//…………………………………………………………………………………………
 		End case 
@@ -257,8 +257,7 @@ If ($Txt_entrypoint="select_@")
 		
 		If (OB Get:C1224(ob_area; "reportType"; Is longint:K8:6)=qr list report:K14902:1)
 			
-			$Lon_headerHeight:=OB Get:C1224(<>report_params; "header-height"; Is longint:K8:6)
-			$Lon_top:=Choose:C955($Lon_top<$Lon_headerHeight; $Lon_headerHeight; $Lon_top)
+			$Lon_top:=Choose:C955($Lon_top<Form:C1466.headerHeight; Form:C1466.headerHeight; $Lon_top)
 			
 		End if 
 		
@@ -266,11 +265,11 @@ If ($Txt_entrypoint="select_@")
 		
 		//calculate the corrected area coordinates with the scrollbar widths
 		$Lon_width:=$Lon_width-\
-			(LISTBOX Get property:C917(*; $kTxt_reportObject; lk ver scrollbar width:K53:9)*LISTBOX Get property:C917(*; $kTxt_reportObject; _o_lk display ver scrollbar:K53:8))
+			(LISTBOX Get property:C917(*; Form:C1466.areaObject; lk ver scrollbar width:K53:9)*LISTBOX Get property:C917(*; Form:C1466.areaObject; _o_lk display ver scrollbar:K53:8))
 		$Lon_right:=Choose:C955($Lon_right>$Lon_width; $Lon_width; $Lon_right)
 		
 		$Lon_height:=$Lon_height-\
-			(LISTBOX Get property:C917(*; $kTxt_reportObject; lk hor scrollbar height:K53:7)*LISTBOX Get property:C917(*; $kTxt_reportObject; _o_lk display hor scrollbar:K53:6))
+			(LISTBOX Get property:C917(*; Form:C1466.areaObject; lk hor scrollbar height:K53:7)*LISTBOX Get property:C917(*; Form:C1466.areaObject; _o_lk display hor scrollbar:K53:6))
 		$Lon_bottom:=Choose:C955($Lon_bottom>$Lon_height; $Lon_height+1; $Lon_bottom)
 		
 		$Lon_right:=$Lon_right-1
@@ -290,7 +289,12 @@ End if
 
 If ($Txt_entrypoint#"adjust")  //stop reentrance
 	
-	SET TIMER:C645(-1)
+	var $Ptr_timer : Pointer
+	$Ptr_timer:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
+	If ($Ptr_timer->#0)
+		//LOG EVENT(Into 4D debug message; "4D report - "+Current method name+" "+$Txt_entrypoint)
+		SET TIMER:C645(-1)
+	End if 
 	
 End if 
 

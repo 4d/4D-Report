@@ -67,8 +67,8 @@ If (OB Is defined:C1231($Obj_caller))
 						//ACI0100938
 /*
 If (QR Get report kind($Lon_area)=qr cross report)
-													If ($Lon_column=2)\
-															 | ($Lon_column=3)  //apply to line					
+																			If ($Lon_column=2)\
+																						 | ($Lon_column=3)  //apply to line					
 $Lon_column:=$Lon_column+(3-$Lon_column)+(2-$Lon_column)
 QR_SET_COLUMN_FORMAT($Lon_area; $Lon_column; $Txt_format)
 							
@@ -76,6 +76,8 @@ End if
 End if 
 */
 					End if 
+					
+					ob_area.modified:=True:C214
 					
 					//______________________________________________________
 				Else 

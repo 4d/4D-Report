@@ -52,6 +52,7 @@ Case of
 			
 			QR SET TOTALS SPACING:C761($Lon_area; $lon_subtotalNumber; $Lon_buffer)
 			
+			ob_area.modified:=True:C214
 			
 		End if 
 		

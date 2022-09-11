@@ -11,7 +11,7 @@
 // Declarations
 C_OBJECT:C1216($1)
 
-C_LONGINT:C283($kLon_headerButtonOffset; $kLon_headerButtonWidth; $Lon_bestHeight; $Lon_bestWidth; $Lon_bottom; $Lon_column)
+C_LONGINT:C283($Lon_bestHeight; $Lon_bestWidth; $Lon_bottom; $Lon_column)
 C_LONGINT:C283($Lon_columnNumber; $Lon_defaultColumnWidth; $Lon_defaultRowHeight; $Lon_hOffset; $Lon_i; $Lon_index)
 C_LONGINT:C283($Lon_left; $Lon_parameters; $Lon_posBottom; $Lon_posLeft; $Lon_posRight; $Lon_posTop)
 C_LONGINT:C283($Lon_right; $Lon_row; $Lon_rowNumber; $Lon_top; $Lon_width; $Lon_x)
@@ -166,7 +166,7 @@ Case of
 			
 		Else 
 			
-			LISTBOX SET COLUMN WIDTH:C833(*; $tTxt_columns{1}; OB Get:C1224(<>report_params; "default-column-width"; Is longint:K8:6); 10; MAXTEXTLENBEFOREV11:K35:3)
+			LISTBOX SET COLUMN WIDTH:C833(*; $tTxt_columns{1}; Form:C1466.defaultColumWidth; 10; MAXTEXTLENBEFOREV11:K35:3)
 			
 		End if 
 		//]
@@ -214,16 +214,13 @@ Case of
 		
 		$Lon_column:=OB Get:C1224($Obj_params; "column"; Is longint:K8:6)
 		
-		$kLon_headerButtonOffset:=OB Get:C1224(<>report_params; "header-button-offset"; Is longint:K8:6)  //margin for the shortcut button in the header
-		$kLon_headerButtonWidth:=OB Get:C1224(<>report_params; "header-button-width"; Is longint:K8:6)  //width of the shortcut button in the header
-		
 		//header
 		OBJECT GET COORDINATES:C663(*; $tTxt_headers{$Lon_column}; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
 		
-		$Lon_posLeft:=$Lon_right-$kLon_headerButtonWidth
-		$Lon_posTop:=$Lon_top+$kLon_headerButtonOffset
-		$Lon_posRight:=$Lon_posLeft+$kLon_headerButtonWidth
-		$Lon_posBottom:=$Lon_posTop+$kLon_headerButtonWidth
+		$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
+		$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
+		$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
+		$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
 		
 		OBJECT GET COORDINATES:C663(*; "header_action"; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
 		

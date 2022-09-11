@@ -12,7 +12,7 @@
 C_BOOLEAN:C305($Boo_balloon; $Boo_cellEditing; $Boo_contextual; $Boo_crossReport; $Boo_inCell; $Boo_inHeaderColumn)
 C_BOOLEAN:C305($Boo_inHeaderLine; $Boo_inScroolbar; $Boo_inTopLeftHeader; $Boo_mouseDown; $Boo_outside; $Boo_quickReport)
 C_BOOLEAN:C305($Boo_skip)
-C_LONGINT:C283($kLon_addOffset; $kLon_headerButtonOffset; $kLon_headerButtonWidth; $kLon_headerHeight; $Lon_; $Lon_area)
+C_LONGINT:C283($headerHeight; $Lon_; $Lon_area)
 C_LONGINT:C283($Lon_bottom; $Lon_cellBottom; $Lon_cellTop; $Lon_colIndex; $Lon_column; $Lon_columnLeft)
 C_LONGINT:C283($Lon_columnPosition; $Lon_columnRight; $Lon_formEvent; $Lon_hScrollOffset; $Lon_i; $Lon_left)
 C_LONGINT:C283($Lon_lockedColumns; $Lon_lockedRight; $Lon_meBottom; $Lon_meColumnNumber; $Lon_meLeft; $Lon_meRight)
@@ -46,23 +46,12 @@ If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	//mouse state
 	GET MOUSE:C468($Lon_x; $Lon_y; $Lon_mouseButton)
 	
-	//[ISOFUNCTIONAL = THE MULTISELECTION IS NOT MANAGED]
-	//modifiers
-	//$Boo_shift:=Shift down
-	//$Boo_cmd:=Macintosh command down
-	
 	$Boo_contextual:=(($Lon_formEvent=On Clicked:K2:4) | ($Lon_formEvent=On Header Click:K2:40)) & (Contextual click:C713 | ($Lon_mouseButton=2))
 	$Boo_mouseDown:=($Lon_mouseButton=1)
 	
 	//me
 	$Txt_me:=OBJECT Get name:C1087(Object current:K67:2)
 	$Ptr_me:=OBJECT Get pointer:C1124(Object current:K67:2)
-	
-	//constants
-	$kLon_addOffset:=OB Get:C1224(<>report_params; "add-sensitive"; Is longint:K8:6)  //1/2 width of the sensitive area to display the Add button
-	$kLon_headerButtonOffset:=OB Get:C1224(<>report_params; "header-button-offset"; Is longint:K8:6)  //margin for the shortcut button in the header
-	$kLon_headerButtonWidth:=OB Get:C1224(<>report_params; "header-button-width"; Is longint:K8:6)  //width of the shortcut button in the header
-	$kLon_headerHeight:=OB Get:C1224(<>report_params; "header-height"; Is longint:K8:6)  //height of the headers
 	
 	//%W-518.7
 	If (Not:C34(Undefined:C82(ob_area)))
@@ -85,7 +74,7 @@ If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 			
 			$Boo_quickReport:=OB Get:C1224(ob_area; "4d-dialog"; Is boolean:K8:9)  //true if Quick Report
 			
-			$kLon_headerHeight:=Choose:C955($Boo_crossReport; 0; $kLon_headerHeight)
+			$headerHeight:=Choose:C955($Boo_crossReport; 0; Form:C1466.headerHeight)
 			
 		End if 
 	End if 
@@ -158,7 +147,7 @@ If (Not:C34($Boo_skip)\
 			$Lon_rowIndex:=-1
 			
 			//get the row index of the listbox
-			If ($Lon_y>($kLon_headerHeight+$Lon_meTop))
+			If ($Lon_y>($headerHeight+$Lon_meTop))
 				
 				For ($Lon_i; 1; $Lon_meRowNumber; 1)
 					
@@ -698,7 +687,7 @@ If (Not:C34($Boo_skip)\
 			
 			//crop if any
 			$Lon_left:=Choose:C955(($Lon_left<$Lon_lockedRight) & ($Lon_colIndex>1); $Lon_lockedRight; $Lon_left)
-			$Lon_top:=Choose:C955(($Lon_top<($kLon_headerHeight+$Lon_meTop)) & ($Lon_rowIndex>0); $kLon_headerHeight+$Lon_meTop; $Lon_top)
+			$Lon_top:=Choose:C955(($Lon_top<($headerHeight+$Lon_meTop)) & ($Lon_rowIndex>0); $headerHeight+$Lon_meTop; $Lon_top)
 			$Lon_right:=Choose:C955($Lon_right>($Lon_meRight-$Lon_vScrollOffset); $Lon_meRight-$Lon_vScrollOffset; $Lon_right)
 			$Lon_bottom:=Choose:C955($Lon_bottom>($Lon_meBottom-$Lon_hScrollOffset); $Lon_meBottom-$Lon_hScrollOffset; $Lon_bottom)
 			
@@ -722,16 +711,16 @@ If (Not:C34($Boo_skip)\
 							//-----------------------------------
 						: ($Boo_crossReport)
 							
-							$Lon_posLeft:=$Lon_right-$kLon_headerButtonWidth
-							$Lon_posTop:=$Lon_top+$kLon_headerButtonOffset
-							$Lon_posRight:=$Lon_posLeft+$kLon_headerButtonWidth
-							$Lon_posBottom:=$Lon_posTop+$kLon_headerButtonWidth
+							$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
+							$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
+							$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
+							$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
 							
 							OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
 							OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 							
 							//-----------------------------------
-						: ($Lon_x>=($Lon_right-$kLon_addOffset))  //into the right separator sensitive area
+						: ($Lon_x>=($Lon_right-Form:C1466.addSensitive))  //into the right separator sensitive area
 							
 							If (LISTBOX Get property:C917(*; $Txt_me; _o_lk hor scrollbar position:K53:10)=0)
 								
@@ -742,15 +731,15 @@ If (Not:C34($Boo_skip)\
 							End if 
 							
 							//-----------------------------------
-						: (($Lon_right-$Lon_left)>($kLon_headerButtonWidth+($kLon_headerButtonOffset*2)))
+						: (($Lon_right-$Lon_left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
 							
 							//don't display arrow when the QR is empty
 							If ($Lon_qrColumnNumber>0)
 								
-								$Lon_posLeft:=$Lon_right-$kLon_headerButtonWidth
-								$Lon_posTop:=$Lon_top+$kLon_headerButtonOffset
-								$Lon_posRight:=$Lon_posLeft+$kLon_headerButtonWidth
-								$Lon_posBottom:=$Lon_posTop+$kLon_headerButtonWidth
+								$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
+								$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
+								$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
+								$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
 								
 								OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
 								OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
@@ -770,16 +759,16 @@ If (Not:C34($Boo_skip)\
 								//-----------------------------------
 							: ($Boo_crossReport)
 								
-								$Lon_posLeft:=$Lon_right-$kLon_headerButtonWidth
-								$Lon_posTop:=$Lon_top+$kLon_headerButtonOffset
-								$Lon_posRight:=$Lon_posLeft+$kLon_headerButtonWidth
-								$Lon_posBottom:=$Lon_posTop+$kLon_headerButtonWidth
+								$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
+								$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
+								$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
+								$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
 								
 								OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
 								OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 								
 								//-----------------------------------
-							: ($Lon_x>=($Lon_right-$kLon_addOffset))  //into the right separator sensitive area
+							: ($Lon_x>=($Lon_right-Form:C1466.addSensitive))  //into the right separator sensitive area
 								
 								OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 								
@@ -788,7 +777,7 @@ If (Not:C34($Boo_skip)\
 									"middle"; $Lon_right)
 								
 								//-----------------------------------
-							: ($Lon_x<=($Lon_left+$kLon_addOffset))  //into the left separator sensitive area
+							: ($Lon_x<=($Lon_left+Form:C1466.addSensitive))  //into the left separator sensitive area
 								
 								OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 								
@@ -799,12 +788,12 @@ If (Not:C34($Boo_skip)\
 								//-----------------------------------
 							Else 
 								
-								If (($Lon_right-$Lon_left)>($kLon_headerButtonWidth+($kLon_headerButtonOffset*2)))
+								If (($Lon_right-$Lon_left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
 									
-									$Lon_posLeft:=$Lon_right-$kLon_headerButtonWidth
-									$Lon_posTop:=$Lon_top+$kLon_headerButtonOffset
-									$Lon_posRight:=$Lon_posLeft+$kLon_headerButtonWidth
-									$Lon_posBottom:=$Lon_posTop+$kLon_headerButtonWidth
+									$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
+									$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
+									$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
+									$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
 									
 									OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
 									OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
@@ -818,7 +807,7 @@ If (Not:C34($Boo_skip)\
 					//………………………………………………………………………………………………………………
 				: ($Boo_inHeaderLine)
 					
-					If ($Lon_x>=($Lon_right-$kLon_addOffset))  //into the right separator sensitive area
+					If ($Lon_x>=($Lon_right-Form:C1466.addSensitive))  //into the right separator sensitive area
 						
 						OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 						
@@ -828,15 +817,15 @@ If (Not:C34($Boo_skip)\
 						
 					Else 
 						
-						If (($Lon_right-$Lon_left)>($kLon_headerButtonWidth+($kLon_headerButtonOffset*2)))
+						If (($Lon_right-$Lon_left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
 							
 							//don't display arrow when the QR is empty
 							If ($Lon_qrColumnNumber>0)
 								
-								$Lon_posLeft:=$Lon_right-$kLon_headerButtonWidth
-								$Lon_posTop:=$Lon_top+$kLon_headerButtonOffset
-								$Lon_posRight:=$Lon_posLeft+$kLon_headerButtonWidth
-								$Lon_posBottom:=$Lon_posTop+$kLon_headerButtonWidth
+								$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
+								$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
+								$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
+								$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
 								
 								OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
 								OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
@@ -853,10 +842,10 @@ If (Not:C34($Boo_skip)\
 							//-----------------------------------
 						: ($Boo_crossReport)
 							
-							$Lon_posLeft:=$Lon_right-$kLon_headerButtonWidth
-							$Lon_posTop:=$Lon_top+$kLon_headerButtonOffset
-							$Lon_posRight:=$Lon_posLeft+$kLon_headerButtonWidth
-							$Lon_posBottom:=$Lon_posTop+$kLon_headerButtonWidth
+							$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
+							$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
+							$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
+							$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
 							
 							OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
 							OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
@@ -867,14 +856,14 @@ If (Not:C34($Boo_skip)\
 							//NOTHING MORE TO DO
 							
 							//-----------------------------------
-						: ($Lon_x>=($Lon_right-$kLon_addOffset))  //into the right separator sensitive area
+						: ($Lon_x>=($Lon_right-Form:C1466.addSensitive))  //into the right separator sensitive area
 							
 							OB SET:C1220(ob_dialog; \
 								"action"; "show_plus"; \
 								"middle"; $Lon_right)
 							
 							//-----------------------------------
-						: ($Lon_x<=($Lon_left+$kLon_addOffset))  //into the left separator sensitive area
+						: ($Lon_x<=($Lon_left+Form:C1466.addSensitive))  //into the left separator sensitive area
 							
 							OB SET:C1220(ob_dialog; \
 								"action"; "show_plus"; \
@@ -883,12 +872,12 @@ If (Not:C34($Boo_skip)\
 							//-----------------------------------
 						Else 
 							
-							If (($Lon_right-$Lon_left)>($kLon_headerButtonWidth+($kLon_headerButtonOffset*2)))
+							If (($Lon_right-$Lon_left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
 								
-								$Lon_posLeft:=$Lon_right-$kLon_headerButtonWidth
-								$Lon_posTop:=$Lon_top+$kLon_headerButtonOffset
-								$Lon_posRight:=$Lon_posLeft+$kLon_headerButtonWidth
-								$Lon_posBottom:=$Lon_posTop+$kLon_headerButtonWidth
+								$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
+								$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
+								$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
+								$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
 								
 								OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
 								OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)

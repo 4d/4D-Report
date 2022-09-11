@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"formSizeAnchor": "background",
 	"rightMargin": 0,
@@ -108,19 +108,6 @@
 					],
 					"stroke": "automatic"
 				},
-				"Text1": {
-					"type": "text",
-					"top": 195,
-					"left": 57,
-					"width": 324,
-					"height": 17,
-					"visibility": "hidden",
-					"fill": "#FFFF00",
-					"stroke": "#EE0000",
-					"textAlign": "center",
-					"borderStyle": "dotted",
-					"text": "#ACI0094705 - Cancel is Invisible by Default"
-				},
 				"additional": {
 					"type": "input",
 					"top": 61,
@@ -141,7 +128,7 @@
 			}
 		}
 	],
-	"geometryStamp": 2,
+	"geometryStamp": 3,
 	"$4d": {
 		"version": "1",
 		"kind": "form"

@@ -391,17 +391,17 @@ Case of
 									
 									//#ACI0098288 [
 									//$Lon_buffer:=Choose(($Lon_reportType=qr cross report) & ($Lon_column=3);\
-																																																																																																																																																																																																																																																																					\
-																				\
-																														\
+																																																																																																																																																																																																																																																																																									\
 																																								\
-																																																	Q\
-																																																		R_Get_comp\
-																																																												utation ($\
-																																																																						Lon_area;2\
-																																																																																;$Lon_row)\
-																																																																																										;\
-																																																																																																																																																																																																																																																																																																												QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
+																																																		\
+																																																												\
+																																																																					Q\
+																																																																						R_Get_comp\
+																																																																																utation ($\
+																																																																																										Lon_area;2\
+																																																																																																				;$Lon_row)\
+																																																																																																														;\
+																																																																																																																																																																																																																																																																																																																																QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
 									If ($Lon_reportType=qr cross report:K14902:2) & ($Lon_column=3)
 										
 										// Cross - report
@@ -584,8 +584,8 @@ Case of
 								
 								//ACI0100940{ACI0100938
 /*
-								If ($Lon_columnData=2)\
-									 | ($Lon_columnData=3)  //apply to line
+																								If ($Lon_columnData=2)\
+																											 | ($Lon_columnData=3)  //apply to line
 								
 $lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
 Else 
@@ -709,7 +709,7 @@ End if
 		OBJECT SET COORDINATES:C1248(*; $kTxt_subform; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
 		
 		//positioning mask
-		OBJECT GET COORDINATES:C663(*; OB Get:C1224(<>report_params; "form-object"; Is text:K8:3); $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+		OBJECT GET COORDINATES:C663(*; Form:C1466.areaObject; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
 		OBJECT SET COORDINATES:C1248(*; "balloon.mask"; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
 		
 		//making visible
@@ -744,6 +744,18 @@ End if
 		//release the balloon's flag
 		OB SET:C1220(ob_area; \
 			"balloon"; False:C215)
+		
+		var $x : Blob
+		QR REPORT TO BLOB:C770(QR_area; $x)
+		
+		var $digest : Text
+		$digest:=Generate digest:C1147($x; MD5 digest:K66:1)
+		
+		If (ob_area._digest#$digest)
+			
+			ob_area.modified:=True:C214
+			
+		End if 
 		
 		//______________________________________________________
 	Else 
