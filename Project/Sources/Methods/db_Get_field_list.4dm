@@ -156,14 +156,19 @@ If ($Lon_tableID#0)
 						Else 
 							
 							CLEAR LIST:C377($Lst_child)
-							//ACI0103108
-							$Lon_ID:=$Lon_ID+1
-							APPEND TO LIST:C376($Lst_list; $tTxt_fieldNames{$Lon_i}; $Lon_ID)
-							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "tableId"; $Lon_tableID)
-							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldId"; $Lon_fieldID)
-							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldType"; $Lon_fieldType)
-							$Pic_buffer:=db_Get_field_icon($Lon_fieldType)
-							SET LIST ITEM ICON:C950($Lst_list; 0; $Pic_buffer)
+							//MARK:ACI0103108
+							
+							If ($tTxt_fieldNames{$Lon_i}=$Txt_filter)
+								
+								$Lon_ID:=$Lon_ID+1
+								APPEND TO LIST:C376($Lst_list; $tTxt_fieldNames{$Lon_i}; $Lon_ID)
+								SET LIST ITEM PARAMETER:C986($Lst_list; 0; "tableId"; $Lon_tableID)
+								SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldId"; $Lon_fieldID)
+								SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldType"; $Lon_fieldType)
+								$Pic_buffer:=db_Get_field_icon($Lon_fieldType)
+								SET LIST ITEM ICON:C950($Lst_list; 0; $Pic_buffer)
+								
+							End if 
 							
 						End if 
 						
