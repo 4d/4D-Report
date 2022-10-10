@@ -28,7 +28,6 @@ Logs/
 #--------------------------------
 Preferences/
 !4DPop AppMaker.*
-Settings/
 #!buildApp.4DSettings
 userPreferences.*/
 
@@ -46,8 +45,6 @@ Thumbs.db
 DEV/
 Project/Trash/
 Resources/php.ini
-Mobile Projects/
-MobileApps/
 *.bbprojectd/
 Libraries/
 Project/Sources/Methods/Method*.4dm
