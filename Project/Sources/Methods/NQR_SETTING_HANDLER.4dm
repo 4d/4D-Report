@@ -80,6 +80,7 @@ Case of
 		//get current item description
 		GET LIST ITEM:C378(*; "field.list"; $Lon_position; $Lon_reference; $Txt_formula; $Lst_sub; $Boo_expanded)
 		
+		
 		If (Is a list:C621($Lst_sub)) & False:C215
 			
 			//add all fields of the linked table
@@ -120,6 +121,10 @@ Case of
 				
 				$Lon_position:=List item position:C629(*; "field.list"; $Lon_parent)
 				GET LIST ITEM:C378(*; "field.list"; $Lon_position; $Lon_buffer; $Txt_table)
+				
+				//mark:ACI0100987
+				GET LIST ITEM PARAMETER:C985(*; "field.list"; $Lon_reference; "tableId"; $debug_str_tableID)
+				GET LIST ITEM PARAMETER:C985(*; "field.list"; $Lon_reference; "fieldId"; $debug_str_fieldID)
 				
 			Else 
 				If (<>withFeature111172)

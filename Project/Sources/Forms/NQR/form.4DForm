@@ -763,7 +763,6 @@
 		"views": {
 			"View 1": {},
 			"fieldList": {
-				"visible": false,
 				"objects": [
 					"settings.dial"
 				]
