@@ -123,8 +123,12 @@ Case of
 				GET LIST ITEM:C378(*; "field.list"; $Lon_position; $Lon_buffer; $Txt_table)
 				
 				//mark:ACI0100987
-				GET LIST ITEM PARAMETER:C985(*; "field.list"; $Lon_reference; "tableId"; $debug_str_tableID)
-				GET LIST ITEM PARAMETER:C985(*; "field.list"; $Lon_reference; "fieldId"; $debug_str_fieldID)
+				
+				var $tableID : Integer
+				GET LIST ITEM PARAMETER:C985(*; "field.list"; $Lon_reference; "tableId"; $tableID)
+				$Txt_table:=db_virtualTableName($tableID)
+				
+				//--mark:ACI0100987
 				
 			Else 
 				If (<>withFeature111172)
