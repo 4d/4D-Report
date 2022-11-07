@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"rightMargin": 19,
 	"bottomMargin": 20,
@@ -46,7 +46,6 @@
 					"width": 100,
 					"height": 12,
 					"stroke": "#000000",
-					"fontFamily": ".SF NS Text",
 					"fontSize": 9,
 					"tooltip": {
 						"$ref": "/SOURCES/tips.json#/Record Number"
@@ -62,7 +61,8 @@
 						"onLoad",
 						"onHeader",
 						"onPrintingBreak"
-					]
+					],
+					"fontTheme": "normal"
 				},
 				"Text39": {
 					"type": "text",
@@ -71,7 +71,7 @@
 					"width": 578,
 					"height": 17,
 					"sizingX": "grow",
-					"stroke": "#000000",
+					"stroke": "#c0c0c0",
 					"text": "Clients"
 				},
 				"Line40": {
@@ -407,7 +407,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"Adress": {
 					"type": "input",
@@ -432,7 +433,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"boolean": {
 					"type": "checkbox",
@@ -479,7 +481,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"Country": {
 					"type": "input",
@@ -504,7 +507,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"Date": {
 					"type": "input",
@@ -529,7 +533,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"First_name": {
 					"type": "input",
@@ -554,7 +559,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"ID": {
 					"type": "input",
@@ -580,7 +586,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"Name": {
 					"type": "input",
@@ -605,7 +612,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"Picture": {
 					"type": "input",
@@ -630,7 +638,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"Society_ID": {
 					"type": "input",
@@ -655,7 +664,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"time": {
 					"type": "input",
@@ -680,7 +690,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"Title": {
 					"type": "input",
@@ -705,7 +716,8 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
 				},
 				"Ville": {
 					"type": "input",
@@ -730,7 +742,44 @@
 						"onDisplayDetail",
 						"onDataChange",
 						"onPrintingDetail"
-					]
+					],
+					"stroke": "#0000cd"
+				},
+				"Text1": {
+					"type": "text",
+					"top": 750,
+					"left": 280,
+					"width": 81,
+					"height": 17,
+					"textAlign": "right",
+					"text": "Sales : "
+				},
+				"Sales": {
+					"type": "input",
+					"top": 750,
+					"left": 366,
+					"width": 336,
+					"height": 17,
+					"dataSource": "[Clients:1]Sales:11",
+					"textAlign": "left",
+					"fill": "#FFFFFF",
+					"borderStyle": "sunken",
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onLoad",
+						"onValidate",
+						"onClick",
+						"onHeader",
+						"onPrintingBreak",
+						"onPrintingFooter",
+						"onDisplayDetail",
+						"onDataChange",
+						"onPrintingDetail"
+					],
+					"stroke": "#0000cd",
+					"dataSourceTypeHint": "number"
 				}
 			}
 		},
@@ -776,5 +825,13 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
+	},
+	"geometryStamp": 14,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
 	}
 }
