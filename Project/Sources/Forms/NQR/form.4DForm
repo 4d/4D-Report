@@ -736,7 +736,8 @@
 					"doubleClickInEmptyAreaAction": "addSubrecord",
 					"selectionMode": "multiple",
 					"printFrame": "variable",
-					"method": "ObjectMethods/settings.dial.4dm"
+					"method": "ObjectMethods/settings.dial.4dm",
+					"dataSourceTypeHint": "undefined"
 				},
 				"toolbar.opened.tab.list": {
 					"type": "rectangle",
@@ -761,8 +762,11 @@
 		"activeView": "Area",
 		"defaultView": "View 1",
 		"views": {
-			"View 1": {},
+			"View 1": {
+				"visible": false
+			},
 			"fieldList": {
+				"visible": false,
 				"objects": [
 					"settings.dial"
 				]
