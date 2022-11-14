@@ -737,7 +737,7 @@
 					"selectionMode": "multiple",
 					"printFrame": "variable",
 					"method": "ObjectMethods/settings.dial.4dm",
-					"dataSourceTypeHint": "undefined"
+					"dataSourceTypeHint": "object"
 				},
 				"toolbar.opened.tab.list": {
 					"type": "rectangle",
@@ -759,14 +759,11 @@
 	},
 	"geometryStamp": 43,
 	"editor": {
-		"activeView": "Area",
+		"activeView": "fieldList",
 		"defaultView": "View 1",
 		"views": {
-			"View 1": {
-				"visible": false
-			},
+			"View 1": {},
 			"fieldList": {
-				"visible": false,
 				"objects": [
 					"settings.dial"
 				]
@@ -818,6 +815,7 @@
 				]
 			},
 			"Area": {
+				"visible": false,
 				"objects": [
 					"myQR"
 				]
