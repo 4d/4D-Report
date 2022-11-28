@@ -368,7 +368,7 @@
 					"width": 174,
 					"height": 41,
 					"visibility": "hidden",
-					"dataSourceTypeHint": "number",
+					"dataSourceTypeHint": "object",
 					"detailForm": "COLUMN_MENU",
 					"enterableInList": false,
 					"deletableInList": false,

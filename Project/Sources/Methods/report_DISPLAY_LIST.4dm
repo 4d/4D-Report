@@ -93,8 +93,15 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 		$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
 	End if 
 	
-	OBJECT SET TITLE:C194(*; $Txt_header; $Txt_object)
+	//mark:ACI0103452
+	//#DD
+	// erreur de copier coller $Txt_object
+	// note: dans la version v18, on testait la validité du nom de la variable :
+	// si nom vide, -> on evaluait txt_object pour afficher la formule avec gestion du virtual structure
+	// vu avec vdl, il ne sert à rien d'afficher des formules, si c'est pour les tronquer... à suivre
 	
+	//OBJECT SET TITLE(*; $Txt_header; $Txt_object)
+	OBJECT SET TITLE:C194(*; $Txt_header; $Txt_variableName)
 	
 End for 
 
@@ -129,6 +136,7 @@ LISTBOX GET ARRAYS:C832(*; Form:C1466.areaObject; $tTxt_columns; $tTxt_headers; 
 //default column width
 LISTBOX SET COLUMN WIDTH:C833(*; Form:C1466.areaObject; Form:C1466.defaultColumWidth; 0; MAXTEXTLENBEFOREV11:K35:3)
 
+
 //static & locked columns
 LISTBOX SET STATIC COLUMNS:C1153(*; Form:C1466.areaObject; 1)
 LISTBOX SET LOCKED COLUMNS:C1151(*; Form:C1466.areaObject; 1)
@@ -149,6 +157,7 @@ report_SET_EVENTS(Form:C1466.areaObject)
 
 
 
+//mark:c'est dans la boucle en dessous que se calcul la colonne de titre
 //__________________________ 1st column
 
 $Txt_column:=$tTxt_columns{1}
@@ -202,6 +211,10 @@ $Ptr_column->{$Lon_rowNumber}:=Get localized string:C991("head_grand_total")
 ST SET ATTRIBUTES:C1093($Ptr_column->{$Lon_rowNumber}; ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; \
 Choose:C955(QR Get info row:C769($Lon_area; qr grand total:K14906:3); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 
+
+
+
+
 //1st column unvisible lines
 OBJECT SET RGB COLORS:C628(*; $Txt_column; Foreground color:K23:1; Form:C1466.headerBackgroundColor)
 
@@ -211,6 +224,12 @@ OB SET:C1220($Obj_params; \
 "rowNumber"; $Lon_rowNumber)
 
 report_DISPLAY_COMMON($Obj_params)
+
+
+
+//var $columnWidth; $minWidth; $maxWidth : Integer
+//$columnWidth:=LISTBOX Get column width(*; $tTxt_columns{1}; $minWidth; $maxWidth)
+
 
 OBJECT SET HORIZONTAL ALIGNMENT:C706(*; $tTxt_columns{1}; Align left:K42:2)
 

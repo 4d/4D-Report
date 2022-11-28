@@ -64,7 +64,7 @@ Case of
 		
 		If (True:C214)
 			
-			//display separated opup-menu
+			//display separated popup-menu
 			OBJECT SET FORMAT:C236(*; "toolbar.opened.new"; ";;;;;;;;;;2;;")
 			OB SET:C1220($Obj_toolbar; \
 				"offset"; 10)

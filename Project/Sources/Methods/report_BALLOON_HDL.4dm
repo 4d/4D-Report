@@ -19,6 +19,8 @@ C_POINTER:C301($Ptr_label)
 C_TEXT:C284($kTxt_subform; $Txt_; $Txt_action; $Txt_buffer; $Txt_caller; $Txt_form; $txt_unit)
 C_OBJECT:C1216($Obj_caller; $Obj_param; $obj_buffer)
 C_BOOLEAN:C305($boo_propertiesSelected)
+
+
 ARRAY LONGINT:C221($tLon_sortedColumns; 0)
 ARRAY LONGINT:C221($tLon_sortOrder; 0)
 
@@ -265,7 +267,8 @@ Case of
 								(OBJECT Get pointer:C1124(Object named:K67:5; "subtotalProp.label"))->:=$Txt_buffer
 								(OBJECT Get pointer:C1124(Object named:K67:5; "totalSpacing.unit.label"))->:=$txt_unit
 								(OBJECT Get pointer:C1124(Object named:K67:5; "totalSpacing.label"))->:=$Lon_buffer
-								(OBJECT SET VISIBLE:C603(*; "totalSpacing@"; $boo_propertiesSelected))
+								
+								OBJECT SET VISIBLE:C603(*; "totalSpacing@"; $boo_propertiesSelected)
 								
 								If ($boo_propertiesSelected)
 									
@@ -391,17 +394,17 @@ Case of
 									
 									//#ACI0098288 [
 									//$Lon_buffer:=Choose(($Lon_reportType=qr cross report) & ($Lon_column=3);\
-																																																																																																																																																																																																																																																																																									\
-																																								\
-																																																		\
+																																																																																																																																																																																																																																																																																																													\
 																																																												\
-																																																																					Q\
-																																																																						R_Get_comp\
-																																																																																utation ($\
-																																																																																										Lon_area;2\
-																																																																																																				;$Lon_row)\
-																																																																																																														;\
-																																																																																																																																																																																																																																																																																																																																QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
+																																																																						\
+																																																																																\
+																																																																																									Q\
+																																																																																										R_Get_comp\
+																																																																																																				utation ($\
+																																																																																																														Lon_area;2\
+																																																																																																																								;$Lon_row)\
+																																																																																																																																		;\
+																																																																																																																																																																																																																																																																																																																																																				QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
 									If ($Lon_reportType=qr cross report:K14902:2) & ($Lon_column=3)
 										
 										// Cross - report
@@ -584,8 +587,8 @@ Case of
 								
 								//ACI0100940{ACI0100938
 /*
-																								If ($Lon_columnData=2)\
-																											 | ($Lon_columnData=3)  //apply to line
+																																								If ($Lon_columnData=2)\
+																																													 | ($Lon_columnData=3)  //apply to line
 								
 $lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
 Else 
@@ -701,6 +704,7 @@ End if
 			$Lon_bottom:=$Lon_bottom+$Lon_offset-$kLon_margin
 			
 		End if 
+		
 		
 		//set the UI subform
 		OBJECT SET SUBFORM:C1138(*; $kTxt_subform; $Txt_form)

@@ -161,6 +161,18 @@ Case of
 				End if 
 			End for 
 			
+			
+			//mark:- ACI0103452
+			//#DD si un jour nous voulons contrôler la largeur de la colonne 1, c'est ici que cela se passe
+			//If ($Lon_width>=256)
+			//LISTBOX SET PROPERTY(*; $tTxt_columns{1}; lk truncate; lk with ellipsis)
+			//$Lon_width:=256
+			//Else 
+			//LISTBOX SET PROPERTY(*; $tTxt_columns{1}; lk truncate; lk without ellipsis)
+			//End if 
+			//mark:- END
+			
+			
 			//not resizable
 			LISTBOX SET COLUMN WIDTH:C833(*; $tTxt_columns{1}; $Lon_width; $Lon_width; $Lon_width)
 			

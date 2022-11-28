@@ -77,7 +77,7 @@ Case of
 						
 						ob_area._digest:=$digest
 						
-						Form:C1466.timerEvent:=$area=0 ? -1 : 1  // Init or update
+						Form:C1466.timerEvent:=($area=0) ? -1 : 1  // Init or update
 						SET TIMER:C645(-1)
 						
 					End if 
@@ -85,7 +85,7 @@ Case of
 				
 			Else 
 				
-				Form:C1466.timerEvent:=$area=0 ? -1 : 1  // Init or update
+				Form:C1466.timerEvent:=($area=0) ? -1 : 1  // Init or update
 				SET TIMER:C645(-1)
 				
 			End if 
