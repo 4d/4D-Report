@@ -27,9 +27,6 @@ End if
 // Initialisations
 $Lon_parameters:=Count parameters:C259
 
-
-
-
 If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	
 	//NO PARAMETERS REQUIRED
