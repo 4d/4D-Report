@@ -21,6 +21,7 @@ If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	//NO PARAMETERS REQUIRED
 	$Ptr_timerEvent:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
 	
+	
 Else 
 	
 	ABORT:C156
@@ -31,6 +32,7 @@ End if
 If (Not:C34(Is nil pointer:C315($Ptr_timerEvent)))
 	
 	$Ptr_timerEvent->:=1
+	Form:C1466.timerEvent:=1
 	SET TIMER:C645(-1)
 	
 Else 
