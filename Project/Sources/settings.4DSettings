@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><preferences stamp="2854">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="2855">
 	<com.4d>
 		<general execute_host_database_event="true"/>
 		<compiler>
-			<options compilation_path="3" fat_binary="true"/>
+			<options compilation_path="3" fat_binary="true" target="all"/>
 			<typage default_for_button="2"/>
 			<method_suffix arrays="" interprocess_arrays="" interprocess_variables="" methods="" variables=""/>
 		</compiler>
