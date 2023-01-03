@@ -51,10 +51,10 @@ If ($table_index#-1)
 	If ($field_index#-1)
 		
 		
-		// Mark:ACI0103579  -> var report_structureDefinition don't use index but field ID
+		// Mark:ACI0103579  -> var report_structureDefinition don't use index but ID
 		
 		//$field_name:="["+report_structureDefinition{0}{$Lon_tableIndex}+"]"\
-									+report_structureDefinition{$table_index}{$field_index}
+												+report_structureDefinition{$table_index}{$field_index}
 		
 		$field_name:="["+report_structureDefinition{0}{$table_number}+"]"\
 			+report_structureDefinition{$table_index}{$field_number}
