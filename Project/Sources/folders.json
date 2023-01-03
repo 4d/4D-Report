@@ -329,29 +329,7 @@
 			"SETTINGS"
 		]
 	},
-	"STRUCTURE": {
-		"tables": [
-			"All_types",
-			"Clients",
-			"Society",
-			"Table_1",
-			"Table_2",
-			"Table_3",
-			"Table_4"
-		],
-		"forms": [
-			"[Clients]Form2",
-			"[Clients]Form3",
-			"[Society]Input",
-			"[Society]Output",
-			"[Table_1]Input",
-			"[Table_1]Output",
-			"[Table_2]Input",
-			"[Table_2]Output",
-			"[Table_4]Input",
-			"[Table_4]Output"
-		]
-	},
+	"STRUCTURE": {},
 	"subform": {
 		"methods": [
 			"COMPILER_subform",
@@ -382,7 +360,6 @@
 			"00_TESTS"
 		],
 		"forms": [
-			"[All_types]Input",
 			"embeded",
 			"parent_form",
 			"test",

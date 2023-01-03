@@ -1,178 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
-<base name="4D Report" uuid="22F9CCF450E04D12A5AA3E1D212C150E" collation_locale="en">
+<base name="4D Report" uuid="051DBF9260B0DB4F8B86410D5710094F" collation_locale="en-gb">
 	<schema name="DEFAULT_SCHEMA"/>
-	<table name="Clients" uuid="50302DE30F2D4D65901048C55B2893DD" id="1" hide_in_REST="true" prevent_journaling="true">
-		<field name="ID" uuid="DF781DB933D64FB49F51324DE5910F22" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
-		<field name="Name" uuid="7D2296BD982949D290A1F25A891F09A8" type="10" limiting_length="255" never_null="true" id="2">
+	<table name="Table_1" uuid="DA5AF4BBF9166743AA48103C65E41B89" id="1" hide_in_REST="true">
+		<field name="uuid" uuid="F17463F0DA36B549A0A145FBAD0BFEEF" type="10" unique="true" autogenerate="true" store_as_UUID="true" not_null="true" id="1"/>
+		<field name="Field_2" uuid="E46C5129C010B541B7F353A348E0B8C2" type="10" limiting_length="255" id="2"/>
+		<field name="Field_3" uuid="65F7CB3CC738CC49B1B7B40D6738CE74" type="10" limiting_length="255" id="3">
 			<field_extra visible="false"/>
 		</field>
-		<field name="Activity" uuid="75E37D348A98493291559008E3659B78" type="10" limiting_length="255" never_null="true" id="3"/>
-		<field name="Society_ID" uuid="611743081005491591619440DB956C77" type="4" never_null="true" id="4"/>
-		<field name="First_name" uuid="3AB26EB108E44928AA21D138A7AC3E22" type="10" limiting_length="255" never_null="true" id="5"/>
-		<field name="Title" uuid="ACF1F224327F452A97030EE8DD293A15" type="10" limiting_length="255" never_null="true" id="6"/>
-		<field name="Adress" uuid="1346CE78D4E8420BA24EEFD9254616DD" type="10" limiting_length="255" never_null="true" id="7"/>
-		<field name="Zip" uuid="0638BD7C45F24AD2A8E9FF225F50469D" type="10" limiting_length="255" never_null="true" id="8"/>
-		<field name="City" uuid="1BA5F0D8B1034FD6AD1286AA81B04485" type="10" limiting_length="255" never_null="true" id="9"/>
-		<field name="Country" uuid="456E079A2F0441748563788C2B526D8F" type="10" limiting_length="255" never_null="true" id="10"/>
-		<field name="Sales" uuid="BE6A458BFDB240408E926E8FF14AC39E" type="4" never_null="true" id="11" hide_in_REST="true"/>
-		<field name="Picture" uuid="ED402ED8FE044E3EB65650A849D29DC5" type="12" never_null="true" id="12"/>
-		<field name="Date" uuid="FD0D5572ABF24EE6A18E6BA52700CA3F" type="8" never_null="true" id="13"/>
-		<field name="time" uuid="792CD519922E44BD90EEF2896F7F2E4C" type="9" never_null="true" id="14"/>
-		<field name="boolean" uuid="99341B5DE852498BB25D05F520C1451C" type="1" never_null="true" id="15"/>
-		<table_extra input_form="Form2" output_form="Form3">
-			<editor_table_info displayable_fields_count="18">
-				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="482.55859375" top="0" width="242.8046875" height="429.25390625"/>
-			</editor_table_info>
-		</table_extra>
-	</table>
-	<table name="Society" uuid="8F5E60D48F3C4F41BF32144D4D8B3006" id="2" hide_in_REST="true">
-		<field name="ID" uuid="C718904638A84F6D9BD80F0F628D9A72" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
-		<field name="Name" uuid="9730F7D4BA444223BE9DFFE0B2672781" type="10" store_as_UUID="true" never_null="true" id="2"/>
-		<primary_key field_name="ID" field_uuid="C718904638A84F6D9BD80F0F628D9A72"/>
-		<table_extra input_form="Input" output_form="Output">
-			<editor_table_info displayable_fields_count="6">
-				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="884.86328125" top="70.48046875" width="161.51171875" height="173.0390625"/>
-			</editor_table_info>
-		</table_extra>
-	</table>
-	<table name="Table_1" uuid="DAA9C791E8774344BD68BA7D5093D49C" id="3" hide_in_REST="true" prevent_journaling="true">
-		<field name="ID" uuid="E6B2ED673EA34350BFE6D9182D00AC0F" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
-		<field name="client_ID" uuid="EB657B048AC84AA197D10546B78A1886" type="4" autosequence="true" id="2"/>
-		<field name="Field_3" uuid="6A2E573797DB40C582A9E10BB1B7F6AB" type="10" limiting_length="255" unique="true" autogenerate="true" never_null="true" id="3"/>
-		<table_extra input_form="Input" output_form="Output">
+		<field name="Field_4" uuid="ACE83C44A4F6874582E34B254E3A993C" type="10" id="4">
+			<field_extra visible="false"/>
+		</field>
+		<field name="Field_5" uuid="13D8DE7F8334CF49B3B3914FA8D01126" type="10" limiting_length="255" id="5"/>
+		<primary_key field_name="uuid" field_uuid="F17463F0DA36B549A0A145FBAD0BFEEF"/>
+		<table_extra visible="false">
 			<editor_table_info displayable_fields_count="7">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="176.19921875" top="462.95703125" width="217.11328125" height="191.796875"/>
+				<coordinates left="41.005310058594" top="39.86442565918" width="183.94140625" height="191.921875"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
-	<table name="Table_2" uuid="90527B2C1D1148E9938249D5052E2C1B" id="4" hide_in_REST="true" prevent_journaling="true">
-		<field name="Alpha" uuid="AB019C7FC6DE4CD4AB2127F54B5321B5" type="10" limiting_length="255" unique="true" autogenerate="true" not_null="true" id="1"/>
-		<field name="Text" uuid="CCDFB71FB5B64AFA9CD6305B9800B621" type="10" never_null="true" id="2"/>
-		<field name="Date" uuid="00D5BDC8B1464103ABF91E1361824AC3" type="8" never_null="true" id="3"/>
-		<field name="Time" uuid="EA8FFCFEABF141A58A38F7408364BD87" type="9" never_null="true" id="4"/>
-		<field name="Boolean" uuid="FD87409BC46045A68F5685B13BB6AE76" type="1" never_null="true" id="5"/>
-		<primary_key field_name="Date" field_uuid="00D5BDC8B1464103ABF91E1361824AC3"/>
-		<primary_key field_name="Time" field_uuid="EA8FFCFEABF141A58A38F7408364BD87"/>
-		<table_extra input_form="Input" output_form="Output">
+	<table name="Copy_of_Table_1" uuid="CB04A456178843628096552E40C376EA" id="2">
+		<field name="uuid" uuid="1B7185CC688641DCA02ECFB68280779C" type="10" unique="true" autogenerate="true" store_as_UUID="true" not_null="true" id="1"/>
+		<field name="Field_2" uuid="D449490C5C7E47628B04EC49223E5799" type="10" limiting_length="255" id="2"/>
+		<field name="Field_3" uuid="8A09258FC7994FB3B8B5907F1D7FACC0" type="10" limiting_length="255" id="3">
+			<field_extra visible="false"/>
+		</field>
+		<field name="Field_4" uuid="550BA95EE65A471696F2920EE92EC566" type="10" id="4">
+			<field_extra visible="false"/>
+		</field>
+		<field name="Field_5" uuid="CA58589B55DC4CE0AF6BF398FCB6531E" type="10" limiting_length="255" id="5"/>
+		<primary_key field_name="uuid" field_uuid="1B7185CC688641DCA02ECFB68280779C"/>
+		<table_extra>
 			<editor_table_info displayable_fields_count="7">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="421.23828125" top="464.13671875" width="174.15234375" height="190.34765625"/>
+				<coordinates left="286.40625" top="53.644912719727" width="183.94140625" height="191.921875"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
-	<table name="Table_3" uuid="184F0002EEB54AF4913BCB9B32129FEE" id="5" hide_in_REST="true" prevent_journaling="true">
-		<table_extra input_form="" output_form="">
-			<editor_table_info fields_ordering="1" displayable_fields_count="6">
-				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="632.2421875" top="468.87890625" width="120" height="167.33203125"/>
-			</editor_table_info>
-		</table_extra>
-	</table>
-	<table name="Table_4" uuid="89726F9C3EB04E3589878BA47BA86E02" id="6" hide_in_REST="true">
-		<field name="ID" uuid="E1751D13507E4FB789352F10FE07CD90" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
-		<field name="Field_2" uuid="CFF5E65084F14DB8BB1D0BADDA9CD375" type="10" limiting_length="255" unique="true" never_null="true" id="2">
-			<field_extra multi_line="false"/>
-		</field>
-		<field name="Field_3" uuid="E4670B3D9A0940B3ABB87D73B1F2899F" type="10" limiting_length="255" never_null="true" id="3">
-			<field_extra multi_line="false">
-				<editor_field_info>
-					<color red="255" green="255" blue="255" alpha="0"/>
-				</editor_field_info>
-			</field_extra>
-		</field>
-		<field name="Field_4" uuid="9FC2AA7A89A24E64A78B317FF9B1A720" type="10" limiting_length="255" never_null="true" id="4"/>
-		<primary_key field_name="ID" field_uuid="E1751D13507E4FB789352F10FE07CD90"/>
-		<table_extra input_form="Input" output_form="Output">
-			<editor_table_info displayable_fields_count="6">
-				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="28.2421875" top="442.38671875" width="120" height="167.33203125"/>
-			</editor_table_info>
-		</table_extra>
-	</table>
-	<table name="All_types" uuid="1A84DE56323E45888232B584713AC0B0" id="7" hide_in_REST="true" prevent_journaling="true">
-		<field name="Float" uuid="CF71DDDD87C04B8FB43CDAB0F2B1C003" type="6" never_null="true" id="1"/>
-		<field name="Alpha" uuid="6120CDDF8D9A41F79010317ADBA39166" type="10" limiting_length="12" never_null="true" id="2"/>
-		<field name="Text" uuid="858A63F3C9AF4ADF9BC0C9AFD259D730" type="10" never_null="true" id="3"/>
-		<field name="Date" uuid="E59794883A084298A91D33014FD9D744" type="8" never_null="true" id="4"/>
-		<field name="Time" uuid="3ECCD54982374070BDAECF3AFF132A2C" type="9" never_null="true" id="5"/>
-		<field name="Boolean" uuid="9FDC606A148C4D7FBE86E9BFECAC8FFD" type="1" never_null="true" id="6"/>
-		<field name="Integer" uuid="2C2CE44766D94EF9A6B59011D913E550" type="3" never_null="true" id="7"/>
-		<field name="Integer 64bits" uuid="C3B9E1D1ADD74786A717CD9D8FEF28B5" type="5" never_null="true" id="8"/>
-		<field name="Real" uuid="CE0027CAA8C54FF49351DB65D5090251" type="6" never_null="true" id="9"/>
-		<field name="Long Integer" uuid="A7FAB23EEF1A456591A3720AABE0528E" type="4" never_null="true" id="10"/>
-		<field name="Blob" uuid="252F889DEB1444C68F221C39406AE4C0" type="18" never_null="true" id="11"/>
-		<field name="Picture" uuid="3C8A1DF9D9DA4FD7A71A7FE454648F6C" type="12" never_null="true" id="12"/>
-		<field name="Object" uuid="CCB857169F064C2184DBE2A1CDBCD04C" type="21" never_null="true" id="13"/>
-		<table_extra input_form="Input" output_form="Input">
-			<editor_table_info displayable_fields_count="16">
-				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="7" top="28" width="323.66015625" height="383.46875"/>
-			</editor_table_info>
-		</table_extra>
-	</table>
-	<relation uuid="86FE1B662607490D85436EAFAFA0C15A" name_Nto1="Link_1" name_1toN="Link_1_return" auto_load_Nto1="false" auto_load_1toN="false" foreign_key="false" state="1">
-		<related_field kind="source">
-			<field_ref uuid="611743081005491591619440DB956C77" name="Society_ID">
-				<table_ref uuid="50302DE30F2D4D65901048C55B2893DD" name="Clients"/>
-			</field_ref>
-		</related_field>
-		<related_field kind="destination">
-			<field_ref uuid="C718904638A84F6D9BD80F0F628D9A72" name="ID">
-				<table_ref uuid="8F5E60D48F3C4F41BF32144D4D8B3006" name="Society"/>
-			</field_ref>
-		</related_field>
-		<relation_extra entry_wildchar="false" entry_create="false" choice_field="0" entry_autofill="false">
-			<editor_relation_info via_point_x="0" via_point_y="0" prefers_left="false" smartlink="true">
-				<color red="255" green="255" blue="255" alpha="0"/>
-			</editor_relation_info>
-		</relation_extra>
-	</relation>
-	<index kind="regular" unique_keys="true" uuid="0AFBCE6F2DDC42478FC6E49D765DEC63" type="1">
-		<field_ref uuid="AB019C7FC6DE4CD4AB2127F54B5321B5" name="Alpha">
-			<table_ref uuid="90527B2C1D1148E9938249D5052E2C1B" name="Table_2"/>
+	<index kind="regular" unique_keys="true" uuid="7C60861BDFB94952AB1614BA335CB3F5" type="1">
+		<field_ref uuid="1B7185CC688641DCA02ECFB68280779C" name="uuid">
+			<table_ref uuid="CB04A456178843628096552E40C376EA" name="Copy_of_Table_1"/>
 		</field_ref>
 	</index>
-	<index kind="regular" unique_keys="true" uuid="230FC9833859400F849BAA321B255EBC" type="1">
-		<field_ref uuid="E1751D13507E4FB789352F10FE07CD90" name="ID">
-			<table_ref uuid="89726F9C3EB04E3589878BA47BA86E02" name="Table_4"/>
+	<index kind="regular" unique_keys="true" uuid="7C8CD38B39AF7749AC1DA86296A5556D" type="7">
+		<field_ref uuid="F17463F0DA36B549A0A145FBAD0BFEEF" name="uuid">
+			<table_ref uuid="DA5AF4BBF9166743AA48103C65E41B89" name="Table_1"/>
 		</field_ref>
 	</index>
-	<index kind="regular" unique_keys="true" uuid="29B1A16D988D4B4CBB90BDC61AF0EBCC" type="7">
-		<field_ref uuid="E6B2ED673EA34350BFE6D9182D00AC0F" name="ID">
-			<table_ref uuid="DAA9C791E8774344BD68BA7D5093D49C" name="Table_1"/>
-		</field_ref>
-	</index>
-	<index kind="regular" unique_keys="true" uuid="7565DAC8DD4E46ECB9CCBE73C5BDC5A6" type="1">
-		<field_ref uuid="C718904638A84F6D9BD80F0F628D9A72" name="ID">
-			<table_ref uuid="8F5E60D48F3C4F41BF32144D4D8B3006" name="Society"/>
-		</field_ref>
-	</index>
-	<index kind="regular" unique_keys="true" uuid="7875F164CE7A47C0A4380222DBA3A1C5" type="1">
-		<field_ref uuid="00D5BDC8B1464103ABF91E1361824AC3" name="Date">
-			<table_ref uuid="90527B2C1D1148E9938249D5052E2C1B" name="Table_2"/>
-		</field_ref>
-		<field_ref uuid="EA8FFCFEABF141A58A38F7408364BD87" name="Time">
-			<table_ref uuid="90527B2C1D1148E9938249D5052E2C1B" name="Table_2"/>
-		</field_ref>
-	</index>
-	<index kind="regular" unique_keys="true" uuid="BAEFCE32243842C7919553D1AFDCFF89" type="1">
-		<field_ref uuid="DF781DB933D64FB49F51324DE5910F22" name="ID">
-			<table_ref uuid="50302DE30F2D4D65901048C55B2893DD" name="Clients"/>
-		</field_ref>
-	</index>
-	<index kind="regular" unique_keys="true" uuid="D0E2BC4193254383AE77DF2E85C044A4" type="1">
-		<field_ref uuid="6A2E573797DB40C582A9E10BB1B7F6AB" name="Field_3">
-			<table_ref uuid="DAA9C791E8774344BD68BA7D5093D49C" name="Table_1"/>
-		</field_ref>
-	</index>
-	<index kind="regular" unique_keys="true" uuid="E999065B9D4B4867B38E115DEE357CF7" type="1">
-		<field_ref uuid="CFF5E65084F14DB8BB1D0BADDA9CD375" name="Field_2">
-			<table_ref uuid="89726F9C3EB04E3589878BA47BA86E02" name="Table_4"/>
-		</field_ref>
-	</index>
-	<base_extra __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0" package_name="4D Report" structure_file_name="4D Report" data_file_path=":4D Report.4DD"/>
+	<base_extra __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0">
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
 </base>
