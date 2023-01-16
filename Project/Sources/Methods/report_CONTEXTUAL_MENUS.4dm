@@ -524,16 +524,24 @@ If (Length:C16($Txt_action)#0)
 			CLEAR VARIABLE:C89($Txt_formula)
 			EDIT FORMULA:C806(Table:C252(QR Get report table:C758($Lon_area))->; $Txt_formula)
 			
-			If (OK=1)
-				
-				$Lon_column:=Choose:C955($Txt_action="add"; $Lon_columnNumber+1; $Lon_column)
-				
-				QR INSERT COLUMN:C748($Lon_area; $Lon_column; $Txt_formula)
-				QR SET INFO COLUMN:C765($Lon_area; $Lon_column; ""; $Txt_formula; 0; -1; 1; "")
-				
-				QR_SET_TITLE($Lon_area; $Lon_column)
-				
-			End if 
+			
+			Case of 
+					
+				: (OK=0)
+					
+				: (Length:C16($Txt_formula)=0)
+					//mark:ACI0103550 enmpty formula is not accepted
+					
+				Else 
+					
+					$Lon_column:=Choose:C955($Txt_action="add"; $Lon_columnNumber+1; $Lon_column)
+					
+					QR INSERT COLUMN:C748($Lon_area; $Lon_column; $Txt_formula)
+					QR SET INFO COLUMN:C765($Lon_area; $Lon_column; ""; $Txt_formula; 0; -1; 1; "")
+					
+					QR_SET_TITLE($Lon_area; $Lon_column)
+					
+			End case 
 			
 			//______________________________________________________
 		: ($Txt_action="edit")
