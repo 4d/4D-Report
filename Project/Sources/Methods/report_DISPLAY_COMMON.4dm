@@ -9,7 +9,9 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_OBJECT:C1216($1)
+#DECLARE($Obj_params : Object)
+
+//C_OBJECT($1)
 
 C_LONGINT:C283($Lon_bestHeight; $Lon_bestWidth; $Lon_bottom; $Lon_column)
 C_LONGINT:C283($Lon_columnNumber; $Lon_defaultColumnWidth; $Lon_defaultRowHeight; $Lon_hOffset; $Lon_i; $Lon_index)
@@ -17,7 +19,7 @@ C_LONGINT:C283($Lon_left; $Lon_parameters; $Lon_posBottom; $Lon_posLeft; $Lon_po
 C_LONGINT:C283($Lon_right; $Lon_row; $Lon_rowNumber; $Lon_top; $Lon_width; $Lon_x)
 C_POINTER:C301($Ptr_bestObectSize; $Ptr_nil; $Ptr_rowHightArray)
 C_TEXT:C284($kTxt_reportObject; $Txt_action; $Txt_column; $Txt_header)
-C_OBJECT:C1216($Obj_params)
+//C_OBJECT($Obj_params)
 
 ARRAY BOOLEAN:C223($tBoo_visibles; 0)
 ARRAY POINTER:C280($tPtr_arrays; 0)
@@ -37,7 +39,7 @@ $Lon_parameters:=Count parameters:C259
 If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
-	$Obj_params:=$1
+	//$Obj_params:=$1
 	
 	//Optional parameters
 	If ($Lon_parameters>=2)

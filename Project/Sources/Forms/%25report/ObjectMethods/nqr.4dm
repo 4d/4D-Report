@@ -4,20 +4,25 @@
 // Created #16-4-2014 by Vincent de Lachaux
 // ----------------------------------------------------
 // Declarations
-var $0 : Integer
+
+#DECLARE()->$result : Integer
 
 var $t : Text
-var $bottom; $column; $columnNumber; $Lon_formEvent; $left; $mouseButton : Integer
-var $right; $row; $top; $mouseX; $mouseY : Integer
+
+var \
+$bottom; $column; $columnNumber; $Lon_formEvent; $left; $mouseButton; \
+$right; $row; $top; $mouseX; $mouseY : Integer
+
 var $data : Blob
+
 var $o : Object
 
-ARRAY TEXT:C222($columnNames; 0)
-ARRAY TEXT:C222($headerNames; 0)
-ARRAY BOOLEAN:C223($visibles; 0)
-ARRAY POINTER:C280($columnVars; 0)
-ARRAY POINTER:C280($headerVars; 0)
-ARRAY POINTER:C280($styles; 0)
+ARRAY TEXT:C222($_columnNames; 0)
+ARRAY TEXT:C222($_headerNames; 0)
+ARRAY BOOLEAN:C223($_visibles; 0)
+ARRAY POINTER:C280($_columnVars; 0)
+ARRAY POINTER:C280($_headerVars; 0)
+ARRAY POINTER:C280($_styles; 0)
 
 // ----------------------------------------------------
 // Initialisations
@@ -31,7 +36,7 @@ Case of
 		//______________________________________________________
 	: ($e.code=On Drag Over:K2:13)
 		
-		$0:=-1
+		$result:=-1
 		
 		GET MOUSE:C468($mouseX; $mouseY; $mouseButton)
 		
@@ -47,7 +52,7 @@ Case of
 		//column = 0 should be accepted else move row is broken
 		If ($column>=0)
 			
-			$0:=0  //accept
+			$result:=0  //accept
 			
 			GET PASTEBOARD DATA:C401("com.4d.wizard"; $data)
 			
@@ -59,14 +64,14 @@ Case of
 				$column:=$column+1
 				
 				LISTBOX GET ARRAYS:C832(*; Form:C1466.areaObject; \
-					$columnNames; \
-					$headerNames; \
-					$columnVars; \
-					$headerVars; \
-					$visibles; \
-					$styles)
+					$_columnNames; \
+					$_headerNames; \
+					$_columnVars; \
+					$_headerVars; \
+					$_visibles; \
+					$_styles)
 				
-				OBJECT GET COORDINATES:C663(*; $columnNames{$column}; $left; $top; $right; $bottom)
+				OBJECT GET COORDINATES:C663(*; $_columnNames{$column}; $left; $top; $right; $bottom)
 				
 				Case of 
 						
@@ -161,14 +166,14 @@ Case of
 			Else 
 				
 				LISTBOX GET ARRAYS:C832(*; Form:C1466.areaObject; \
-					$columnNames; \
-					$headerNames; \
-					$columnVars; \
-					$headerVars; \
-					$visibles; \
-					$styles)
+					$_columnNames; \
+					$_headerNames; \
+					$_columnVars; \
+					$_headerVars; \
+					$_visibles; \
+					$_styles)
 				
-				OBJECT GET COORDINATES:C663(*; $columnNames{$column}; $left; $top; $right; $bottom)
+				OBJECT GET COORDINATES:C663(*; $_columnNames{$column}; $left; $top; $right; $bottom)
 				
 				Case of 
 						

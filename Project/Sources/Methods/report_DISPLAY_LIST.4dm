@@ -9,17 +9,51 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($1)
 
-C_BOOLEAN:C305($Boo_isFormula)
-C_LONGINT:C283($Lon_area; $Lon_bottom)
-C_LONGINT:C283($Lon_columnType; $Lon_height; $Lon_hidden; $Lon_i; $Lon_j; $Lon_left)
-C_LONGINT:C283($Lon_operator; $Lon_parameters; $Lon_qrColumnNumber; $Lon_qrDestination; $Lon_repeated; $Lon_right)
-C_LONGINT:C283($Lon_row; $Lon_rowNumber; $Lon_sortNumber; $Lon_top; $Lon_width; $kLon_headerColor)
-C_POINTER:C301($Ptr_bestObectSize; $Ptr_column)
-C_TEXT:C284($kTxt_fontFamily; $Txt_buffer; $Txt_column; $Txt_data; $Txt_format)
-C_TEXT:C284($Txt_header; $Txt_object; $Txt_title; $Txt_type; $Txt_variableName)
-C_OBJECT:C1216($Obj_params)
+#DECLARE($area : Integer)
+
+
+var \
+$is_formula : Boolean
+
+var \
+$Lon_bottom; \
+$Lon_columnType; \
+$Lon_height; \
+$Lon_hidden; \
+$Lon_i; $Lon_j; \
+$Lon_left; \
+$Lon_operator; \
+$Lon_parameters; \
+$Lon_qrColumnNumber; \
+$Lon_qrDestination; \
+$Lon_repeated; \
+$Lon_right; \
+$Lon_row; \
+$Lon_rowNumber; \
+$Lon_sortNumber; \
+$Lon_top; \
+$Lon_width; \
+$kLon_headerColor : Integer
+
+var \
+$Ptr_bestObectSize; \
+$Ptr_column : Pointer
+
+var \
+$kTxt_fontFamily; \
+$Txt_buffer; \
+$Txt_column; \
+$Txt_data; \
+$Txt_format; \
+$Txt_header; \
+$Txt_object; \
+$Txt_title; \
+$Txt_type; \
+$Txt_variableName : Text
+
+var \
+$Obj_params : Object
 
 ARRAY BOOLEAN:C223($tBoo_visibles; 0)
 ARRAY POINTER:C280($tPtr_arrays; 0)
@@ -39,7 +73,6 @@ $Lon_parameters:=Count parameters:C259
 If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
-	$Lon_area:=$1
 	
 	//Optional parameters
 	If ($Lon_parameters>=2)
@@ -54,7 +87,7 @@ If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
 	
 	$Ptr_bestObectSize:=OBJECT Get pointer:C1124(Object named:K67:5; "bestobjectsize")
 	
-	$Lon_qrColumnNumber:=QR Count columns:C764($Lon_area)
+	$Lon_qrColumnNumber:=QR Count columns:C764($area)
 	
 Else 
 	
@@ -64,7 +97,7 @@ End if
 
 // ----------------------------------------------------
 //adjust the number of columns, if any {
-OB SET:C1220($Obj_params; \
+$Obj_params:=New object:C1471(\
 "action"; "adjustColumnNumber"; \
 "object"; Form:C1466.areaObject; \
 "columnsNumber"; $Lon_qrColumnNumber+1)
@@ -87,7 +120,7 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	
 	report_DISPLAY_COMMON($Obj_params)
 	
-	QR GET INFO COLUMN:C766($Lon_area; $Lon_i; $Txt_title; $Txt_object; $Lon_hidden; $Lon_width; $Lon_repeated; $Txt_format; $Txt_variableName)
+	QR GET INFO COLUMN:C766($area; $Lon_i; $Txt_title; $Txt_object; $Lon_hidden; $Lon_width; $Lon_repeated; $Txt_format; $Txt_variableName)
 	
 	If (boo_useVirtualStructure)
 		$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
@@ -115,7 +148,7 @@ report_DISPLAY_COMMON($Obj_params)
 //populate
 ARRAY LONGINT:C221($tLon_sortedColumns; 0x0000)
 ARRAY LONGINT:C221($tLon_sortOrder; 0x0000)
-QR GET SORTS:C753($Lon_area; $tLon_sortedColumns; $tLon_sortOrder)
+QR GET SORTS:C753($area; $tLon_sortedColumns; $tLon_sortOrder)
 
 $Lon_sortNumber:=Size of array:C274($tLon_sortedColumns)
 
@@ -164,16 +197,16 @@ $Txt_column:=$tTxt_columns{1}
 $Ptr_column:=$tPtr_columns{1}
 $Ptr_column->{1}:=Get localized string:C991("head_title")
 ST SET ATTRIBUTES:C1093($Ptr_column->{1}; \
-ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955(QR Get info row:C769($Lon_area; qr title:K14906:1); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
+ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955(QR Get info row:C769($area; qr title:K14906:1); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 1; Choose:C955(QR Get info row:C769($Lon_area; qr title:K14906:1); lk inherited:K53:26; 0x007F7F7F); lk font color:K53:24)
+LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 1; Choose:C955(QR Get info row:C769($area; qr title:K14906:1); lk inherited:K53:26; 0x007F7F7F); lk font color:K53:24)
 LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 1; Form:C1466.headerBackgroundColor; lk background color:K53:25)
 
 $Ptr_column->{2}:=Get localized string:C991("head_details")
 ST SET ATTRIBUTES:C1093($Ptr_column->{2}; \
-ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955(QR Get info row:C769($Lon_area; qr detail:K14906:2); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
+ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955(QR Get info row:C769($area; qr detail:K14906:2); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 
-LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2; Choose:C955(QR Get info row:C769($Lon_area; qr detail:K14906:2); lk inherited:K53:26; 0x007F7F7F); lk font color:K53:24)
+LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2; Choose:C955(QR Get info row:C769($area; qr detail:K14906:2); lk inherited:K53:26; 0x007F7F7F); lk font color:K53:24)
 LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 2; Form:C1466.headerBackgroundColor; lk background color:K53:25)
 
 //the sort order is inverted !
@@ -194,7 +227,7 @@ If ($Lon_sortNumber>0)
 		$Txt_header:=$tTxt_headers{$tLon_sortedColumns{$Lon_i}+1}
 		$Txt_buffer:=Replace string:C233(Get localized string:C991("head_subtotal"); "{field}"; OBJECT Get title:C1068(*; $Txt_header))
 		$Ptr_column->{2+$Lon_i}:=$Txt_buffer
-		$Lon_hidden:=QR Get info row:C769($Lon_area; $Lon_i)
+		$Lon_hidden:=QR Get info row:C769($area; $Lon_i)
 		ST SET ATTRIBUTES:C1093($Ptr_column->{2+$Lon_i}; \
 			ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; Choose:C955($Lon_hidden=0; Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 		
@@ -209,7 +242,7 @@ End if
 //last line
 $Ptr_column->{$Lon_rowNumber}:=Get localized string:C991("head_grand_total")
 ST SET ATTRIBUTES:C1093($Ptr_column->{$Lon_rowNumber}; ST Start text:K78:15; ST End text:K78:16; Attribute bold style:K65:1; \
-Choose:C955(QR Get info row:C769($Lon_area; qr grand total:K14906:3); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
+Choose:C955(QR Get info row:C769($area; qr grand total:K14906:3); Bold:K14:2; Plain:K14:1); Attribute font name:K65:5; $kTxt_fontFamily)
 
 
 
@@ -242,11 +275,11 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	
 	//[ACI0094247] the variable name is NOT cleared by the command if this is not a column formula
 	CLEAR VARIABLE:C89($Txt_variableName)
-	QR GET INFO COLUMN:C766($Lon_area; $Lon_i; $Txt_title; $Txt_object; $Lon_hidden; $Lon_width; $Lon_repeated; $Txt_format; $Txt_variableName)
+	QR GET INFO COLUMN:C766($area; $Lon_i; $Txt_title; $Txt_object; $Lon_hidden; $Lon_width; $Lon_repeated; $Txt_format; $Txt_variableName)
 	
-	$Boo_isFormula:=(Length:C16($Txt_variableName)#0)
+	$is_formula:=(Length:C16($Txt_variableName)#0)
 	
-	$Lon_columnType:=QR_Get_column_type($Lon_area; $Lon_i)
+	$Lon_columnType:=QR_Get_column_type($area; $Lon_i)
 	
 	If ($Lon_columnType=Is picture:K8:10)\
 		 | ($Lon_columnType=Is date:K8:7)\
@@ -266,7 +299,7 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 		$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
 	End if 
 	
-	If ($Boo_isFormula)
+	If ($is_formula)
 		
 		OBJECT SET TITLE:C194(*; $Txt_header; $Txt_variableName)
 		OBJECT SET HORIZONTAL ALIGNMENT:C706(*; $Txt_header; Align center:K42:3)
@@ -289,26 +322,26 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	LISTBOX SET ROW COLOR:C1270(*; $Txt_column; 0; $kLon_headerColor; lk background color:K53:25)
 	
 	//====================================== TITLES ======================================
-	report_SET_CELL_FORMAT($Lon_area; $Txt_column; 1; $Lon_i; qr title:K14906:1; $Txt_title; $Ptr_column; $Lon_hidden)
+	report_SET_CELL_FORMAT($area; $Txt_column; 1; $Lon_i; qr title:K14906:1; $Txt_title; $Ptr_column; $Lon_hidden)
 	
 	//====================================== DETAIL ======================================
-	report_SET_CELL_FORMAT($Lon_area; $Txt_column; 2; $Lon_i; qr detail:K14906:2; $Txt_format; $Ptr_column; $Lon_hidden)
+	report_SET_CELL_FORMAT($area; $Txt_column; 2; $Lon_i; qr detail:K14906:2; $Txt_format; $Ptr_column; $Lon_hidden)
 	
 	//======================================= SORTS ======================================
 	For ($Lon_j; 1; $Lon_sortNumber; 1)
 		
 		$Lon_row:=$Lon_j+2
-		QR GET TOTALS DATA:C768($Lon_area; $Lon_i; $Lon_j; $Lon_operator; $Txt_data)
+		QR GET TOTALS DATA:C768($area; $Lon_i; $Lon_j; $Lon_operator; $Txt_data)
 		
-		$Ptr_column->{$Lon_row}:=report_cell_styled_content($Lon_area; report_cell_content($Txt_data; $Lon_operator; True:C214; True:C214); $Lon_i; $Lon_j; $Txt_column)
-		report_SET_CELL_FORMAT($Lon_area; $Txt_column; $Lon_row; $Lon_i; $Lon_j; ""; $Ptr_column; $Lon_hidden)
+		$Ptr_column->{$Lon_row}:=report_cell_styled_content($area; report_cell_content($Txt_data; $Lon_operator; True:C214; True:C214); $Lon_i; $Lon_j; $Txt_column)
+		report_SET_CELL_FORMAT($area; $Txt_column; $Lon_row; $Lon_i; $Lon_j; ""; $Ptr_column; $Lon_hidden)
 		
 	End for 
 	
 	//==================================== GRAND TOTAL ===================================
-	QR GET TOTALS DATA:C768($Lon_area; $Lon_i; qr grand total:K14906:3; $Lon_operator; $Txt_data)
-	$Ptr_column->{$Lon_rowNumber}:=report_cell_styled_content($Lon_area; report_cell_content($Txt_data; $Lon_operator; True:C214; True:C214); $Lon_i; qr grand total:K14906:3; $Txt_column)
-	report_SET_CELL_FORMAT($Lon_area; $Txt_column; $Lon_rowNumber; $Lon_i; qr grand total:K14906:3; $Txt_title; $Ptr_column; $Lon_hidden)
+	QR GET TOTALS DATA:C768($area; $Lon_i; qr grand total:K14906:3; $Lon_operator; $Txt_data)
+	$Ptr_column->{$Lon_rowNumber}:=report_cell_styled_content($area; report_cell_content($Txt_data; $Lon_operator; True:C214; True:C214); $Lon_i; qr grand total:K14906:3; $Txt_column)
+	report_SET_CELL_FORMAT($area; $Txt_column; $Lon_rowNumber; $Lon_i; qr grand total:K14906:3; $Txt_title; $Ptr_column; $Lon_hidden)
 	
 End for 
 
@@ -326,7 +359,7 @@ report_DISPLAY_COMMON($Obj_params)
 
 //•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-QR GET DESTINATION:C756($Lon_area; $Lon_qrDestination)
+QR GET DESTINATION:C756($area; $Lon_qrDestination)
 
 OB SET:C1220(ob_area; \
 "qrColumnNumber"; $Lon_qrColumnNumber; \

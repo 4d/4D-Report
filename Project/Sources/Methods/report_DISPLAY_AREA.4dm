@@ -8,7 +8,10 @@
 // Description:
 // ----------------------------------------------------
 // Declarations
-var $1 : Integer
+
+#DECLARE($area : Integer)
+
+//var $1 : Integer
 
 If (False:C215)
 	C_LONGINT:C283(report_DISPLAY_AREA; $1)
@@ -20,7 +23,7 @@ var $x : Blob
 
 // ----------------------------------------------------
 // Initialisations
-$area:=$1
+//$area:=$1
 
 // ----------------------------------------------------
 If ($area#0)
