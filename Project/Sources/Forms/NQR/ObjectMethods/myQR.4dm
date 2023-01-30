@@ -4,21 +4,29 @@
 // Created #2-6-2014 by Vincent de Lachaux
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_formEvent)
-C_POINTER:C301($Ptr_me)
-C_TEXT:C284($Txt_me)
+
+var \
+$event_code : Integer
+
+//var \
+$name : Text
+
+//var \
+$self : Pointer
+
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_formEvent:=Form event code:C388
-$Txt_me:=OBJECT Get name:C1087(Object current:K67:2)
-$Ptr_me:=OBJECT Get pointer:C1124(Object current:K67:2)
+$event_code:=Form event code:C388
+//$name:=OBJECT Get name(Object current)
+//$self:=OBJECT Get pointer(Object current)
 
 // ----------------------------------------------------
 Case of 
 		
 		//______________________________________________________
-	: ($Lon_formEvent=-1)  //Call from the widget
+	: ($event_code=-1)  //Call from the widget
 		
 		
 		If (ob_dialog=Null:C1517)
@@ -40,7 +48,7 @@ Case of
 		NQR_AREA_HANDLE(New object:C1471("action"; "update"))
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Load:K2:1)
+	: ($event_code=On Load:K2:1)
 		
 		//The widget is executed into a 4D dialog
 		OB SET:C1220(ob_area; \
@@ -49,7 +57,7 @@ Case of
 		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
+		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($event_code)+")")
 		
 		//______________________________________________________
 End case 

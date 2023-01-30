@@ -10,20 +10,26 @@
 // ----------------------------------------------------
 // Declarations
 
-C_BOOLEAN:C305($Boo_OK)
-C_LONGINT:C283($Lon_parameters)
-C_TEXT:C284($File_)
+#DECLARE()->$OK : Boolean
+
+
+var \
+$count_parameters : Integer
+
+var \
+$document_name : Text
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
 	// NO PARAMETERS REQUIRED
 	
 	// Optional parameters
-	If ($Lon_parameters>=1)
+	If ($count_parameters>=1)
 		
 		// <NONE>
 		
@@ -39,24 +45,24 @@ End if
 
 QR REPORT TO BLOB:C770(QR_area; C_QR_INITBLOB)
 
-$File_:=Select document:C905(8858; \
+$document_name:=Select document:C905(8858; \
 ".4qr"; \
 Get localized string:C991("save_the_report_as"); \
 File name entry:K24:17+Use sheet window:K24:11+Package open:K24:8)
 
-$Boo_OK:=(OK=1)
+$OK:=(OK=1)
 
-If ($Boo_OK)
+If ($OK)
 	
 	C_QR_INITPATH:=DOCUMENT
 	
 	BLOB TO DOCUMENT:C526(C_QR_INITPATH; C_QR_INITBLOB)
 	
-	$Boo_OK:=(OK=1)
+	$OK:=(OK=1)
 	
 End if 
 
-If ($Boo_OK)
+If ($OK)
 	
 	ob_area.modified:=False:C215
 	
@@ -64,7 +70,7 @@ End if
 
 // ----------------------------------------------------
 // Return
-$0:=$Boo_OK
+//$0:=$OK
 
 // ----------------------------------------------------
 // End

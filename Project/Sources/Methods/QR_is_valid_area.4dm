@@ -1,33 +1,37 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : QR_is_valid_area
-  // Database: 4D Report
-  // ID[BCF56E509BB949CCBCD68F65609F6E88]
-  // Created #1-4-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_BOOLEAN:C305($0)
-C_LONGINT:C283($1)
+// ----------------------------------------------------
+// Project method : QR_is_valid_area
+// Database: 4D Report
+// ID[BCF56E509BB949CCBCD68F65609F6E88]
+// Created #1-4-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
+#DECLARE($area_reference : Integer)->$is_valid : Boolean
 
-C_BOOLEAN:C305($Boo_isValid)
-C_LONGINT:C283($Lon_area;$Lon_parameters)
-C_TEXT:C284($Txt_buffer;$Txt_errorHandlingMethod)
+
+var \
+$count_parameters : Integer
+
+
+var \
+$qr_html_template; \
+$save_Method_Error_Handler : Text
+
 
 If (False:C215)
-	C_BOOLEAN:C305(QR_is_valid_area ;$0)
-	C_LONGINT:C283(QR_is_valid_area ;$1)
+	C_BOOLEAN:C305(QR_is_valid_area; $0)
+	C_LONGINT:C283(QR_is_valid_area; $1)
 End if 
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	$Lon_area:=$1
 	
 Else 
 	
@@ -35,19 +39,17 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 
-If ($Lon_area#0)
+If ($area_reference#0)
 	
-	$Txt_errorHandlingMethod:=report_catchErrors ("on")
-	$Txt_buffer:=QR Get HTML template:C751($Lon_area)
-	report_catchErrors ("off";$Txt_errorHandlingMethod)
+	$save_Method_Error_Handler:=report_catchErrors("on")
+	$qr_html_template:=QR Get HTML template:C751($area_reference)
+	report_catchErrors("off"; $save_Method_Error_Handler)
 	
-	$Boo_isValid:=(ERROR=0)
+	$is_valid:=(ERROR=0)
 	
 End if 
 
-  // ----------------------------------------------------
-  // End
-
-$0:=$Boo_isValid
+// ----------------------------------------------------
+// End

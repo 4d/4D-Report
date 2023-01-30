@@ -40,8 +40,8 @@
 	</table>
 	<table name="Table_1" uuid="DAA9C791E8774344BD68BA7D5093D49C" id="3" hide_in_REST="true" prevent_journaling="true">
 		<field name="ID" uuid="E6B2ED673EA34350BFE6D9182D00AC0F" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
-		<field name="client_ID" uuid="EB657B048AC84AA197D10546B78A1886" type="4" autosequence="true" id="2"/>
-		<field name="Field_3" uuid="6A2E573797DB40C582A9E10BB1B7F6AB" type="10" limiting_length="255" unique="true" autogenerate="true" never_null="true" id="3"/>
+		<field name="champ_1" uuid="EB657B048AC84AA197D10546B78A1886" type="4" autosequence="true" id="2"/>
+		<field name="champ_2" uuid="6A2E573797DB40C582A9E10BB1B7F6AB" type="10" limiting_length="255" unique="true" autogenerate="true" never_null="true" id="3"/>
 		<table_extra input_form="Input" output_form="Output">
 			<editor_table_info displayable_fields_count="7">
 				<color red="255" green="255" blue="255" alpha="0"/>
@@ -68,7 +68,7 @@
 		<table_extra input_form="" output_form="">
 			<editor_table_info fields_ordering="1" displayable_fields_count="6">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="632.2421875" top="468.87890625" width="120" height="167.33203125"/>
+				<coordinates left="797.08386230469" top="421.33306884766" width="120" height="167.33203125"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
@@ -168,7 +168,7 @@
 		</field_ref>
 	</index>
 	<index kind="regular" unique_keys="true" uuid="D0E2BC4193254383AE77DF2E85C044A4" type="1">
-		<field_ref uuid="6A2E573797DB40C582A9E10BB1B7F6AB" name="Field_3">
+		<field_ref uuid="6A2E573797DB40C582A9E10BB1B7F6AB" name="champ_2">
 			<table_ref uuid="DAA9C791E8774344BD68BA7D5093D49C" name="Table_1"/>
 		</field_ref>
 	</index>

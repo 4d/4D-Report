@@ -1,52 +1,81 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : QR_Get_column_type
-  // Database: 4D Report
-  // ID[C1017995832D4FF8B52AC8D5DF44D154]
-  // Created #2-4-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($0)
-C_LONGINT:C283($1)
-C_LONGINT:C283($2)
-C_BOOLEAN:C305($3)
+// ----------------------------------------------------
+// Project method : QR_Get_column_type
+// Database: 4D Report
+// ID[C1017995832D4FF8B52AC8D5DF44D154]
+// Created #2-4-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_BOOLEAN:C305($Boo_permissive)
-C_LONGINT:C283($kLon_mixed;$kLon_stop;$kLon_undefined;$Lon_;$Lon_area;$Lon_column)
-C_LONGINT:C283($Lon_columnNumber;$Lon_field;$Lon_i;$Lon_parameters;$Lon_table;$Lon_type)
-C_LONGINT:C283($Lon_x)
-C_TEXT:C284($Txt_;$Txt_field;$Txt_object;$Txt_table;$Txt_variableName)
+
+#DECLARE($area_reference : Integer; $column_number : Integer; $permissive : Boolean)->$column_type : Integer
+
+var \
+$MAX_LONGINT; \
+$MIXED_TYPE : Integer
+
+//MARK: uppercase namming mean : it's a constant
+$MAX_LONGINT:=MAXLONG:K35:2-1
+$MIXED_TYPE:=-1
+
+
+// ---------------------------------------------------- INTEGERS
+
+var \
+$count_parameters; \
+$count_columns; \
+$int; \
+$i; \
+$index; \
+$table_number; \
+$field_number : Integer
+
+// ---------------------------------------------------- TEXTS
+
+var \
+$text; \
+$table_name; \
+$field_name; \
+$variable_name; \
+$column_object : Text
+
+// ---------------------------------------------------- BOOLEAN
+
+var \
+$is_permissive : Boolean
+
+
+
+// ----------------------------------------------------
 
 If (False:C215)
-	C_LONGINT:C283(QR_Get_column_type ;$0)
-	C_LONGINT:C283(QR_Get_column_type ;$1)
-	C_LONGINT:C283(QR_Get_column_type ;$2)
-	C_BOOLEAN:C305(QR_Get_column_type ;$3)
+	C_LONGINT:C283(QR_Get_column_type; $0)
+	C_LONGINT:C283(QR_Get_column_type; $1)
+	C_LONGINT:C283(QR_Get_column_type; $2)
+	C_BOOLEAN:C305(QR_Get_column_type; $3)
 End if 
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=2;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=2; "Missing parameter"))
 	
-	$Lon_area:=$1
-	$Lon_column:=$2
+	//$area_reference:=$1
+	//$column_number:=$2
 	
-	If ($Lon_parameters>=3)
+	If ($count_parameters>=3)
 		
-		$Boo_permissive:=$3
+		$is_permissive:=$permissive
 		
 	End if 
 	
-	$kLon_stop:=MAXLONG:K35:2-1
-	$kLon_undefined:=Is undefined:K8:13
-	$kLon_mixed:=-1
 	
-	$Lon_type:=$kLon_undefined
+	
+	$column_type:=Is undefined:K8:13
 	
 Else 
 	
@@ -54,111 +83,113 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-If ($Lon_column=0)
+// ----------------------------------------------------
+If ($column_number=0)
 	
-	  //compute the columns to find a common value
-	$Lon_columnNumber:=QR Count columns:C764($Lon_area)
+	//compute the columns to find a common value
+	$count_columns:=QR Count columns:C764($area_reference)
 	
-	If ($Lon_columnNumber>0)
+	If ($count_columns>0)
 		
-		$Lon_type:=QR_Get_column_type ($Lon_area;1;True:C214)  // <===== RECURSIVE
+		$column_type:=QR_Get_column_type($area_reference; 1; True:C214)  // <===== RECURSIVE
 		
-		For ($Lon_column;2;$Lon_columnNumber;1)
+		For ($column_number; 2; $count_columns; 1)
 			
-			If ($Lon_type#QR_Get_column_type ($Lon_area;$Lon_column;True:C214))  // <===== RECURSIVE
+			If ($column_type#QR_Get_column_type($area_reference; $column_number; True:C214))  // <===== RECURSIVE
 				
-				$Lon_column:=$kLon_stop
+				$column_number:=$MAX_LONGINT
 				
 			End if 
 		End for 
 		
-		$Lon_type:=Choose:C955($Lon_column#MAXLONG:K35:2;$Lon_type;$kLon_mixed)
+		$column_type:=Choose:C955($column_number#MAXLONG:K35:2; $column_type; $MIXED_TYPE)
 		
 	End if 
 	
 Else 
 	
-	QR GET INFO COLUMN:C766($Lon_area;$Lon_column;\
-		$Txt_;\
-		$Txt_object;\
-		$Lon_;\
-		$Lon_;\
-		$Lon_;\
-		$Txt_;\
-		$Txt_variableName)
+	QR GET INFO COLUMN:C766($area_reference; $column_number; \
+		$text; \
+		$column_object; \
+		$int; \
+		$int; \
+		$int; \
+		$text; \
+		$variable_name)
 	
-	If (Length:C16($Txt_variableName)=0)
+	If (Length:C16($variable_name)=0)
 		
-		$Lon_x:=Position:C15("]";$Txt_object)
-		$Txt_table:=Substring:C12($Txt_object;2;$Lon_x-2)
-		$Txt_field:=Substring:C12($Txt_object;$Lon_x+1)
+		$index:=Position:C15("]"; $column_object)
+		$table_name:=Substring:C12($column_object; 2; $index-2)
+		$field_name:=Substring:C12($column_object; $index+1)
 		
-		For ($Lon_i;1;Get last table number:C254;1)
+		//todo: #DD may be optimize this using "ds" 
+		
+		For ($i; 1; Get last table number:C254; 1)
 			
-			If (Is table number valid:C999($Lon_i))
+			If (Is table number valid:C999($i))
 				
-				If ($Txt_table=Table name:C256($Lon_i))
+				If ($table_name=Table name:C256($i))
 					
-					$Lon_table:=$Lon_i
+					$table_number:=$i
 					
-					For ($Lon_i;1;Get last field number:C255($Lon_table);1)
+					For ($i; 1; Get last field number:C255($table_number); 1)
 						
-						If (Is field number valid:C1000($Lon_table;$Lon_i))
+						If (Is field number valid:C1000($table_number; $i))
 							
-							If (Field name:C257($Lon_table;$Lon_i)=$Txt_field)
+							If (Field name:C257($table_number; $i)=$field_name)
 								
-								$Lon_field:=$Lon_i
-								$Lon_i:=MAXLONG:K35:2-1
+								$field_number:=$i
+								$i:=$MAX_LONGINT
 								
 							End if 
 						End if 
 					End for 
 					
-					$Lon_i:=MAXLONG:K35:2-1
+					$i:=$MAX_LONGINT
 					
 				End if 
 			End if 
 		End for 
 		
-		If ($Lon_i=MAXLONG:K35:2)\
-			 & ($Lon_field#0)
+		If ($i=MAXLONG:K35:2)\
+			 & ($field_number#0)
 			
-			$Lon_type:=Type:C295(Field:C253($Lon_table;$Lon_field)->)
+			$column_type:=Type:C295(Field:C253($table_number; $field_number)->)
 			
 			Case of 
 					
-					  //……………………………………………………………………………
-				: (Not:C34($Boo_permissive))
+					//……………………………………………………………………………
+				: (Not:C34($is_permissive))
 					
-					  //NOTHING MORE TO DO
+					//NOTHING MORE TO DO
 					
-					  //……………………………………………………………………………
-				: ($Lon_type=Is alpha field:K8:1)\
-					 | ($Lon_type=Is string var:K8:2)
+					//……………………………………………………………………………
+				: ($column_type=Is alpha field:K8:1)\
+					 | ($column_type=Is string var:K8:2)
 					
-					$Lon_type:=Is text:K8:3
+					$column_type:=Is text:K8:3
 					
-					  //……………………………………………………………………………
-				: ($Lon_type=Is integer:K8:5)\
-					 | ($Lon_type=Is integer 64 bits:K8:25)\
-					 | ($Lon_type=Is real:K8:4)\
-					 | ($Lon_type=Is float:K8:26)
+					//……………………………………………………………………………
+				: ($column_type=Is integer:K8:5)\
+					 | ($column_type=Is integer 64 bits:K8:25)\
+					 | ($column_type=Is real:K8:4)\
+					 | ($column_type=_o_Is float:K8:26)
 					
-					$Lon_type:=Is longint:K8:6
+					$column_type:=Is longint:K8:6
 					
-					  //……………………………………………………………………………
+					//……………………………………………………………………………
 			End case 
 		End if 
 		
 	Else 
 		
-		$Lon_type:=$kLon_undefined
+		$column_type:=Is undefined:K8:13
 		
 	End if 
 End if 
 
-$0:=$Lon_type
+//$0:=$column_type
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

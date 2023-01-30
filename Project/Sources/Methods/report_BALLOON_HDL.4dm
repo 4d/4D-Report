@@ -8,21 +8,83 @@
 // Description:
 // ----------------------------------------------------
 // Declarations
-C_OBJECT:C1216($1)
 
-C_LONGINT:C283($kLon_margin; $Lon_; $Lon_area; $Lon_bottom; $Lon_buffer; $Lon_column; $lon_columnTempo)
-C_LONGINT:C283($Lon_columnData; $Lon_columnType; $Lon_height; $Lon_hOffset; $Lon_left; $Lon_mouseX)
-C_LONGINT:C283($Lon_mouseY; $Lon_offset; $Lon_parameters; $Lon_repeated; $Lon_reportType; $Lon_right)
-C_LONGINT:C283($Lon_row; $Lon_rowData; $Lon_sort_index; $Lon_top; $Lon_type; $Lon_vOffset)
-C_LONGINT:C283($Lon_width; $lon_subtotalNumber; $lon_left; $lon_top; $lon_right; $lon_bottom)
-C_POINTER:C301($Ptr_label)
-C_TEXT:C284($kTxt_subform; $Txt_; $Txt_action; $Txt_buffer; $Txt_caller; $Txt_form; $txt_unit)
-C_OBJECT:C1216($Obj_caller; $Obj_param; $obj_buffer)
-C_BOOLEAN:C305($boo_propertiesSelected)
+#DECLARE($parameter : Object)
 
+// ---------------------------------------------------- INTEGERS
 
-ARRAY LONGINT:C221($tLon_sortedColumns; 0)
-ARRAY LONGINT:C221($tLon_sortOrder; 0)
+var \
+$count_parameter; \
+$buffer_integer; \
+$report_type; \
+$type; \
+$int : Integer
+
+var \
+$area_reference; \
+$mouse_x; \
+$mouse_y : Integer
+
+var \
+$margin; \
+$width; \
+$height; \
+$left; \
+$top; \
+$right; \
+$bottom; \
+$offset; \
+$h_offset; \
+$v_offset : Integer
+
+//COLUMN
+var \
+$column_number; \
+$column_type; \
+$column_data; \
+$repeated_values; \
+$sort_column_index : Integer
+
+//ROW
+var \
+$row_number; \
+$row_data; \
+$subtotal_index : Integer
+
+// ---------------------------------------------------- POINTER
+
+//UI
+var \
+$ui_label_pointer : Pointer
+
+// ---------------------------------------------------- TEXTS
+
+var \
+$subform_name; \
+$text; \
+$action; \
+$buffer_text; \
+$caller_name; \
+$form_name; \
+$unit_name : Text
+
+// ---------------------------------------------------- OBJECTS
+
+var \
+$caller_object; \
+$buffer_object : Object
+
+// ---------------------------------------------------- BOOLEAN
+
+var \
+$properties_selected : Boolean
+
+// ---------------------------------------------------- ARRAYS
+
+ARRAY LONGINT:C221($_sorted_columns; 0)
+ARRAY LONGINT:C221($_sort_order; 0)
+
+// ----------------------------------------------------
 
 If (False:C215)
 	C_OBJECT:C1216(report_BALLOON_HDL; $1)
@@ -30,32 +92,32 @@ End if
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameter:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
+If (Asserted:C1132($count_parameter>=1; "Missing parameter"))
 	
 	//Required parameters
-	$Obj_param:=$1
+	//$parameter:=$1
 	
 	//Optional parameters
-	If ($Lon_parameters>=2)
+	If ($count_parameter>=2)
 		
 		//NONE
 		
 	End if 
 	
-	If (Asserted:C1132(OB Is defined:C1231($Obj_param)))
+	If (Asserted:C1132(OB Is defined:C1231($parameter)))
 		
-		If (Asserted:C1132(OB Is defined:C1231($Obj_param; "action")))
+		If (Asserted:C1132(OB Is defined:C1231($parameter; "action")))
 			
-			$Txt_action:=OB Get:C1224($Obj_param; "action"; Is text:K8:3)
+			$action:=OB Get:C1224($parameter; "action"; Is text:K8:3)
 			
 		End if 
 	End if 
 	
 	//Constants
-	$kTxt_subform:="balloon.subform"
-	$kLon_margin:=5
+	$subform_name:="balloon.subform"
+	$margin:=5
 	
 Else 
 	
@@ -67,134 +129,134 @@ End if
 Case of 
 		
 		//______________________________________________________
-	: (Length:C16($Txt_action)=0)
+	: (Length:C16($action)=0)
 		
 		//NOTHING MORE TO DO
 		
 		//______________________________________________________
-	: ($Txt_action="update")
+	: ($action="update")
 		
-		If (OB Is defined:C1231($Obj_param))
+		If (OB Is defined:C1231($parameter))
 			
-			ASSERT:C1129(OB Is defined:C1231($Obj_param; "form"))
-			$Txt_form:=OB Get:C1224($Obj_param; "form"; Is text:K8:3)
+			ASSERT:C1129(OB Is defined:C1231($parameter; "form"))
+			$form_name:=OB Get:C1224($parameter; "form"; Is text:K8:3)
 			
-			$Obj_caller:=OB Copy:C1225(ob_area)
+			$caller_object:=OB Copy:C1225(ob_area)
 			
 			//4DPop_JSON_LAB_VIEW($Obj_caller)
 			
 			//resize the background
-			OBJECT GET SUBFORM CONTAINER SIZE:C1148($Lon_height; $Lon_width)
-			OBJECT SET COORDINATES:C1248(*; "border"; 0; 0; $Lon_height; $Lon_width)
+			OBJECT GET SUBFORM CONTAINER SIZE:C1148($height; $width)
+			OBJECT SET COORDINATES:C1248(*; "border"; 0; 0; $height; $width)
 			
 			Obj_CENTER("computations"; "separator"; Horizontally centered:K39:1)
 			
-			ASSERT:C1129(OB Is defined:C1231($Obj_caller; "area"))
-			$Lon_area:=OB Get:C1224($Obj_caller; "area"; Is longint:K8:6)
+			ASSERT:C1129(OB Is defined:C1231($caller_object; "area"))
+			$area_reference:=OB Get:C1224($caller_object; "area"; Is longint:K8:6)
 			
-			If (Asserted:C1132(QR_is_valid_area($Lon_area)))
+			If (Asserted:C1132(QR_is_valid_area($area_reference)))
 				
-				$Lon_reportType:=QR Get report kind:C755($Lon_area)
+				$report_type:=QR Get report kind:C755($area_reference)
 				
-				$Lon_area:=report_Get_target($Obj_caller; ->$Lon_column; ->$Lon_row)
+				$area_reference:=report_Get_target($caller_object; ->$column_number; ->$row_number)
 				
-				If (Asserted:C1132($Lon_column>=0))
+				If (Asserted:C1132($column_number>=0))
 					
 					//------------------ COMMON ------------------//
 					
 					If (True:C214)  //font name
 						
-						$Txt_buffer:=QR_Get_font_name($Lon_area; $Lon_column; $Lon_row)
+						$buffer_text:=QR_Get_font_name($area_reference; $column_number; $row_number)
 						
-						OB SET:C1220($Obj_caller; \
-							"fontName"; $Txt_buffer)
+						OB SET:C1220($caller_object; \
+							"fontName"; $buffer_text)
 						
-						$Txt_buffer:=Choose:C955($Txt_buffer="-"; \
+						$buffer_text:=Choose:C955($buffer_text="-"; \
 							Get localized string:C991("disparate"); \
-							Choose:C955($Txt_buffer=""; \
+							Choose:C955($buffer_text=""; \
 							"<Default>"; \
-							Replace string:C233($Txt_buffer; ".Lucida Grande UI"; "Lucida Grande")))
-						(OBJECT Get pointer:C1124(Object named:K67:5; "font.family.label"))->:=$Txt_buffer
+							Replace string:C233($buffer_text; ".Lucida Grande UI"; "Lucida Grande")))
+						(OBJECT Get pointer:C1124(Object named:K67:5; "font.family.label"))->:=$buffer_text
 						
 					End if 
 					
 					If (True:C214)  //font style
 						
-						$Lon_buffer:=QR_Get_font_style($Lon_area; $Lon_column; $Lon_row)
+						$buffer_integer:=QR_Get_font_style($area_reference; $column_number; $row_number)
 						
-						OB SET:C1220($Obj_caller; \
-							"fontStyle"; $Lon_buffer)
+						OB SET:C1220($caller_object; \
+							"fontStyle"; $buffer_integer)
 						
-						(OBJECT Get pointer:C1124(Object named:K67:5; "font.style"))->:=$Lon_buffer
+						(OBJECT Get pointer:C1124(Object named:K67:5; "font.style"))->:=$buffer_integer
 						
 					End if 
 					
 					If (True:C214)  //font size
 						
-						$Lon_buffer:=QR_Get_font_size($Lon_area; $Lon_column; $Lon_row)
+						$buffer_integer:=QR_Get_font_size($area_reference; $column_number; $row_number)
 						
-						OB SET:C1220($Obj_caller; \
-							"fontSize"; $Lon_buffer)
+						OB SET:C1220($caller_object; \
+							"fontSize"; $buffer_integer)
 						
-						$Txt_buffer:=Choose:C955($Lon_buffer=-1; \
+						$buffer_text:=Choose:C955($buffer_integer=-1; \
 							"-"; \
-							String:C10($Lon_buffer))
-						(OBJECT Get pointer:C1124(Object named:K67:5; "font.size.label"))->:=$Txt_buffer
+							String:C10($buffer_integer))
+						(OBJECT Get pointer:C1124(Object named:K67:5; "font.size.label"))->:=$buffer_text
 						
 					End if 
 					
 					If (True:C214)  //justification
 						
-						$Lon_buffer:=QR_Get_justification($Lon_area; $Lon_column; $Lon_row)
+						$buffer_integer:=QR_Get_justification($area_reference; $column_number; $row_number)
 						
-						OB SET:C1220($Obj_caller; \
-							"justification"; $Lon_buffer)
+						OB SET:C1220($caller_object; \
+							"justification"; $buffer_integer)
 						
-						(OBJECT Get pointer:C1124(Object named:K67:5; "justification"))->:=$Lon_buffer
+						(OBJECT Get pointer:C1124(Object named:K67:5; "justification"))->:=$buffer_integer
 						
 					End if 
 					
 					If (True:C214)  //font color
 						
-						$Lon_buffer:=QR_Get_color($Lon_area; $Lon_column; $Lon_row; qr text color:K14904:6)
+						$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr text color:K14904:6)
 						
-						OB SET:C1220($Obj_caller; \
-							"frontColor"; $Lon_buffer)
+						OB SET:C1220($caller_object; \
+							"frontColor"; $buffer_integer)
 						
-						(OBJECT Get pointer:C1124(Object named:K67:5; "font.front.color"))->:=$Lon_buffer
+						(OBJECT Get pointer:C1124(Object named:K67:5; "font.front.color"))->:=$buffer_integer
 						
 					End if 
 					
 					If (True:C214)  //back color
 						
-						$Lon_buffer:=QR_Get_color($Lon_area; $Lon_column; $Lon_row; qr background color:K14904:8)
+						$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr background color:K14904:8)
 						
-						OB SET:C1220($Obj_caller; \
-							"backColor"; $Lon_buffer)
+						OB SET:C1220($caller_object; \
+							"backColor"; $buffer_integer)
 						
-						(OBJECT Get pointer:C1124(Object named:K67:5; "font.back.color"))->:=$Lon_buffer
+						(OBJECT Get pointer:C1124(Object named:K67:5; "font.back.color"))->:=$buffer_integer
 						
 					End if 
 					
 					If (True:C214)  //border properties 
 						
-						$obj_buffer:=QR_Get_border_properties($Lon_area; $Lon_column; $Lon_row)
+						$buffer_object:=QR_Get_border_properties($area_reference; $column_number; $row_number)
 						
-						If ($obj_buffer#Null:C1517)
+						If ($buffer_object#Null:C1517)
 							
 							// border selected
-							(OBJECT Get pointer:C1124(Object named:K67:5; "borders.controls"))->:=$obj_buffer
+							(OBJECT Get pointer:C1124(Object named:K67:5; "borders.controls"))->:=$buffer_object
 							
 							
 							// color 
-							(OBJECT Get pointer:C1124(Object named:K67:5; "border.color1"))->:=Choose:C955($obj_buffer.sameColor; $obj_buffer.colorToSet; 0)
+							(OBJECT Get pointer:C1124(Object named:K67:5; "border.color1"))->:=Choose:C955($buffer_object.sameColor; $buffer_object.colorToSet; 0)
 							
 							
 							
 							// thickness
-							(OBJECT Get pointer:C1124(Object named:K67:5; "border.style"))->:=$obj_buffer.thicknessToSet
-							$Txt_buffer:=Get localized string:C991(Choose:C955($obj_buffer.sameThickness; "menu_thickness"+String:C10($obj_buffer.thicknessToSet); "menu_thicknessMultiple"))
-							(OBJECT Get pointer:C1124(Object named:K67:5; "border.style.label"))->:=$Txt_buffer
+							(OBJECT Get pointer:C1124(Object named:K67:5; "border.style"))->:=$buffer_object.thicknessToSet
+							$buffer_text:=Get localized string:C991(Choose:C955($buffer_object.sameThickness; "menu_thickness"+String:C10($buffer_object.thicknessToSet); "menu_thicknessMultiple"))
+							(OBJECT Get pointer:C1124(Object named:K67:5; "border.style.label"))->:=$buffer_text
 							
 							
 						End if 
@@ -206,7 +268,7 @@ Case of
 					Case of 
 							
 							//…………………………………………………………………………………………………………
-						: (Position:C15("BALLOON_SUBTOTALLINE"; $Txt_form)=1)
+						: (Position:C15("BALLOON_SUBTOTALLINE"; $form_name)=1)
 							
 							//format
 							OBJECT SET VISIBLE:C603(*; "format@"; False:C215)
@@ -214,84 +276,84 @@ Case of
 							//computations {
 							OBJECT SET VISIBLE:C603(*; "computations"; True:C214)
 							
-							If ($Lon_reportType=qr cross report:K14902:2) & ($Lon_column=3)
+							If ($report_type=qr cross report:K14902:2) & ($column_number=3)
 								
 								// Cross - report
-								$Lon_buffer:=QR_Get_computation($Lon_area; 2; $Lon_row)
+								$buffer_integer:=QR_Get_computation($area_reference; 2; $row_number)
 								
 							Else 
 								
-								$Lon_buffer:=QR_Get_computation($Lon_area; $Lon_column; $Lon_row)
+								$buffer_integer:=QR_Get_computation($area_reference; $column_number; $row_number)
 								
 							End if 
 							
-							OB SET:C1220($Obj_caller; \
-								"computations"; $Lon_buffer)
+							OB SET:C1220($caller_object; \
+								"computations"; $buffer_integer)
 							
-							(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$Lon_buffer
+							(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$buffer_integer
 							//}
 							
 							//subtotal handling
 							If (ob_area.sortNumber>0)  // We should be in a subtotal row ... but we never know
 								
-								$lon_subtotalNumber:=ob_area.qrRow
+								$subtotal_index:=ob_area.qrRow
 								
-								QR GET TOTALS SPACING:C762($Lon_area; $lon_subtotalNumber; $Lon_buffer)
+								QR GET TOTALS SPACING:C762($area_reference; $subtotal_index; $buffer_integer)
 								
-								If ($Lon_buffer=32000)
+								If ($buffer_integer=32000)
 									
-									$boo_propertiesSelected:=False:C215
+									$properties_selected:=False:C215
 									
-									$Txt_buffer:=Get localized string:C991("menu_subtotalSpacingBreak")
+									$buffer_text:=Get localized string:C991("menu_subtotalSpacingBreak")
 									
 								Else 
 									
-									$boo_propertiesSelected:=True:C214
+									$properties_selected:=True:C214
 									
-									$Txt_buffer:=Get localized string:C991("menu_subtotalSpacingValue")
+									$buffer_text:=Get localized string:C991("menu_subtotalSpacingValue")
 									
-									If ($Lon_buffer<0)
+									If ($buffer_integer<0)
 										
-										$txt_unit:=Get localized string:C991("menu_subtotalSpacingPercent")
+										$unit_name:=Get localized string:C991("menu_subtotalSpacingPercent")
 										
-										$Lon_buffer:=-$Lon_buffer
+										$buffer_integer:=-$buffer_integer
 										
 									Else 
 										
-										$txt_unit:=Get localized string:C991("menu_subtotalSpacingPoint")
+										$unit_name:=Get localized string:C991("menu_subtotalSpacingPoint")
 										
 									End if 
 									
 								End if 
 								
-								(OBJECT Get pointer:C1124(Object named:K67:5; "subtotalProp.label"))->:=$Txt_buffer
-								(OBJECT Get pointer:C1124(Object named:K67:5; "totalSpacing.unit.label"))->:=$txt_unit
-								(OBJECT Get pointer:C1124(Object named:K67:5; "totalSpacing.label"))->:=$Lon_buffer
+								(OBJECT Get pointer:C1124(Object named:K67:5; "subtotalProp.label"))->:=$buffer_text
+								(OBJECT Get pointer:C1124(Object named:K67:5; "totalSpacing.unit.label"))->:=$unit_name
+								(OBJECT Get pointer:C1124(Object named:K67:5; "totalSpacing.label"))->:=$buffer_integer
 								
-								OBJECT SET VISIBLE:C603(*; "totalSpacing@"; $boo_propertiesSelected)
+								OBJECT SET VISIBLE:C603(*; "totalSpacing@"; $properties_selected)
 								
-								If ($boo_propertiesSelected)
+								If ($properties_selected)
 									
-									OBJECT GET COORDINATES:C663(*; "subtotalProp"; $lon_left; $lon_top; $lon_right; $lon_bottom)
-									OBJECT SET COORDINATES:C1248(*; "subtotalProp"; $lon_left; $lon_top; 193; $lon_bottom)
+									OBJECT GET COORDINATES:C663(*; "subtotalProp"; $left; $top; $right; $bottom)
+									OBJECT SET COORDINATES:C1248(*; "subtotalProp"; $left; $top; 193; $bottom)
 									
-									OBJECT GET COORDINATES:C663(*; "subtotalProp.back"; $lon_left; $lon_top; $lon_rightNew; $lon_bottom)
-									OBJECT SET COORDINATES:C1248(*; "subtotalProp.back"; $lon_left; $lon_top; 194; $lon_bottom)
+									OBJECT GET COORDINATES:C663(*; "subtotalProp.back"; $left; $top; $lon_rightNew; $bottom)
+									OBJECT SET COORDINATES:C1248(*; "subtotalProp.back"; $left; $top; 194; $bottom)
 									
-									OBJECT GET COORDINATES:C663(*; "subtotalProp.label"; $lon_left; $lon_top; $lon_rightNew; $lon_bottom)
-									OBJECT SET COORDINATES:C1248(*; "subtotalProp.label"; $lon_left; $lon_top; 190; $lon_bottom)
+									OBJECT GET COORDINATES:C663(*; "subtotalProp.label"; $left; $top; $lon_rightNew; $bottom)
+									OBJECT SET COORDINATES:C1248(*; "subtotalProp.label"; $left; $top; 190; $bottom)
 									
 									
 								Else 
 									
-									OBJECT GET COORDINATES:C663(*; "subtotalProp"; $lon_left; $lon_top; $lon_right; $lon_bottom)
-									OBJECT SET COORDINATES:C1248(*; "subtotalProp"; $lon_left; $lon_top; 262; $lon_bottom)
+									OBJECT GET COORDINATES:C663(*; "subtotalProp"; $left; $top; $right; $bottom)
+									OBJECT SET COORDINATES:C1248(*; "subtotalProp"; $left; $top; 262; $bottom)
 									
-									OBJECT GET COORDINATES:C663(*; "subtotalProp.back"; $lon_left; $lon_top; $lon_rightNew; $lon_bottom)
-									OBJECT SET COORDINATES:C1248(*; "subtotalProp.back"; $lon_left; $lon_top; 263; $lon_bottom)
+									OBJECT GET COORDINATES:C663(*; "subtotalProp.back"; $left; $top; $lon_rightNew; $bottom)
+									OBJECT SET COORDINATES:C1248(*; "subtotalProp.back"; $left; $top; 263; $bottom)
 									
-									OBJECT GET COORDINATES:C663(*; "subtotalProp.label"; $lon_left; $lon_top; $lon_rightNew; $lon_bottom)
-									OBJECT SET COORDINATES:C1248(*; "subtotalProp.label"; $lon_left; $lon_top; 260; $lon_bottom)
+									OBJECT GET COORDINATES:C663(*; "subtotalProp.label"; $left; $top; $lon_rightNew; $bottom)
+									OBJECT SET COORDINATES:C1248(*; "subtotalProp.label"; $left; $top; 260; $bottom)
 									
 								End if 
 								
@@ -301,23 +363,23 @@ Case of
 							End if 
 							
 							//NOTHING MORE TO DO
-						: (Position:C15("BALLOON_FONT"; $Txt_form)=1)
+						: (Position:C15("BALLOON_FONT"; $form_name)=1)
 							
 							//…………………………………………………………………………………………………………
-						: (Position:C15("BALLOON_LINE"; $Txt_form)=1)
+						: (Position:C15("BALLOON_LINE"; $form_name)=1)
 							
 							//format (Detail) & computation (only for Subtotal rows and Grand total)
 							Case of 
 									
 									//______________________________________________________
-								: ($Lon_row=qr title:K14906:1)  //Title
+								: ($row_number=qr title:K14906:1)  //Title
 									
 									//format
 									OBJECT SET ENABLED:C1123(*; "format@"; False:C215)
 									(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Get localized string:C991("inapplicable")
 									
 									//______________________________________________________
-								: ($Lon_row=qr detail:K14906:2)  //Detail
+								: ($row_number=qr detail:K14906:2)  //Detail
 									
 									//alternate background color
 									If (True:C214)
@@ -328,21 +390,21 @@ Case of
 										
 										OBJECT SET VISIBLE:C603(*; "font.alternate.back.color"; True:C214)
 										
-										$Lon_buffer:=QR_Get_color($Lon_area; $Lon_column; $Lon_row; qr alternate background color:K14904:9)
+										$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr alternate background color:K14904:9)
 										
-										OB SET:C1220($Obj_caller; \
-											"altBackColor"; $Lon_buffer)
+										OB SET:C1220($caller_object; \
+											"altBackColor"; $buffer_integer)
 										
-										(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$Lon_buffer
+										(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$buffer_integer
 										
 									End if 
 									
 									//format
 									If (True:C214)
 										
-										$Lon_type:=QR_Get_column_type($Lon_area; $Lon_column)
+										$type:=QR_Get_column_type($area_reference; $column_number)
 										
-										If ($Lon_type=-1)  //mismatch
+										If ($type=-1)  //mismatch
 											
 											OBJECT SET ENABLED:C1123(*; "format"; False:C215)
 											OBJECT SET VISIBLE:C603(*; "format.back"; False:C215)
@@ -355,18 +417,18 @@ Case of
 											OBJECT SET VISIBLE:C603(*; "format.back"; True:C214)
 											OBJECT SET VISIBLE:C603(*; "format.label"; True:C214)
 											
-											$Txt_buffer:=QR_Get_column_format($Lon_area; $Lon_column)
+											$buffer_text:=QR_Get_column_format($area_reference; $column_number)
 											
-											OB SET:C1220($Obj_caller; \
-												"columnFormat"; $Txt_buffer)
+											OB SET:C1220($caller_object; \
+												"columnFormat"; $buffer_text)
 											
-											(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($Txt_buffer)#0; $Txt_buffer; Get localized string:C991("none"))
+											(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($buffer_text)#0; $buffer_text; Get localized string:C991("none"))
 											
 										End if 
 									End if 
 									
 									//______________________________________________________
-								: ($Lon_row=qr grand total:K14906:3)  //Grand Total
+								: ($row_number=qr grand total:K14906:3)  //Grand Total
 									
 									//format
 									OBJECT SET VISIBLE:C603(*; "format@"; False:C215)
@@ -375,16 +437,16 @@ Case of
 									OBJECT SET VISIBLE:C603(*; "computations"; True:C214)
 									
 									
-									$Lon_buffer:=QR_Get_computation($Lon_area; $Lon_column; $Lon_row)
+									$buffer_integer:=QR_Get_computation($area_reference; $column_number; $row_number)
 									
-									OB SET:C1220($Obj_caller; \
-										"computations"; $Lon_buffer)
+									OB SET:C1220($caller_object; \
+										"computations"; $buffer_integer)
 									
-									(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$Lon_buffer
+									(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$buffer_integer
 									//}
 									
 									//______________________________________________________
-								: ($Lon_row>0)  //break
+								: ($row_number>0)  //break
 									
 									//format
 									OBJECT SET VISIBLE:C603(*; "format@"; False:C215)
@@ -394,33 +456,33 @@ Case of
 									
 									//#ACI0098288 [
 									//$Lon_buffer:=Choose(($Lon_reportType=qr cross report) & ($Lon_column=3);\
-																																																																																																																																																																																																																																																																																																													\
-																																																												\
-																																																																						\
-																																																																																\
-																																																																																									Q\
-																																																																																										R_Get_comp\
-																																																																																																				utation ($\
-																																																																																																														Lon_area;2\
-																																																																																																																								;$Lon_row)\
-																																																																																																																																		;\
-																																																																																																																																																																																																																																																																																																																																																				QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
-									If ($Lon_reportType=qr cross report:K14902:2) & ($Lon_column=3)
+																				\
+																				\
+																				\
+																				\
+																				Q\
+																				R_Get_comp\
+																				utation ($\
+																				Lon_area;2\
+																				;$row_number)\
+																				;\
+																																																																																																																																																																																																																																																																																																																																																																								QR_Get_computation ($area_reference;$column_number;$row_number))
+									If ($report_type=qr cross report:K14902:2) & ($column_number=3)
 										
 										// Cross - report
-										$Lon_buffer:=QR_Get_computation($Lon_area; 2; $Lon_row)
+										$buffer_integer:=QR_Get_computation($area_reference; 2; $row_number)
 										
 									Else 
 										
-										$Lon_buffer:=QR_Get_computation($Lon_area; $Lon_column; $Lon_row)
+										$buffer_integer:=QR_Get_computation($area_reference; $column_number; $row_number)
 										
 									End if 
 									//]
 									
-									OB SET:C1220($Obj_caller; \
-										"computations"; $Lon_buffer)
+									OB SET:C1220($caller_object; \
+										"computations"; $buffer_integer)
 									
-									(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$Lon_buffer
+									(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$buffer_integer
 									//}
 									
 									//______________________________________________________
@@ -432,56 +494,56 @@ Case of
 							End case 
 							
 							//…………………………………………………………………………………………………………
-						: (Position:C15("BALLOON_COLUMN"; $Txt_form)=1)
+						: (Position:C15("BALLOON_COLUMN"; $form_name)=1)
 							
-							If ($Lon_reportType=qr cross report:K14902:2)
+							If ($report_type=qr cross report:K14902:2)
 								
-								$Lon_buffer:=QR_Get_color($Lon_area; $Lon_column; $Lon_row; qr alternate background color:K14904:9)
+								$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr alternate background color:K14904:9)
 								
-								OB SET:C1220($Obj_caller; \
-									"altBackColor"; $Lon_buffer)
+								OB SET:C1220($caller_object; \
+									"altBackColor"; $buffer_integer)
 								
-								(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$Lon_buffer
+								(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$buffer_integer
 								
 								//#ACI0095708
-								$Lon_area:=report_Get_target($Obj_caller; ->$Lon_columnData; ->$Lon_rowData; True:C214)
-								$Lon_columnType:=QR_Get_column_type($Lon_area; $Lon_columnData)
+								$area_reference:=report_Get_target($caller_object; ->$column_data; ->$row_data; True:C214)
+								$column_type:=QR_Get_column_type($area_reference; $column_data)
 								
 							Else 
 								
 								//format
-								$Lon_columnType:=QR_Get_column_type($Lon_area; $Lon_column)
+								$column_type:=QR_Get_column_type($area_reference; $column_number)
 								
 							End if 
 							
-							If ($Lon_columnType=-1)  //undefined for a formula
+							If ($column_type=-1)  //undefined for a formula
 								
 								//#TO_BE_DONE - change the user interface to allow string entry
 								
 							End if 
 							
-							If ($Lon_reportType=qr cross report:K14902:2)
+							If ($report_type=qr cross report:K14902:2)
 								
 								//#ACI0095708
-								$Txt_buffer:=QR_Get_column_format($Lon_area; $Lon_columnData; $Lon_columnType)
+								$buffer_text:=QR_Get_column_format($area_reference; $column_data; $column_type)
 								
 							Else 
 								
-								$Txt_buffer:=QR_Get_column_format($Lon_area; $Lon_column; $Lon_columnType)
+								$buffer_text:=QR_Get_column_format($area_reference; $column_number; $column_type)
 								
 							End if 
 							
-							OB SET:C1220($Obj_caller; \
-								"columnFormat"; $Txt_buffer)
+							OB SET:C1220($caller_object; \
+								"columnFormat"; $buffer_text)
 							
-							(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($Txt_buffer)#0; $Txt_buffer; Get localized string:C991("none"))
+							(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($buffer_text)#0; $buffer_text; Get localized string:C991("none"))
 							
 							OBJECT SET VISIBLE:C603(*; "format@"; True:C214)
 							
 							//sort
-							If ($Lon_columnType=Is BLOB:K8:12)\
-								 | ($Lon_columnType=Is picture:K8:10)\
-								 | ($Lon_columnType=Is subtable:K8:11)
+							If ($column_type=Is BLOB:K8:12)\
+								 | ($column_type=Is picture:K8:10)\
+								 | ($column_type=Is subtable:K8:11)
 								
 								OBJECT SET ENABLED:C1123(*; "sort"; False:C215)
 								OBJECT SET VISIBLE:C603(*; "sort.back"; False:C215)
@@ -492,39 +554,39 @@ Case of
 								OBJECT SET ENABLED:C1123(*; "sort"; True:C214)
 								OBJECT SET VISIBLE:C603(*; "sort.back"; True:C214)
 								
-								QR GET SORTS:C753($Lon_area; $tLon_sortedColumns; $tLon_sortOrder)
-								$Lon_sort_index:=Find in array:C230($tLon_sortedColumns; $Lon_column)
+								QR GET SORTS:C753($area_reference; $_sorted_columns; $_sort_order)
+								$sort_column_index:=Find in array:C230($_sorted_columns; $column_number)
 								
-								$Ptr_label:=OBJECT Get pointer:C1124(Object named:K67:5; "sort.label")
+								$ui_label_pointer:=OBJECT Get pointer:C1124(Object named:K67:5; "sort.label")
 								
 								Case of 
 										
 										//-----------------------------
-									: ($Lon_sort_index=-1)  //not sorted
+									: ($sort_column_index=-1)  //not sorted
 										
-										$Ptr_label->:=Get localized string:C991("menu_sort_none")
-										
-										//-----------------------------
-									: ($tLon_sortOrder{$Lon_sort_index}=0)
-										
-										$Ptr_label->:=Get localized string:C991("menu_sort_none")
+										$ui_label_pointer->:=Get localized string:C991("menu_sort_none")
 										
 										//-----------------------------
-									: ($tLon_sortOrder{$Lon_sort_index}=1)
+									: ($_sort_order{$sort_column_index}=0)
 										
-										$Ptr_label->:=Get localized string:C991(\
-											Choose:C955($Lon_reportType=qr cross report:K14902:2; \
-											Choose:C955($Lon_column=2; \
+										$ui_label_pointer->:=Get localized string:C991("menu_sort_none")
+										
+										//-----------------------------
+									: ($_sort_order{$sort_column_index}=1)
+										
+										$ui_label_pointer->:=Get localized string:C991(\
+											Choose:C955($report_type=qr cross report:K14902:2; \
+											Choose:C955($column_number=2; \
 											"menu_sort_leftToRight"; \
 											"menu_sort_topToBottom"); \
 											"menu_sort_ascending"))
 										
 										//-----------------------------
-									: ($tLon_sortOrder{$Lon_sort_index}=-1)
+									: ($_sort_order{$sort_column_index}=-1)
 										
-										$Ptr_label->:=Get localized string:C991(\
-											Choose:C955($Lon_reportType=qr cross report:K14902:2; \
-											Choose:C955($Lon_column=2; \
+										$ui_label_pointer->:=Get localized string:C991(\
+											Choose:C955($report_type=qr cross report:K14902:2; \
+											Choose:C955($column_number=2; \
 											"menu_sort_rightToLeft"; \
 											"menu_sort_bottomToTop"); \
 											"menu_sort_descending"))
@@ -537,42 +599,42 @@ Case of
 							End if 
 							
 							//options
-							QR GET INFO COLUMN:C766($Lon_area; $Lon_column; $Txt_; $Txt_; $Lon_; $Lon_width; $Lon_repeated; $Txt_; $Txt_)
+							QR GET INFO COLUMN:C766($area_reference; $column_number; $text; $text; $int; $width; $repeated_values; $text; $text)
 							
-							(OBJECT Get pointer:C1124(Object named:K67:5; "automaticWidth"))->:=Num:C11($Lon_width=-1)
+							(OBJECT Get pointer:C1124(Object named:K67:5; "automaticWidth"))->:=Num:C11($width=-1)
 							
-							If ($Lon_reportType=qr cross report:K14902:2)
+							If ($report_type=qr cross report:K14902:2)
 								
-								If ($Lon_column=1)
+								If ($column_number=1)
 									
 									OBJECT SET VISIBLE:C603(*; "font.alternate.back.color"; True:C214)
 									
 								Else 
 									
-									OBJECT GET SUBFORM CONTAINER SIZE:C1148($Lon_width; $Lon_)
-									OBJECT GET COORDINATES:C663(*; "font.alternate.back.color"; $Lon_; $Lon_; $Lon_right; $Lon_)
-									OBJECT SET VISIBLE:C603(*; "font.alternate.back.color"; $Lon_width>=$Lon_right)
+									OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $int)
+									OBJECT GET COORDINATES:C663(*; "font.alternate.back.color"; $int; $int; $right; $int)
+									OBJECT SET VISIBLE:C603(*; "font.alternate.back.color"; $width>=$right)
 									
 								End if 
 								
 							Else 
 								
-								(OBJECT Get pointer:C1124(Object named:K67:5; "repeatedValues"))->:=$Lon_repeated
+								(OBJECT Get pointer:C1124(Object named:K67:5; "repeatedValues"))->:=$repeated_values
 								
 							End if 
 							
 							//…………………………………………………………………………………………………………
-						: (Position:C15("BALLOON_CROSS_DATA"; $Txt_form)=1)
+						: (Position:C15("BALLOON_CROSS_DATA"; $form_name)=1)
 							
 							//format
 							OBJECT SET VISIBLE:C603(*; "format@"; True:C214)
 							
 							//#ACI0095708
 							//$Lon_type:=QR_Get_column_type ($Lon_area;$Lon_column)
-							$Lon_area:=report_Get_target($Obj_caller; ->$Lon_columnData; ->$Lon_rowData; True:C214)
-							$Lon_type:=QR_Get_column_type($Lon_area; $Lon_columnData)
+							$area_reference:=report_Get_target($caller_object; ->$column_data; ->$row_data; True:C214)
+							$type:=QR_Get_column_type($area_reference; $column_data)
 							
-							If ($Lon_type=-1)  //mismatch
+							If ($type=-1)  //mismatch
 								
 								OBJECT SET ENABLED:C1123(*; "format"; False:C215)
 								OBJECT SET VISIBLE:C603(*; "format.back"; False:C215)
@@ -587,8 +649,8 @@ Case of
 								
 								//ACI0100940{ACI0100938
 /*
-																																								If ($Lon_columnData=2)\
-																																													 | ($Lon_columnData=3)  //apply to line
+																																																								If ($Lon_columnData=2)\
+																																																															 | ($Lon_columnData=3)  //apply to line
 								
 $lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
 Else 
@@ -596,11 +658,11 @@ $lon_columnTempo:=$Lon_columnData
 End if 
 //}*/
 								
-								$Txt_buffer:=QR_Get_column_format($Lon_area; $Lon_columnData; $Lon_columnType)
-								OB SET:C1220($Obj_caller; \
-									"columnFormat"; $Txt_buffer)
+								$buffer_text:=QR_Get_column_format($area_reference; $column_data; $column_type)
+								OB SET:C1220($caller_object; \
+									"columnFormat"; $buffer_text)
 								
-								(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($Txt_buffer)#0; $Txt_buffer; Get localized string:C991("none"))
+								(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($buffer_text)#0; $buffer_text; Get localized string:C991("none"))
 								
 							End if 
 							
@@ -609,112 +671,112 @@ End if
 								
 								OBJECT SET VISIBLE:C603(*; "font.alternate.back.color"; True:C214)
 								
-								If ($Lon_columnData=2)\
-									 | ($Lon_columnData=3)  //apply to line
+								If ($column_data=2)\
+									 | ($column_data=3)  //apply to line
 									
-									$Lon_columnData:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
+									$column_data:=$column_data+(3-$column_data)+(2-$column_data)
 									
 								End if 
 								
-								$Lon_buffer:=QR_Get_color($Lon_area; $Lon_columnData; $Lon_rowData; qr alternate background color:K14904:9)
+								$buffer_integer:=QR_Get_color($area_reference; $column_data; $row_data; qr alternate background color:K14904:9)
 								
-								OB SET:C1220($Obj_caller; \
-									"altBackColor"; $Lon_buffer)
+								OB SET:C1220($caller_object; \
+									"altBackColor"; $buffer_integer)
 								
-								(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$Lon_buffer
+								(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$buffer_integer
 								
 							End if 
 							
 							//computations {
 							OBJECT SET VISIBLE:C603(*; "computations"; True:C214)
 							
-							$Lon_buffer:=QR_Get_computation($Lon_area; $Lon_column; $Lon_row)
+							$buffer_integer:=QR_Get_computation($area_reference; $column_number; $row_number)
 							
-							OB SET:C1220($Obj_caller; \
-								"computations"; $Lon_buffer)
+							OB SET:C1220($caller_object; \
+								"computations"; $buffer_integer)
 							
-							(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$Lon_buffer
+							(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$buffer_integer
 							//}
 							
 							//…………………………………………………………………………………………………………
 						Else 
 							
-							ASSERT:C1129(False:C215; "Unknown entry point: \""+$Txt_form+"\"")
+							ASSERT:C1129(False:C215; "Unknown entry point: \""+$form_name+"\"")
 							
 							//…………………………………………………………………………………………………………
 					End case 
 				End if 
 			End if 
 			
-			(OBJECT Get pointer:C1124(Object named:K67:5; "caller"))->:=JSON Stringify:C1217($Obj_caller)
+			(OBJECT Get pointer:C1124(Object named:K67:5; "caller"))->:=JSON Stringify:C1217($caller_object)
 			
 		End if 
 		
 		//______________________________________________________
-	: ($Txt_action="switch")
+	: ($action="switch")
 		
-		If (OBJECT Get visible:C1075(*; $kTxt_subform))
+		If (OBJECT Get visible:C1075(*; $subform_name))
 			
-			OB SET:C1220($Obj_param; \
+			OB SET:C1220($parameter; \
 				"action"; "hide")
 			
 		Else 
 			
-			OB SET:C1220($Obj_param; \
+			OB SET:C1220($parameter; \
 				"action"; "show")
 			
 		End if 
 		
-		report_BALLOON_HDL($Obj_param)
+		report_BALLOON_HDL($parameter)
 		
 		//______________________________________________________
-	: ($Txt_action="show")
+	: ($action="show")
 		
-		ASSERT:C1129(OB Is defined:C1231($Obj_param; "caller"))
-		ASSERT:C1129(OB Is defined:C1231($Obj_param; "form"))
+		ASSERT:C1129(OB Is defined:C1231($parameter; "caller"))
+		ASSERT:C1129(OB Is defined:C1231($parameter; "form"))
 		
-		$Txt_caller:=OB Get:C1224($Obj_param; "caller"; Is text:K8:3)
-		$Txt_form:=OB Get:C1224($Obj_param; "form"; Is text:K8:3)
-		$Lon_hOffset:=OB Get:C1224($Obj_param; "hOffset"; Is longint:K8:6)
-		$Lon_vOffset:=OB Get:C1224($Obj_param; "vOffset"; Is longint:K8:6)
+		$caller_name:=OB Get:C1224($parameter; "caller"; Is text:K8:3)
+		$form_name:=OB Get:C1224($parameter; "form"; Is text:K8:3)
+		$h_offset:=OB Get:C1224($parameter; "hOffset"; Is longint:K8:6)
+		$v_offset:=OB Get:C1224($parameter; "vOffset"; Is longint:K8:6)
 		
 		//find coordinates and dimensions
-		FORM GET PROPERTIES:C674($Txt_form; $Lon_width; $Lon_height)
-		OBJECT GET COORDINATES:C663(*; $Txt_caller; $Lon_left; $Lon_; $Lon_; $Lon_bottom)
+		FORM GET PROPERTIES:C674($form_name; $width; $height)
+		OBJECT GET COORDINATES:C663(*; $caller_name; $left; $int; $int; $bottom)
 		
-		$Lon_top:=$Lon_bottom
-		$Lon_right:=$Lon_left+$Lon_width+$Lon_hOffset
-		$Lon_bottom:=$Lon_top+$Lon_height+$Lon_vOffset
+		$top:=$bottom
+		$right:=$left+$width+$h_offset
+		$bottom:=$top+$height+$v_offset
 		
 		//move if necessary to remain in the container
-		OBJECT GET SUBFORM CONTAINER SIZE:C1148($Lon_width; $Lon_height)
+		OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 		
-		If ($Lon_right>$Lon_width)  //shift left
+		If ($right>$width)  //shift left
 			
-			$Lon_offset:=$Lon_width-$Lon_right
-			$Lon_left:=$Lon_left+$Lon_offset-$kLon_margin
-			$Lon_right:=$Lon_right+$Lon_offset-$kLon_margin
+			$offset:=$width-$right
+			$left:=$left+$offset-$margin
+			$right:=$right+$offset-$margin
 			
 		End if 
 		
-		If ($Lon_bottom>$Lon_height)  //shift up
+		If ($bottom>$height)  //shift up
 			
-			$Lon_offset:=$Lon_height-$Lon_bottom
-			$Lon_top:=$Lon_top+$Lon_offset-$kLon_margin
-			$Lon_bottom:=$Lon_bottom+$Lon_offset-$kLon_margin
+			$offset:=$height-$bottom
+			$top:=$top+$offset-$margin
+			$bottom:=$bottom+$offset-$margin
 			
 		End if 
 		
 		
 		//set the UI subform
-		OBJECT SET SUBFORM:C1138(*; $kTxt_subform; $Txt_form)
+		OBJECT SET SUBFORM:C1138(*; $subform_name; $form_name)
 		
 		//positioning balloon
-		OBJECT SET COORDINATES:C1248(*; $kTxt_subform; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+		OBJECT SET COORDINATES:C1248(*; $subform_name; $left; $top; $right; $bottom)
 		
 		//positioning mask
-		OBJECT GET COORDINATES:C663(*; Form:C1466.areaObject; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
-		OBJECT SET COORDINATES:C1248(*; "balloon.mask"; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+		OBJECT GET COORDINATES:C663(*; Form:C1466.areaObject; $left; $top; $right; $bottom)
+		OBJECT SET COORDINATES:C1248(*; "balloon.mask"; $left; $top; $right; $bottom)
 		
 		//making visible
 		OBJECT SET VISIBLE:C603(*; "balloon.@"; True:C214)
@@ -727,49 +789,56 @@ End if
 			"balloon"; True:C214)
 		
 		//______________________________________________________
-	: ($Txt_action="hide")
+	: ($action="hide")
 		
 		//hide the UI
 		OBJECT SET VISIBLE:C603(*; "balloon.@"; False:C215)
 		
 		//#ACI0095689
-		OBJECT SET SUBFORM:C1138(*; $kTxt_subform; "BALLOON_EMPTY")
+		OBJECT SET SUBFORM:C1138(*; $subform_name; "BALLOON_EMPTY")
 		
-		If (OB Is defined:C1231($Obj_param; "postClick"))
+		If (OB Is defined:C1231($parameter; "postClick"))
 			
-			If (OB Get:C1224($Obj_param; "postClick"; Is boolean:K8:9))
+			If (OB Get:C1224($parameter; "postClick"; Is boolean:K8:9))
 				
-				GET MOUSE:C468($Lon_mouseX; $Lon_mouseY; $Lon_; *)
-				POST CLICK:C466($Lon_mouseX; $Lon_mouseY; *)
+				GET MOUSE:C468($mouse_x; $mouse_y; $int; *)
+				POST CLICK:C466($mouse_x; $mouse_y; *)
 				
 			End if 
+			
 		End if 
 		
 		//release the balloon's flag
 		OB SET:C1220(ob_area; \
 			"balloon"; False:C215)
 		
-		var $x : Blob
-		QR REPORT TO BLOB:C770(QR_area; $x)
 		
-		var $digest : Text
-		$digest:=Generate digest:C1147($x; MD5 digest:K66:1)
-		
-		If (ob_area._digest#$digest)
+		If (QR_is_valid_area(ob_area.area))
 			
-			ob_area.modified:=True:C214
+			var $digest : Text
+			var $x : Blob
+			
+			QR REPORT TO BLOB:C770(ob_area.area; $x)
+			
+			$digest:=Generate digest:C1147($x; MD5 digest:K66:1)
+			
+			If (ob_area._digest#$digest)
+				
+				ob_area.modified:=True:C214
+				
+			End if 
 			
 		End if 
 		
 		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Unknown entry point: \""+$Txt_action+"\"")
+		ASSERT:C1129(False:C215; "Unknown entry point: \""+$action+"\"")
 		
 		//______________________________________________________
 End case 
 
-CLEAR VARIABLE:C89($Obj_param)
+CLEAR VARIABLE:C89($parameter)
 
 // ----------------------------------------------------
 // Return

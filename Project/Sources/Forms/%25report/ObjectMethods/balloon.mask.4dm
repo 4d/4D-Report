@@ -1,9 +1,22 @@
-C_OBJECT:C1216($Obj_param)
+// ----------------------------------------------------
+// Nom utilisateur (OS) : 4D
+// Date et heure : 24/01/23, 17:56:55
+// ----------------------------------------------------
+// Méthode : %report.balloon.mask
+// Description
+// 
+//
+// Paramètres
+// ----------------------------------------------------
 
-$Obj_param:=New object:C1471(\
+var \
+$parameter : Object
+
+
+$parameter:=New object:C1471(\
 "action"; "hide"; \
 "postClick"; True:C214)
 
-report_BALLOON_HDL($Obj_param)
+report_BALLOON_HDL($parameter)
 
-CLEAR VARIABLE:C89($Obj_param)
+CLEAR VARIABLE:C89($parameter)

@@ -549,14 +549,19 @@ If (Not:C34($Boo_skip)\
 					LISTBOX MOVE COLUMN:C1274(*; $tTxt_columnNames{$Lon_newPosition}; $Lon_oldPosition)
 				End if 
 				//]
+				
+				
 				//Is it an authorized moving?
 				If ((($Lon_newPosition-1)<=$Lon_qrColumnNumber) & (($Lon_oldPosition-1)<=$Lon_qrColumnNumber))
 					
 					
 					// #21-8-2014 - use the new command QR MOVE COLUMN
-					//QR_SWAP_COLUMNS ($Lon_area;$Lon_oldPosition-1;$Lon_newPosition-1)
+					//QR_SWAP_COLUMNS($Lon_area; $Lon_oldPosition-1; $Lon_newPosition-1)
+					
+					//mark: QR MOVE COLUMN also move the sort order
 					QR MOVE COLUMN:C1325($Lon_area; $Lon_oldPosition-1; $Lon_newPosition-1)
 					QR SET SELECTION:C794($Lon_area; $Lon_newPosition-1; 0; $Lon_newPosition-1; 0)
+					
 					
 					
 				Else 
@@ -580,6 +585,7 @@ If (Not:C34($Boo_skip)\
 				"action"; "update")
 			
 			//______________________________________________________
+			
 		: ($Boo_cellEditing)
 			
 			//do nothing until editing is complete

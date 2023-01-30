@@ -122,20 +122,25 @@ For ($Lon_i; 1; $Lon_qrColumnNumber; 1)
 	
 	QR GET INFO COLUMN:C766($area; $Lon_i; $Txt_title; $Txt_object; $Lon_hidden; $Lon_width; $Lon_repeated; $Txt_format; $Txt_variableName)
 	
-	If (boo_useVirtualStructure)
-		$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+	//mark: ACI0103452/ACI0103541
+	
+	If (Length:C16($Txt_variableName)=0)
+		
+		If (boo_useVirtualStructure)
+			$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+		End if 
+		OBJECT SET TITLE:C194(*; $Txt_header; $Txt_object)
+	Else 
+		//mark:ACI0103452
+		//#DD
+		// erreur de copier coller $Txt_object
+		// note: dans la version v18, on testait la validité du nom de la variable :
+		// si nom vide, -> on evaluait txt_object pour afficher la formule avec gestion du virtual structure
+		// vu avec vdl, il ne sert à rien d'afficher des formules, si c'est pour les tronquer... à suivre
+		
+		//OBJECT SET TITLE(*; $Txt_header; $Txt_object)
+		OBJECT SET TITLE:C194(*; $Txt_header; $Txt_variableName)
 	End if 
-	
-	//mark:ACI0103452
-	//#DD
-	// erreur de copier coller $Txt_object
-	// note: dans la version v18, on testait la validité du nom de la variable :
-	// si nom vide, -> on evaluait txt_object pour afficher la formule avec gestion du virtual structure
-	// vu avec vdl, il ne sert à rien d'afficher des formules, si c'est pour les tronquer... à suivre
-	
-	//OBJECT SET TITLE(*; $Txt_header; $Txt_object)
-	OBJECT SET TITLE:C194(*; $Txt_header; $Txt_variableName)
-	
 End for 
 
 //add a filler (resizable) column, if any
@@ -222,10 +227,34 @@ If ($Lon_sortNumber>0)
 	
 	SORT ARRAY:C229($tLon_order; $tLon_sortOrder; $tLon_sortedColumns; <)
 	
+	
+	//mark:ACI0103541
+	//DD : OBJECT Get title(*; $Txt_header) is not reliable because recalculating without taking into account the order of creation of the column.
+	
+	
 	For ($Lon_i; 1; $Lon_sortNumber; 1)
 		
-		$Txt_header:=$tTxt_headers{$tLon_sortedColumns{$Lon_i}+1}
-		$Txt_buffer:=Replace string:C233(Get localized string:C991("head_subtotal"); "{field}"; OBJECT Get title:C1068(*; $Txt_header))
+		//mark:ACI0103541--BEGIN
+		QR GET INFO COLUMN:C766($area; $tLon_sortedColumns{$Lon_i}; $Txt_title; $Txt_object; $Lon_hidden; $Lon_width; $Lon_repeated; $Txt_format; $Txt_variableName)
+		
+		If (Length:C16($Txt_variableName)=0)
+			
+			If (boo_useVirtualStructure)
+				$Txt_object:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+			End if 
+			
+			$Txt_header:=$Txt_object
+		Else 
+			$Txt_header:=$Txt_variableName
+		End if 
+		
+		
+		
+		//$Txt_header:=$tTxt_headers{$tLon_sortedColumns{$Lon_i}+1}
+		
+		$Txt_buffer:=Replace string:C233(Get localized string:C991("head_subtotal"); "{field}"; $Txt_header)  // OBJECT Get title(*; $Txt_header))
+		//mark:ACI0103541--END
+		
 		$Ptr_column->{2+$Lon_i}:=$Txt_buffer
 		$Lon_hidden:=QR Get info row:C769($area; $Lon_i)
 		ST SET ATTRIBUTES:C1093($Ptr_column->{2+$Lon_i}; \

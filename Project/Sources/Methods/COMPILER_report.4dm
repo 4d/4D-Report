@@ -15,7 +15,8 @@
 C_LONGINT:C283(Form_C_UseVirtualStructure)
 
 // ===============================================
-C_OBJECT:C1216(ob_dialog; ob_area; object_selection)
+C_OBJECT:C1216(ob_dialog; ob_area)
+
 ob_area:=ob_area || New object:C1471
 
 ARRAY LONGINT:C221(tLon_rowHeights; 0)

@@ -420,13 +420,14 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 218,
+	"geometryStamp": 240,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
 		"views": {
 			"View 1": {},
 			"poster": {
+				"visible": false,
 				"objects": [
 					"poster_title",
 					"poster_picture"

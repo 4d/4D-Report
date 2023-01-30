@@ -91,5 +91,12 @@
 		"kind": "form"
 	},
 	"geometryStamp": 29,
-	"method": "method.4dm"
+	"method": "method.4dm",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
 }

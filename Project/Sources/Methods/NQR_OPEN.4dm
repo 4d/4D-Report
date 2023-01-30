@@ -9,7 +9,9 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_OBJECT:C1216($1)
+#DECLARE($param : Object)
+
+//C_OBJECT($1)
 
 C_BLOB:C604($Blb_buffer)
 C_LONGINT:C283($Lon_parameters)
@@ -35,7 +37,7 @@ If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	// Optional parameters
 	If ($Lon_parameters>=1)
 		
-		$Obj_in:=$1
+		$Obj_in:=$param
 		
 		OK:=Num:C11(Length:C16(String:C10($Obj_in.target))#0)
 		

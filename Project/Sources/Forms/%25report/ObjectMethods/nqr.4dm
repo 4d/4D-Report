@@ -16,6 +16,7 @@ $right; $row; $top; $mouseX; $mouseY : Integer
 var $data : Blob
 
 var $o : Object
+var $e : Object
 
 ARRAY TEXT:C222($_columnNames; 0)
 ARRAY TEXT:C222($_headerNames; 0)
@@ -26,7 +27,6 @@ ARRAY POINTER:C280($_styles; 0)
 
 // ----------------------------------------------------
 // Initialisations
-var $e : Object
 
 $e:=FORM Event:C1606
 
