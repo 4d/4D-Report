@@ -139,7 +139,6 @@ Case of
 					
 					If (C_QR_ONCOMMANDFORMULA#Null:C1517)
 						
-						
 						C_QR_ONCOMMANDFORMULA.call(Null:C1517; QR_area; qr cmd save as:K14900:21)
 						
 					Else 

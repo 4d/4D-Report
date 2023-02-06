@@ -14,7 +14,7 @@
 // ---------------------------------------------------- INTEGERS
 
 var \
-$count_parameter; \
+$count_parameters; \
 $buffer_integer; \
 $report_type; \
 $type; \
@@ -92,15 +92,15 @@ End if
 
 // ----------------------------------------------------
 // Initialisations
-$count_parameter:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($count_parameter>=1; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
 	//$parameter:=$1
 	
 	//Optional parameters
-	If ($count_parameter>=2)
+	If ($count_parameters>=2)
 		
 		//NONE
 		
@@ -113,6 +113,7 @@ If (Asserted:C1132($count_parameter>=1; "Missing parameter"))
 			$action:=OB Get:C1224($parameter; "action"; Is text:K8:3)
 			
 		End if 
+		
 	End if 
 	
 	//Constants
@@ -456,17 +457,17 @@ Case of
 									
 									//#ACI0098288 [
 									//$Lon_buffer:=Choose(($Lon_reportType=qr cross report) & ($Lon_column=3);\
-																				\
-																				\
-																				\
-																				\
-																				Q\
-																				R_Get_comp\
-																				utation ($\
-																				Lon_area;2\
-																				;$row_number)\
-																				;\
-																																																																																																																																																																																																																																																																																																																																																																								QR_Get_computation ($area_reference;$column_number;$row_number))
+																														\
+																														\
+																														\
+																														\
+																														Q\
+																														R_Get_comp\
+																														utation ($\
+																														Lon_area;2\
+																														;$row_number)\
+																														;\
+																																																																																																																																																																																																																																																																																																																																																																																		QR_Get_computation ($area_reference;$column_number;$row_number))
 									If ($report_type=qr cross report:K14902:2) & ($column_number=3)
 										
 										// Cross - report
@@ -649,8 +650,8 @@ Case of
 								
 								//ACI0100940{ACI0100938
 /*
-																																																								If ($Lon_columnData=2)\
-																																																															 | ($Lon_columnData=3)  //apply to line
+																																																																If ($Lon_columnData=2)\
+																																																																								 | ($Lon_columnData=3)  //apply to line
 								
 $lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
 Else 

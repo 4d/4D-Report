@@ -1,49 +1,55 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : QR_Get_font_name
-  // Database: 4D Report
-  // ID[A13ECEF4CC0B4392A22958AD1B993CD7]
-  // Created #24-3-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_TEXT:C284($0)
-C_LONGINT:C283($1)
-C_LONGINT:C283($2)
-C_LONGINT:C283($3)
+// ----------------------------------------------------
+// Project method : QR_Get_font_name
+// Database: 4D Report
+// ID[A13ECEF4CC0B4392A22958AD1B993CD7]
+// Created #24-3-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_LONGINT:C283($Lon_area;$Lon_column;$Lon_columnNumber;$Lon_parameters;$Lon_row)
-C_TEXT:C284($Txt_fontName)
+#DECLARE($area : Integer; $column : Integer; $row : Integer)->$font_name : Text
+
+
+//C_TEXT($0)
+//C_LONGINT($1)
+//C_LONGINT($2)
+//C_LONGINT($3)
+
+var \
+$count_parameters; \
+$count_columns : Integer
+
 
 If (False:C215)
-	C_TEXT:C284(QR_Get_font_name ;$0)
-	C_LONGINT:C283(QR_Get_font_name ;$1)
-	C_LONGINT:C283(QR_Get_font_name ;$2)
-	C_LONGINT:C283(QR_Get_font_name ;$3)
+	C_TEXT:C284(QR_Get_font_name; $0)
+	C_LONGINT:C283(QR_Get_font_name; $1)
+	C_LONGINT:C283(QR_Get_font_name; $2)
+	C_LONGINT:C283(QR_Get_font_name; $3)
 End if 
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	$Lon_area:=$1
+	//$area:=$1
 	
-	If ($Lon_parameters>=2)
+	If ($count_parameters>=2)
 		
-		$Lon_column:=$2  //{area if ommited}
+		//$column:=$2  //{area if ommited}
 		
-		If ($Lon_parameters>=3)
+		If ($count_parameters>=3)
 			
-			$Lon_row:=$3  //{column if ommited}
+			//$row:=$3  //{column if ommited}
 			
 		End if 
 	End if 
 	
-	$Txt_fontName:="-"
+	$font_name:="-"
 	
 Else 
 	
@@ -51,146 +57,146 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 Case of 
 		
-		  //________________________________________
-	: ($Lon_column=0)\
-		 & ($Lon_row=0)  //compute the area to find a common value
+		//________________________________________
+	: ($column=0)\
+		 & ($row=0)  //compute the area to find a common value
 		
-		If (QR Get report kind:C755($Lon_area)=qr cross report:K14902:2)
+		If (QR Get report kind:C755($area)=qr cross report:K14902:2)
 			
-			For ($Lon_column;1;3;1)
+			For ($column; 1; 3; 1)
 				
-				$Txt_fontName:=QR Get text property:C760($Lon_area;$Lon_column;1;qr font name:K14904:10)
+				$font_name:=QR Get text property:C760($area; $column; 1; qr font name:K14904:10)
 				
-				For ($Lon_row;2;3;1)
+				For ($row; 2; 3; 1)
 					
-					If ($Txt_fontName#QR Get text property:C760($Lon_area;$Lon_column;$Lon_row;qr font name:K14904:10))
+					If ($font_name#QR Get text property:C760($area; $column; $row; qr font name:K14904:10))
 						
-						$Lon_row:=MAXLONG:K35:2-1
+						$row:=MAXLONG:K35:2-1
 						
 					End if 
 				End for 
 				
-				$Lon_column:=Choose:C955($Lon_row#MAXLONG:K35:2;$Lon_column;MAXLONG:K35:2-1)  //stop ?
+				$column:=Choose:C955($row#MAXLONG:K35:2; $column; MAXLONG:K35:2-1)  //stop ?
 				
 			End for 
 			
 		Else 
 			
-			$Lon_columnNumber:=QR Count columns:C764($Lon_area)
+			$count_columns:=QR Count columns:C764($area)
 			
-			If ($Lon_columnNumber>0)
+			If ($count_columns>0)
 				
-				ARRAY LONGINT:C221($tLon_sortedColumns;0x0000)
-				ARRAY LONGINT:C221($tLon_sortOrder;0x0000)
-				QR GET SORTS:C753($Lon_area;$tLon_sortedColumns;$tLon_sortOrder)
+				ARRAY LONGINT:C221($tLon_sortedColumns; 0x0000)
+				ARRAY LONGINT:C221($tLon_sortOrder; 0x0000)
+				QR GET SORTS:C753($area; $tLon_sortedColumns; $tLon_sortOrder)
 				
-				For ($Lon_column;1;$Lon_columnNumber;1)
+				For ($column; 1; $count_columns; 1)
 					
-					$Txt_fontName:=QR Get text property:C760($Lon_area;$Lon_column;qr title:K14906:1;qr font name:K14904:10)
+					$font_name:=QR Get text property:C760($area; $column; qr title:K14906:1; qr font name:K14904:10)
 					
-					If ($Txt_fontName=QR Get text property:C760($Lon_area;$Lon_column;qr detail:K14906:2;qr font name:K14904:10))
+					If ($font_name=QR Get text property:C760($area; $column; qr detail:K14906:2; qr font name:K14904:10))
 						
-						If ($Txt_fontName=QR Get text property:C760($Lon_area;$Lon_column;qr grand total:K14906:3;qr font name:K14904:10))
+						If ($font_name=QR Get text property:C760($area; $column; qr grand total:K14906:3; qr font name:K14904:10))
 							
-							For ($Lon_row;1;Size of array:C274($tLon_sortedColumns);1)
+							For ($row; 1; Size of array:C274($tLon_sortedColumns); 1)
 								
-								If ($Txt_fontName#QR Get text property:C760($Lon_area;$Lon_column;$Lon_row;qr font name:K14904:10))
+								If ($font_name#QR Get text property:C760($area; $column; $row; qr font name:K14904:10))
 									
-									$Lon_row:=MAXLONG:K35:2-1
+									$row:=MAXLONG:K35:2-1
 									
 								End if 
+								
 							End for 
 							
 						Else 
 							
-							$Lon_row:=MAXLONG:K35:2
+							$row:=MAXLONG:K35:2
 							
 						End if 
 						
 					Else 
 						
-						$Lon_row:=MAXLONG:K35:2
+						$row:=MAXLONG:K35:2
 						
 					End if 
 					
-					$Lon_column:=Choose:C955($Lon_row#MAXLONG:K35:2;$Lon_column;MAXLONG:K35:2-1)  //stop ?
+					$column:=Choose:C955($row#MAXLONG:K35:2; $column; MAXLONG:K35:2-1)  //stop ?
 					
 				End for 
 			End if 
 		End if 
 		
-		$Txt_fontName:=Choose:C955($Lon_column#MAXLONG:K35:2;$Txt_fontName;"-")  //"-" if disparate
+		$font_name:=Choose:C955($column#MAXLONG:K35:2; $font_name; "-")  //"-" if disparate
 		
-		  //________________________________________
-	: ($Lon_column=0)  //compute the line to find a common value
+		//________________________________________
+	: ($column=0)  //compute the line to find a common value
 		
-		$Lon_columnNumber:=QR Count columns:C764($Lon_area)
+		$count_columns:=QR Count columns:C764($area)
 		
-		If ($Lon_columnNumber>0)
+		If ($count_columns>0)
 			
-			$Txt_fontName:=QR Get text property:C760($Lon_area;1;$Lon_row;qr font name:K14904:10)
+			$font_name:=QR Get text property:C760($area; 1; $row; qr font name:K14904:10)
 			
-			For ($Lon_column;2;$Lon_columnNumber;1)
+			For ($column; 2; $count_columns; 1)
 				
-				If ($Txt_fontName#QR Get text property:C760($Lon_area;$Lon_column;$Lon_row;qr font name:K14904:10))
+				If ($font_name#QR Get text property:C760($area; $column; $row; qr font name:K14904:10))
 					
-					$Lon_column:=MAXLONG:K35:2-1
+					$column:=MAXLONG:K35:2-1
 					
 				End if 
 			End for 
 			
-			$Txt_fontName:=Choose:C955($Lon_column#MAXLONG:K35:2;$Txt_fontName;"-")  //"-" if disparate
+			$font_name:=Choose:C955($column#MAXLONG:K35:2; $font_name; "-")  //"-" if disparate
 			
 		End if 
 		
-		  //________________________________________
-	: ($Lon_row=0)  //compute the column to find a common value
+		//________________________________________
+	: ($row=0)  //compute the column to find a common value
 		
-		$Txt_fontName:=QR Get text property:C760($Lon_area;$Lon_column;qr title:K14906:1;qr font name:K14904:10)
+		$font_name:=QR Get text property:C760($area; $column; qr title:K14906:1; qr font name:K14904:10)
 		
-		If ($Txt_fontName=QR Get text property:C760($Lon_area;$Lon_column;qr detail:K14906:2;qr font name:K14904:10))
+		If ($font_name=QR Get text property:C760($area; $column; qr detail:K14906:2; qr font name:K14904:10))
 			
-			If ($Txt_fontName=QR Get text property:C760($Lon_area;$Lon_column;qr grand total:K14906:3;qr font name:K14904:10))
+			If ($font_name=QR Get text property:C760($area; $column; qr grand total:K14906:3; qr font name:K14904:10))
 				
-				ARRAY LONGINT:C221($tLon_sortedColumns;0x0000)
-				ARRAY LONGINT:C221($tLon_sortOrder;0x0000)
-				QR GET SORTS:C753($Lon_area;$tLon_sortedColumns;$tLon_sortOrder)
+				ARRAY LONGINT:C221($tLon_sortedColumns; 0x0000)
+				ARRAY LONGINT:C221($tLon_sortOrder; 0x0000)
+				QR GET SORTS:C753($area; $tLon_sortedColumns; $tLon_sortOrder)
 				
-				For ($Lon_row;1;Size of array:C274($tLon_sortedColumns);1)
+				For ($row; 1; Size of array:C274($tLon_sortedColumns); 1)
 					
-					If ($Txt_fontName#QR Get text property:C760($Lon_area;$Lon_column;$Lon_row;qr font name:K14904:10))
+					If ($font_name#QR Get text property:C760($area; $column; $row; qr font name:K14904:10))
 						
-						$Lon_row:=MAXLONG:K35:2-1
+						$row:=MAXLONG:K35:2-1
 						
 					End if 
 				End for 
 				
 			Else 
 				
-				$Lon_row:=MAXLONG:K35:2
+				$row:=MAXLONG:K35:2
 				
 			End if 
 			
 		Else 
 			
-			$Lon_row:=MAXLONG:K35:2
+			$row:=MAXLONG:K35:2
 			
 		End if 
 		
-		$Txt_fontName:=Choose:C955($Lon_row#MAXLONG:K35:2;$Txt_fontName;"-")  //"-" if disparate
+		$font_name:=Choose:C955($row#MAXLONG:K35:2; $font_name; "-")  //"-" if disparate
 		
-		  //________________________________________
+		//________________________________________
 	Else   //get the cell value
 		
-		$Txt_fontName:=QR Get text property:C760($Lon_area;$Lon_column;$Lon_row;qr font name:K14904:10)
+		$font_name:=QR Get text property:C760($area; $column; $row; qr font name:K14904:10)
 		
-		  //________________________________________
+		//________________________________________
 End case 
 
-$0:=$Txt_fontName
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End
