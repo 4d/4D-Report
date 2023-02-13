@@ -9,8 +9,16 @@
 // Initialisation of the 'nqr' module
 // ----------------------------------------------------
 // Declarations
-var $fontFamily; $t; $template : Text
-var $backgroundColor; $foregroundColor : Integer
+
+var \
+$fontFamily; \
+$t; \
+$template : Text
+
+
+var \
+$backgroundColor; \
+$foregroundColor : Integer
 
 // ----------------------------------------------------
 // Mark:Initialisations
@@ -112,3 +120,4 @@ Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_min")+"\r")
 Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_max")+"\r")
 Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_count")+"\r")
 Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_standard_deviation")+"\r")
+

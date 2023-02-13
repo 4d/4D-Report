@@ -7,16 +7,20 @@
 
 #DECLARE()->$result : Integer
 
-var $t : Text
+var \
+$t : Text
 
 var \
-$bottom; $column; $columnNumber; $Lon_formEvent; $left; $mouseButton; \
-$right; $row; $top; $mouseX; $mouseY : Integer
+$row; $column; $column_number; \
+$mouse_x; $mouse_y; $mouse_button; \
+$left; $top; $right; $bottom : Integer
 
-var $data : Blob
+var \
+$data : Blob
 
-var $o : Object
-var $e : Object
+var \
+$o; \
+$e : Object
 
 ARRAY TEXT:C222($_columnNames; 0)
 ARRAY TEXT:C222($_headerNames; 0)
@@ -38,15 +42,15 @@ Case of
 		
 		$result:=-1
 		
-		GET MOUSE:C468($mouseX; $mouseY; $mouseButton)
+		GET MOUSE:C468($mouse_x; $mouse_y; $mouse_button)
 		
 		// #7-9-2015
 		//convert coordinates from global (window) to local (subform)
-		CONVERT COORDINATES:C1365($mouseX; $mouseY; XY Current window:K27:6; XY Current form:K27:5)
+		CONVERT COORDINATES:C1365($mouse_x; $mouse_y; XY Current window:K27:6; XY Current form:K27:5)
 		
 		$row:=Drop position:C608($column)
 		
-		$columnNumber:=ob_area.qrColumnNumber
+		$column_number:=ob_area.qrColumnNumber
 		$column:=$column-1
 		
 		//column = 0 should be accepted else move row is broken
@@ -81,7 +85,7 @@ Case of
 						$left:=$right
 						
 						//………………………………………………………………………………
-					: ($column>($columnNumber+1))  //after the last column
+					: ($column>($column_number+1))  //after the last column
 						
 						$right:=$left
 						
@@ -91,12 +95,12 @@ Case of
 						Case of 
 								
 								//-----------------------------------
-							: ($mouseX<=($left+Form:C1466.addSensitive))  //into the left separator sensitive area
+							: ($mouse_x<=($left+Form:C1466.addSensitive))  //into the left separator sensitive area
 								
 								$right:=$left
 								
 								//-----------------------------------
-							: ($mouseX>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
+							: ($mouse_x>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
 								
 								$left:=$right
 								
@@ -140,15 +144,15 @@ Case of
 		//2). Keep in mind that the drop does not have to take place before an existing
 		//column.
 		
-		GET MOUSE:C468($mouseX; $mouseY; $mouseButton)
+		GET MOUSE:C468($mouse_x; $mouse_y; $mouse_button)
 		
 		// #7-9-2015
 		//convert coordinates from global (window) to local (subform)
-		CONVERT COORDINATES:C1365($mouseX; $mouseY; XY Current window:K27:6; XY Current form:K27:5)
+		CONVERT COORDINATES:C1365($mouse_x; $mouse_y; XY Current window:K27:6; XY Current form:K27:5)
 		
 		$row:=Drop position:C608($column)
 		
-		$columnNumber:=OB Get:C1224(ob_area; "qrColumnNumber"; Is longint:K8:6)
+		$column_number:=OB Get:C1224(ob_area; "qrColumnNumber"; Is longint:K8:6)
 		
 		Case of 
 				
@@ -158,9 +162,9 @@ Case of
 				//NOTHING MORE TO DO
 				
 				//………………………………………………………………………………
-			: ($column>($columnNumber+1))  //after the last column
+			: ($column>($column_number+1))  //after the last column
 				
-				$column:=$columnNumber+1
+				$column:=$column_number+1
 				
 				//………………………………………………………………………………
 			Else 
@@ -178,12 +182,12 @@ Case of
 				Case of 
 						
 						//-----------------------------------
-					: ($mouseX<=($left+Form:C1466.addSensitive))  //into the left separator sensitive area
+					: ($mouse_x<=($left+Form:C1466.addSensitive))  //into the left separator sensitive area
 						
 						$column:=$column-1
 						
 						//-----------------------------------
-					: ($mouseX>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
+					: ($mouse_x>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
 						
 						$column:=$column
 						

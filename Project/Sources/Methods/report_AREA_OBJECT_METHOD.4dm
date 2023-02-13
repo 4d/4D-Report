@@ -9,49 +9,81 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_BOOLEAN:C305($Boo_balloon; $Boo_cellEditing; $Boo_contextual; $Boo_crossReport; $Boo_inCell; $Boo_inHeaderColumn)
-C_BOOLEAN:C305($Boo_inHeaderLine; $Boo_inScroolbar; $Boo_inTopLeftHeader; $Boo_mouseDown; $Boo_outside; $Boo_quickReport)
-C_BOOLEAN:C305($Boo_skip)
-C_LONGINT:C283($headerHeight; $Lon_; $Lon_area)
-C_LONGINT:C283($Lon_bottom; $Lon_cellBottom; $Lon_cellTop; $Lon_colIndex; $Lon_column; $Lon_columnLeft)
-C_LONGINT:C283($Lon_columnPosition; $Lon_columnRight; $Lon_formEvent; $Lon_hScrollOffset; $Lon_i; $Lon_left)
-C_LONGINT:C283($Lon_lockedColumns; $Lon_lockedRight; $Lon_meBottom; $Lon_meColumnNumber; $Lon_meLeft; $Lon_meRight)
-C_LONGINT:C283($Lon_meRowNumber; $Lon_meTop; $Lon_mouseButton; $Lon_newPosition; $Lon_oldPosition; $Lon_parameters)
-C_LONGINT:C283($Lon_posBottom; $Lon_posLeft; $Lon_posRight; $Lon_posTop; $Lon_qrColumn; $Lon_qrColumnNumber)
-C_LONGINT:C283($Lon_qrDestination; $Lon_qrRow; $Lon_qrRowNumber; $Lon_reportType; $Lon_right; $Lon_rowIndex)
-C_LONGINT:C283($Lon_rowPosition; $Lon_sz; $Lon_top; $Lon_vScrollOffset; $Lon_width; $Lon_x)
-C_LONGINT:C283($Lon_y)
-C_POINTER:C301($Ptr_me)
-C_TEXT:C284($Txt_helpTip; $Txt_me)
 
-ARRAY BOOLEAN:C223($tBoo_visible; 0)
-ARRAY POINTER:C280($tPtr_columnVars; 0)
-ARRAY POINTER:C280($tPtr_headerVars; 0)
-ARRAY POINTER:C280($tPtr_styles; 0)
-ARRAY REAL:C219($aColumns; 0)
-ARRAY REAL:C219($aOrders; 0)
-ARRAY TEXT:C222($tTxt_columnNames; 0)
-ARRAY TEXT:C222($tTxt_headerNames; 0)
+
+var \
+$self : Pointer
+
+var \
+$help_tip_text; \
+$my_name : Text
+
+var \
+$contextual_click; \
+$mouse_down; \
+$is_quickReport; \
+$is_crossReport; \
+$is_in_cell; \
+$is_outside; \
+$is_in_scroll_bar; \
+$is_cell_editing; \
+$is_in_header_column; \
+$is_in_header_line; \
+$is_in_top_left_header; \
+$is_balloon_visible; \
+$skip : Boolean
+
+var \
+$i; $size; $L; \
+$area; \
+$event_code; \
+$mouse_x; \
+$mouse_y; \
+$mouse_button; \
+$count_parameters; \
+$left; $top; $right; $bottom; \
+$my_left; $my_top; $my_right; $my_bottom; \
+$my_row_number; $my_column_number; \
+$new_position; $old_position; \
+$left_position; $top_position; $right_position; $bottom_position; \
+$column_number; $column_index; $column_position; \
+$column_left; $column_right; \
+$locked_columns; $locked_column_right; \
+$header_height; \
+$row_position; $row_index; \
+$cell_top; $cell_bottom; \
+$h_scroll_offset; $v_scroll_offset; \
+$width; \
+$report_type; \
+$qr_destination; $qr_row; $qr_row_number; $qr_column; $qr_column_number : Integer
+
+ARRAY BOOLEAN:C223($_visible; 0)
+ARRAY POINTER:C280($_columnVarPointer; 0)
+ARRAY POINTER:C280($_headerVarPointer; 0)
+ARRAY POINTER:C280($_styles; 0)
+
+ARRAY TEXT:C222($_column_names; 0)
+ARRAY TEXT:C222($_header_names; 0)
+ARRAY REAL:C219($_columns; 0)
+ARRAY REAL:C219($_orders; 0)
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-
-
-If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
-	$Lon_formEvent:=Form event code:C388
+	$event_code:=Form event code:C388
 	
 	//mouse state
-	GET MOUSE:C468($Lon_x; $Lon_y; $Lon_mouseButton)
+	GET MOUSE:C468($mouse_x; $mouse_y; $mouse_button)
 	
-	$Boo_contextual:=(($Lon_formEvent=On Clicked:K2:4) | ($Lon_formEvent=On Header Click:K2:40)) & (Contextual click:C713 | ($Lon_mouseButton=2))
-	$Boo_mouseDown:=($Lon_mouseButton=1)
+	$contextual_click:=(($event_code=On Clicked:K2:4) | ($event_code=On Header Click:K2:40)) & (Contextual click:C713 | ($mouse_button=2))
+	$mouse_down:=($mouse_button=1)
 	
-	//me
-	$Txt_me:=OBJECT Get name:C1087(Object current:K67:2)
-	$Ptr_me:=OBJECT Get pointer:C1124(Object current:K67:2)
+	//my
+	$my_name:=OBJECT Get name:C1087(Object current:K67:2)
+	$self:=OBJECT Get pointer:C1124(Object current:K67:2)
 	
 	//%W-518.7
 	If (Not:C34(Undefined:C82(ob_area)))
@@ -59,22 +91,22 @@ If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 		If (OB Is defined:C1231(ob_area))
 			
 			//QR properties
-			$Lon_area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
-			$Lon_qrColumnNumber:=OB Get:C1224(ob_area; "qrColumnNumber"; Is longint:K8:6)
-			$Lon_qrRowNumber:=OB Get:C1224(ob_area; "qrRowNumber"; Is longint:K8:6)
-			$Lon_qrDestination:=OB Get:C1224(ob_area; "destination"; Is longint:K8:6)
+			$area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
+			$qr_column_number:=OB Get:C1224(ob_area; "qrColumnNumber"; Is longint:K8:6)
+			$qr_row_number:=OB Get:C1224(ob_area; "qrRowNumber"; Is longint:K8:6)
+			$qr_destination:=OB Get:C1224(ob_area; "destination"; Is longint:K8:6)
 			
-			$Lon_reportType:=OB Get:C1224(ob_area; "reportType"; Is longint:K8:6)
-			$Boo_crossReport:=($Lon_reportType=qr cross report:K14902:2)
+			$report_type:=OB Get:C1224(ob_area; "reportType"; Is longint:K8:6)
+			$is_crossReport:=($report_type=qr cross report:K14902:2)
 			
-			$Boo_cellEditing:=OB Get:C1224(ob_area; "cellEdition"; Is boolean:K8:9)  //true if a cell is being edited
+			$is_cell_editing:=OB Get:C1224(ob_area; "cellEdition"; Is boolean:K8:9)  //true if a cell is being edited
 			
-			$Boo_skip:=OB Get:C1224(ob_area; "stop"; Is boolean:K8:9)\
+			$skip:=OB Get:C1224(ob_area; "stop"; Is boolean:K8:9)\
 				 | OB Get:C1224(ob_area; "message"; Is boolean:K8:9)  //true if an additional panel is opened or if message is displayed
 			
-			$Boo_quickReport:=OB Get:C1224(ob_area; "4d-dialog"; Is boolean:K8:9)  //true if Quick Report
+			$is_quickReport:=OB Get:C1224(ob_area; "4d-dialog"; Is boolean:K8:9)  //true if Quick Report
 			
-			$headerHeight:=Choose:C955($Boo_crossReport; 0; Form:C1466.headerHeight)
+			$header_height:=Choose:C955($is_crossReport; 0; Form:C1466.headerHeight)
 			
 		End if 
 	End if 
@@ -87,29 +119,29 @@ Else
 End if 
 
 // ----------------------------------------------------
-If (Not:C34($Boo_skip)\
- & Not:C34($Boo_cellEditing))
+If (Not:C34($skip)\
+ & Not:C34($is_cell_editing))
 	
 	//listbox specifications
-	OBJECT GET COORDINATES:C663(*; $Txt_me; $Lon_meLeft; $Lon_meTop; $Lon_meRight; $Lon_meBottom)
-	LISTBOX GET ARRAYS:C832(*; $Txt_me; $tTxt_columnNames; $tTxt_headerNames; $tPtr_columnVars; $tPtr_headerVars; $tBoo_visible; $tPtr_styles)
+	OBJECT GET COORDINATES:C663(*; $my_name; $my_left; $my_top; $my_right; $my_bottom)
+	LISTBOX GET ARRAYS:C832(*; $my_name; $_column_names; $_header_names; $_columnVarPointer; $_headerVarPointer; $_visible; $_styles)
 	
-	$Lon_vScrollOffset:=LISTBOX Get property:C917(*; $Txt_me; lk ver scrollbar width:K53:9)*LISTBOX Get property:C917(*; $Txt_me; _o_lk display ver scrollbar:K53:8)
-	$Lon_hScrollOffset:=LISTBOX Get property:C917(*; $Txt_me; lk hor scrollbar height:K53:7)*LISTBOX Get property:C917(*; $Txt_me; _o_lk display hor scrollbar:K53:6)
+	$v_scroll_offset:=LISTBOX Get property:C917(*; $my_name; lk ver scrollbar width:K53:9)*LISTBOX Get property:C917(*; $my_name; _o_lk display ver scrollbar:K53:8)
+	$h_scroll_offset:=LISTBOX Get property:C917(*; $my_name; lk hor scrollbar height:K53:7)*LISTBOX Get property:C917(*; $my_name; _o_lk display hor scrollbar:K53:6)
 	
 	//column & row numbers
-	$Lon_meRowNumber:=LISTBOX Get number of rows:C915(*; $Txt_me)
-	$Lon_meColumnNumber:=Size of array:C274($tTxt_columnNames)
+	$my_row_number:=LISTBOX Get number of rows:C915(*; $my_name)
+	$my_column_number:=Size of array:C274($_column_names)
 	
 	//limit of the locked columns
-	$Lon_lockedColumns:=LISTBOX Get locked columns:C1152(*; $Txt_me)
-	OBJECT GET COORDINATES:C663(*; $tTxt_columnNames{$Lon_lockedColumns}; $Lon_; $Lon_; $Lon_lockedRight; $Lon_)
+	$locked_columns:=LISTBOX Get locked columns:C1152(*; $my_name)
+	OBJECT GET COORDINATES:C663(*; $_column_names{$locked_columns}; $L; $L; $locked_column_right; $L)
 	
 	// #7-9-2015
 	//convert coordinates from global (window) to local (subform)
-	CONVERT COORDINATES:C1365($Lon_x; $Lon_y; XY Current window:K27:6; XY Current form:K27:5)
+	CONVERT COORDINATES:C1365($mouse_x; $mouse_y; XY Current window:K27:6; XY Current form:K27:5)
 	
-	If ($Boo_quickReport)
+	If ($is_quickReport)
 		
 		//no longer necessary with CONVERT COORDINATES
 		//$Lon_y:=$Lon_y-OB Get(ob_area;"top-offset";Is longint)
@@ -120,131 +152,131 @@ If (Not:C34($Boo_skip)\
 	End if 
 	
 	//balloon is it opened ?
-	$Boo_balloon:=OBJECT Get visible:C1075(*; "balloon.subform")
-	OBJECT SET VISIBLE:C603(*; "header_action"; $Boo_balloon)  //force display if any
+	$is_balloon_visible:=OBJECT Get visible:C1075(*; "balloon.subform")
+	OBJECT SET VISIBLE:C603(*; "header_action"; $is_balloon_visible)  //force display if any
 	
 	//out of the area ?
-	OBJECT GET COORDINATES:C663(*; "filler"; $Lon_left; $Lon_; $Lon_; $Lon_)
-	LISTBOX GET CELL COORDINATES:C1330(*; $Txt_me; 1; $Lon_meRowNumber; $Lon_; $Lon_; $Lon_; $Lon_bottom)
-	$Boo_outside:=($Lon_y>$Lon_bottom) | ($Lon_x>$Lon_left)
+	OBJECT GET COORDINATES:C663(*; "filler"; $left; $L; $L; $L)
+	LISTBOX GET CELL COORDINATES:C1330(*; $my_name; 1; $my_row_number; $L; $L; $L; $bottom)
+	$is_outside:=($mouse_y>$bottom) | ($mouse_x>$left)
 	
-	If ($Boo_outside)  //outside the area
+	If ($is_outside)  //outside the area
 		
-		$Lon_colIndex:=-1
-		$Lon_rowIndex:=-1
+		$column_index:=-1
+		$row_index:=-1
 		
-		$Boo_inScroolbar:=(($Lon_y>=($Lon_meBottom-$Lon_hScrollOffset))\
-			 & ($Lon_y<=$Lon_meBottom)) | (($Lon_x>=($Lon_meRight-$Lon_vScrollOffset))\
-			 & ($Lon_x<=$Lon_meRight))
+		$is_in_scroll_bar:=(($mouse_y>=($my_bottom-$h_scroll_offset))\
+			 & ($mouse_y<=$my_bottom)) | (($mouse_x>=($my_right-$v_scroll_offset))\
+			 & ($mouse_x<=$my_right))
 		
 	Else 
 		
-		If ($Lon_x<($Lon_meRight-$Lon_vScrollOffset))\
-			 & ($Lon_x>$Lon_meLeft)\
-			 & ($Lon_y<($Lon_meBottom-$Lon_hScrollOffset))\
-			 & ($Lon_y>$Lon_meTop)
+		If ($mouse_x<($my_right-$v_scroll_offset))\
+			 & ($mouse_x>$my_left)\
+			 & ($mouse_y<($my_bottom-$h_scroll_offset))\
+			 & ($mouse_y>$my_top)
 			
-			$Lon_rowIndex:=-1
+			$row_index:=-1
 			
 			//get the row index of the listbox
-			If ($Lon_y>($headerHeight+$Lon_meTop))
+			If ($mouse_y>($header_height+$my_top))
 				
-				For ($Lon_i; 1; $Lon_meRowNumber; 1)
+				For ($i; 1; $my_row_number; 1)
 					
-					LISTBOX GET CELL COORDINATES:C1330(*; $Txt_me; 1; $Lon_i; $Lon_; $Lon_cellTop; $Lon_; $Lon_cellBottom)
+					LISTBOX GET CELL COORDINATES:C1330(*; $my_name; 1; $i; $L; $cell_top; $L; $cell_bottom)
 					
-					If ($Lon_y>=$Lon_cellTop)\
-						 & ($Lon_y<=$Lon_cellBottom)
+					If ($mouse_y>=$cell_top)\
+						 & ($mouse_y<=$cell_bottom)
 						
-						$Lon_rowIndex:=$Lon_i
-						$Lon_i:=MAXLONG:K35:2-1
+						$row_index:=$i
+						$i:=MAXLONG:K35:2-1
 						
 					End if 
 				End for 
 			End if 
 			
-			$Lon_colIndex:=-1
+			$column_index:=-1
 			
 			//get the column index of the listbox
-			For ($Lon_i; 1; Size of array:C274($tTxt_columnNames)-2; 1)
+			For ($i; 1; Size of array:C274($_column_names)-2; 1)
 				
-				OBJECT GET COORDINATES:C663(*; $tTxt_columnNames{$Lon_i}; $Lon_columnLeft; $Lon_; $Lon_columnRight; $Lon_)
+				OBJECT GET COORDINATES:C663(*; $_column_names{$i}; $column_left; $L; $column_right; $L)
 				
-				If ($Lon_x>$Lon_columnLeft)\
-					 & ($Lon_x<=$Lon_columnRight)
+				If ($mouse_x>$column_left)\
+					 & ($mouse_x<=$column_right)
 					
-					$Lon_colIndex:=$Lon_i
-					$Lon_i:=MAXLONG:K35:2-1
+					$column_index:=$i
+					$i:=MAXLONG:K35:2-1
 					
 				End if 
 			End for 
 			
-			$Lon_rowIndex:=Choose:C955($Lon_colIndex=-1; -1; $Lon_rowIndex)
+			$row_index:=Choose:C955($column_index=-1; -1; $row_index)
 			
 		End if 
 	End if 
 	
-	If ($Lon_area#0)
+	If ($area#0)
 		
 		//Get QR column & row
-		If ($Boo_crossReport)
+		If ($is_crossReport)
 			
-			$Lon_qrRow:=$Lon_rowIndex
+			$qr_row:=$row_index
 			
 			Case of 
 					
 					//…………………………………………………………………
-				: ($Lon_colIndex=2)\
-					 & ($Lon_rowIndex=1)
+				: ($column_index=2)\
+					 & ($row_index=1)
 					
-					$Lon_qrColumn:=1
-					
-					//…………………………………………………………………
-				: ($Lon_colIndex=1)\
-					 & ($Lon_rowIndex=2)
-					
-					$Lon_qrColumn:=2
+					$qr_column:=1
 					
 					//…………………………………………………………………
-				: ($Lon_colIndex=2)\
-					 & ($Lon_rowIndex=2)
+				: ($column_index=1)\
+					 & ($row_index=2)
 					
-					$Lon_qrColumn:=3
+					$qr_column:=2
+					
+					//…………………………………………………………………
+				: ($column_index=2)\
+					 & ($row_index=2)
+					
+					$qr_column:=3
 					
 					//…………………………………………………………………
 				Else 
 					
-					$Lon_qrColumn:=0
+					$qr_column:=0
 					
 					//…………………………………………………………………
 			End case 
 			
 		Else 
 			
-			$Lon_qrColumn:=Choose:C955($Lon_colIndex>0; $Lon_colIndex-1; 0)
+			$qr_column:=Choose:C955($column_index>0; $column_index-1; 0)
 			
-			$Lon_qrRow:=Choose:C955($Lon_rowIndex<=0; 0; \
-				Choose:C955($Lon_rowIndex=1; qr title:K14906:1; \
-				Choose:C955($Lon_rowIndex=2; qr detail:K14906:2; \
-				Choose:C955($Lon_rowIndex=$Lon_qrRowNumber; qr grand total:K14906:3; \
-				Choose:C955($Lon_rowIndex<=$Lon_qrRowNumber; $Lon_rowIndex-2; 0)))))
+			$qr_row:=Choose:C955($row_index<=0; 0; \
+				Choose:C955($row_index=1; qr title:K14906:1; \
+				Choose:C955($row_index=2; qr detail:K14906:2; \
+				Choose:C955($row_index=$qr_row_number; qr grand total:K14906:3; \
+				Choose:C955($row_index<=$qr_row_number; $row_index-2; 0)))))
 			
 		End if 
 	End if 
 	
-	If ($Boo_crossReport)
+	If ($is_crossReport)
 		
-		$Boo_inTopLeftHeader:=($Lon_colIndex=1) & ($Lon_rowIndex=1)
-		$Boo_inHeaderLine:=($Lon_colIndex=1) & ($Lon_rowIndex<=$Lon_meRowNumber) & ($Lon_rowIndex>0)
-		$Boo_inHeaderColumn:=($Lon_rowIndex=1) & ($Lon_colIndex>1) & ($Lon_colIndex<=($Lon_qrColumnNumber+1))
-		$Boo_inCell:=($Lon_colIndex>0) & ($Lon_rowIndex>0)
+		$is_in_top_left_header:=($column_index=1) & ($row_index=1)
+		$is_in_header_line:=($column_index=1) & ($row_index<=$my_row_number) & ($row_index>0)
+		$is_in_header_column:=($row_index=1) & ($column_index>1) & ($column_index<=($qr_column_number+1))
+		$is_in_cell:=($column_index>0) & ($row_index>0)
 		
 	Else 
 		
-		$Boo_inTopLeftHeader:=($Lon_colIndex=$Lon_lockedColumns) & ($Lon_rowIndex=-1)
-		$Boo_inHeaderLine:=($Lon_colIndex=$Lon_lockedColumns) & ($Lon_rowIndex<=$Lon_meRowNumber) & ($Lon_rowIndex>0)
-		$Boo_inHeaderColumn:=($Lon_rowIndex=-1) & ($Lon_colIndex>$Lon_lockedColumns) & ($Lon_colIndex<=($Lon_qrColumnNumber+1))
-		$Boo_inCell:=($Lon_colIndex>$Lon_lockedColumns) & ($Lon_rowIndex>0)
+		$is_in_top_left_header:=($column_index=$locked_columns) & ($row_index=-1)
+		$is_in_header_line:=($column_index=$locked_columns) & ($row_index<=$my_row_number) & ($row_index>0)
+		$is_in_header_column:=($row_index=-1) & ($column_index>$locked_columns) & ($column_index<=($qr_column_number+1))
+		$is_in_cell:=($column_index>$locked_columns) & ($row_index>0)
 		
 	End if 
 	
@@ -253,147 +285,147 @@ If (Not:C34($Boo_skip)\
 	Case of 
 			
 			//______________________________________________________
-		: ($Lon_area=0)
+		: ($area=0)
 			
 			//______________________________________________________
-		: ($Lon_formEvent=On Mouse Enter:K2:33)
+		: ($event_code=On Mouse Enter:K2:33)
 			
-			If (<>withFeature105739)
-				
-				ob_area.tipsDelay:=Get database parameter:C643(Tips delay:K37:80)
-				SET DATABASE PARAMETER:C642(Tips delay:K37:80; 0)
-				
-			End if 
+			//If (<>withFeature105739)
+			
+			ob_area.tipsDelay:=Get database parameter:C643(Tips delay:K37:80)
+			SET DATABASE PARAMETER:C642(Tips delay:K37:80; 0)
+			
+			//End if 
 			//______________________________________________________
-		: ($Lon_formEvent=On Mouse Leave:K2:34)
+		: ($event_code=On Mouse Leave:K2:34)
 			
-			If (<>withFeature105739)
-				
-				SET DATABASE PARAMETER:C642(Tips delay:K37:80; Num:C11(ob_area.tipsDelay))
-				
-			End if 
+			//If (<>withFeature105739)
+			
+			SET DATABASE PARAMETER:C642(Tips delay:K37:80; Num:C11(ob_area.tipsDelay))
+			
+			//End if 
 			
 			//______________________________________________________
-		: ($Lon_formEvent=On Header Click:K2:40)
+		: ($event_code=On Header Click:K2:40)
 			
 			Case of 
 					
 					//………………………………………………………………………………
-				: ($Boo_crossReport)
+				: ($is_crossReport)
 					
 					//NOTHING MORE TO DO
 					
 					//………………………………………………………………………………
-				: ($Boo_contextual)
+				: ($contextual_click)
 					
 					OB SET:C1220(ob_dialog; \
 						"action"; "header_context_menu")
 					
 					//………………………………………………………………………………
-				: ($Boo_inHeaderColumn)
+				: ($is_in_header_column)
 					
 					//select the column
-					QR SET SELECTION:C794($Lon_area; $Lon_qrColumn; 0; $Lon_qrColumn; 0)
-					report_SELECTION("select_column"; $Lon_colIndex)
+					QR SET SELECTION:C794($area; $qr_column; 0; $qr_column; 0)
+					report_SELECTION("select_column"; $column_index)
 					
 					If (Clickcount:C1332=2)  //double click => Edit formula
 						
-						report_EDIT_COLUMN_FORMULA($Lon_area; $Lon_qrColumn)
+						report_EDIT_COLUMN_FORMULA($area; $qr_column)
 						
 					End if 
 					
 					//………………………………………………………………………………
-				: ($Boo_inTopLeftHeader)
+				: ($is_in_top_left_header)
 					
 					//select the area
-					QR SET SELECTION:C794($Lon_area; 0; 0)
+					QR SET SELECTION:C794($area; 0; 0)
 					report_SELECTION("select_all")
 					
 					//………………………………………………………………………………
 				Else 
 					
 					//unselect all
-					QR SET SELECTION:C794($Lon_area; -1; -1; -1; -1)
+					QR SET SELECTION:C794($area; -1; -1; -1; -1)
 					report_SELECTION("select_none")
 					
 					//………………………………………………………………………………
 			End case 
 			
 			//______________________________________________________
-		: ($Lon_formEvent=On Losing Focus:K2:8)
+		: ($event_code=On Losing Focus:K2:8)
 			
 			OB SET:C1220(ob_dialog; \
 				"action"; "update")
 			
 			//______________________________________________________
-		: ($Lon_formEvent=On Double Clicked:K2:5)
+		: ($event_code=On Double Clicked:K2:5)
 			
-			If ($Boo_inCell)
+			If ($is_in_cell)
 				
-				If ($Boo_crossReport\
-					 & (($Lon_colIndex<3) & ($Lon_rowIndex<3)))
+				If ($is_crossReport\
+					 & (($column_index<3) & ($row_index<3)))
 					
-					If ($Lon_colIndex=1)\
-						 & ($Lon_rowIndex=1)
+					If ($column_index=1)\
+						 & ($row_index=1)
 						
 						//NOTHING MORE TO DO
 						
 					Else 
 						
-						report_EDIT_COLUMN_FORMULA($Lon_area; $Lon_qrColumn)
+						report_EDIT_COLUMN_FORMULA($area; $qr_column)
 						
 					End if 
 					
 				Else 
 					
-					If (Not:C34($Boo_crossReport))\
-						 | ($Boo_crossReport & (($Lon_colIndex<3)\
-						 | ($Lon_rowIndex#3)))
+					If (Not:C34($is_crossReport))\
+						 | ($is_crossReport & (($column_index<3)\
+						 | ($row_index#3)))
 						
-						If ($Boo_crossReport)
+						If ($is_crossReport)
 							
 							//work with column index
-							$Ptr_me->{$Lon_rowIndex}:=QR_Get_cell_text($Lon_area; $Lon_colIndex; $Lon_rowIndex)
+							$self->{$row_index}:=QR_Get_cell_text($area; $column_index; $row_index)
 							
 						Else 
 							
-							$Ptr_me->{$Lon_rowIndex}:=QR_Get_cell_text($Lon_area; $Lon_qrColumn; $Lon_qrRow)
+							$self->{$row_index}:=QR_Get_cell_text($area; $qr_column; $qr_row)
 							
 						End if 
 						
 						//make column enterable
-						OBJECT SET ENTERABLE:C238($Ptr_me->; True:C214)
+						OBJECT SET ENTERABLE:C238($self->; True:C214)
 						
 						//restore black color for text if any
 						//%W-533.3
-						LISTBOX SET ROW COLOR:C1270($Ptr_me->{$Ptr_me->}; $Lon_rowIndex; Foreground color:K23:1; lk font color:K53:24)
+						LISTBOX SET ROW COLOR:C1270($self->{$self->}; $row_index; Foreground color:K23:1; lk font color:K53:24)
 						//%W+533.3
 						
 						//set the edit flag
 						OB SET:C1220(ob_area; \
 							"cellEdition"; True:C214)
 						
-						$Boo_cellEditing:=True:C214
+						$is_cell_editing:=True:C214
 						
-						If ($Lon_rowIndex>2) | $Boo_crossReport
+						If ($row_index>2) | $is_crossReport
 							
 							//display action button
-							LISTBOX GET CELL COORDINATES:C1330(*; $Txt_me; $Lon_colIndex; $Lon_rowIndex; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+							LISTBOX GET CELL COORDINATES:C1330(*; $my_name; $column_index; $row_index; $left; $top; $right; $bottom)
 							
-							$Lon_top:=$Lon_top-16
-							$Lon_right:=$Lon_left+23
-							$Lon_bottom:=$Lon_top+16
+							$top:=$top-16
+							$right:=$left+23
+							$bottom:=$top+16
 							
-							OBJECT SET COORDINATES:C1248(*; "cell_menu"; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+							OBJECT SET COORDINATES:C1248(*; "cell_menu"; $left; $top; $right; $bottom)
 							
-							If (Not:C34($Boo_crossReport))
+							If (Not:C34($is_crossReport))
 								
 								OBJECT SET VISIBLE:C603(*; "cell_menu"; True:C214)
 								
 							Else 
 								
-								If ($Lon_colIndex>1)\
-									 & ($Lon_rowIndex>1)
+								If ($column_index>1)\
+									 & ($row_index>1)
 									
 									OBJECT SET VISIBLE:C603(*; "cell_menu"; True:C214)
 									
@@ -401,31 +433,31 @@ If (Not:C34($Boo_skip)\
 							End if 
 						End if 
 						
-						EDIT ITEM:C870($Ptr_me->)
+						EDIT ITEM:C870($self->)
 						
 					End if 
 				End if 
 			End if 
 			
 			//______________________________________________________
-		: ($Lon_formEvent=On Clicked:K2:4)
+		: ($event_code=On Clicked:K2:4)
 			
 			Case of 
 					
 					//…………………………………………………
-				: ($Boo_inScroolbar)
+				: ($is_in_scroll_bar)
 					
 					//…………………………………………………
-				: ($Boo_cellEditing)
+				: ($is_cell_editing)
 					
 					//!!!! On clicked isn't generated during editing a cell !!!!
 					
 					//…………………………………………………
-				: ($Boo_inHeaderLine)
+				: ($is_in_header_line)
 					
-					If ($Boo_contextual)
+					If ($contextual_click)
 						
-						If ($Boo_crossReport)
+						If ($is_crossReport)
 							
 							OB SET:C1220(ob_dialog; \
 								"action"; "cell_context_menu")
@@ -439,38 +471,38 @@ If (Not:C34($Boo_skip)\
 						
 					Else 
 						
-						If ($Boo_crossReport)
+						If ($is_crossReport)
 							
-							If ($Lon_colIndex=1)\
-								 & ($Lon_rowIndex=1)
+							If ($column_index=1)\
+								 & ($row_index=1)
 								
-								QR SET SELECTION:C794($Lon_area; 0; 0; 0; 0)
+								QR SET SELECTION:C794($area; 0; 0; 0; 0)
 								report_SELECTION("select_all")
 								
 							Else 
 								
-								QR SET SELECTION:C794($Lon_area; $Lon_colIndex; $Lon_rowIndex; $Lon_colIndex; $Lon_rowIndex)
-								report_SELECTION("select_cell"; $Lon_colIndex; $Lon_rowIndex)
+								QR SET SELECTION:C794($area; $column_index; $row_index; $column_index; $row_index)
+								report_SELECTION("select_cell"; $column_index; $row_index)
 								
 							End if 
 							
 						Else 
 							
 							//select line
-							QR SET SELECTION:C794($Lon_area; 0; $Lon_rowIndex; 0; $Lon_rowIndex)
-							report_SELECTION("select_line"; $Lon_rowIndex)
+							QR SET SELECTION:C794($area; 0; $row_index; 0; $row_index)
+							report_SELECTION("select_line"; $row_index)
 							
 						End if 
 					End if 
 					
 					//…………………………………………………
-				: ($Boo_inCell)
+				: ($is_in_cell)
 					
-					If ($Boo_contextual)
+					If ($contextual_click)
 						
-						If ($Boo_crossReport)\
-							 & ($Lon_colIndex=3)\
-							 & ($Lon_rowIndex=3)
+						If ($is_crossReport)\
+							 & ($column_index=3)\
+							 & ($row_index=3)
 							
 							//NOTHING MORE TO DO
 							
@@ -483,29 +515,29 @@ If (Not:C34($Boo_skip)\
 						
 					Else 
 						
-						If ($Boo_crossReport)\
-							 & ($Lon_colIndex=3)\
-							 & ($Lon_rowIndex=3)
+						If ($is_crossReport)\
+							 & ($column_index=3)\
+							 & ($row_index=3)
 							
 							//deselect
-							QR SET SELECTION:C794($Lon_area; -1; -1; -1; -1)
+							QR SET SELECTION:C794($area; -1; -1; -1; -1)
 							report_SELECTION("select_none")
 							
 						Else 
 							
 							//select cell
-							QR SET SELECTION:C794($Lon_area; $Lon_colIndex-$Lon_lockedColumns; $Lon_rowIndex; $Lon_colIndex-$Lon_lockedColumns; $Lon_rowIndex)
-							report_SELECTION("select_cell"; $Lon_colIndex; $Lon_rowIndex)
+							QR SET SELECTION:C794($area; $column_index-$locked_columns; $row_index; $column_index-$locked_columns; $row_index)
+							report_SELECTION("select_cell"; $column_index; $row_index)
 							
 						End if 
 					End if 
 					
 					//…………………………………………………
-				: ($Boo_outside)
+				: ($is_outside)
 					
-					If ($Boo_contextual)
+					If ($contextual_click)
 						
-						If (Not:C34($Boo_crossReport))
+						If (Not:C34($is_crossReport))
 							
 							OB SET:C1220(ob_dialog; \
 								"action"; "area_context_menu")
@@ -515,7 +547,7 @@ If (Not:C34($Boo_skip)\
 					Else 
 						
 						//deselect
-						QR SET SELECTION:C794($Lon_area; -1; -1; -1; -1)
+						QR SET SELECTION:C794($area; -1; -1; -1; -1)
 						report_SELECTION("select_none")
 						
 					End if 
@@ -524,7 +556,7 @@ If (Not:C34($Boo_skip)\
 				Else 
 					
 					//deselect
-					QR SET SELECTION:C794($Lon_area; -1; -1; -1; -1)
+					QR SET SELECTION:C794($area; -1; -1; -1; -1)
 					report_SELECTION("select_none")
 					
 					//…………………………………………………
@@ -533,34 +565,34 @@ If (Not:C34($Boo_skip)\
 			//______________________________________________________
 			//#ACI0097243
 			//: ($Lon_formEvent=On Column Moved)
-		: ($Lon_formEvent=On Column Moved:K2:30)\
-			 & (Not:C34($Boo_balloon))
+		: ($event_code=On Column Moved:K2:30)\
+			 & (Not:C34($is_balloon_visible))
 			
 			//Get the previous position and the new position of the column moved in the list box
-			LISTBOX MOVED COLUMN NUMBER:C844(*; $Txt_me; $Lon_oldPosition; $Lon_newPosition)
+			LISTBOX MOVED COLUMN NUMBER:C844(*; $my_name; $old_position; $new_position)
 			
 			
-			If ($Lon_newPosition#$Lon_oldPosition)
+			If ($new_position#$old_position)
 				
 				//#ACI0095333 [
 				//first restore the listbox column position !!!
 				
-				If ($Boo_quickReport)  // ACI0100359{ not for the report area only for the QR as it will be re-adjusted after. 
-					LISTBOX MOVE COLUMN:C1274(*; $tTxt_columnNames{$Lon_newPosition}; $Lon_oldPosition)
+				If ($is_quickReport)  // ACI0100359{ not for the report area only for the QR as it will be re-adjusted after. 
+					LISTBOX MOVE COLUMN:C1274(*; $_column_names{$new_position}; $old_position)
 				End if 
 				//]
 				
 				
 				//Is it an authorized moving?
-				If ((($Lon_newPosition-1)<=$Lon_qrColumnNumber) & (($Lon_oldPosition-1)<=$Lon_qrColumnNumber))
+				If ((($new_position-1)<=$qr_column_number) & (($old_position-1)<=$qr_column_number))
 					
 					
 					// #21-8-2014 - use the new command QR MOVE COLUMN
 					//QR_SWAP_COLUMNS($Lon_area; $Lon_oldPosition-1; $Lon_newPosition-1)
 					
 					//mark: QR MOVE COLUMN also move the sort order
-					QR MOVE COLUMN:C1325($Lon_area; $Lon_oldPosition-1; $Lon_newPosition-1)
-					QR SET SELECTION:C794($Lon_area; $Lon_newPosition-1; 0; $Lon_newPosition-1; 0)
+					QR MOVE COLUMN:C1325($area; $old_position-1; $new_position-1)
+					QR SET SELECTION:C794($area; $new_position-1; 0; $new_position-1; 0)
 					
 					
 					
@@ -570,11 +602,11 @@ If (Not:C34($Boo_skip)\
 					//LISTBOX MOVE COLUMN(*;$tTxt_columnNames{$Lon_newPosition};$Lon_qrColumnNumber+1)
 					//]
 					// move in last position
-					LISTBOX MOVE COLUMN:C1274(*; $tTxt_columnNames{$Lon_newPosition}; $Lon_oldPosition)
+					LISTBOX MOVE COLUMN:C1274(*; $_column_names{$new_position}; $old_position)
 					
 					If (ob_area.qrColumn<0)  // if no column no movement
 						
-						QR MOVE COLUMN:C1325($Lon_area; $Lon_oldPosition-1; $Lon_qrColumnNumber-1)
+						QR MOVE COLUMN:C1325($area; $old_position-1; $qr_column_number-1)
 						
 					End if 
 					
@@ -586,23 +618,23 @@ If (Not:C34($Boo_skip)\
 			
 			//______________________________________________________
 			
-		: ($Boo_cellEditing)
+		: ($is_cell_editing)
 			
 			//do nothing until editing is complete
 			
 			//______________________________________________________
-		: ($Boo_mouseDown) & False:C215
+		: ($mouse_down) & False:C215
 			
 			//do nothing until the mouse button is down
 			
 			//______________________________________________________
-		: ($Boo_outside)
+		: ($is_outside)
 			
 			
-			OBJECT SET HELP TIP:C1181(*; $Txt_me; $Txt_helpTip)
+			OBJECT SET HELP TIP:C1181(*; $my_name; $help_tip_text)
 			
 			//______________________________________________________
-		: ($Lon_formEvent=On Mouse Move:K2:35)
+		: ($event_code=On Mouse Move:K2:35)
 			
 			//get target coordinates
 			
@@ -615,70 +647,70 @@ If (Not:C34($Boo_skip)\
 					//BEEP
 					
 					//…………………………………………………
-				: ($Boo_inTopLeftHeader)
+				: ($is_in_top_left_header)
 					
-					If ($Boo_crossReport)
+					If ($is_crossReport)
 						
-						LISTBOX GET CELL COORDINATES:C1330(*; $Txt_me; 1; $Lon_rowIndex; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+						LISTBOX GET CELL COORDINATES:C1330(*; $my_name; 1; $row_index; $left; $top; $right; $bottom)
 						
 					Else 
 						
-						OBJECT GET COORDINATES:C663(*; $tTxt_headerNames{1}; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+						OBJECT GET COORDINATES:C663(*; $_header_names{1}; $left; $top; $right; $bottom)
 						
 					End if 
 					
 					//…………………………………………………
-				: ($Boo_inHeaderLine)
+				: ($is_in_header_line)
 					
-					LISTBOX GET CELL COORDINATES:C1330(*; $Txt_me; 1; $Lon_rowIndex; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+					LISTBOX GET CELL COORDINATES:C1330(*; $my_name; 1; $row_index; $left; $top; $right; $bottom)
 					
-					If (<>withFeature105739)
+					//If (<>withFeature105739)
+					
+					If (ob_area.sortNumber>0)  // The report is sorted
 						
-						If (ob_area.sortNumber>0)  // The report is sorted
+						QR GET SORTS:C753(ob_area.area; $_columns; $_orders)
+						
+						// Reorder the array
+						$size:=Size of array:C274($_orders)
+						ARRAY INTEGER:C220($aColumnsReordered; $size)
+						ARRAY INTEGER:C220($aOrdersReordered; $size)
+						
+						For ($i; 1; $size; 1)
 							
-							QR GET SORTS:C753(ob_area.area; $aColumns; $aOrders)
+							$aColumnsReordered{($size-$i)+1}:=$_columns{$i}
+							$aOrdersReordered{($size-$i)+1}:=$_orders{$i}
 							
-							// Reorder the array
-							$Lon_sz:=Size of array:C274($aOrders)
-							ARRAY INTEGER:C220($aColumnsReordered; $Lon_sz)
-							ARRAY INTEGER:C220($aOrdersReordered; $Lon_sz)
+						End for 
+						
+						If ((ob_area.rowIndex>2)\
+							 & (ob_area.rowIndex<(3+ob_area.sortNumber)))  // In a subtotal row header
 							
-							For ($Lon_i; 1; $Lon_sz; 1)
-								
-								$aColumnsReordered{($Lon_sz-$Lon_i)+1}:=$aColumns{$Lon_i}
-								$aOrdersReordered{($Lon_sz-$Lon_i)+1}:=$aOrders{$Lon_i}
-								
-							End for 
+							//%W-533.3
+							$help_tip_text:=Get localized string:C991(Choose:C955($aOrdersReordered{(ob_area.rowIndex-2)}=1; "ascendingSortOrder"; "descendingSortOrder"))
+							//%W+533.3
 							
-							If ((ob_area.rowIndex>2)\
-								 & (ob_area.rowIndex<(3+ob_area.sortNumber)))  // In a subtotal row header
-								
-								//%W-533.3
-								$Txt_helpTip:=Get localized string:C991(Choose:C955($aOrdersReordered{(ob_area.rowIndex-2)}=1; "ascendingSortOrder"; "descendingSortOrder"))
-								//%W+533.3
-								
-							End if 
 						End if 
 					End if 
+					//End if 
 					
 					//…………………………………………………
-				: ($Boo_inHeaderColumn)
+				: ($is_in_header_column)
 					
-					If ($Boo_crossReport)
+					If ($is_crossReport)
 						
-						LISTBOX GET CELL COORDINATES:C1330(*; $Txt_me; $Lon_colIndex; 1; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+						LISTBOX GET CELL COORDINATES:C1330(*; $my_name; $column_index; 1; $left; $top; $right; $bottom)
 						
 					Else 
 						
-						OBJECT GET COORDINATES:C663(*; $tTxt_headerNames{$Lon_colIndex}; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+						OBJECT GET COORDINATES:C663(*; $_header_names{$column_index}; $left; $top; $right; $bottom)
 						
 					End if 
 					
 					
 					//…………………………………………………
-				: ($Boo_inCell)
+				: ($is_in_cell)
 					
-					LISTBOX GET CELL COORDINATES:C1330(*; $Txt_me; $Lon_colIndex; $Lon_rowIndex; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+					LISTBOX GET CELL COORDINATES:C1330(*; $my_name; $column_index; $row_index; $left; $top; $right; $bottom)
 					
 					//…………………………………………………
 				Else 
@@ -688,66 +720,66 @@ If (Not:C34($Boo_skip)\
 					//…………………………………………………
 			End case 
 			
-			OBJECT SET HELP TIP:C1181(*; $Txt_me; $Txt_helpTip)
+			OBJECT SET HELP TIP:C1181(*; $my_name; $help_tip_text)
 			
 			
 			//crop if any
-			$Lon_left:=Choose:C955(($Lon_left<$Lon_lockedRight) & ($Lon_colIndex>1); $Lon_lockedRight; $Lon_left)
-			$Lon_top:=Choose:C955(($Lon_top<($headerHeight+$Lon_meTop)) & ($Lon_rowIndex>0); $headerHeight+$Lon_meTop; $Lon_top)
-			$Lon_right:=Choose:C955($Lon_right>($Lon_meRight-$Lon_vScrollOffset); $Lon_meRight-$Lon_vScrollOffset; $Lon_right)
-			$Lon_bottom:=Choose:C955($Lon_bottom>($Lon_meBottom-$Lon_hScrollOffset); $Lon_meBottom-$Lon_hScrollOffset; $Lon_bottom)
+			$left:=Choose:C955(($left<$locked_column_right) & ($column_index>1); $locked_column_right; $left)
+			$top:=Choose:C955(($top<($header_height+$my_top)) & ($row_index>0); $header_height+$my_top; $top)
+			$right:=Choose:C955($right>($my_right-$v_scroll_offset); $my_right-$v_scroll_offset; $right)
+			$bottom:=Choose:C955($bottom>($my_bottom-$h_scroll_offset); $my_bottom-$h_scroll_offset; $bottom)
 			
 			Case of 
 					
 					//………………………………………………………………………………………………………………
-				: (Not:C34($Boo_quickReport))
+				: (Not:C34($is_quickReport))
 					
 					//NOTHING MORE TO DO
 					
 					//………………………………………………………………………………………………………………
-				: ($Boo_balloon)
+				: ($is_balloon_visible)
 					
 					//NOTHING MORE TO DO
 					
 					//………………………………………………………………………………………………………………
-				: ($Boo_inTopLeftHeader)
+				: ($is_in_top_left_header)
 					
 					Case of 
 							
 							//-----------------------------------
-						: ($Boo_crossReport)
+						: ($is_crossReport)
 							
-							$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
-							$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
-							$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
-							$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
+							$left_position:=$right-Form:C1466.headerButtonWidth
+							$top_position:=$top+Form:C1466.headerButtonOffset
+							$right_position:=$left_position+Form:C1466.headerButtonWidth
+							$bottom_position:=$top_position+Form:C1466.headerButtonWidth
 							
-							OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
+							OBJECT SET COORDINATES:C1248(*; "header_action"; $left_position; $top_position; $right_position; $bottom_position)
 							OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 							
 							//-----------------------------------
-						: ($Lon_x>=($Lon_right-Form:C1466.addSensitive))  //into the right separator sensitive area
+						: ($mouse_x>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
 							
-							If (LISTBOX Get property:C917(*; $Txt_me; _o_lk hor scrollbar position:K53:10)=0)
+							If (LISTBOX Get property:C917(*; $my_name; _o_lk hor scrollbar position:K53:10)=0)
 								
 								OB SET:C1220(ob_dialog; \
 									"action"; "show_plus"; \
-									"middle"; $Lon_right)
+									"middle"; $right)
 								
 							End if 
 							
 							//-----------------------------------
-						: (($Lon_right-$Lon_left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
+						: (($right-$left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
 							
 							//don't display arrow when the QR is empty
-							If ($Lon_qrColumnNumber>0)
+							If ($qr_column_number>0)
 								
-								$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
-								$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
-								$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
-								$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
+								$left_position:=$right-Form:C1466.headerButtonWidth
+								$top_position:=$top+Form:C1466.headerButtonOffset
+								$right_position:=$left_position+Form:C1466.headerButtonWidth
+								$bottom_position:=$top_position+Form:C1466.headerButtonWidth
 								
-								OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
+								OBJECT SET COORDINATES:C1248(*; "header_action"; $left_position; $top_position; $right_position; $bottom_position)
 								OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 								
 							End if 
@@ -756,52 +788,52 @@ If (Not:C34($Boo_skip)\
 					End case 
 					
 					//………………………………………………………………………………………………………………
-				: ($Boo_inHeaderColumn)
+				: ($is_in_header_column)
 					
-					If ($Lon_qrColumn<=$Lon_qrColumnNumber)
+					If ($qr_column<=$qr_column_number)
 						
 						Case of 
 								
 								//-----------------------------------
-							: ($Boo_crossReport)
+							: ($is_crossReport)
 								
-								$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
-								$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
-								$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
-								$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
+								$left_position:=$right-Form:C1466.headerButtonWidth
+								$top_position:=$top+Form:C1466.headerButtonOffset
+								$right_position:=$left_position+Form:C1466.headerButtonWidth
+								$bottom_position:=$top_position+Form:C1466.headerButtonWidth
 								
-								OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
+								OBJECT SET COORDINATES:C1248(*; "header_action"; $left_position; $top_position; $right_position; $bottom_position)
 								OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 								
 								//-----------------------------------
-							: ($Lon_x>=($Lon_right-Form:C1466.addSensitive))  //into the right separator sensitive area
+							: ($mouse_x>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
 								
 								OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 								
 								OB SET:C1220(ob_dialog; \
 									"action"; "show_plus"; \
-									"middle"; $Lon_right)
+									"middle"; $right)
 								
 								//-----------------------------------
-							: ($Lon_x<=($Lon_left+Form:C1466.addSensitive))  //into the left separator sensitive area
+							: ($mouse_x<=($left+Form:C1466.addSensitive))  //into the left separator sensitive area
 								
 								OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 								
 								OB SET:C1220(ob_dialog; \
 									"action"; "show_plus"; \
-									"middle"; $Lon_left)
+									"middle"; $left)
 								
 								//-----------------------------------
 							Else 
 								
-								If (($Lon_right-$Lon_left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
+								If (($right-$left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
 									
-									$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
-									$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
-									$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
-									$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
+									$left_position:=$right-Form:C1466.headerButtonWidth
+									$top_position:=$top+Form:C1466.headerButtonOffset
+									$right_position:=$left_position+Form:C1466.headerButtonWidth
+									$bottom_position:=$top_position+Form:C1466.headerButtonWidth
 									
-									OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
+									OBJECT SET COORDINATES:C1248(*; "header_action"; $left_position; $top_position; $right_position; $bottom_position)
 									OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 									
 								End if 
@@ -811,29 +843,29 @@ If (Not:C34($Boo_skip)\
 					End if 
 					
 					//………………………………………………………………………………………………………………
-				: ($Boo_inHeaderLine)
+				: ($is_in_header_line)
 					
-					If ($Lon_x>=($Lon_right-Form:C1466.addSensitive))  //into the right separator sensitive area
+					If ($mouse_x>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
 						
 						OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 						
 						OB SET:C1220(ob_dialog; \
 							"action"; "show_plus"; \
-							"middle"; $Lon_right)
+							"middle"; $right)
 						
 					Else 
 						
-						If (($Lon_right-$Lon_left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
+						If (($right-$left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
 							
 							//don't display arrow when the QR is empty
-							If ($Lon_qrColumnNumber>0)
+							If ($qr_column_number>0)
 								
-								$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
-								$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
-								$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
-								$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
+								$left_position:=$right-Form:C1466.headerButtonWidth
+								$top_position:=$top+Form:C1466.headerButtonOffset
+								$right_position:=$left_position+Form:C1466.headerButtonWidth
+								$bottom_position:=$top_position+Form:C1466.headerButtonWidth
 								
-								OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
+								OBJECT SET COORDINATES:C1248(*; "header_action"; $left_position; $top_position; $right_position; $bottom_position)
 								OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 								
 							End if 
@@ -841,51 +873,51 @@ If (Not:C34($Boo_skip)\
 					End if 
 					
 					//………………………………………………………………………………………………………………
-				: ($Boo_inCell)
+				: ($is_in_cell)
 					
 					Case of 
 							
 							//-----------------------------------
-						: ($Boo_crossReport)
+						: ($is_crossReport)
 							
-							$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
-							$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
-							$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
-							$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
+							$left_position:=$right-Form:C1466.headerButtonWidth
+							$top_position:=$top+Form:C1466.headerButtonOffset
+							$right_position:=$left_position+Form:C1466.headerButtonWidth
+							$bottom_position:=$top_position+Form:C1466.headerButtonWidth
 							
-							OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
+							OBJECT SET COORDINATES:C1248(*; "header_action"; $left_position; $top_position; $right_position; $bottom_position)
 							OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 							
 							//-----------------------------------
-						: ($Lon_qrColumn>$Lon_qrColumnNumber)
+						: ($qr_column>$qr_column_number)
 							
 							//NOTHING MORE TO DO
 							
 							//-----------------------------------
-						: ($Lon_x>=($Lon_right-Form:C1466.addSensitive))  //into the right separator sensitive area
+						: ($mouse_x>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
 							
 							OB SET:C1220(ob_dialog; \
 								"action"; "show_plus"; \
-								"middle"; $Lon_right)
+								"middle"; $right)
 							
 							//-----------------------------------
-						: ($Lon_x<=($Lon_left+Form:C1466.addSensitive))  //into the left separator sensitive area
+						: ($mouse_x<=($left+Form:C1466.addSensitive))  //into the left separator sensitive area
 							
 							OB SET:C1220(ob_dialog; \
 								"action"; "show_plus"; \
-								"middle"; $Lon_left)
+								"middle"; $left)
 							
 							//-----------------------------------
 						Else 
 							
-							If (($Lon_right-$Lon_left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
+							If (($right-$left)>(Form:C1466.headerButtonWidth+(Form:C1466.headerButtonOffset*2)))
 								
-								$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
-								$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
-								$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
-								$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
+								$left_position:=$right-Form:C1466.headerButtonWidth
+								$top_position:=$top+Form:C1466.headerButtonOffset
+								$right_position:=$left_position+Form:C1466.headerButtonWidth
+								$bottom_position:=$top_position+Form:C1466.headerButtonWidth
 								
-								OBJECT SET COORDINATES:C1248(*; "header_action"; $Lon_posLeft; $Lon_posTop; $Lon_posRight; $Lon_posBottom)
+								OBJECT SET COORDINATES:C1248(*; "header_action"; $left_position; $top_position; $right_position; $bottom_position)
 								OBJECT SET VISIBLE:C603(*; "header_action"; True:C214)
 								
 							End if 
@@ -902,36 +934,36 @@ If (Not:C34($Boo_skip)\
 			End case 
 			
 			//______________________________________________________
-		: ($Lon_formEvent=On Row Moved:K2:32)
+		: ($event_code=On Row Moved:K2:32)
 			
-			If ($Boo_crossReport)
+			If ($is_crossReport)
 				
 				//restore
-				If ($Boo_quickReport)
+				If ($is_quickReport)
 					
 					OB SET:C1220(ob_dialog; \
 						"action"; "update")
 					
 				Else 
 					
-					report_DISPLAY_AREA($Lon_area)
+					report_DISPLAY_AREA($area)
 					
 				End if 
 				
 			Else 
 				
 				//Get the previous position and the new position of the row moved
-				LISTBOX MOVED ROW NUMBER:C837(*; $Txt_me; $Lon_oldPosition; $Lon_newPosition)
+				LISTBOX MOVED ROW NUMBER:C837(*; $my_name; $old_position; $new_position)
 				
-				If ($Lon_newPosition#$Lon_oldPosition)
+				If ($new_position#$old_position)
 					
 					//Only the break's lines can be moved
-					If ($Lon_oldPosition>2)\
-						 & ($Lon_oldPosition<$Lon_meRowNumber)\
-						 & ($Lon_newPosition>2)\
-						 & ($Lon_newPosition<$Lon_meRowNumber)
+					If ($old_position>2)\
+						 & ($old_position<$my_row_number)\
+						 & ($new_position>2)\
+						 & ($new_position<$my_row_number)
 						
-						QR_SWAP_ROWS($Lon_area; $Lon_oldPosition; $Lon_newPosition)
+						QR_SWAP_ROWS($area; $old_position; $new_position)
 						
 					Else 
 						
@@ -944,36 +976,36 @@ If (Not:C34($Boo_skip)\
 			End if 
 			
 			//______________________________________________________
-		: ($Lon_formEvent=On Column Resize:K2:31)
+		: ($event_code=On Column Resize:K2:31)
 			
-			If ($Boo_crossReport)
+			If ($is_crossReport)
 				
-				If ($Lon_colIndex>0)
+				If ($column_index>0)
 					
 					//deselect
-					QR SET SELECTION:C794($Lon_area; -1; -1; -1; -1)
+					QR SET SELECTION:C794($area; -1; -1; -1; -1)
 					report_SELECTION("select_none")
 					
-					$Lon_width:=LISTBOX Get column width:C834(*; $tTxt_columnNames{$Lon_colIndex})
-					QR_SET_COLUMN_WIDTH($Lon_area; $Lon_colIndex; $Lon_width)
+					$width:=LISTBOX Get column width:C834(*; $_column_names{$column_index})
+					QR_SET_COLUMN_WIDTH($area; $column_index; $width)
 					
 				End if 
 				
 			Else 
 				
-				$Lon_column:=Find in array:C230($tPtr_columnVars; $Ptr_me)
+				$column_number:=Find in array:C230($_columnVarPointer; $self)
 				
-				If ($Lon_column>1)\
-					 & ($Lon_column<=($Lon_qrColumnNumber+1))
+				If ($column_number>1)\
+					 & ($column_number<=($qr_column_number+1))
 					
-					$Lon_width:=LISTBOX Get column width:C834(*; $tTxt_columnNames{$Lon_column})
+					$width:=LISTBOX Get column width:C834(*; $_column_names{$column_number})
 					
-					QR_SET_COLUMN_WIDTH($Lon_area; $Lon_column-1; $Lon_width)
+					QR_SET_COLUMN_WIDTH($area; $column_number-1; $width)
 					
 				End if 
 			End if 
 			
-			If ($Lon_mouseButton=0)  //Button up
+			If ($mouse_button=0)  //Button up
 				
 				OB SET:C1220(ob_dialog; \
 					"action"; "update")
@@ -985,63 +1017,63 @@ If (Not:C34($Boo_skip)\
 	
 	
 	
-	If ($Lon_area#0)
+	If ($area#0)
 		
 		Case of 
 				
 				//______________________________________________________
-			: ($Boo_balloon)
+			: ($is_balloon_visible)
 				
 				//NOTHING MORE TO DO
 				
 				//______________________________________________________
-			: ($Boo_cellEditing)
+			: ($is_cell_editing)
 				
 				OB SET:C1220(ob_area; \
-					"columnIndex"; $Lon_colIndex; \
-					"rowIndex"; $Lon_rowIndex; \
-					"qrColumn"; $Lon_qrColumn; \
-					"qrRow"; $Lon_qrRow)
+					"columnIndex"; $column_index; \
+					"rowIndex"; $row_index; \
+					"qrColumn"; $qr_column; \
+					"qrRow"; $qr_row)
 				
 				//______________________________________________________
 			Else 
 				
 				area_ADJUST
 				
-				If ($Lon_qrDestination=qr printer:K14903:1)\
-					 & Not:C34($Boo_crossReport)
+				If ($qr_destination=qr printer:K14903:1)\
+					 & Not:C34($is_crossReport)
 					
 					//move page break if any
-					OBJECT GET COORDINATES:C663(*; $tTxt_columnNames{$Lon_lockedColumns+1}; $Lon_left; $Lon_; $Lon_; $Lon_)
-					$Lon_left:=($Lon_lockedRight+OB Get:C1224(ob_area; "pageBreak"; Is longint:K8:6))-($Lon_lockedRight-$Lon_left)
-					OBJECT GET COORDINATES:C663(*; "page.break"; $Lon_; $Lon_top; $Lon_; $Lon_bottom)
-					OBJECT SET COORDINATES:C1248(*; "page.break"; $Lon_left; $Lon_top; $Lon_left; $Lon_bottom)
-					OBJECT SET VISIBLE:C603(*; "page.break"; $Lon_left>$Lon_lockedRight)
+					OBJECT GET COORDINATES:C663(*; $_column_names{$locked_columns+1}; $left; $L; $L; $L)
+					$left:=($locked_column_right+OB Get:C1224(ob_area; "pageBreak"; Is longint:K8:6))-($locked_column_right-$left)
+					OBJECT GET COORDINATES:C663(*; "page.break"; $L; $top; $L; $bottom)
+					OBJECT SET COORDINATES:C1248(*; "page.break"; $left; $top; $left; $bottom)
+					OBJECT SET VISIBLE:C603(*; "page.break"; $left>$locked_column_right)
 					
 				End if 
 				
 				//keep the position of the scroll bars
-				OBJECT GET SCROLL POSITION:C1114(*; $Txt_me; $Lon_rowPosition; $Lon_columnPosition)
+				OBJECT GET SCROLL POSITION:C1114(*; $my_name; $row_position; $column_position)
 				
 				OB SET:C1220(ob_area; \
-					"columnIndex"; $Lon_colIndex; \
-					"rowIndex"; $Lon_rowIndex; \
-					"qrColumn"; $Lon_qrColumn; \
-					"qrRow"; $Lon_qrRow; \
-					"inTopLeftHeader"; $Boo_inTopLeftHeader; \
-					"inHeaderColumn"; $Boo_inHeaderColumn; \
-					"inHeaderLine"; $Boo_inHeaderLine; \
-					"inCell"; $Boo_inCell; \
-					"scrollRow"; $Lon_rowPosition; \
-					"scrollColumn"; $Lon_columnPosition; \
-					"crossReport"; $Boo_crossReport)
+					"columnIndex"; $column_index; \
+					"rowIndex"; $row_index; \
+					"qrColumn"; $qr_column; \
+					"qrRow"; $qr_row; \
+					"inTopLeftHeader"; $is_in_top_left_header; \
+					"inHeaderColumn"; $is_in_header_column; \
+					"inHeaderLine"; $is_in_header_line; \
+					"inCell"; $is_in_cell; \
+					"scrollRow"; $row_position; \
+					"scrollColumn"; $column_position; \
+					"crossReport"; $is_crossReport)
 				
 				//______________________________________________________
 		End case 
 		
-		If ($Boo_quickReport)
+		If ($is_quickReport)
 			
-			If (Not:C34($Boo_cellEditing))
+			If (Not:C34($is_cell_editing))
 				
 				CALL SUBFORM CONTAINER:C1086(-1)
 				
@@ -1049,25 +1081,25 @@ If (Not:C34($Boo_skip)\
 			
 		Else 
 			
-			If ($Boo_contextual)\
-				 & ($Lon_area#0)
+			If ($contextual_click)\
+				 & ($area#0)
 				
-				If (QR Get area property:C795($Lon_area; qr view contextual menus:K14905:7)#0)
+				If (QR Get area property:C795($area; qr view contextual menus:K14905:7)#0)
 					
-					If ($Boo_crossReport)
+					If ($is_crossReport)
 						
-						If ($Lon_colIndex=3)\
-							 & ($Lon_rowIndex=3)
+						If ($column_index=3)\
+							 & ($row_index=3)
 							
 						Else 
 							
-							report_CONTEXTUAL_MENUS($Lon_area; $Lon_colIndex; $Lon_rowIndex)
+							report_CONTEXTUAL_MENUS($area; $column_index; $row_index)
 							
 						End if 
 						
 					Else 
 						
-						report_CONTEXTUAL_MENUS($Lon_area; $Lon_qrColumn; $Lon_qrRow)
+						report_CONTEXTUAL_MENUS($area; $qr_column; $qr_row)
 						
 					End if 
 				End if 

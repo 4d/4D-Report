@@ -13,7 +13,8 @@
 
 
 var \
-$count_parameters : Integer
+$count_parameters; \
+$save_error : Integer
 
 
 var \
@@ -43,11 +44,15 @@ End if
 
 If ($area_reference#0)
 	
+	$save_error:=ERROR
 	$save_Method_Error_Handler:=report_catchErrors("on")
+	
 	$qr_html_template:=QR Get HTML template:C751($area_reference)
 	report_catchErrors("off"; $save_Method_Error_Handler)
 	
 	$is_valid:=(ERROR=0)
+	
+	ERROR:=$save_error
 	
 End if 
 
