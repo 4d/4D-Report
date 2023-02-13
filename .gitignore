@@ -48,3 +48,4 @@ Resources/php.ini
 *.bbprojectd/
 Libraries/
 Project/Sources/Methods/Method*.4dm
+buildApp.4DSettings
