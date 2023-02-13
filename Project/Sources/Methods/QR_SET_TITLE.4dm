@@ -9,14 +9,27 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($1)
-C_LONGINT:C283($2)
 
-C_LONGINT:C283($Lon_area; $Lon_column; $Lon_hidden; $Lon_parameters; $Lon_repeated; $Lon_width)
-C_TEXT:C284($Txt_format; $Txt_object; $Txt_pattern; $Txt_title; $Txt_variable)
+#DECLARE($area : Integer; $column : Integer)
 
-ARRAY LONGINT:C221($tLon_lengths; 0)
-ARRAY LONGINT:C221($tLon_positions; 0)
+var \
+$count_parameters; \
+$width; \
+$hidden; \
+$repeated_values : Integer
+
+
+var \
+$format; \
+$pattern; \
+$object_name; \
+$title; \
+$variable : Text
+
+
+
+ARRAY LONGINT:C221($_lengths; 0)
+ARRAY LONGINT:C221($_positions; 0)
 
 If (False:C215)
 	C_LONGINT:C283(QR_SET_TITLE; $1)
@@ -25,16 +38,16 @@ End if
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=2; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=2; "Missing parameter"))
 	
 	//Required parameters
-	$Lon_area:=$1
-	$Lon_column:=$2
+	//$area:=$1
+	//$column:=$2
 	
 	//Optional parameters
-	If ($Lon_parameters>=3)
+	If ($count_parameters>=3)
 		
 		// <NONE>
 		
@@ -47,70 +60,70 @@ Else
 End if 
 
 // ----------------------------------------------------
-QR GET INFO COLUMN:C766($Lon_area; \
-$Lon_column; \
-$Txt_title; \
-$Txt_object; \
-$Lon_hidden; \
-$Lon_width; \
-$Lon_repeated; \
-$Txt_format; \
-$Txt_variable)
+QR GET INFO COLUMN:C766($area; \
+$column; \
+$title; \
+$object_name; \
+$hidden; \
+$width; \
+$repeated_values; \
+$format; \
+$variable)
 
 Case of 
-	: (Length:C16($Txt_title)=0)\
-		 & (Length:C16($Txt_variable)#0)
+	: (Length:C16($title)=0)\
+		 & (Length:C16($variable)#0)
 		
 		
-		If (<>withFeature111172)
-			
-			If (boo_useVirtualStructure)
-				$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
-				
-			Else 
-				$Txt_title:=$Txt_object
-				
-			End if 
-			
-			
-			QR SET INFO COLUMN:C765($Lon_area; \
-				$Lon_column; \
-				$Txt_title; \
-				$Txt_object; \
-				$Lon_hidden; \
-				$Lon_width; \
-				$Lon_repeated; \
-				$Txt_format)
-			
-		End if 
-		
-		
-	: (Length:C16($Txt_title)=0)\
-		 & (Length:C16($Txt_variable)=0)
-		
-		$Txt_pattern:="(?mi-s)^\\[([^\\]]*)\\]([^-+*/\\\\%=?&|>,:\"(\\[\\$]{1,31})$"  //[table]field
+		//If (<>withFeature111172)
 		
 		If (boo_useVirtualStructure)
-			$Txt_title:=Parse formula:C1576($Txt_object; Formula out with virtual structure:K88:2)
+			$title:=Parse formula:C1576($object_name; Formula out with virtual structure:K88:2)
 			
 		Else 
-			$Txt_title:=$Txt_object
+			$title:=$object_name
 			
 		End if 
 		
 		
-		If (Match regex:C1019($Txt_pattern; $Txt_title; 1; $tLon_positions; $tLon_lengths))
+		QR SET INFO COLUMN:C765($area; \
+			$column; \
+			$title; \
+			$object_name; \
+			$hidden; \
+			$width; \
+			$repeated_values; \
+			$format)
+		
+		//End if 
+		
+		
+	: (Length:C16($title)=0)\
+		 & (Length:C16($variable)=0)
+		
+		$pattern:="(?mi-s)^\\[([^\\]]*)\\]([^-+*/\\\\%=?&|>,:\"(\\[\\$]{1,31})$"  //[table]field
+		
+		If (boo_useVirtualStructure)
+			$title:=Parse formula:C1576($object_name; Formula out with virtual structure:K88:2)
 			
-			$Txt_title:=Substring:C12($Txt_title; $tLon_positions{2}; $tLon_lengths{2})
+		Else 
+			$title:=$object_name
 			
-			QR SET INFO COLUMN:C765($Lon_area; \
-				$Lon_column; \
-				$Txt_title; \
-				$Txt_object; \
-				$Lon_hidden; \
-				$Lon_width; \
-				$Lon_repeated; \
-				$Txt_format)
+		End if 
+		
+		
+		If (Match regex:C1019($pattern; $title; 1; $_positions; $_lengths))
+			
+			$title:=Substring:C12($title; $_positions{2}; $_lengths{2})
+			
+			QR SET INFO COLUMN:C765($area; \
+				$column; \
+				$title; \
+				$object_name; \
+				$hidden; \
+				$width; \
+				$repeated_values; \
+				$format)
 			
 		End if 
 		

@@ -131,15 +131,17 @@ Case of
 				//--mark:ACI0100987
 				
 			Else 
-				If (<>withFeature111172)
-					
-					$Txt_table:=db_virtualTableName(C_QR_MASTERTABLE)
-					
-				Else 
-					
-					$Txt_table:=Table name:C256(C_QR_MASTERTABLE)
-					
-				End if 
+				
+				//If (<>withFeature111172)
+				
+				$Txt_table:=db_virtualTableName(C_QR_MASTERTABLE)
+				
+				//Else 
+				
+				//$Txt_table:=Table name(C_QR_MASTERTABLE)
+				
+				//End if 
+				
 			End if 
 			
 			$Txt_formula:="["+$Txt_table+"]"+$Txt_formula
@@ -268,15 +270,15 @@ Case of
 				
 			Else 
 				
-				If (<>withFeature111172)
-					
-					$Txt_table:=db_virtualTableName(C_QR_MASTERTABLE)
-					
-				Else 
-					
-					$Txt_table:=Table name:C256(C_QR_MASTERTABLE)
-					
-				End if 
+				//If (<>withFeature111172)
+				
+				$Txt_table:=db_virtualTableName(C_QR_MASTERTABLE)
+				
+				//Else 
+				
+				//$Txt_table:=Table name(C_QR_MASTERTABLE)
+				
+				//End if 
 				
 			End if 
 			

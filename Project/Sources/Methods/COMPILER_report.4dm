@@ -32,24 +32,24 @@ C_BOOLEAN:C305(<>withFeature105739)
 C_BOOLEAN:C305(<>withFeature110931)  // border managment
 <>withFeature110931:=False:C215
 
-C_BOOLEAN:C305(<>withFeature111172)  // Virtual structure
-<>withFeature111172:=True:C214
+//C_BOOLEAN(<>withFeature111172)  // Virtual structure
+//<>withFeature111172:=True
 
 //Assertions are enabled in dev mode
 SET ASSERT ENABLED:C1131(Not:C34(Is compiled mode:C492); *)
 
-C_BOOLEAN:C305(<>withFeature111172)  // Virtual structure
-<>withFeature111172:=True:C214
+//C_BOOLEAN(<>withFeature111172)  // Virtual structure
+//<>withFeature111172:=True
 
-If (<>withFeature111172)
-	
-	boo_useVirtualStructure:=True:C214  //// By default we use the Virtual structure. (Form_C_UseVirtualStructure=1)
-	
-Else 
-	
-	boo_useVirtualStructure:=False:C215
-	
-End if 
+//If (<>withFeature111172)
+
+boo_useVirtualStructure:=True:C214  //// By default we use the Virtual structure. (Form_C_UseVirtualStructure=1)
+
+//Else 
+
+//boo_useVirtualStructure:=False
+
+//End if 
 
 report_INIT
 

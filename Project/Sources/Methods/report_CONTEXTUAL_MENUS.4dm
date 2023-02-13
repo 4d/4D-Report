@@ -213,7 +213,7 @@ Case of
 			
 			APPEND MENU ITEM:C411($Mnu_main; "-")
 			
-			$Mnu_submenu:=Create menu:C408
+			//$Mnu_submenu:=Create menu
 			
 			$Mnu_submenu:=mnu_border
 			APPEND MENU ITEM:C411($Mnu_main; ":xliff:menu_borders"; $Mnu_submenu)
@@ -339,7 +339,7 @@ Case of
 			
 			If (<>withFeature110931)
 				
-				$Mnu_submenu:=Create menu:C408
+				//$Mnu_submenu:=Create menu
 				
 				$Mnu_submenu:=mnu_border
 				APPEND MENU ITEM:C411($Mnu_main; ":xliff:menu_borders"; $Mnu_submenu)
@@ -361,7 +361,8 @@ Case of
 			
 			If (<>withFeature110931)
 				
-				$Mnu_submenu:=Create menu:C408
+				
+				//$Mnu_submenu:=Create menu
 				
 				$Mnu_submenu:=mnu_border
 				APPEND MENU ITEM:C411($Mnu_main; ":xliff:menu_borders"; $Mnu_submenu)
@@ -530,7 +531,7 @@ If (Length:C16($Txt_action)#0)
 				: (OK=0)
 					
 				: (Length:C16($Txt_formula)=0)
-					//mark:ACI0103550 enmpty formula is not accepted
+					//mark:ACI0103550 empty formula is not accepted
 					
 				Else 
 					

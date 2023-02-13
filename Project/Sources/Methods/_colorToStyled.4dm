@@ -1,37 +1,39 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : _colorToStyled
-  // Database: 4D Report
-  // ID[DAE4F58313C540FA8EA472B0E217CCD9]
-  // Created #8-7-2016 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_TEXT:C284($0)
-C_LONGINT:C283($1)
+// ----------------------------------------------------
+// Project method : _colorToStyled
+// Database: 4D Report
+// ID[DAE4F58313C540FA8EA472B0E217CCD9]
+// Created #8-7-2016 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_LONGINT:C283($Lon_color;$Lon_parameters)
-C_TEXT:C284($Txt_color)
+#DECLARE($color : Integer)->$css_color : Text
+
+var \
+$count_parameters : Integer
+
+
 
 If (False:C215)
-	C_TEXT:C284(_colorToStyled ;$0)
-	C_LONGINT:C283(_colorToStyled ;$1)
+	C_TEXT:C284(_colorToStyled; $0)
+	C_LONGINT:C283(_colorToStyled; $1)
 End if 
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
-	  //NO PARAMETERS REQUIRED
+	//NO PARAMETERS REQUIRED
 	
-	  //Optional parameters
-	If ($Lon_parameters>=1)
+	//Optional parameters
+	If ($count_parameters>=1)
 		
-		$Lon_color:=$1
+		//$Lon_color:=$1
 		
 	End if 
 	
@@ -41,30 +43,30 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 
-$Txt_color:=String:C10($Lon_color;"&x")
+$css_color:=String:C10($color; "&x")
 
-  //delete "0x"
-$Txt_color:=Delete string:C232($Txt_color;1;2)
+//delete "0x"
+$css_color:=Delete string:C232($css_color; 1; 2)
 
-If (Length:C16($Txt_color)>6)
+If (Length:C16($css_color)>6)
 	
-	  //delete"00" from start
-	$Txt_color:=Delete string:C232($Txt_color;1;2)
+	//delete"00" from start
+	$css_color:=Delete string:C232($css_color; 1; 2)
 	
 Else 
 	
-	  //add "00" at the beginning
-	$Txt_color:="00"+$Txt_color
+	//add "00" at the beginning
+	$css_color:="00"+$css_color
 	
 End if 
 
-$Txt_color:="#"+$Txt_color
+$css_color:="#"+$css_color
 
-  // ----------------------------------------------------
-  // Return
-$0:=$Txt_color
+// ----------------------------------------------------
+// Return
+//$0:=$css_color
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

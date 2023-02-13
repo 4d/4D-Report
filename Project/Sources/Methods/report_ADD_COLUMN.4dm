@@ -8,15 +8,32 @@
 // Description:
 // ----------------------------------------------------
 // Declarations
-C_TEXT:C284($1)
-C_OBJECT:C1216($2)
 
-C_BOOLEAN:C305($Boo_update)
-C_LONGINT:C283($Lon_; $Lon_area; $Lon_column; $Lon_columnNumber; $Lon_field; $Lon_fieldID)
-C_LONGINT:C283($Lon_i; $Lon_parameters; $Lon_row; $Lon_rowNumber; $Lon_table; $Lon_tableID)
-C_LONGINT:C283($Lon_x)
-C_TEXT:C284($Txt_; $Txt_action; $Txt_formula; $Txt_object)
-C_OBJECT:C1216($Obj_description)
+#DECLARE($action : Text; $description : Object)
+
+
+var \
+$area; \
+$count_parameters; \
+$column; \
+$columnNumber; \
+$i; \
+$int; \
+$rowNumber; \
+$currentRow; \
+$tableID; \
+$tableIndex; \
+$fieldID; \
+$fieldIndex : Integer
+
+var \
+$objectName; \
+$formula; \
+$text : Text
+
+var \
+$need_update : Boolean
+
 
 If (False:C215)
 	C_TEXT:C284(report_ADD_COLUMN; $1)
@@ -25,47 +42,52 @@ End if
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
 	//NO PARAMETERS REQUIRED
-	$Txt_action:="insert_end"  //default
 	
 	//Optional parameters
-	If ($Lon_parameters>=1)
+	If ($count_parameters>=1)
 		
-		$Txt_action:=$1  //values: "formula" - "add_all" - "insert_end/begin/after/before"
+		//$action:=$1  //values: "formula" - "add_all" - "insert_end/begin/after/before"
 		
-		If ($Lon_parameters>=2)
+		If ($count_parameters>=2)
 			
-			$Obj_description:=$2
+			//$description:=$2
 			
 		End if 
+		
+	Else 
+		
+		$action:="insert_end"  //default action
+		
 	End if 
 	
-	$Lon_area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
-	$Lon_column:=OB Get:C1224(ob_area; "qrColumn"; Is longint:K8:6)
-	$Lon_columnNumber:=OB Get:C1224(ob_area; "qrColumnNumber"; Is longint:K8:6)
-	$Lon_rowNumber:=OB Get:C1224(ob_area; "qrRowNumber"; Is longint:K8:6)
-	$Lon_tableID:=QR Get report table:C758($Lon_area)
-	$Lon_x:=Find in array:C230(tLon_tableIDs; $Lon_tableID)
+	$area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
+	$column:=OB Get:C1224(ob_area; "qrColumn"; Is longint:K8:6)
+	$columnNumber:=OB Get:C1224(ob_area; "qrColumnNumber"; Is longint:K8:6)
+	$rowNumber:=OB Get:C1224(ob_area; "qrRowNumber"; Is longint:K8:6)
+	$tableID:=QR Get report table:C758($area)
+	$tableIndex:=Find in array:C230(tLon_tableIDs; $tableID)
 	
-	If ($Txt_action="add_@")\
-		 | ($Txt_action="insert_@")
+	If ($action="add_@")\
+		 | ($action="insert_@")
 		
 		//get all column's objects
-		ARRAY TEXT:C222($tTxt_fieldInQR; 0x0000)
+		ARRAY TEXT:C222($_fieldInQR; 0x0000)
 		
-		For ($Lon_i; 1; QR Count columns:C764($Lon_area); 1)
+		For ($i; 1; QR Count columns:C764($area); 1)
 			
-			QR GET INFO COLUMN:C766($Lon_area; $Lon_i; $Txt_; $Txt_object; $Lon_; $Lon_; $Lon_; $Txt_)
+			QR GET INFO COLUMN:C766($area; $i; $text; $objectName; $int; $int; $int; $text)
 			
 			//#ACI0093166
 			//APPEND TO ARRAY($tTxt_fieldInQR;report_virtualFieldName ($Txt_object))
-			APPEND TO ARRAY:C911($tTxt_fieldInQR; $Txt_object)
+			APPEND TO ARRAY:C911($_fieldInQR; $objectName)
 			
 		End for 
+		
 	End if 
 	
 	ASSERT:C1129(Not:C34(Shift down:C543))
@@ -80,219 +102,231 @@ End if
 Case of 
 		
 		//______________________________________________________
-	: (Length:C16($Txt_action)=0)
+	: (Length:C16($action)=0)
 		
 		//NOTHING MORE TO DO
 		
 		//______________________________________________________
-	: ($Lon_x<0)
+	: ($tableIndex<0)
 		
 		TRACE:C157  //MUST NOT THROUGH HERE
 		
 		//______________________________________________________
-	: ($Txt_action="formula")  //add a column formula
+	: ($action="formula")  //add a column formula
 		
-		EDIT FORMULA:C806(Table:C252($Lon_tableID)->; $Txt_formula)
+		EDIT FORMULA:C806(Table:C252($tableID)->; $formula)
 		
 		//#ACI0092848 - Test if the formula is not empty
 		//$Boo_update:=(OK=1)
-		$Boo_update:=(OK=1) & (Length:C16($Txt_formula)>0)
+		$need_update:=(OK=1) & (Length:C16($formula)>0)
 		
-		If ($Boo_update)
+		If ($need_update)
 			
-			$Lon_column:=$Lon_column+1
-			QR INSERT COLUMN:C748($Lon_area; $Lon_column; $Txt_formula)
+			$column:=$column+1
+			QR INSERT COLUMN:C748($area; $column; $formula)
 			
 		End if 
 		
 		//______________________________________________________
-	: ($Txt_action="add_all")  //add all fields that are not already included
+	: ($action="add_all")  //add all fields that are not already included
 		
-		For ($Lon_i; 1; Size of array:C274(tLon_fieldIDs{$Lon_x}); 1)
+		For ($i; 1; Size of array:C274(tLon_fieldIDs{$tableIndex}); 1)
 			
-			If (tLon_fieldIDs{$Lon_x}{$Lon_i}#0)
+			If (tLon_fieldIDs{$tableIndex}{$i}#0)
 				
-				//If (QR_isValidField ($Lon_tableID;$Lon_i))
-				If (QR_isValidField($Lon_tableID; tLon_fieldIDs{$Lon_x}{$Lon_i}))
+				If (QR_isValidField($tableID; tLon_fieldIDs{$tableIndex}{$i}))
 					
 					//#ACI0093166
 					//$Txt_formula:="["+tTxt_tableNames{$Lon_x}+"]"+tTxt_fieldNames{$Lon_x}{$Lon_i}
 					//$Txt_formula:="["+report_structureDefinition{0}{$Lon_tableID}+"]"+report_structureDefinition{$Lon_tableID}{$Lon_i}
-					$Txt_formula:="["+report_structureDefinition{0}{$Lon_tableID}+"]"+report_structureDefinition{$Lon_x}{tLon_fieldIDs{$Lon_tableID}{$Lon_i}}
 					
-					If (Find in array:C230($tTxt_fieldInQR; $Txt_formula)=-1)
+					$formula:="["+report_structureDefinition{0}{$tableID}+"]"+report_structureDefinition{$tableIndex}{tLon_fieldIDs{$tableID}{$i}}
+					
+					If (Find in array:C230($_fieldInQR; $formula)=-1)
 						
-						$Lon_column:=$Lon_column+1
-						QR INSERT COLUMN:C748($Lon_area; $Lon_column; $Txt_formula)
-						QR SET INFO COLUMN:C765($Lon_area; $Lon_column; tTxt_fieldNames{$Lon_x}{$Lon_i}; $Txt_formula; 0; -1; 0; "")
+						$column:=$column+1
+						QR INSERT COLUMN:C748($area; $column; $formula)
+						QR SET INFO COLUMN:C765($area; $column; tTxt_fieldNames{$tableIndex}{$i}; $formula; 0; -1; 0; "")
 						
-						QR_SET_TITLE($Lon_area; $Lon_column)
+						QR_SET_TITLE($area; $column)
 						
 					End if 
+					
 				End if 
+				
 			End if 
+			
 		End for 
 		
-		$Boo_update:=True:C214
+		$need_update:=True:C214
 		
 		//______________________________________________________
-	: ($Txt_action="append_field")  //append given field at the end
+	: ($action="append_field")  //append given field at the end
 		
-		$Lon_column:=$Lon_columnNumber+1
+		$column:=$columnNumber+1
 		
-		$Lon_tableID:=OB Get:C1224($Obj_description; "table"; Is longint:K8:6)
-		$Lon_fieldID:=OB Get:C1224($Obj_description; "field"; Is longint:K8:6)
+		$tableID:=OB Get:C1224($description; "table"; Is longint:K8:6)
+		$fieldID:=OB Get:C1224($description; "field"; Is longint:K8:6)
 		
-		$Lon_table:=Find in array:C230(tLon_tableIDs; $Lon_tableID)
+		$tableIndex:=Find in array:C230(tLon_tableIDs; $tableID)
 		
-		If ($Lon_table#-1)
+		If ($tableIndex#-1)
 			
-			$Lon_field:=Find in array:C230(tLon_fieldIDs{$Lon_tableID}; $Lon_fieldID)
+			$fieldIndex:=Find in array:C230(tLon_fieldIDs{$tableID}; $fieldID)
 			
-			If ($Lon_field#-1)
+			If ($fieldIndex#-1)
 				
-				$Txt_formula:="["+report_structureDefinition{0}{$Lon_table}+"]"+report_structureDefinition{$Lon_table}{tLon_fieldIDs{$Lon_table}{$Lon_field}}
+				$formula:="["+report_structureDefinition{0}{$tableIndex}+"]"+report_structureDefinition{$tableIndex}{tLon_fieldIDs{$tableIndex}{$fieldIndex}}
 				
-				QR INSERT COLUMN:C748($Lon_area; $Lon_column; $Txt_formula)
-				QR SET INFO COLUMN:C765($Lon_area; $Lon_column; tTxt_fieldNames{$Lon_tableID}{$Lon_fieldID}; $Txt_formula; 0; -1; 0; "")
+				QR INSERT COLUMN:C748($area; $column; $formula)
+				QR SET INFO COLUMN:C765($area; $column; tTxt_fieldNames{$tableID}{$fieldID}; $formula; 0; -1; 0; "")
 				
-				QR_SET_TITLE($Lon_area; $Lon_column)
+				QR_SET_TITLE($area; $column)
 				
 				//scroll list
-				OBJECT GET SCROLL POSITION:C1114(*; Form:C1466.areaObject; $Lon_row)
-				OBJECT SET SCROLL POSITION:C906(*; Form:C1466.areaObject; $Lon_row; $Lon_column; *)
+				OBJECT GET SCROLL POSITION:C1114(*; Form:C1466.areaObject; $currentRow)
+				OBJECT SET SCROLL POSITION:C906(*; Form:C1466.areaObject; $currentRow; $column; *)
 				
 			End if 
+			
 		End if 
 		
 		//______________________________________________________
-	: ($Txt_action="insert_field")  //append given field at the given column
+	: ($action="insert_field")  //append given field at the given column
 		
-		$Lon_column:=OB Get:C1224($Obj_description; "column"; Is longint:K8:6)
-		$Lon_tableID:=OB Get:C1224($Obj_description; "table"; Is longint:K8:6)
-		$Lon_fieldID:=OB Get:C1224($Obj_description; "field"; Is longint:K8:6)
+		$column:=OB Get:C1224($description; "column"; Is longint:K8:6)
+		$tableID:=OB Get:C1224($description; "table"; Is longint:K8:6)
+		$fieldID:=OB Get:C1224($description; "field"; Is longint:K8:6)
 		
-		$Lon_table:=Find in array:C230(tLon_tableIDs; $Lon_tableID)
+		$tableIndex:=Find in array:C230(tLon_tableIDs; $tableID)
 		
-		If ($Lon_table#-1)
+		If ($tableIndex#-1)
 			
-			$Lon_field:=Find in array:C230(tLon_fieldIDs{$Lon_tableID}; $Lon_fieldID)
+			$fieldIndex:=Find in array:C230(tLon_fieldIDs{$tableID}; $fieldID)
 			
-			If ($Lon_field#-1)
+			If ($fieldIndex#-1)
 				
-				$Txt_formula:="["+report_structureDefinition{0}{$Lon_table}+"]"+report_structureDefinition{$Lon_table}{tLon_fieldIDs{$Lon_table}{$Lon_field}}
+				$formula:="["+report_structureDefinition{0}{$tableIndex}+"]"+report_structureDefinition{$tableIndex}{tLon_fieldIDs{$tableIndex}{$fieldIndex}}
 				
-				If ($Lon_column>0)
+				If ($column>0)
 					
-					QR INSERT COLUMN:C748($Lon_area; $Lon_column; $Txt_formula)
-					QR SET INFO COLUMN:C765($Lon_area; $Lon_column; tTxt_fieldNames{$Lon_tableID}{$Lon_fieldID}; $Txt_formula; 0; -1; 0; "")
+					QR INSERT COLUMN:C748($area; $column; $formula)
+					QR SET INFO COLUMN:C765($area; $column; tTxt_fieldNames{$tableID}{$fieldID}; $formula; 0; -1; 0; "")
 					
-					QR_SET_TITLE($Lon_area; $Lon_column)
+					QR_SET_TITLE($area; $column)
 					
 				Else 
 					
-					QR SET INFO COLUMN:C765($Lon_area; Abs:C99($Lon_column); tTxt_fieldNames{$Lon_tableID}{$Lon_fieldID}; $Txt_formula; 0; -1; 0; "")
+					QR SET INFO COLUMN:C765($area; Abs:C99($column); tTxt_fieldNames{$tableID}{$fieldID}; $formula; 0; -1; 0; "")
 					
 				End if 
+				
 			End if 
+			
 		End if 
 		
 		//______________________________________________________
-	: ($Txt_action="insert_@")  //add/insert first non included field
+	: ($action="insert_@")  //add/insert first non included field
 		
 		Case of   //where ?
 				
 				//------------------------------
-			: ($Txt_action="insert_begin")
+			: ($action="insert_begin")
 				
-				$Lon_column:=1
-				
-				//------------------------------
-			: ($Txt_action="insert_end")
-				
-				$Lon_column:=$Lon_columnNumber+1
+				$column:=1
 				
 				//------------------------------
-			: ($Txt_action="insert_before")
+			: ($action="insert_end")
+				
+				$column:=$columnNumber+1
+				
+				//------------------------------
+			: ($action="insert_before")
 				
 				//NOTHING MORE TO DO
 				
 				//------------------------------
-			: ($Txt_action="insert_after")
+			: ($action="insert_after")
 				
-				$Lon_column:=$Lon_column+1
+				$column:=$column+1
 				
 				//------------------------------
 			Else 
 				
-				ASSERT:C1129(False:C215; "Unknown entry point: \""+$Txt_action+"\"")
+				ASSERT:C1129(False:C215; "Unknown entry point: \""+$action+"\"")
 				
 				//------------------------------
 		End case 
 		
 		//find an eligible field
-		For ($Lon_i; 1; Size of array:C274(tLon_fieldIDs{$Lon_x}); 1)
+		For ($i; 1; Size of array:C274(tLon_fieldIDs{$tableIndex}); 1)
 			
-			If (tLon_fieldIDs{$Lon_x}{$Lon_i}>0)  //#ACI0094998
+			If (tLon_fieldIDs{$tableIndex}{$i}>0)  //#ACI0094998
 				
 				//If (QR_isValidField ($Lon_tableID;$Lon_i))
-				If (QR_isValidField($Lon_tableID; tLon_fieldIDs{$Lon_x}{$Lon_i}))
+				
+				If (QR_isValidField($tableID; tLon_fieldIDs{$tableIndex}{$i}))
 					
 					//#ACI0093166
 					//$Txt_formula:="["+tTxt_tableNames{$Lon_x}+"]"+tTxt_fieldNames{$Lon_x}{$Lon_i}
 					//$Txt_formula:="["+report_structureDefinition{0}{$Lon_x}+"]"+report_structureDefinition{$Lon_x}{$Lon_i}
-					$Txt_formula:="["+report_structureDefinition{0}{$Lon_x}+"]"+report_structureDefinition{$Lon_x}{tLon_fieldIDs{$Lon_x}{$Lon_i}}
 					
-					If (Find in array:C230($tTxt_fieldInQR; $Txt_formula)=-1)
+					$formula:="["+report_structureDefinition{0}{$tableIndex}+"]"+report_structureDefinition{$tableIndex}{tLon_fieldIDs{$tableIndex}{$i}}
+					
+					If (Find in array:C230($_fieldInQR; $formula)=-1)
 						
-						QR INSERT COLUMN:C748($Lon_area; $Lon_column; $Txt_formula)
-						QR SET INFO COLUMN:C765($Lon_area; $Lon_column; tTxt_fieldNames{$Lon_x}{$Lon_i}; $Txt_formula; 0; -1; 0; "")
+						QR INSERT COLUMN:C748($area; $column; $formula)
+						QR SET INFO COLUMN:C765($area; $column; tTxt_fieldNames{$tableIndex}{$i}; $formula; 0; -1; 0; "")
 						
-						QR_SET_TITLE($Lon_area; $Lon_column)
+						QR_SET_TITLE($area; $column)
 						
-						$Lon_i:=MAXLONG:K35:2-1
+						$i:=MAXLONG:K35:2-1
 						
 					End if 
+					
 				End if 
+				
 			End if 
+			
 		End for 
 		
 		//found?
-		$Boo_update:=($Lon_i=MAXLONG:K35:2)
+		$need_update:=($i=MAXLONG:K35:2)
 		
 		//if not found add a column formula
-		If (Not:C34($Boo_update))
+		If (Not:C34($need_update))
 			
-			CLEAR VARIABLE:C89($Txt_formula)
-			EDIT FORMULA:C806(Table:C252($Lon_tableID)->; $Txt_formula)
-			$Boo_update:=(OK=1) & (Length:C16($Txt_formula)>0)
+			CLEAR VARIABLE:C89($formula)
+			EDIT FORMULA:C806(Table:C252($tableID)->; $formula)
+			$need_update:=(OK=1) & (Length:C16($formula)>0)
 			
-			If ($Boo_update)
+			If ($need_update)
 				
-				QR INSERT COLUMN:C748($Lon_area; $Lon_column; $Txt_formula)
+				QR INSERT COLUMN:C748($area; $column; $formula)
 				
-				QR_SET_TITLE($Lon_area; $Lon_column)
+				QR_SET_TITLE($area; $column)
 				
 			End if 
+			
 		End if 
 		
 		//______________________________________________________
-	: ($Txt_action="duplicate")
+	: ($action="duplicate")
 		
-		QR_DUPLICATE_COLUMN($Lon_area; $Lon_column; OB Get:C1224(ob_area; "sortNumber"; Is longint:K8:6); $Lon_column+1)
-		$Boo_update:=True:C214
+		QR_DUPLICATE_COLUMN($area; $column; OB Get:C1224(ob_area; "sortNumber"; Is longint:K8:6); $column+1)
+		$need_update:=True:C214
 		
 		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Unknown entry point: \""+$Txt_action+"\"")
+		ASSERT:C1129(False:C215; "Unknown entry point: \""+$action+"\"")
 		
 		//______________________________________________________
 End case 
 
 ob_area.modified:=True:C214
 
-If ($Boo_update)
+If ($need_update)
 	
 	report_AREA_UPDATE
 	

@@ -1,38 +1,38 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : report_cell_tips
-  // Database: 4D Report
-  // ID[DD061C7E0F3E43978C2128EDE02A7046]
-  // Created #8-7-2016 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_TEXT:C284($0)
-C_TEXT:C284($1)
+// ----------------------------------------------------
+// Project method : report_cell_tips
+// Database: 4D Report
+// ID[DD061C7E0F3E43978C2128EDE02A7046]
+// Created #8-7-2016 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_LONGINT:C283($Lon_parameters)
-C_TEXT:C284($Txt_label)
+#DECLARE($label : Text) : Text
+
+var \
+$count_parameters : Integer
 
 If (False:C215)
-	C_TEXT:C284(report_cell_tips ;$0)
-	C_TEXT:C284(report_cell_tips ;$1)
+	C_TEXT:C284(report_cell_tips; $0)
+	C_TEXT:C284(report_cell_tips; $1)
 End if 
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	  //Required parameters
-	$Txt_label:=$1
+	//Required parameters
+	//$label:=$1
 	
-	  //Optional parameters
-	If ($Lon_parameters>=2)
+	//Optional parameters
+	If ($count_parameters>=2)
 		
-		  // <NONE>
+		// <NONE>
 		
 	End if 
 	
@@ -42,13 +42,13 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-ST SET ATTRIBUTES:C1093($Txt_label;ST Start text:K78:15;ST End text:K78:16;\
-Attribute text color:K65:7;"grey")
+// ----------------------------------------------------
+ST SET ATTRIBUTES:C1093($label; ST Start text:K78:15; ST End text:K78:16; \
+Attribute text color:K65:7; "grey")
 
-  // ----------------------------------------------------
-  // Return
-$0:=$Txt_label
+// ----------------------------------------------------
+// Return
+return $label
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

@@ -9,19 +9,25 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_parameters)
-C_POINTER:C301($Ptr_timerEvent)
+
+var \
+$count_parameters : Integer
+
+var \
+$timer_event : Pointer
+
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
 	//NO PARAMETERS REQUIRED
 	//mark:ACI0103539
 	//#DD : old system deprecated use Form.timerEvent instead
-	$Ptr_timerEvent:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
+	$timer_event:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
 	
 Else 
 	
@@ -30,24 +36,30 @@ Else
 End if 
 
 // ----------------------------------------------------
-If (Not:C34(Is nil pointer:C315($Ptr_timerEvent)))
-	
-	
-	//mark:ACI0103539
-	//#DD : old system deprecated use Form.timerEvent instead
-	$Ptr_timerEvent->:=1
-	
-	Form:C1466.timerEvent:=1
-	
-	
-	SET TIMER:C645(-1)
-	
-Else 
-	
-	QR_area:=QR_area
-	REDRAW:C174(QR_area)
-	
-End if 
+
+//todo: simplification remove $timer_event etc 
+
+Case of 
+	: (True:C214)
+		
+		Form:C1466.timerEvent:=1
+		SET TIMER:C645(-1)
+		
+	: (Is nil pointer:C315($timer_event))
+		
+		QR_area:=QR_area
+		REDRAW:C174(QR_area)
+		
+	Else 
+		
+		//mark:ACI0103539
+		//#DD : old system deprecated use Form.timerEvent instead
+		$timer_event->:=1
+		
+		
+		
+End case 
+
 
 // ----------------------------------------------------
 // End

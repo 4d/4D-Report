@@ -86,16 +86,17 @@ If ($Lon_tableNumber#0)  //There is at least one table
 		
 		SET BLOB SIZE:C606($Blb_buffer; 0)
 		
-		If (<>withFeature111172)
-			If (Form_C_UseVirtualStructure=0)
-				// we need to reinit the structure as we are not using the virtual structure in this special case: NQR + design mode. 
-				boo_useVirtualStructure:=False:C215
-				
-				db_INIT_STRUCTURE
-				
-			End if 
+		//If (<>withFeature111172)
+		If (Form_C_UseVirtualStructure=0)
+			// we need to reinit the structure as we are not using the virtual structure in this special case: NQR + design mode. 
+			boo_useVirtualStructure:=False:C215
+			
+			db_INIT_STRUCTURE
 			
 		End if 
+		
+		//End if 
+		
 	End if 
 	
 Else 
