@@ -394,17 +394,17 @@ Case of
 									
 									//#ACI0098288 [
 									//$Lon_buffer:=Choose(($Lon_reportType=qr cross report) & ($Lon_column=3);\
-																																																																																																																																																																																																																																																																																																													\
-																																																												\
+																																																																																																																																																																																																																																																																																																																							\
 																																																																						\
 																																																																																\
-																																																																																									Q\
-																																																																																										R_Get_comp\
-																																																																																																				utation ($\
-																																																																																																														Lon_area;2\
-																																																																																																																								;$Lon_row)\
-																																																																																																																																		;\
-																																																																																																																																																																																																																																																																																																																																																				QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
+																																																																																										\
+																																																																																																			Q\
+																																																																																																				R_Get_comp\
+																																																																																																														utation ($\
+																																																																																																																								Lon_area;2\
+																																																																																																																																		;$Lon_row)\
+																																																																																																																																												;\
+																																																																																																																																																																																																																																																																																																																																																														QR_Get_computation ($Lon_area;$Lon_column;$Lon_row))
 									If ($Lon_reportType=qr cross report:K14902:2) & ($Lon_column=3)
 										
 										// Cross - report
@@ -587,8 +587,8 @@ Case of
 								
 								//ACI0100940{ACI0100938
 /*
-																																								If ($Lon_columnData=2)\
-																																													 | ($Lon_columnData=3)  //apply to line
+																																																If ($Lon_columnData=2)\
+																																																						 | ($Lon_columnData=3)  //apply to line
 								
 $lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
 Else 
@@ -749,17 +749,26 @@ End if
 		OB SET:C1220(ob_area; \
 			"balloon"; False:C215)
 		
-		var $x : Blob
-		QR REPORT TO BLOB:C770(QR_area; $x)
 		
-		var $digest : Text
-		$digest:=Generate digest:C1147($x; MD5 digest:K66:1)
-		
-		If (ob_area._digest#$digest)
+		If (QR_is_valid_area(ob_area.area))
 			
-			ob_area.modified:=True:C214
+			var $digest : Text
+			var $x : Blob
+			
+			QR REPORT TO BLOB:C770(ob_area.area; $x)
+			
+			$digest:=Generate digest:C1147($x; MD5 digest:K66:1)
+			
+			If (ob_area._digest#$digest)
+				
+				ob_area.modified:=True:C214
+				
+			End if 
 			
 		End if 
+		
+		
+		
 		
 		//______________________________________________________
 	Else 
