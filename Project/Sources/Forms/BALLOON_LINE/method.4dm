@@ -4,12 +4,16 @@
 // Created #25-6-2014 by Vincent de Lachaux
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_formEvent; $Lon_column; $Lon_row; $Lon_area)
-C_OBJECT:C1216($Obj_param; $Obj_caller; $obj_buffer)
+
+
+var \
+$form_event; \
+$parameter : Object
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_formEvent:=Form event code:C388
+$form_event:=FORM Event:C1606
 SET TIMER:C645(0)
 
 // ----------------------------------------------------
@@ -17,7 +21,7 @@ SET TIMER:C645(0)
 Case of 
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Load:K2:1)
+	: ($form_event.code=On Load:K2:1)
 		
 		(OBJECT Get pointer:C1124(Object named:K67:5; "caller"))->:="{}"
 		
@@ -25,30 +29,30 @@ Case of
 		
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Clicked:K2:4)
+	: ($form_event.code=On Clicked:K2:4)
 		
 		//triggered for the font picker
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Activate:K2:9)
+	: ($form_event.code=On Activate:K2:9)
 		
 		SET TIMER:C645(-1)
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Timer:K2:25)
+	: ($form_event.code=On Timer:K2:25)
 		
 		SET TIMER:C645(0)
 		
-		OB SET:C1220($Obj_param; \
+		$parameter:=New object:C1471(\
 			"action"; "update"; \
 			"form"; Current method name:C684)
 		
-		report_BALLOON_HDL($Obj_param)
+		report_BALLOON_HDL($parameter)
 		
 		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
+		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($form_event.code)+")")
 		
 		//______________________________________________________
 End case 

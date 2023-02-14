@@ -11,8 +11,7 @@
 // Declarations
 
 var \
-$fontFamily; \
-$t; \
+$text; \
 $template : Text
 
 
@@ -51,52 +50,52 @@ $template+="';font-size:{size};font-weight:{weight};font-style:normal;text-decor
 Form:C1466.dataStyled:=New collection:C1472
 
 //------------------------- SUM -------------------------
-$t:=Replace string:C233($template; "{size}"; Choose:C955(Is Windows:C1573; "16"; "18"))
-$t:=Replace string:C233($t; "{weight}"; "normal")
-$t:=Replace string:C233($t; "{color}"; "red")
-$t:=Replace string:C233($t; "{value}"; Char:C90(0x2211))
+$text:=Replace string:C233($template; "{size}"; Choose:C955(Is Windows:C1573; "16"; "18"))
+$text:=Replace string:C233($text; "{weight}"; "normal")
+$text:=Replace string:C233($text; "{color}"; "red")
+$text:=Replace string:C233($text; "{value}"; Char:C90(0x2211))
 
-Form:C1466.dataStyled.push($t)
+Form:C1466.dataStyled.push($text)
 
 //---------------------- AVERAGE ----------------------
-$t:=Replace string:C233($template; "{size}"; "18")
-$t:=Replace string:C233($t; "{weight}"; "normal")
-$t:=Replace string:C233($t; "{color}"; "blue")
-$t:=Replace string:C233($t; "{value}"; "n"+Char:C90(0x0305))
+$text:=Replace string:C233($template; "{size}"; "18")
+$text:=Replace string:C233($text; "{weight}"; "normal")
+$text:=Replace string:C233($text; "{color}"; "blue")
+$text:=Replace string:C233($text; "{value}"; "n"+Char:C90(0x0305))
 
-Form:C1466.dataStyled.push($t)
+Form:C1466.dataStyled.push($text)
 
 //------------------------ MIN ------------------------
-$t:=Replace string:C233($template; "{size}"; "18")
-$t:=Replace string:C233($t; "{weight}"; "bold")
-$t:=Replace string:C233($t; "{color}"; "orange")
-$t:=Replace string:C233($t; "{value}"; "&lt;")
+$text:=Replace string:C233($template; "{size}"; "18")
+$text:=Replace string:C233($text; "{weight}"; "bold")
+$text:=Replace string:C233($text; "{color}"; "orange")
+$text:=Replace string:C233($text; "{value}"; "&lt;")
 
-Form:C1466.dataStyled.push($t)
+Form:C1466.dataStyled.push($text)
 
 //------------------------ MAX ------------------------
-$t:=Replace string:C233($template; "{size}"; "18")
-$t:=Replace string:C233($t; "{weight}"; "bold")
-$t:=Replace string:C233($t; "{color}"; "orange")
-$t:=Replace string:C233($t; "{value}"; "&gt;")
+$text:=Replace string:C233($template; "{size}"; "18")
+$text:=Replace string:C233($text; "{weight}"; "bold")
+$text:=Replace string:C233($text; "{color}"; "orange")
+$text:=Replace string:C233($text; "{value}"; "&gt;")
 
-Form:C1466.dataStyled.push($t)
+Form:C1466.dataStyled.push($text)
 
 //------------------------ COUNT ------------------------
-$t:=Replace string:C233($template; "{size}"; Choose:C955(Is Windows:C1573; "16"; "18"))
-$t:=Replace string:C233($t; "{weight}"; "bold")
-$t:=Replace string:C233($t; "{color}"; "blue")
-$t:=Replace string:C233($t; "{value}"; "N")
+$text:=Replace string:C233($template; "{size}"; Choose:C955(Is Windows:C1573; "16"; "18"))
+$text:=Replace string:C233($text; "{weight}"; "bold")
+$text:=Replace string:C233($text; "{color}"; "blue")
+$text:=Replace string:C233($text; "{value}"; "N")
 
-Form:C1466.dataStyled.push($t)
+Form:C1466.dataStyled.push($text)
 
 //----------------- STANDARD DEVIATION ------------------
-$t:=Replace string:C233($template; "{size}"; "18")
-$t:=Replace string:C233($t; "{weight}"; "normal")
-$t:=Replace string:C233($t; "{color}"; "red")
-$t:=Replace string:C233($t; "{value}"; Char:C90(0x03C3))
+$text:=Replace string:C233($template; "{size}"; "18")
+$text:=Replace string:C233($text; "{weight}"; "normal")
+$text:=Replace string:C233($text; "{color}"; "red")
+$text:=Replace string:C233($text; "{value}"; Char:C90(0x03C3))
 
-Form:C1466.dataStyled.push($t)
+Form:C1466.dataStyled.push($text)
 
 // Mark:Tags for automatic calculations
 Form:C1466.dataTags:=New collection:C1472

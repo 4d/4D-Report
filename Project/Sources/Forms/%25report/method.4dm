@@ -23,14 +23,14 @@ var \
 $blob : Blob
 
 var \
-$event : Object
+$form_event : Object
 
 // ----------------------------------------------------
 // Initialisations
-$event:=FORM Event:C1606
+$form_event:=FORM Event:C1606
 $ui_subform_pointer:=OBJECT Get pointer:C1124(Object subform container:K67:4)
 
-If ($event.code#On Load:K2:1)
+If ($form_event.code#On Load:K2:1)
 	
 	If (OB Is defined:C1231(ob_area))
 		
@@ -43,7 +43,7 @@ End if
 Case of 
 		
 		//______________________________________________________
-	: ($event.code=On Load:K2:1)
+	: ($form_event.code=On Load:K2:1)
 		
 		COMPILER_NQR
 		
@@ -54,12 +54,12 @@ Case of
 		SET TIMER:C645(-1)
 		
 		//______________________________________________________
-	: ($event.code=On Activate:K2:9)  // The area get the focus
+	: ($form_event.code=On Activate:K2:9)  // The area get the focus
 		
 		//
 		
 		//______________________________________________________
-	: ($event.code=On Bound Variable Change:K2:52)  // Area update event
+	: ($form_event.code=On Bound Variable Change:K2:52)  // Area update event
 		
 		$available:=QR_is_valid_area($ui_subform_pointer->)
 		
@@ -107,7 +107,7 @@ Case of
 		End if 
 		
 		//______________________________________________________
-	: ($event.code=On Timer:K2:25)
+	: ($form_event.code=On Timer:K2:25)
 		
 		SET TIMER:C645(0)
 		
@@ -171,7 +171,7 @@ Case of
 		area_ADJUST
 		
 		//______________________________________________________
-	: ($event.code=On Unload:K2:2)
+	: ($form_event.code=On Unload:K2:2)
 		
 		If (Not:C34(Bool:C1537(ob_area["4d-dialog"])))  // True if embedded in a form in the host database
 			
@@ -186,7 +186,7 @@ Case of
 		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+$event.description+")")
+		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+$form_event.description+")")
 		
 		//______________________________________________________
 End case 

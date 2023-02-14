@@ -43,7 +43,7 @@ Case of
 		//___________________________________________________________
 	: (Length:C16($entry_point)=0)
 		
-		$method_name:=Current method path:C1201
+		$method_name:=Current method name:C684
 		
 		Case of 
 				
