@@ -4,89 +4,106 @@
 // Created #22-1-2015 by Vincent de Lachaux
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_formEvent; $Lon_length; $Lon_start; $Lon_stop)
-C_POINTER:C301($Ptr_box; $Ptr_me)
-C_TEXT:C284($Mnu_main; $Txt_buffer; $Txt_choice; $Txt_me)
+
+var \
+$length; \
+$start; \
+$stop; \
+$event_code : Integer
+
+var \
+$menu; \
+$buffer; \
+$choice; \
+$my_name : Text
+
+var \
+$self; \
+$ui_focused : Pointer
+
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_formEvent:=Form event code:C388
-$Txt_me:=OBJECT Get name:C1087(Object current:K67:2)
-$Ptr_me:=OBJECT Get pointer:C1124(Object current:K67:2)
+$event_code:=Form event code:C388
+
+//todo:$my_name is unused
+$my_name:=OBJECT Get name:C1087(Object current:K67:2)
+$self:=OBJECT Get pointer:C1124(Object current:K67:2)
 
 // ----------------------------------------------------
 Case of 
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Clicked:K2:4)
+	: ($event_code=On Clicked:K2:4)
 		
-		$Mnu_main:=Create menu:C408
+		$menu:=Create menu:C408
 		
-		APPEND MENU ITEM:C411($Mnu_main; Char:C90(0x2211)+"   "+Get localized string:C991("nqr_sum"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[0])
+		APPEND MENU ITEM:C411($menu; Char:C90(0x2211)+"   "+Get localized string:C991("nqr_sum"))
+		SET MENU ITEM PARAMETER:C1004($menu; -1; String:C10(Form:C1466.dataTags[0]))
 		
-		APPEND MENU ITEM:C411($Mnu_main; "n"+Char:C90(0x0305)+"   "+Get localized string:C991("nqr_average"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[1])
+		APPEND MENU ITEM:C411($menu; "n"+Char:C90(0x0305)+"   "+Get localized string:C991("nqr_average"))
+		SET MENU ITEM PARAMETER:C1004($menu; -1; String:C10(Form:C1466.dataTags[1]))
 		
-		APPEND MENU ITEM:C411($Mnu_main; "<   "+Get localized string:C991("nqr_min"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[2])
+		APPEND MENU ITEM:C411($menu; "<   "+Get localized string:C991("nqr_min"))
+		SET MENU ITEM PARAMETER:C1004($menu; -1; String:C10(Form:C1466.dataTags[2]))
 		
-		APPEND MENU ITEM:C411($Mnu_main; ">   "+Get localized string:C991("nqr_max"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[3])
+		APPEND MENU ITEM:C411($menu; ">   "+Get localized string:C991("nqr_max"))
+		SET MENU ITEM PARAMETER:C1004($menu; -1; String:C10(Form:C1466.dataTags[3]))
 		
-		APPEND MENU ITEM:C411($Mnu_main; "N   "+Get localized string:C991("nqr_count"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[4])
+		APPEND MENU ITEM:C411($menu; "N   "+Get localized string:C991("nqr_count"))
+		SET MENU ITEM PARAMETER:C1004($menu; -1; String:C10(Form:C1466.dataTags[4]))
 		
-		APPEND MENU ITEM:C411($Mnu_main; Char:C90(0x03C3)+"   "+Get localized string:C991("nqr_standard_deviation"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[5])
+		APPEND MENU ITEM:C411($menu; Char:C90(0x03C3)+"   "+Get localized string:C991("nqr_standard_deviation"))
+		SET MENU ITEM PARAMETER:C1004($menu; -1; String:C10(Form:C1466.dataTags[5]))
 		
-		$Txt_choice:=Dynamic pop up menu:C1006($Mnu_main)
-		RELEASE MENU:C978($Mnu_main)
+		$choice:=Dynamic pop up menu:C1006($menu)
+		RELEASE MENU:C978($menu)
 		
 		Case of 
 				
 				//______________________________________________________
-			: (Length:C16($Txt_choice)=0)
+			: (Length:C16($choice)=0)
 				
 				// Nothing selected
 				
 				//______________________________________________________
-			: ($Txt_choice="##@")  // Insert tag
+			: ($choice="##@")  // Insert tag
 				
-				$Ptr_box:=OBJECT Get pointer:C1124(Object with focus:K67:3)
+				$ui_focused:=OBJECT Get pointer:C1124(Object with focus:K67:3)
 				
-				$Txt_buffer:=Get edited text:C655
-				$Lon_length:=Length:C16($Txt_buffer)
+				$buffer:=Get edited text:C655
+				$length:=Length:C16($buffer)
 				
-				GET HIGHLIGHT:C209($Ptr_box->; $Lon_start; $Lon_stop)
+				GET HIGHLIGHT:C209($ui_focused->; $start; $stop)
 				
-				If ($Lon_start=$Lon_stop)
+				If ($start=$stop)
 					
-					If ($Lon_start=$Lon_length)
+					If ($start=$length)
 						
 						// Append
-						$Txt_buffer:=$Txt_buffer+$Txt_choice
+						$buffer:=$buffer+$choice
 						
 					Else 
 						
 						// Insert
-						$Txt_buffer:=Insert string:C231($Txt_buffer; $Txt_choice; $Lon_start)
+						$buffer:=Insert string:C231($buffer; $choice; $start)
 						
 					End if 
 					
 				Else 
 					
 					// Replace the selection
-					$Txt_buffer:=Substring:C12($Txt_buffer; 1; $Lon_start-1)+$Txt_choice+Substring:C12($Txt_buffer; $Lon_stop+1)
+					$buffer:=Substring:C12($buffer; 1; $start-1)+$choice+Substring:C12($buffer; $stop+1)
 					
 				End if 
 				
-				HIGHLIGHT TEXT:C210($Ptr_box->; $Lon_start+3; $Lon_start+3)
+				HIGHLIGHT TEXT:C210($ui_focused->; $start+3; $start+3)
 				
 				//______________________________________________________
 			Else 
 				
-				ASSERT:C1129(False:C215; "Unknown entry point: \""+$Txt_choice+"\"")
+				ASSERT:C1129(False:C215; "Unknown entry point: \""+$choice+"\"")
 				
 				//______________________________________________________
 		End case 
@@ -94,7 +111,7 @@ Case of
 		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
+		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($event_code)+")")
 		
 		//______________________________________________________
 End case 
