@@ -27,7 +27,6 @@ $bool; \
 $in_design; \
 $is_invisible : Boolean
 
-
 var \
 $table : Pointer
 

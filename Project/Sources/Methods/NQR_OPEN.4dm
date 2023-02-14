@@ -18,7 +18,7 @@ C_LONGINT:C283($Lon_parameters)
 C_TEXT:C284($Txt_name)
 C_OBJECT:C1216($Obj_in)
 
-ARRAY TEXT:C222($tTxt_files; 0)
+//ARRAY TEXT($tTxt_files; 0)
 
 If (False:C215)
 	C_OBJECT:C1216(NQR_OPEN; $1)

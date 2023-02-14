@@ -12,10 +12,10 @@
 C_TEXT:C284(${1})
 
 C_LONGINT:C283($kLon_fontSize; $kLon_height; $Lon_bottom; $Lon_i; $Lon_left; $Lon_parameters)
-C_LONGINT:C283($Lon_platform; $Lon_right; $Lon_selected; $Lon_start; $Lon_tabs; $Lon_top)
+C_LONGINT:C283($Lon_right; $Lon_selected; $Lon_start; $Lon_tabs; $Lon_top)
 C_LONGINT:C283($Lon_width)
 C_TEXT:C284($kTxt_font; $kTxt_highlightColor; $Svg_group; $Svg_groupLabels; $Svg_groupTabs; $Svg_object; $Txt_txtColor)
-C_TEXT:C284($Svg_root; $Txt_backgroundColor; $Txt_data; $Txt_object; $Txt_value; $txt_viewPortfill; $Txt_strokeColor)
+C_TEXT:C284($Svg_root; $Txt_backgroundColor; $Txt_data; $Txt_object; $Txt_value; $txt_viewPortfill)
 C_BOOLEAN:C305($boo_colorSchemeIsLight)
 
 If (False:C215)
