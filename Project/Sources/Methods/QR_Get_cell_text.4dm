@@ -9,7 +9,7 @@
 //
 // ----------------------------------------------------
 // Declarations
-#DECLARE($area : Integer; $column : Integer; $row : Integer) : Text
+#DECLARE($area : Integer; $column : Integer; $row : Integer)->$content : Text
 
 If (False:C215)
 	C_LONGINT:C283(QR_Get_cell_text; $1)
@@ -18,8 +18,12 @@ If (False:C215)
 	C_TEXT:C284(QR_Get_cell_text; $0)
 End if 
 
-var $content; $t : Text
-var $l; $operator : Integer
+var \
+$t : Text
+
+var \
+$l; \
+$operator : Integer
 
 Case of 
 		
@@ -46,11 +50,11 @@ Case of
 		// #14-10-2014 - convert operator to text
 		If (Length:C16($content)=0)
 			
-			$content:=(Form:C1466.dataTags[0]*Num:C11($operator ?? 0))\
-				+(Form:C1466.dataTags[1]*Num:C11($operator ?? 1))\
-				+(Form:C1466.dataTags[2]*Num:C11($operator ?? 2))\
-				+(Form:C1466.dataTags[3]*Num:C11($operator ?? 3))\
-				+(Form:C1466.dataTags[4]*Num:C11($operator ?? 4))\
+			$content:=(String:C10(Form:C1466.dataTags[0])*Num:C11($operator ?? 0))\
+				+(String:C10(Form:C1466.dataTags[1])*Num:C11($operator ?? 1))\
+				+(String:C10(Form:C1466.dataTags[2])*Num:C11($operator ?? 2))\
+				+(String:C10(Form:C1466.dataTags[3])*Num:C11($operator ?? 3))\
+				+(String:C10(Form:C1466.dataTags[4])*Num:C11($operator ?? 4))\
 				+(Form:C1466.dataTags[5]*Num:C11($operator ?? 5))
 			
 			// Remove the last CR if any
@@ -60,5 +64,3 @@ Case of
 		
 		//______________________________________________________
 End case 
-
-return $content

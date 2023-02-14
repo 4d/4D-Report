@@ -24,21 +24,21 @@ If (Length:C16($content)=0)\
 	
 	If ($isStyled)
 		
-		$content:=((Form:C1466.dataStyled[0]+Form:C1466.dataLabels[0])*Num:C11($operator ?? 0))\
-			+((Form:C1466.dataStyled[1]+Form:C1466.dataLabels[1])*Num:C11($operator ?? 1))\
-			+((Form:C1466.dataStyled[2]+Form:C1466.dataLabels[2])*Num:C11($operator ?? 2))\
-			+((Form:C1466.dataStyled[3]+Form:C1466.dataLabels[3])*Num:C11($operator ?? 3))\
-			+((Form:C1466.dataStyled[4]+Form:C1466.dataLabels[4])*Num:C11($operator ?? 4))\
-			+((Form:C1466.dataStyled[5]+Form:C1466.dataLabels[5])*Num:C11($operator ?? 5))
+		$content:=((String:C10(Form:C1466.dataStyled[0])+String:C10(Form:C1466.dataLabels[0]))*Num:C11($operator ?? 0))\
+			+((String:C10(Form:C1466.dataStyled[1])+String:C10(Form:C1466.dataLabels[1]))*Num:C11($operator ?? 1))\
+			+((String:C10(Form:C1466.dataStyled[2])+String:C10(Form:C1466.dataLabels[2]))*Num:C11($operator ?? 2))\
+			+((String:C10(Form:C1466.dataStyled[3])+String:C10(Form:C1466.dataLabels[3]))*Num:C11($operator ?? 3))\
+			+((String:C10(Form:C1466.dataStyled[4])+String:C10(Form:C1466.dataLabels[4]))*Num:C11($operator ?? 4))\
+			+((String:C10(Form:C1466.dataStyled[5])+String:C10(Form:C1466.dataLabels[5]))*Num:C11($operator ?? 5))
 		
 	Else 
 		
-		$content:=(Form:C1466.dataTags[0]*Num:C11($operator ?? 0))\
-			+(Form:C1466.dataTags[1]*Num:C11($operator ?? 1))\
-			+(Form:C1466.dataTags[2]*Num:C11($operator ?? 2))\
-			+(Form:C1466.dataTags[3]*Num:C11($operator ?? 3))\
-			+(Form:C1466.dataTags[4]*Num:C11($operator ?? 4))\
-			+(Form:C1466.dataTags[5]*Num:C11($operator ?? 5))
+		$content:=(String:C10(Form:C1466.dataTags[0])*Num:C11($operator ?? 0))\
+			+(String:C10(Form:C1466.dataTags[1])*Num:C11($operator ?? 1))\
+			+(String:C10(Form:C1466.dataTags[2])*Num:C11($operator ?? 2))\
+			+(String:C10(Form:C1466.dataTags[3])*Num:C11($operator ?? 3))\
+			+(String:C10(Form:C1466.dataTags[4])*Num:C11($operator ?? 4))\
+			+(String:C10(Form:C1466.dataTags[5])*Num:C11($operator ?? 5))
 		
 	End if 
 	

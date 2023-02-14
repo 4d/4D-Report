@@ -23,22 +23,22 @@ Case of
 		$Mnu_main:=Create menu:C408
 		
 		APPEND MENU ITEM:C411($Mnu_main; Char:C90(0x2211)+"   "+Get localized string:C991("nqr_sum"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[0])
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; String:C10(Form:C1466.dataTags[0]))
 		
 		APPEND MENU ITEM:C411($Mnu_main; "n"+Char:C90(0x0305)+"   "+Get localized string:C991("nqr_average"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[1])
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; String:C10(Form:C1466.dataTags[1]))
 		
 		APPEND MENU ITEM:C411($Mnu_main; "<   "+Get localized string:C991("nqr_min"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[2])
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; String:C10(Form:C1466.dataTags[2]))
 		
 		APPEND MENU ITEM:C411($Mnu_main; ">   "+Get localized string:C991("nqr_max"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[3])
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; String:C10(Form:C1466.dataTags[3]))
 		
 		APPEND MENU ITEM:C411($Mnu_main; "N   "+Get localized string:C991("nqr_count"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[4])
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; String:C10(Form:C1466.dataTags[4]))
 		
 		APPEND MENU ITEM:C411($Mnu_main; Char:C90(0x03C3)+"   "+Get localized string:C991("nqr_standard_deviation"))
-		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; Form:C1466.dataTags[5])
+		SET MENU ITEM PARAMETER:C1004($Mnu_main; -1; String:C10(Form:C1466.dataTags[5]))
 		
 		$Txt_choice:=Dynamic pop up menu:C1006($Mnu_main)
 		RELEASE MENU:C978($Mnu_main)
