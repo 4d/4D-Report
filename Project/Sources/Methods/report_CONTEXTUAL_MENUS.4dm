@@ -13,7 +13,7 @@ C_LONGINT:C283($1)
 C_LONGINT:C283($2)
 C_LONGINT:C283($3)
 
-C_BOOLEAN:C305($Boo_avalaible; $Boo_crossReport; $Boo_data; $Boo_notBinary; $Boo_text)
+C_BOOLEAN:C305($Boo_crossReport; $Boo_data; $Boo_notBinary; $Boo_text)
 C_LONGINT:C283($Lon_altBackColor; $Lon_area; $Lon_backColor; $Lon_color; $Lon_column; $Lon_columnNumber)
 C_LONGINT:C283($Lon_columnType; $Lon_destination; $Lon_fontColor; $Lon_fontSize; $Lon_fontStyle; $Lon_hidden)
 C_LONGINT:C283($Lon_justification; $Lon_lineNumber; $Lon_operator; $Lon_parameters; $Lon_repeated; $Lon_row)

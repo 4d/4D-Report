@@ -10,16 +10,11 @@
 // ----------------------------------------------------
 // Declarations
 
-#DECLARE($Txt_fontName : Text)->$Txt_fontSubstituted : Text
+#DECLARE($font_name : Text)->$font_substitution : Text
 
 
 var \
-$Lon_parameters : Integer
-
-/*
-var \
- $Txt_fontName; $Txt_fontSubstituted: Text
-*/
+$count_parameters : Integer
 
 
 If (False:C215)
@@ -29,20 +24,20 @@ End if
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
 	//NO PARAMETERS REQUIRED
 	
 	//Optional parameters
-	If ($Lon_parameters>=1)
+	If ($count_parameters>=1)
 		
 		//$Txt_fontName:=$1  //{default font if omitted}
 		
 	Else 
 		
-		$Txt_fontName:=OBJECT Get font:C1069(*; "")
+		$font_name:=OBJECT Get font:C1069(*; "")
 		
 	End if 
 	
@@ -56,23 +51,23 @@ End if
 Case of 
 		
 		//______________________________________________________
-	: (Position:C15(".SF NS TEXT"; $Txt_fontName)>0)
+	: (Position:C15(".SF NS TEXT"; $font_name)>0)
 		
-		$Txt_fontSubstituted:=Replace string:C233($Txt_fontName; "\".SF NS Text\""; "'Helvetica Neue'")
-		$Txt_fontSubstituted:=Replace string:C233($Txt_fontName; "'.SF NS Text'"; "'Helvetica Neue'")
-		$Txt_fontSubstituted:=Replace string:C233($Txt_fontName; ".SF NS Text"; "'Helvetica Neue'")
+		$font_substitution:=Replace string:C233($font_name; "\".SF NS Text\""; "'Helvetica Neue'")
+		$font_substitution:=Replace string:C233($font_name; "'.SF NS Text'"; "'Helvetica Neue'")
+		$font_substitution:=Replace string:C233($font_name; ".SF NS Text"; "'Helvetica Neue'")
 		
 		//______________________________________________________
-	: (Position:C15("Lucida Grande UI"; $Txt_fontName)>0)
+	: (Position:C15("Lucida Grande UI"; $font_name)>0)
 		
-		$Txt_fontSubstituted:=Replace string:C233($Txt_fontName; "\".Lucida Grande UI\""; "'Lucida Grande'")
-		$Txt_fontSubstituted:=Replace string:C233($Txt_fontName; "'.Lucida Grande UI'"; "'Lucida Grande'")
-		$Txt_fontSubstituted:=Replace string:C233($Txt_fontName; ".Lucida Grande UI"; "'Lucida Grande'")
+		$font_substitution:=Replace string:C233($font_name; "\".Lucida Grande UI\""; "'Lucida Grande'")
+		$font_substitution:=Replace string:C233($font_name; "'.Lucida Grande UI'"; "'Lucida Grande'")
+		$font_substitution:=Replace string:C233($font_name; ".Lucida Grande UI"; "'Lucida Grande'")
 		
 		//______________________________________________________
 	Else 
 		
-		$Txt_fontSubstituted:=$Txt_fontName
+		$font_substitution:=$font_name
 		
 		//______________________________________________________
 End case 

@@ -13,7 +13,7 @@
 
 
 C_LONGINT:C283($Lon_borderType; $Lon_parameters; $lon_thickness; $lon_color; $lon_event)
-C_BOOLEAN:C305($boo_borderPushed; $boo_isColorSchemeLight)
+C_BOOLEAN:C305($boo_isColorSchemeLight)
 C_POINTER:C301($Ptr_container)
 C_TEXT:C284($txt_buttonFormat)
 

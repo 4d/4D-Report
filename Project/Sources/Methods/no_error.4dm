@@ -1,28 +1,31 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : no_error
-  // Database: 4D Report
-  // ID[B0E7EB6BA3E548CA8A61ECD7CD7E88C8]
-  // Created #11-12-2015 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($Lon_parameters)
+// ----------------------------------------------------
+// Project method : no_error
+// Database: 4D Report
+// ID[B0E7EB6BA3E548CA8A61ECD7CD7E88C8]
+// Created #11-12-2015 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+var \
+$count_parameters : Integer
 
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
+
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
-	  //NO PARAMETERS REQUIRED
+	//NO PARAMETERS REQUIRED
 	
-	  //Optional parameters
-	If ($Lon_parameters>=1)
+	//Optional parameters
+	If ($count_parameters>=1)
 		
-		  // <NONE>
+		// <NONE>
 		
 	End if 
 	
@@ -32,10 +35,10 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 
-  // ----------------------------------------------------
-  // Return
-  // <NONE>
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// Return
+// <NONE>
+// ----------------------------------------------------
+// End

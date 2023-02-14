@@ -9,12 +9,20 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_PICTURE:C286($0)
-C_LONGINT:C283($1)
 
-C_LONGINT:C283($Lon_fieldType; $Lon_parameters)
-C_PICTURE:C286($Pic_icon)
-C_TEXT:C284($File_path; $Txt_imageFile; $Txt_root)
+#DECLARE($type : Integer)->$icon : Picture
+
+
+
+var \
+$count_parameters : Integer
+
+
+var \
+$file_path; \
+$file_name; \
+$folder_path : Text
+
 
 If (False:C215)
 	C_PICTURE:C286(db_Get_field_icon; $0)
@@ -23,15 +31,15 @@ End if
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
-	$Lon_fieldType:=$1
+	//$type:=$1
 	
 	//Optional parameters
-	If ($Lon_parameters>=2)
+	If ($count_parameters>=2)
 		
 		// <NONE>
 		
@@ -47,94 +55,94 @@ End if
 Case of 
 		
 		//________________________________________
-	: ($Lon_fieldType=Is alpha field:K8:1)  //0
+	: ($type=Is alpha field:K8:1)  //0
 		
-		$Txt_imageFile:="Field_1.png"
-		
-		//________________________________________
-	: ($Lon_fieldType=Is text:K8:3)  //2
-		
-		$Txt_imageFile:="Field_2.png"
+		$file_name:="Field_1.png"
 		
 		//________________________________________
-	: ($Lon_fieldType=Is date:K8:7)  //4
+	: ($type=Is text:K8:3)  //2
 		
-		$Txt_imageFile:="Field_3.png"
-		
-		//________________________________________
-	: ($Lon_fieldType=Is time:K8:8)  //11
-		
-		$Txt_imageFile:="Field_4.png"
+		$file_name:="Field_2.png"
 		
 		//________________________________________
-	: ($Lon_fieldType=Is boolean:K8:9)  //6
+	: ($type=Is date:K8:7)  //4
 		
-		$Txt_imageFile:="Field_5.png"
-		
-		//________________________________________
-	: ($Lon_fieldType=Is integer:K8:5)  //8
-		
-		$Txt_imageFile:="Field_6.png"
+		$file_name:="Field_3.png"
 		
 		//________________________________________
-	: ($Lon_fieldType=Is longint:K8:6)  //9
+	: ($type=Is time:K8:8)  //11
 		
-		$Txt_imageFile:="Field_7.png"
-		
-		//________________________________________
-	: ($Lon_fieldType=Is integer 64 bits:K8:25)  //25
-		
-		$Txt_imageFile:="Field_8.png"
+		$file_name:="Field_4.png"
 		
 		//________________________________________
-	: ($Lon_fieldType=Is real:K8:4)  //1
+	: ($type=Is boolean:K8:9)  //6
 		
-		$Txt_imageFile:="Field_9.png"
-		
-		//________________________________________
-	: ($Lon_fieldType=_o_Is float:K8:26)  //35
-		
-		$Txt_imageFile:="Field_10.png"
+		$file_name:="Field_5.png"
 		
 		//________________________________________
-	: ($Lon_fieldType=Is BLOB:K8:12)  //30
+	: ($type=Is integer:K8:5)  //8
 		
-		$Txt_imageFile:="Field_11.png"
-		
-		//________________________________________
-	: ($Lon_fieldType=Is picture:K8:10)  //3
-		
-		$Txt_imageFile:="Field_12.png"
+		$file_name:="Field_6.png"
 		
 		//________________________________________
-	: ($Lon_fieldType=Is subtable:K8:11)  //7
+	: ($type=Is longint:K8:6)  //9
 		
-		$Txt_imageFile:="Field_13.png"
+		$file_name:="Field_7.png"
 		
 		//________________________________________
-	: ($Lon_fieldType=Is object:K8:27)  //38
+	: ($type=Is integer 64 bits:K8:25)  //25
 		
-		$Txt_imageFile:="Field_14.png"
+		$file_name:="Field_8.png"
+		
+		//________________________________________
+	: ($type=Is real:K8:4)  //1
+		
+		$file_name:="Field_9.png"
+		
+		//________________________________________
+	: ($type=_o_Is float:K8:26)  //35
+		
+		$file_name:="Field_10.png"
+		
+		//________________________________________
+	: ($type=Is BLOB:K8:12)  //30
+		
+		$file_name:="Field_11.png"
+		
+		//________________________________________
+	: ($type=Is picture:K8:10)  //3
+		
+		$file_name:="Field_12.png"
+		
+		//________________________________________
+	: ($type=Is subtable:K8:11)  //7
+		
+		$file_name:="Field_13.png"
+		
+		//________________________________________
+	: ($type=Is object:K8:27)  //38
+		
+		$file_name:="Field_14.png"
 		
 		//________________________________________
 End case 
 
 //get the 4D resource
-$Txt_root:=env_4D_Resources_folder_path+"images"+Folder separator:K24:12+"StructureEditor"+Folder separator:K24:12
+$folder_path:=env_4D_Resources_folder_path+"images"+Folder separator:K24:12+"StructureEditor"+Folder separator:K24:12
 
-$Txt_imageFile:=Replace string:C233($Txt_imageFile; ".png"; Choose:C955(FORM Get color scheme:C1761="light"; ".png"; "_dark.png"))
+$file_name:=Replace string:C233($file_name; ".png"; Choose:C955(FORM Get color scheme:C1761="light"; ".png"; "_dark.png"))
 
-$File_path:=$Txt_root+$Txt_imageFile
+$file_path:=$folder_path+$file_name
 
-If (Test path name:C476($File_path)=Is a document:K24:1)
+If (Test path name:C476($file_path)=Is a document:K24:1)
 	
-	READ PICTURE FILE:C678($File_path; $Pic_icon)
+	READ PICTURE FILE:C678($file_path; $icon)
 	
 End if 
 
 // ----------------------------------------------------
 // Return
-$0:=$Pic_icon
+//$0:=$icon
 
 // ----------------------------------------------------
 // End

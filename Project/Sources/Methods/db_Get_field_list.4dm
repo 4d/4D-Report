@@ -9,23 +9,48 @@
 //
 // ----------------------------------------------------
 // Declarations
+
+#DECLARE($table_id : Integer; $filter : Text; $ordered : Boolean)->$list : Integer
+
 C_LONGINT:C283($0)
 C_LONGINT:C283($1)
 C_TEXT:C284($2)
 C_BOOLEAN:C305($3)
 
-C_BOOLEAN:C305($Boo_; $Boo_invisible; $Boo_nameOrder)
-C_LONGINT:C283($Lon_; $Lon_fieldID; $Lon_fieldType; $Lon_i; $Lon_ID; $Lon_j)
-C_LONGINT:C283($Lon_parameters; $Lon_relationFieldID; $Lon_relationFieldType; $Lon_relationTableID; $Lon_tableID; $Lst_child)
-C_LONGINT:C283($Lst_list)
-C_PICTURE:C286($Pic_buffer)
-C_POINTER:C301($Ptr_field)
-C_TEXT:C284($Txt_filter)
+/* 
+  ----------------------------------------------------
 
-ARRAY LONGINT:C221($tLon_fieldIDs; 0)
-ARRAY LONGINT:C221($tLon_relationFieldIDs; 0)
-ARRAY TEXT:C222($tTxt_fieldNames; 0)
-ARRAY TEXT:C222($tTxt_relationFieldNames; 0)
+  VARIABLES
+
+  ----------------------------------------------------   
+*/
+
+var \
+$count_parameters; \
+$i; \
+$j; \
+$field_id; \
+$field_type; \
+$id; \
+$related_field_id; \
+$related_field_type; \
+$related_table_id; \
+$table_id; \
+$child_node : Integer
+
+var \
+$field : Pointer
+
+var \
+$icon : Picture
+
+
+// ARRAYS
+
+ARRAY LONGINT:C221($_field_id; 0)
+ARRAY LONGINT:C221($_related_field_id; 0)
+ARRAY TEXT:C222($_field_names; 0)
+ARRAY TEXT:C222($_related_field_names; 0)
 
 If (False:C215)
 	C_LONGINT:C283(db_Get_field_list; $0)
@@ -36,33 +61,33 @@ End if
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
-	$Lon_tableID:=$1
+	//$table_id:=$1
 	
 	//Optional parameters
-	If ($Lon_parameters>=2)
+	If ($count_parameters>=2)
 		
-		$Txt_filter:=$2
-		$Txt_filter:=Replace string:C233($Txt_filter; "@"; ""; *)
+		
+		$filter:=Replace string:C233($filter; "@"; ""; *)
 		
 		//#redmine:25070
 		//The list of field can be sort by field name or field number.
-		If ($Lon_parameters>=3)
+		If ($count_parameters>=3)
 			
-			$Boo_nameOrder:=$3  //{false = creation order}
+			//$Boo_nameOrder:=$3  //{false = creation order}
 			
 		End if 
 		//}
 		
 	End if 
 	
-	$Txt_filter:=Choose:C955(Length:C16($Txt_filter)#0; "@"+$Txt_filter+"@"; "@")
+	$filter:=Choose:C955(Length:C16($filter)#0; "@"+$filter+"@"; "@")
 	
-	$Lst_list:=New list:C375
+	$list:=New list:C375
 	
 Else 
 	
@@ -71,102 +96,102 @@ Else
 End if 
 
 // ----------------------------------------------------
-If ($Lon_tableID#0)
+If ($table_id#0)
 	
-	GET FIELD TITLES:C804((Table:C252($Lon_tableID))->; $tTxt_fieldNames; $tLon_fieldIDs)
+	GET FIELD TITLES:C804((Table:C252($table_id))->; $_field_names; $_field_id)
 	
-	For ($Lon_i; 1; Size of array:C274($tLon_fieldIDs); 1)
+	For ($i; 1; Size of array:C274($_field_id); 1)
 		
-		$Lon_fieldID:=$tLon_fieldIDs{$Lon_i}
+		$field_id:=$_field_id{$i}
 		
-		$Ptr_field:=Field:C253($Lon_tableID; $Lon_fieldID)
+		$field:=Field:C253($table_id; $field_id)
 		
-		GET RELATION PROPERTIES:C686($Ptr_field; $Lon_relationTableID; $Lon_relationFieldID)
+		GET RELATION PROPERTIES:C686($field; $related_table_id; $related_field_id)
 		
-		If ($tTxt_fieldNames{$Lon_i}=$Txt_filter)\
-			 | (($Lon_relationTableID#0)\
-			 & ($Lon_relationFieldID#0))
+		If ($_field_names{$i}=$filter)\
+			 | (($related_table_id#0)\
+			 & ($related_field_id#0))
 			
-			$Lon_fieldType:=Type:C295($Ptr_field->)
+			$field_type:=Type:C295($field->)
 			
 			Case of 
 					
 					//________________________________________
-				: ($Lon_fieldType=Is BLOB:K8:12)\
-					 | ($Lon_fieldType=Is subtable:K8:11)\
-					 | ($Lon_fieldType=Is object:K8:27)
+				: ($field_type=Is BLOB:K8:12)\
+					 | ($field_type=Is subtable:K8:11)\
+					 | ($field_type=Is object:K8:27)
 					
 					//These objects cannot be used in labels
 					
 					//________________________________________
 				Else 
 					
-					GET RELATION PROPERTIES:C686($Ptr_field; $Lon_relationTableID; $Lon_relationFieldID)
+					GET RELATION PROPERTIES:C686($field; $related_table_id; $related_field_id)
 					
-					If ($Lon_relationTableID#0)\
-						 & ($Lon_relationFieldID#0)
+					If ($related_table_id#0)\
+						 & ($related_field_id#0)
 						
-						GET FIELD TITLES:C804((Table:C252($Lon_relationTableID))->; $tTxt_relationFieldNames; $tLon_relationFieldIDs)
+						GET FIELD TITLES:C804((Table:C252($related_table_id))->; $_related_field_names; $_related_field_id)
 						
-						$Lst_child:=New list:C375
+						$child_node:=New list:C375
 						
-						For ($Lon_j; 1; Size of array:C274($tLon_relationFieldIDs); 1)
+						For ($j; 1; Size of array:C274($_related_field_id); 1)
 							
-							$Lon_ID:=$Lon_ID+1
-							$Lon_relationFieldID:=$tLon_relationFieldIDs{$Lon_j}
-							$Lon_relationFieldType:=Type:C295(Field:C253($Lon_relationTableID; $Lon_relationFieldID)->)
+							$id:=$id+1
+							$related_field_id:=$_related_field_id{$j}
+							$related_field_type:=Type:C295(Field:C253($related_table_id; $related_field_id)->)
 							
 							Case of 
 									
 									//________________________________________
-								: ($Lon_relationFieldType=Is BLOB:K8:12)\
-									 | ($Lon_relationFieldType=Is subtable:K8:11)\
-									 | ($Lon_relationFieldType=Is object:K8:27)
+								: ($related_field_type=Is BLOB:K8:12)\
+									 | ($related_field_type=Is subtable:K8:11)\
+									 | ($related_field_type=Is object:K8:27)
 									
 									//These objects can not be used in labels
 									
 									//________________________________________
-								: ($tTxt_relationFieldNames{$Lon_j}#$Txt_filter)
+								: ($_related_field_names{$j}#$filter)
 									
 									//________________________________________
 								Else 
 									
-									APPEND TO LIST:C376($Lst_child; $tTxt_relationFieldNames{$Lon_j}; $Lon_ID)
-									SET LIST ITEM PARAMETER:C986($Lst_child; 0; "tableId"; $Lon_relationTableID)
-									SET LIST ITEM PARAMETER:C986($Lst_child; 0; "fieldId"; $Lon_relationFieldID)
-									SET LIST ITEM PARAMETER:C986($Lst_child; 0; "fieldType"; $Lon_relationFieldType)
-									$Pic_buffer:=db_Get_field_icon($Lon_relationFieldType)
-									SET LIST ITEM ICON:C950($Lst_child; 0; $Pic_buffer)
+									APPEND TO LIST:C376($child_node; $_related_field_names{$j}; $id)
+									SET LIST ITEM PARAMETER:C986($child_node; 0; "tableId"; $related_table_id)
+									SET LIST ITEM PARAMETER:C986($child_node; 0; "fieldId"; $related_field_id)
+									SET LIST ITEM PARAMETER:C986($child_node; 0; "fieldType"; $related_field_type)
+									$icon:=db_Get_field_icon($related_field_type)
+									SET LIST ITEM ICON:C950($child_node; 0; $icon)
 									
 									//----------------------------------------
 							End case 
 						End for 
 						
-						If (Count list items:C380($Lst_child)>0)
+						If (Count list items:C380($child_node)>0)
 							
-							$Lon_ID:=$Lon_ID+1
-							APPEND TO LIST:C376($Lst_list; $tTxt_fieldNames{$Lon_i}; $Lon_ID; $Lst_child; True:C214)
-							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "tableId"; $Lon_tableID)
-							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldId"; $Lon_fieldID)
-							SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldType"; $Lon_fieldType)
-							SET LIST ITEM PROPERTIES:C386($Lst_list; 0; False:C215; Bold:K14:2; 0)
-							$Pic_buffer:=db_Get_field_icon($Lon_fieldType)
-							SET LIST ITEM ICON:C950($Lst_list; 0; $Pic_buffer)
+							$id:=$id+1
+							APPEND TO LIST:C376($list; $_field_names{$i}; $id; $child_node; True:C214)
+							SET LIST ITEM PARAMETER:C986($list; 0; "tableId"; $table_id)
+							SET LIST ITEM PARAMETER:C986($list; 0; "fieldId"; $field_id)
+							SET LIST ITEM PARAMETER:C986($list; 0; "fieldType"; $field_type)
+							SET LIST ITEM PROPERTIES:C386($list; 0; False:C215; Bold:K14:2; 0)
+							$icon:=db_Get_field_icon($field_type)
+							SET LIST ITEM ICON:C950($list; 0; $icon)
 							
 						Else 
 							
-							CLEAR LIST:C377($Lst_child)
+							CLEAR LIST:C377($child_node)
 							//MARK:ACI0103108
 							
-							If ($tTxt_fieldNames{$Lon_i}=$Txt_filter)
+							If ($_field_names{$i}=$filter)
 								
-								$Lon_ID:=$Lon_ID+1
-								APPEND TO LIST:C376($Lst_list; $tTxt_fieldNames{$Lon_i}; $Lon_ID)
-								SET LIST ITEM PARAMETER:C986($Lst_list; 0; "tableId"; $Lon_tableID)
-								SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldId"; $Lon_fieldID)
-								SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldType"; $Lon_fieldType)
-								$Pic_buffer:=db_Get_field_icon($Lon_fieldType)
-								SET LIST ITEM ICON:C950($Lst_list; 0; $Pic_buffer)
+								$id:=$id+1
+								APPEND TO LIST:C376($list; $_field_names{$i}; $id)
+								SET LIST ITEM PARAMETER:C986($list; 0; "tableId"; $table_id)
+								SET LIST ITEM PARAMETER:C986($list; 0; "fieldId"; $field_id)
+								SET LIST ITEM PARAMETER:C986($list; 0; "fieldType"; $field_type)
+								$icon:=db_Get_field_icon($field_type)
+								SET LIST ITEM ICON:C950($list; 0; $icon)
 								
 							End if 
 							
@@ -174,13 +199,13 @@ If ($Lon_tableID#0)
 						
 					Else 
 						
-						$Lon_ID:=$Lon_ID+1
-						APPEND TO LIST:C376($Lst_list; $tTxt_fieldNames{$Lon_i}; $Lon_ID)
-						SET LIST ITEM PARAMETER:C986($Lst_list; 0; "tableId"; $Lon_tableID)
-						SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldId"; $Lon_fieldID)
-						SET LIST ITEM PARAMETER:C986($Lst_list; 0; "fieldType"; $Lon_fieldType)
-						$Pic_buffer:=db_Get_field_icon($Lon_fieldType)
-						SET LIST ITEM ICON:C950($Lst_list; 0; $Pic_buffer)
+						$id:=$id+1
+						APPEND TO LIST:C376($list; $_field_names{$i}; $id)
+						SET LIST ITEM PARAMETER:C986($list; 0; "tableId"; $table_id)
+						SET LIST ITEM PARAMETER:C986($list; 0; "fieldId"; $field_id)
+						SET LIST ITEM PARAMETER:C986($list; 0; "fieldType"; $field_type)
+						$icon:=db_Get_field_icon($field_type)
+						SET LIST ITEM ICON:C950($list; 0; $icon)
 						
 					End if 
 					
@@ -188,9 +213,9 @@ If ($Lon_tableID#0)
 			End case 
 		End if 
 		
-		If ($Boo_nameOrder)
+		If ($ordered)
 			
-			SORT LIST:C391($Lst_list)
+			SORT LIST:C391($list)
 			
 		End if 
 	End for 
@@ -198,7 +223,7 @@ End if
 
 // ----------------------------------------------------
 // Return
-$0:=$Lst_list
+//$0:=$list
 
 // ----------------------------------------------------
 // End

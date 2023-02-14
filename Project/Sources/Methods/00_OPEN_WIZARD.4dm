@@ -9,10 +9,19 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_TEXT:C284($1)
 
-C_LONGINT:C283($Lon_parameters; $Win_hdl)
-C_TEXT:C284($Mnu_bar; $Mnu_edit; $Txt_entryPoint; $Txt_methodName)
+#DECLARE($entry_point : Text)
+
+var \
+$window; \
+$count_parameters : Integer
+
+var \
+$menu_bar; \
+$menu_edit; \
+$method_name : Text
+
+
 
 If (False:C215)
 	C_TEXT:C284(00_OPEN_WIZARD; $1)
@@ -20,11 +29,11 @@ End if
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If ($Lon_parameters>=1)
+If ($count_parameters>=1)
 	
-	$Txt_entryPoint:=$1
+	$entry_point:=$1
 	
 End if 
 
@@ -32,14 +41,14 @@ End if
 Case of 
 		
 		//___________________________________________________________
-	: (Length:C16($Txt_entryPoint)=0)
+	: (Length:C16($entry_point)=0)
 		
-		$Txt_methodName:=Current method name:C684
+		$method_name:=Current method path:C1201
 		
 		Case of 
 				
 				//……………………………………………………………………
-			: (Method called on error:C704=$Txt_methodName)
+			: (Method called on error:C704=$method_name)
 				
 				//Error handling manager
 				
@@ -51,83 +60,83 @@ Case of
 				//……………………………………………………………………
 			Else 
 				
-				//This method must be executed in a unique new process
-				BRING TO FRONT:C326(New process:C317($Txt_methodName; 0; "$"+$Txt_methodName; "_run"; *))
+				//This method must be executed in a unique new process local
+				BRING TO FRONT:C326(New process:C317($method_name; 0; "$"+$method_name; "_run"; *))
 				
 				//……………………………………………………………………
 		End case 
 		
 		//___________________________________________________________
-	: ($Txt_entryPoint="_run")
+	: ($entry_point="_run")
 		
 		
 		//First launch of this method executed in a new process
 		00_OPEN_WIZARD("_declarations")
 		00_OPEN_WIZARD("_init")
 		
-		$Win_hdl:=Open form window:C675("NQR"; Plain form window:K39:10; Horizontally centered:K39:1; Vertically centered:K39:4)  //;*)
+		$window:=Open form window:C675("NQR"; Plain form window:K39:10; Horizontally centered:K39:1; Vertically centered:K39:4)  //;*)
 		DIALOG:C40("NQR")
-		CLOSE WINDOW:C154($Win_hdl)
+		CLOSE WINDOW:C154($window)
 		
 		00_OPEN_WIZARD("_deinit")
 		
 		//___________________________________________________________
-	: ($Txt_entryPoint="_declarations")
+	: ($entry_point="_declarations")
 		
 		//___________________________________________________________
-	: ($Txt_entryPoint="_init")
+	: ($entry_point="_init")
 		
-		$Mnu_bar:=Create menu:C408
-		$Mnu_edit:=Create menu:C408
+		$menu_bar:=Create menu:C408
+		$menu_edit:=Create menu:C408
 		
-		APPEND MENU ITEM:C411($Mnu_edit; Get localized string:C991("CommonMenuItemUndo"))
-		SET MENU ITEM PROPERTY:C973($Mnu_edit; -1; Associated standard action name:K28:8; _o_Undo action:K59:16)
-		SET MENU ITEM SHORTCUT:C423($Mnu_edit; -1; "Z"; Command key mask:K16:1)
+		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemUndo"))
+		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Undo action:K59:16)
+		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "Z"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($Mnu_edit; Get localized string:C991("CommonMenuRedo"))
-		SET MENU ITEM PROPERTY:C973($Mnu_edit; -1; Associated standard action name:K28:8; _o_Redo action:K59:17)
-		SET MENU ITEM SHORTCUT:C423($Mnu_edit; -1; "Z"; Shift key mask:K16:3)
+		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuRedo"))
+		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Redo action:K59:17)
+		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "Z"; Shift key mask:K16:3)
 		
-		APPEND MENU ITEM:C411($Mnu_edit; "-")
+		APPEND MENU ITEM:C411($menu_edit; "-")
 		
-		APPEND MENU ITEM:C411($Mnu_edit; Get localized string:C991("CommonMenuItemCut"))
-		SET MENU ITEM PROPERTY:C973($Mnu_edit; -1; Associated standard action name:K28:8; _o_Cut action:K59:18)
-		SET MENU ITEM SHORTCUT:C423($Mnu_edit; -1; "X"; Command key mask:K16:1)
+		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemCut"))
+		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Cut action:K59:18)
+		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "X"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($Mnu_edit; Get localized string:C991("CommonMenuItemCopy"))
-		SET MENU ITEM PROPERTY:C973($Mnu_edit; -1; Associated standard action name:K28:8; _o_Copy action:K59:19)
-		SET MENU ITEM SHORTCUT:C423($Mnu_edit; -1; "C"; Command key mask:K16:1)
+		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemCopy"))
+		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Copy action:K59:19)
+		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "C"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($Mnu_edit; Get localized string:C991("CommonMenuItemPaste"))
-		SET MENU ITEM PROPERTY:C973($Mnu_edit; -1; Associated standard action name:K28:8; _o_Paste action:K59:20)
-		SET MENU ITEM SHORTCUT:C423($Mnu_edit; -1; "V"; Command key mask:K16:1)
+		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemPaste"))
+		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Paste action:K59:20)
+		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "V"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($Mnu_edit; Get localized string:C991("CommonMenuItemClear"))
-		SET MENU ITEM PROPERTY:C973($Mnu_edit; -1; Associated standard action name:K28:8; _o_Clear action:K59:21)
+		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemClear"))
+		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Clear action:K59:21)
 		
-		APPEND MENU ITEM:C411($Mnu_edit; Get localized string:C991("CommonMenuItemSelectAll"))
-		SET MENU ITEM PROPERTY:C973($Mnu_edit; -1; Associated standard action name:K28:8; _o_Select all action:K59:22)
-		SET MENU ITEM SHORTCUT:C423($Mnu_edit; -1; "A"; Command key mask:K16:1)
+		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemSelectAll"))
+		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Select all action:K59:22)
+		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "A"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($Mnu_edit; "(-")
+		APPEND MENU ITEM:C411($menu_edit; "(-")
 		
-		APPEND MENU ITEM:C411($Mnu_edit; Get localized string:C991("CommonMenuItemShowClipboard"))
-		SET MENU ITEM PROPERTY:C973($Mnu_edit; -1; Associated standard action name:K28:8; _o_Show clipboard action:K59:23)
+		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemShowClipboard"))
+		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Show clipboard action:K59:23)
 		
-		APPEND MENU ITEM:C411($Mnu_bar; Get localized string:C991("CommonMenuEdit"); $Mnu_edit)
-		RELEASE MENU:C978($Mnu_edit)
+		APPEND MENU ITEM:C411($menu_bar; Get localized string:C991("CommonMenuEdit"); $menu_edit)
+		RELEASE MENU:C978($menu_edit)
 		
-		SET MENU BAR:C67($Mnu_bar)
+		SET MENU BAR:C67($menu_bar)
 		
 		//___________________________________________________________
-	: ($Txt_entryPoint="_deinit")
+	: ($entry_point="_deinit")
 		
 		RELEASE MENU:C978(Get menu bar reference:C979)
 		
 		//___________________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Unknown entry point ("+$Txt_entryPoint+")")
+		ASSERT:C1129(False:C215; "Unknown entry point ("+$entry_point+")")
 		
 		//___________________________________________________________
 End case 

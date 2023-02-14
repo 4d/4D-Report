@@ -11,7 +11,15 @@
 // Declarations
 
 
-#DECLARE($area_reference : Integer; $column_number : Integer; $permissive : Boolean)->$column_type : Integer
+#DECLARE($area : Integer; $column_number : Integer; $permissive : Boolean)->$column_type : Integer
+
+/* 
+  ----------------------------------------------------
+
+  CONSTANTS
+
+  ----------------------------------------------------   
+*/
 
 var \
 $MAX_LONGINT; \
@@ -21,8 +29,13 @@ $MIXED_TYPE : Integer
 $MAX_LONGINT:=MAXLONG:K35:2-1
 $MIXED_TYPE:=-1
 
+/* 
+  ----------------------------------------------------
 
-// ---------------------------------------------------- INTEGERS
+  VARIABLES
+
+  ----------------------------------------------------   
+*/
 
 var \
 $count_parameters; \
@@ -33,8 +46,6 @@ $index; \
 $table_number; \
 $field_number : Integer
 
-// ---------------------------------------------------- TEXTS
-
 var \
 $text; \
 $table_name; \
@@ -42,12 +53,8 @@ $field_name; \
 $variable_name; \
 $column_object : Text
 
-// ---------------------------------------------------- BOOLEAN
-
 var \
 $is_permissive : Boolean
-
-
 
 // ----------------------------------------------------
 
@@ -87,15 +94,15 @@ End if
 If ($column_number=0)
 	
 	//compute the columns to find a common value
-	$count_columns:=QR Count columns:C764($area_reference)
+	$count_columns:=QR Count columns:C764($area)
 	
 	If ($count_columns>0)
 		
-		$column_type:=QR_Get_column_type($area_reference; 1; True:C214)  // <===== RECURSIVE
+		$column_type:=QR_Get_column_type($area; 1; True:C214)  // <===== RECURSIVE
 		
 		For ($column_number; 2; $count_columns; 1)
 			
-			If ($column_type#QR_Get_column_type($area_reference; $column_number; True:C214))  // <===== RECURSIVE
+			If ($column_type#QR_Get_column_type($area; $column_number; True:C214))  // <===== RECURSIVE
 				
 				$column_number:=$MAX_LONGINT
 				
@@ -108,7 +115,7 @@ If ($column_number=0)
 	
 Else 
 	
-	QR GET INFO COLUMN:C766($area_reference; $column_number; \
+	QR GET INFO COLUMN:C766($area; $column_number; \
 		$text; \
 		$column_object; \
 		$int; \

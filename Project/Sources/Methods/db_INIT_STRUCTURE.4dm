@@ -16,12 +16,12 @@ C_POINTER:C301($Ptr_table)
 C_TEXT:C284($Txt_)
 
 ARRAY LONGINT:C221($tLon_fields; 0)
-ARRAY LONGINT:C221($tLon_IDs; 0)
+//ARRAY LONGINT($tLon_IDs; 0)
 ARRAY LONGINT:C221($tLon_tableIDs; 0)
 ARRAY TEXT:C222($tTxt_fields; 0)
-ARRAY TEXT:C222($tTxt_structure; 0)
+//ARRAY TEXT($tTxt_structure; 0)
 ARRAY TEXT:C222($tTxt_tableNames; 0)
-ARRAY TEXT:C222($tTxt_tables; 0)
+//ARRAY TEXT($tTxt_tables; 0)
 
 ARRAY TEXT:C222(report_structureDefinition; 0; 0)
 

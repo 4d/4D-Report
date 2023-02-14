@@ -1,11 +1,11 @@
 {
 	"_": {
 		"methods": [
+			"____test",
 			"_colorToStyled",
 			"_hexToDec",
 			"_max",
-			"COMPILER__",
-			"test__"
+			"COMPILER__"
 		]
 	},
 	"(unitTest)": {},

@@ -11,14 +11,39 @@
 
 #DECLARE($parameter : Object)
 
-// ---------------------------------------------------- INTEGERS
+/* 
+  ----------------------------------------------------
+
+  CONSTANTS
+
+  ----------------------------------------------------   
+*/
 
 var \
-$count_parameters; \
+$MARGIN : Integer
+
+var \
+$SUBFORM_NAME : Text
+
+//MARK: uppercase namming mean : it's a constant
+$SUBFORM_NAME:="balloon.subform"
+$MARGIN:=5
+
+
+/* 
+  ----------------------------------------------------
+
+  VARIABLES
+
+  ----------------------------------------------------   
+*/
+
+var \
 $buffer_integer; \
+$count_parameters; \; \
+$int; \
 $report_type; \
-$type; \
-$int : Integer
+$type : Integer
 
 var \
 $area_reference; \
@@ -26,63 +51,61 @@ $mouse_x; \
 $mouse_y : Integer
 
 var \
-$margin; \
-$width; \
-$height; \
 $left; \
 $top; \
 $right; \
 $bottom; \
+$width; \
+$height; \
 $offset; \
 $h_offset; \
 $v_offset : Integer
 
 //COLUMN
 var \
+$column_data; \
 $column_number; \
 $column_type; \
-$column_data; \
 $repeated_values; \
 $sort_column_index : Integer
 
 //ROW
 var \
-$row_number; \
 $row_data; \
+$row_number; \
 $subtotal_index : Integer
-
-// ---------------------------------------------------- POINTER
 
 //UI
 var \
 $ui_label_pointer : Pointer
 
-// ---------------------------------------------------- TEXTS
 
 var \
-$subform_name; \
 $text; \
 $action; \
+$digest; \
 $buffer_text; \
 $caller_name; \
 $form_name; \
 $unit_name : Text
 
-// ---------------------------------------------------- OBJECTS
 
 var \
 $caller_object; \
 $buffer_object : Object
 
-// ---------------------------------------------------- BOOLEAN
 
 var \
 $properties_selected : Boolean
 
-// ---------------------------------------------------- ARRAYS
+var \
+$blob : Blob
 
+//ARRAYS
 ARRAY LONGINT:C221($_sorted_columns; 0)
 ARRAY LONGINT:C221($_sort_order; 0)
+
+
 
 // ----------------------------------------------------
 
@@ -116,9 +139,6 @@ If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 		
 	End if 
 	
-	//Constants
-	$subform_name:="balloon.subform"
-	$margin:=5
 	
 Else 
 	
@@ -140,6 +160,7 @@ Case of
 		If (OB Is defined:C1231($parameter))
 			
 			ASSERT:C1129(OB Is defined:C1231($parameter; "form"))
+			
 			$form_name:=OB Get:C1224($parameter; "form"; Is text:K8:3)
 			
 			$caller_object:=OB Copy:C1225(ob_area)
@@ -169,8 +190,10 @@ Case of
 						
 						$buffer_text:=QR_Get_font_name($area_reference; $column_number; $row_number)
 						
-						OB SET:C1220($caller_object; \
+						//OB SET($caller_object; \
 							"fontName"; $buffer_text)
+						
+						$caller_object.fontName:=$buffer_text
 						
 						$buffer_text:=Choose:C955($buffer_text="-"; \
 							Get localized string:C991("disparate"); \
@@ -185,8 +208,10 @@ Case of
 						
 						$buffer_integer:=QR_Get_font_style($area_reference; $column_number; $row_number)
 						
-						OB SET:C1220($caller_object; \
+						//OB SET($caller_object; \
 							"fontStyle"; $buffer_integer)
+						
+						$caller_object.fontStyle:=$buffer_integer
 						
 						(OBJECT Get pointer:C1124(Object named:K67:5; "font.style"))->:=$buffer_integer
 						
@@ -196,8 +221,10 @@ Case of
 						
 						$buffer_integer:=QR_Get_font_size($area_reference; $column_number; $row_number)
 						
-						OB SET:C1220($caller_object; \
+						//OB SET($caller_object; \
 							"fontSize"; $buffer_integer)
+						
+						$caller_object.fontSize:=$buffer_integer
 						
 						$buffer_text:=Choose:C955($buffer_integer=-1; \
 							"-"; \
@@ -210,8 +237,11 @@ Case of
 						
 						$buffer_integer:=QR_Get_justification($area_reference; $column_number; $row_number)
 						
-						OB SET:C1220($caller_object; \
+						//OB SET($caller_object; \
 							"justification"; $buffer_integer)
+						
+						$caller_object.justification:=$buffer_integer
+						
 						
 						(OBJECT Get pointer:C1124(Object named:K67:5; "justification"))->:=$buffer_integer
 						
@@ -221,8 +251,10 @@ Case of
 						
 						$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr text color:K14904:6)
 						
-						OB SET:C1220($caller_object; \
+						//OB SET($caller_object; \
 							"frontColor"; $buffer_integer)
+						
+						$caller_object.frontColor:=$buffer_integer
 						
 						(OBJECT Get pointer:C1124(Object named:K67:5; "font.front.color"))->:=$buffer_integer
 						
@@ -288,8 +320,10 @@ Case of
 								
 							End if 
 							
-							OB SET:C1220($caller_object; \
+							//OB SET($caller_object; \
 								"computations"; $buffer_integer)
+							
+							$caller_object.computations:=$buffer_integer
 							
 							(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$buffer_integer
 							//}
@@ -393,8 +427,11 @@ Case of
 										
 										$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr alternate background color:K14904:9)
 										
-										OB SET:C1220($caller_object; \
+										//OB SET($caller_object; \
 											"altBackColor"; $buffer_integer)
+										
+										$caller_object.altBackColor:=$buffer_integer
+										
 										
 										(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$buffer_integer
 										
@@ -420,8 +457,10 @@ Case of
 											
 											$buffer_text:=QR_Get_column_format($area_reference; $column_number)
 											
-											OB SET:C1220($caller_object; \
+											//OB SET($caller_object; \
 												"columnFormat"; $buffer_text)
+											
+											$caller_object.columnFormat:=$buffer_text
 											
 											(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($buffer_text)#0; $buffer_text; Get localized string:C991("none"))
 											
@@ -440,8 +479,10 @@ Case of
 									
 									$buffer_integer:=QR_Get_computation($area_reference; $column_number; $row_number)
 									
-									OB SET:C1220($caller_object; \
+									//OB SET($caller_object; \
 										"computations"; $buffer_integer)
+									
+									$caller_object.computations:=$buffer_integer
 									
 									(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$buffer_integer
 									//}
@@ -457,17 +498,8 @@ Case of
 									
 									//#ACI0098288 [
 									//$Lon_buffer:=Choose(($Lon_reportType=qr cross report) & ($Lon_column=3);\
-																														\
-																														\
-																														\
-																														\
-																														Q\
-																														R_Get_comp\
-																														utation ($\
-																														Lon_area;2\
-																														;$row_number)\
-																														;\
-																																																																																																																																																																																																																																																																																																																																																																																		QR_Get_computation ($area_reference;$column_number;$row_number))
+																																								\
+																																																																																																																																																																																																																																																																																																																																																																																												QR_Get_computation ($area_reference;$column_number;$row_number))
 									If ($report_type=qr cross report:K14902:2) & ($column_number=3)
 										
 										// Cross - report
@@ -480,8 +512,10 @@ Case of
 									End if 
 									//]
 									
-									OB SET:C1220($caller_object; \
+									//OB SET($caller_object; \
 										"computations"; $buffer_integer)
+									
+									$caller_object.computations:=$buffer_integer
 									
 									(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$buffer_integer
 									//}
@@ -501,8 +535,10 @@ Case of
 								
 								$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr alternate background color:K14904:9)
 								
-								OB SET:C1220($caller_object; \
+								//OB SET($caller_object; \
 									"altBackColor"; $buffer_integer)
+								
+								$caller_object.altBackColor:=$buffer_integer
 								
 								(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$buffer_integer
 								
@@ -534,8 +570,10 @@ Case of
 								
 							End if 
 							
-							OB SET:C1220($caller_object; \
+							//OB SET($caller_object; \
 								"columnFormat"; $buffer_text)
+							
+							$caller_object.columnFormat:=$buffer_text
 							
 							(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($buffer_text)#0; $buffer_text; Get localized string:C991("none"))
 							
@@ -650,8 +688,8 @@ Case of
 								
 								//ACI0100940{ACI0100938
 /*
-																																																																If ($Lon_columnData=2)\
-																																																																								 | ($Lon_columnData=3)  //apply to line
+																																																																								If ($Lon_columnData=2)\
+																																																																																	 | ($Lon_columnData=3)  //apply to line
 								
 $lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
 Else 
@@ -660,8 +698,11 @@ End if
 //}*/
 								
 								$buffer_text:=QR_Get_column_format($area_reference; $column_data; $column_type)
-								OB SET:C1220($caller_object; \
+								
+								//OB SET($caller_object; \
 									"columnFormat"; $buffer_text)
+								
+								$caller_object.columnFormat:=$buffer_text
 								
 								(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($buffer_text)#0; $buffer_text; Get localized string:C991("none"))
 								
@@ -681,8 +722,11 @@ End if
 								
 								$buffer_integer:=QR_Get_color($area_reference; $column_data; $row_data; qr alternate background color:K14904:9)
 								
-								OB SET:C1220($caller_object; \
+								//OB SET($caller_object; \
 									"altBackColor"; $buffer_integer)
+								
+								$caller_object.altBackColor:=$buffer_integer
+								
 								
 								(OBJECT Get pointer:C1124(Object named:K67:5; "font.alternate.back.color"))->:=$buffer_integer
 								
@@ -693,8 +737,10 @@ End if
 							
 							$buffer_integer:=QR_Get_computation($area_reference; $column_number; $row_number)
 							
-							OB SET:C1220($caller_object; \
+							//OB SET($caller_object; \
 								"computations"; $buffer_integer)
+							
+							$caller_object.computations:=$buffer_integer
 							
 							(OBJECT Get pointer:C1124(Object named:K67:5; "computations"))->:=$buffer_integer
 							//}
@@ -716,15 +762,21 @@ End if
 		//______________________________________________________
 	: ($action="switch")
 		
-		If (OBJECT Get visible:C1075(*; $subform_name))
+		$parameter:=$parameter || New object:C1471  //#DD : securise the parameter instance
+		
+		If (OBJECT Get visible:C1075(*; $SUBFORM_NAME))
 			
-			OB SET:C1220($parameter; \
+			//OB SET($parameter; \
 				"action"; "hide")
+			
+			$parameter.action:="hide"
 			
 		Else 
 			
-			OB SET:C1220($parameter; \
+			//OB SET($parameter; \
 				"action"; "show")
+			
+			$parameter.action:="show"
 			
 		End if 
 		
@@ -755,25 +807,25 @@ End if
 		If ($right>$width)  //shift left
 			
 			$offset:=$width-$right
-			$left:=$left+$offset-$margin
-			$right:=$right+$offset-$margin
+			$left:=$left+$offset-$MARGIN
+			$right:=$right+$offset-$MARGIN
 			
 		End if 
 		
 		If ($bottom>$height)  //shift up
 			
 			$offset:=$height-$bottom
-			$top:=$top+$offset-$margin
-			$bottom:=$bottom+$offset-$margin
+			$top:=$top+$offset-$MARGIN
+			$bottom:=$bottom+$offset-$MARGIN
 			
 		End if 
 		
 		
 		//set the UI subform
-		OBJECT SET SUBFORM:C1138(*; $subform_name; $form_name)
+		OBJECT SET SUBFORM:C1138(*; $SUBFORM_NAME; $form_name)
 		
 		//positioning balloon
-		OBJECT SET COORDINATES:C1248(*; $subform_name; $left; $top; $right; $bottom)
+		OBJECT SET COORDINATES:C1248(*; $SUBFORM_NAME; $left; $top; $right; $bottom)
 		
 		//positioning mask
 		OBJECT GET COORDINATES:C663(*; Form:C1466.areaObject; $left; $top; $right; $bottom)
@@ -786,9 +838,10 @@ End if
 		GOTO OBJECT:C206(*; "balloon.subform")
 		
 		//set the balloon's flag
-		OB SET:C1220(ob_area; \
-			"balloon"; True:C214)
+		//OB SET(ob_area; \
+			"balloon"; True)
 		
+		ob_area.balloon:=True:C214
 		//______________________________________________________
 	: ($action="hide")
 		
@@ -796,7 +849,7 @@ End if
 		OBJECT SET VISIBLE:C603(*; "balloon.@"; False:C215)
 		
 		//#ACI0095689
-		OBJECT SET SUBFORM:C1138(*; $subform_name; "BALLOON_EMPTY")
+		OBJECT SET SUBFORM:C1138(*; $SUBFORM_NAME; "BALLOON_EMPTY")
 		
 		If (OB Is defined:C1231($parameter; "postClick"))
 			
@@ -810,18 +863,20 @@ End if
 		End if 
 		
 		//release the balloon's flag
-		OB SET:C1220(ob_area; \
-			"balloon"; False:C215)
+		
+		//OB SET(ob_area; \
+			"balloon"; False)
+		
+		ob_area.balloon:=False:C215
 		
 		
 		If (QR_is_valid_area(ob_area.area))
 			
-			var $digest : Text
-			var $x : Blob
 			
-			QR REPORT TO BLOB:C770(ob_area.area; $x)
 			
-			$digest:=Generate digest:C1147($x; MD5 digest:K66:1)
+			QR REPORT TO BLOB:C770(ob_area.area; $blob)
+			
+			$digest:=Generate digest:C1147($blob; MD5 digest:K66:1)
 			
 			If (ob_area._digest#$digest)
 				
