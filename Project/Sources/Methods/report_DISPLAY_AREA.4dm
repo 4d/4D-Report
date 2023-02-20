@@ -9,24 +9,25 @@
 // ----------------------------------------------------
 // Declarations
 
-#DECLARE($area : Integer)
+#DECLARE($area_reference : Integer)
 
-//var $1 : Integer
 
 If (False:C215)
 	C_LONGINT:C283(report_DISPLAY_AREA; $1)
 End if 
 
-var $digest : Text
-var $area : Integer
-var $x : Blob
+var \
+$digest : Text
+
+var \
+$x : Blob
 
 // ----------------------------------------------------
 // Initialisations
 //$area:=$1
 
 // ----------------------------------------------------
-If ($area#0)
+If ($area_reference#0)
 	
 	OBJECT SET VISIBLE:C603(*; "noTableAlert"; False:C215)
 	
@@ -36,7 +37,7 @@ If ($area#0)
 		
 	Else 
 		
-		QR REPORT TO BLOB:C770($area; $x)
+		QR REPORT TO BLOB:C770($area_reference; $x)
 		
 		$digest:=Generate digest:C1147($x; MD5 digest:K66:1)
 		
@@ -47,16 +48,16 @@ If ($area#0)
 			
 		End if 
 		
-		ob_area.area:=$area
-		ob_area.reportType:=QR Get report kind:C755($area)
+		ob_area.area:=$area_reference
+		ob_area.reportType:=QR Get report kind:C755($area_reference)
 		
 		If (ob_area.reportType=qr list report:K14902:1)
 			
-			report_DISPLAY_LIST($area)
+			report_DISPLAY_LIST($area_reference)
 			
 		Else 
 			
-			report_DISPLAY_CROSS($area)
+			report_DISPLAY_CROSS($area_reference)
 			
 		End if 
 	End if 

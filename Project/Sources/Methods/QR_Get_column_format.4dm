@@ -4,13 +4,21 @@
 // Database: 4D report
 // ID[40DC8AADD82C4692A5189DA28EAAA5FC]
 // Created #3-4-2014 by Vincent de Lachaux
+// Updated #2-20-2023 by Dominique Delahaye
 // ----------------------------------------------------
 // Description:
 //
 // ----------------------------------------------------
 // Declarations
 
-#DECLARE($area : Integer; $column : Integer; $column_type : Integer)->$format : Text
+#DECLARE($area : Integer; $column : Integer; $column_type : Integer) : Text
+
+If (False:C215)
+	C_TEXT:C284(QR_Get_column_format; $0)
+	C_LONGINT:C283(QR_Get_column_format; $1)
+	C_LONGINT:C283(QR_Get_column_format; $2)
+	C_LONGINT:C283(QR_Get_column_format; $3)
+End if 
 
 /* 
   ----------------------------------------------------
@@ -23,7 +31,7 @@
 var \
 $MIXED : Integer
 
-//MARK: uppercase namming mean : it's a constant
+//MARK: uppercase namming ok "K" start namming mean : it's a constant
 $MIXED:=-1
 
 /* 
@@ -41,16 +49,10 @@ $int : Integer
 
 var \
 $buffer; \
+$format; \
 $text; \
 $type : Text
 
-
-If (False:C215)
-	C_TEXT:C284(QR_Get_column_format; $0)
-	C_LONGINT:C283(QR_Get_column_format; $1)
-	C_LONGINT:C283(QR_Get_column_format; $2)
-	C_LONGINT:C283(QR_Get_column_format; $3)
-End if 
 
 // ----------------------------------------------------
 // Initialisations
@@ -113,6 +115,7 @@ Else
 		$column_type:=QR_Get_column_type($area; $column)
 		
 	End if 
+	
 End if 
 
 If ($column_type=Is picture:K8:10)\
@@ -129,7 +132,7 @@ If ($column_type=Is picture:K8:10)\
 	
 End if 
 
-//$0:=$format
+return $format
 
 // ----------------------------------------------------
 // End

@@ -13,6 +13,13 @@
 
 #DECLARE($area : Integer; $column_number : Integer; $permissive : Boolean)->$column_type : Integer
 
+If (False:C215)
+	C_LONGINT:C283(QR_Get_column_type; $0)
+	C_LONGINT:C283(QR_Get_column_type; $1)
+	C_LONGINT:C283(QR_Get_column_type; $2)
+	C_BOOLEAN:C305(QR_Get_column_type; $3)
+End if 
+
 /* 
   ----------------------------------------------------
 
@@ -57,13 +64,6 @@ var \
 $is_permissive : Boolean
 
 // ----------------------------------------------------
-
-If (False:C215)
-	C_LONGINT:C283(QR_Get_column_type; $0)
-	C_LONGINT:C283(QR_Get_column_type; $1)
-	C_LONGINT:C283(QR_Get_column_type; $2)
-	C_BOOLEAN:C305(QR_Get_column_type; $3)
-End if 
 
 // ----------------------------------------------------
 // Initialisations

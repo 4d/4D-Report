@@ -1,52 +1,100 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : ALIGN_OBJECTS
-  // Database: 4D Report
-  // ID[2E27581B02674D8D953798785A3FE47D]
-  // Created #13-6-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_OBJECT:C1216($1)
+// ----------------------------------------------------
+// Project method : ALIGN_OBJECTS
+// Database: 4D Report
+// ID[2E27581B02674D8D953798785A3FE47D]
+// Created #13-6-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_BOOLEAN:C305($Boo_visible)
-C_LONGINT:C283($kLon_buttonMinWidth;$kLon_hOffset;$Lon_alignment;$Lon_bottom;$Lon_height;$Lon_hOffset)
-C_LONGINT:C283($Lon_i;$Lon_left;$Lon_parameters;$Lon_positionLeft;$Lon_positionRight;$Lon_right)
-C_LONGINT:C283($Lon_top;$Lon_width)
-C_TEXT:C284($Txt_object;$Txt_type)
-C_OBJECT:C1216($Obj_param)
+#DECLARE($param : Object)
 
-ARRAY OBJECT:C1221($tObj_objects;0)
 
 If (False:C215)
-	C_OBJECT:C1216(ALIGN_OBJECTS ;$1)
+	C_OBJECT:C1216(ALIGN_OBJECTS; $1)
 End if 
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+/*
+  ----------------------------------------------------
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+  CONSTANTS
+
+  ----------------------------------------------------  
+*/
+
+var \
+$K_hOffset; \
+$K_buttonMinWidth : Integer
+
+//MARK: uppercase namming ok "K" start namming mean : it's a constant
+$K_hOffset:=8
+$K_buttonMinWidth:=45
+
+
+/*
+  ----------------------------------------------------
+
+  VARIABLES
+
+  ----------------------------------------------------
+*/
+
+var \
+$is_visible : Boolean
+
+
+var \
+$alignment; \
+$count_parameters; \
+$left; $top; $right; $bottom; \
+$width; $height; \
+$hOffset; \
+$positionLeft; \
+$positionRight; \
+$i : Integer
+
+
+var \
+$object_name; \
+$type_name : Text
+
+/*
+  ----------------------------------------------------
+
+  ARRAYS
+
+  ----------------------------------------------------  
+*/
+
+ARRAY OBJECT:C1221($_objects; 0)
+
+
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
+
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	  //Required parameters
-	$Obj_param:=$1
+	//Required parameters
+	//$param:=$1
 	
-	  //Optional parameters
-	If ($Lon_parameters>=2)
+	//Optional parameters
+	If ($count_parameters>=2)
 		
-		  //<NONE>
+		//<NONE>
 		
 	End if 
 	
-	OB GET ARRAY:C1229($Obj_param;"toolbar";$tObj_objects)
+	OB GET ARRAY:C1229($param; "toolbar"; $_objects)
 	
-	$Lon_positionRight:=OB Get:C1224($Obj_param;"width";Is longint:K8:6)
+	$positionRight:=OB Get:C1224($param; "width"; Is longint:K8:6)
 	
-	$kLon_hOffset:=8
-	$kLon_buttonMinWidth:=45
-	$Lon_positionLeft:=$kLon_hOffset
+	//$K_hOffset:=8
+	//$K_buttonMinWidth:=45
+	$positionLeft:=$K_hOffset
 	
 Else 
 	
@@ -54,106 +102,106 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-For ($Lon_i;1;Size of array:C274($tObj_objects);1)
+// ----------------------------------------------------
+For ($i; 1; Size of array:C274($_objects); 1)
 	
-	$Txt_object:=OB Get:C1224($tObj_objects{$Lon_i};"object";Is text:K8:3)
-	$Txt_type:=OB Get:C1224($tObj_objects{$Lon_i};"type";Is text:K8:3)
-	$Boo_visible:=OB Get:C1224($tObj_objects{$Lon_i};"visible";Is boolean:K8:9)
-	$Lon_alignment:=OB Get:C1224($tObj_objects{$Lon_i};"align";Is longint:K8:6)
+	$object_name:=OB Get:C1224($_objects{$i}; "object"; Is text:K8:3)
+	$type_name:=OB Get:C1224($_objects{$i}; "type"; Is text:K8:3)
+	$is_visible:=OB Get:C1224($_objects{$i}; "visible"; Is boolean:K8:9)
+	$alignment:=OB Get:C1224($_objects{$i}; "align"; Is longint:K8:6)
 	
-	$Lon_hOffset:=OB Get:C1224($tObj_objects{$Lon_i};"offset";Is longint:K8:6)
+	$hOffset:=OB Get:C1224($_objects{$i}; "offset"; Is longint:K8:6)
 	
-	If ($Boo_visible)
+	If ($is_visible)
 		
-		If (Length:C16($Txt_object)>0)
+		If (Length:C16($object_name)>0)
 			
-			OBJECT GET COORDINATES:C663(*;$Txt_object;$Lon_left;$Lon_top;$Lon_right;$Lon_bottom)
+			OBJECT GET COORDINATES:C663(*; $object_name; $left; $top; $right; $bottom)
 			
 		End if 
 		
 		Case of 
 				
-				  //______________________________________________________
-			: ($Txt_type="button")
+				//______________________________________________________
+			: ($type_name="button")
 				
-				OBJECT GET BEST SIZE:C717(*;$Txt_object;$Lon_width;$Lon_height)
-				$Lon_width:=Choose:C955($Lon_width<$kLon_buttonMinWidth;$kLon_buttonMinWidth;$Lon_width*1.2)+$Lon_hOffset
+				OBJECT GET BEST SIZE:C717(*; $object_name; $width; $height)
+				$width:=Choose:C955($width<$K_buttonMinWidth; $K_buttonMinWidth; $width*1.2)+$hOffset
 				
-				If ($Lon_alignment=On the right:K39:3)
+				If ($alignment=On the right:K39:3)
 					
-					$Lon_positionRight:=$Lon_positionRight-$kLon_hOffset
-					OBJECT SET COORDINATES:C1248(*;$Txt_object;$Lon_positionRight-$Lon_width;$Lon_top;$Lon_positionRight;$Lon_bottom)
+					$positionRight:=$positionRight-$K_hOffset
+					OBJECT SET COORDINATES:C1248(*; $object_name; $positionRight-$width; $top; $positionRight; $bottom)
 					
 				Else 
 					
-					$Lon_positionLeft:=$Lon_positionLeft+$kLon_hOffset
-					OBJECT SET COORDINATES:C1248(*;$Txt_object;$Lon_positionLeft;$Lon_top;$Lon_positionLeft+$Lon_width;$Lon_bottom)
+					$positionLeft:=$positionLeft+$K_hOffset
+					OBJECT SET COORDINATES:C1248(*; $object_name; $positionLeft; $top; $positionLeft+$width; $bottom)
 					
 				End if 
 				
-				  //______________________________________________________
-			: ($Txt_type="separator")
+				//______________________________________________________
+			: ($type_name="separator")
 				
-				$Lon_width:=$Lon_right-$Lon_left
+				$width:=$right-$left
 				
-				If ($Lon_alignment=On the right:K39:3)
+				If ($alignment=On the right:K39:3)
 					
-					$Lon_positionRight:=$Lon_positionRight-$kLon_hOffset
-					OBJECT SET COORDINATES:C1248(*;$Txt_object;$Lon_positionRight;$Lon_top)
+					$positionRight:=$positionRight-$K_hOffset
+					OBJECT SET COORDINATES:C1248(*; $object_name; $positionRight; $top)
 					
 				Else 
 					
-					$Lon_positionLeft:=$Lon_positionLeft+$kLon_hOffset
-					OBJECT SET COORDINATES:C1248(*;$Txt_object;$Lon_positionLeft;$Lon_top)
+					$positionLeft:=$positionLeft+$K_hOffset
+					OBJECT SET COORDINATES:C1248(*; $object_name; $positionLeft; $top)
 					
 				End if 
 				
-				  //______________________________________________________
-			: ($Txt_type="widget")
+				//______________________________________________________
+			: ($type_name="widget")
 				
-				$Lon_width:=$Lon_right-$Lon_left
+				$width:=$right-$left
 				
-				If ($Lon_alignment=On the right:K39:3)
+				If ($alignment=On the right:K39:3)
 					
-					$Lon_positionRight:=$Lon_positionRight-$kLon_hOffset
-					OBJECT SET COORDINATES:C1248(*;$Txt_object;$Lon_positionRight-$Lon_width;$Lon_top;$Lon_positionRight;$Lon_bottom)
+					$positionRight:=$positionRight-$K_hOffset
+					OBJECT SET COORDINATES:C1248(*; $object_name; $positionRight-$width; $top; $positionRight; $bottom)
 					
 				Else 
 					
-					$Lon_positionLeft:=$Lon_positionLeft+$kLon_hOffset
-					OBJECT SET COORDINATES:C1248(*;$Txt_object;$Lon_positionLeft;$Lon_top;$Lon_positionLeft+$Lon_width;$Lon_bottom)
+					$positionLeft:=$positionLeft+$K_hOffset
+					OBJECT SET COORDINATES:C1248(*; $object_name; $positionLeft; $top; $positionLeft+$width; $bottom)
 					
 				End if 
 				
-				  //______________________________________________________
+				//______________________________________________________
 			Else 
 				
-				  //
+				//
 				
-				  //______________________________________________________
+				//______________________________________________________
 		End case 
 		
-		If ($Lon_alignment=On the right:K39:3)
+		If ($alignment=On the right:K39:3)
 			
-			$Lon_positionRight:=$Lon_positionRight-$Lon_width
+			$positionRight:=$positionRight-$width
 			
 		Else 
 			
-			$Lon_positionLeft:=$Lon_positionLeft+$Lon_width
+			$positionLeft:=$positionLeft+$width
 			
 		End if 
 		
 	Else 
 		
-		  //put offscreen
-		OBJECT SET COORDINATES:C1248(*;$Txt_object;-1000;-1000;-1000;-1000)
+		//put offscreen
+		OBJECT SET COORDINATES:C1248(*; $object_name; -1000; -1000; -1000; -1000)
 		
 	End if 
 End for 
 
-  // ----------------------------------------------------
-  // Return
-  // <NONE>
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// Return
+// <NONE>
+// ----------------------------------------------------
+// End

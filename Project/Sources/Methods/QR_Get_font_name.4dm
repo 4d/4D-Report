@@ -12,23 +12,25 @@
 
 #DECLARE($area : Integer; $column : Integer; $row : Integer)->$font_name : Text
 
-
-//C_TEXT($0)
-//C_LONGINT($1)
-//C_LONGINT($2)
-//C_LONGINT($3)
-
-var \
-$count_parameters; \
-$count_columns : Integer
-
-
 If (False:C215)
 	C_TEXT:C284(QR_Get_font_name; $0)
 	C_LONGINT:C283(QR_Get_font_name; $1)
 	C_LONGINT:C283(QR_Get_font_name; $2)
 	C_LONGINT:C283(QR_Get_font_name; $3)
 End if 
+
+/* 
+  ----------------------------------------------------
+
+  VARIABLES
+
+  ----------------------------------------------------   
+*/
+
+var \
+$count_parameters; \
+$count_columns : Integer
+
 
 // ----------------------------------------------------
 // Initialisations
