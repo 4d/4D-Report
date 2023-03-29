@@ -1,1 +1,1072 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><!--Translation file.This file is distributed under the same license as the product package.--><xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">  <file datatype="x-STR#" original="undefined" source-language="en" target-language="de">    <header>      <prop-group name="Xliff-Editor.4dbase">        <prop prop-type="version">2.0</prop>      </prop-group>    </header>    <body>      <group resname="List report">        <trans-unit id="1" resname="head_title">          <source>Title</source>          <target>Titel</target>        </trans-unit>        <trans-unit id="2" resname="head_details">          <source>Details</source>          <target>Details</target>        </trans-unit>        <trans-unit id="3" resname="head_grand_total">          <source>Grand total</source>          <target>Gesamtsumme</target>        </trans-unit>        <trans-unit id="4" resname="head_subtotal">          <source>{field} changed</source>          <target>{field} Änderung</target>        </trans-unit>      </group>      <group resname="dialog">        <trans-unit id="dialog_1" resname="qr_windowTitle">          <source>Quick Report</source>          <target>Schnellbericht</target>        </trans-unit>        <trans-unit id="dialog_2" resname="qr_noTable">          <source>No table to make a report</source>          <target>Keine Tabelle ausgewählt</target>        </trans-unit>      </group>      <group resname="data">        <trans-unit id="6" resname="nqr_sum">          <source>Sum</source>          <target>Summe</target>        </trans-unit>        <trans-unit id="7" resname="nqr_average">          <source>Average</source>          <target>Durchschnitt</target>        </trans-unit>        <trans-unit id="8" resname="nqr_min">          <source>Min</source>          <target>Min</target>        </trans-unit>        <trans-unit id="9" resname="nqr_max">          <source>Max</source>          <target>Max</target>        </trans-unit>        <trans-unit id="10" resname="nqr_count">          <source>Count</source>          <target>Anzahl</target>        </trans-unit>        <trans-unit id="11" resname="nqr_standard_deviation">          <source>Standard deviation</source>          <target>Standardabweichung</target>        </trans-unit>      </group>      <group resname="Background Colors">        <trans-unit id="81" resname="back_0">          <source>Automatic</source>          <target>Automatik</target>        </trans-unit>        <trans-unit id="82" resname="back_1">          <source>Sable</source>          <target>Sable</target>        </trans-unit>        <trans-unit id="83" resname="back_2">          <source>Melon</source>          <target>Melon</target>        </trans-unit>        <trans-unit id="84" resname="back_3">          <source>Orange</source>          <target>Orange</target>        </trans-unit>        <trans-unit id="85" resname="back_4">          <source>Salmon</source>          <target>Salmon</target>        </trans-unit>        <trans-unit id="86" resname="back_5">          <source>Lilac</source>          <target>Lilac</target>        </trans-unit>        <trans-unit id="87" resname="back_6">          <source>Light Violet</source>          <target>Light Violet</target>        </trans-unit>        <trans-unit id="88" resname="back_7">          <source>Pigeon Blue</source>          <target>Pigeon Blue</target>        </trans-unit>        <trans-unit id="89" resname="back_8">          <source>Turkish Blue</source>          <target>Turkish Blue</target>        </trans-unit>        <trans-unit id="90" resname="back_9">          <source>Pale Green</source>          <target>Pale Green</target>        </trans-unit>        <trans-unit id="91" resname="back_10">          <source>Yellow Green</source>          <target>Yellow Green</target>        </trans-unit>        <trans-unit id="92" resname="back_11">          <source>Golden Maize</source>          <target>Golden Maize</target>        </trans-unit>        <trans-unit id="93" resname="back_12">          <source>Grayish Brown</source>          <target>Grayish Brown</target>        </trans-unit>        <trans-unit id="94" resname="back_13">          <source>Dark Sable</source>          <target>Dark Sable</target>        </trans-unit>        <trans-unit id="95" resname="back_14">          <source>Antelope</source>          <target>Antelope</target>        </trans-unit>        <trans-unit id="96" resname="back_15">          <source>Pale Blue</source>          <target>Pale Blue</target>        </trans-unit>        <trans-unit id="97" resname="back_16">          <source>Cold Gray</source>          <target>Cold Gray</target>        </trans-unit>        <trans-unit id="98" resname="back_17">          <source>Personalized...</source>          <target>Angepasst...</target>        </trans-unit>      </group>      <group resname="Foreground Colors">        <trans-unit id="200" resname="front_0">          <source>Automatic</source>          <target>Automatik</target>        </trans-unit>        <trans-unit id="201" resname="front_1">          <source>Beige</source>          <target>Beige</target>        </trans-unit>        <trans-unit id="202" resname="front_2">          <source>Brown</source>          <target>Brown</target>        </trans-unit>        <trans-unit id="203" resname="front_3">          <source>Orange</source>          <target>Orange</target>        </trans-unit>        <trans-unit id="204" resname="front_4">          <source>Red</source>          <target>Red</target>        </trans-unit>        <trans-unit id="205" resname="front_5">          <source>Purple</source>          <target>Purple</target>        </trans-unit>        <trans-unit id="206" resname="front_6">          <source>Violet</source>          <target>Violet</target>        </trans-unit>        <trans-unit id="207" resname="front_7">          <source>Signal Blue</source>          <target>Signal Blue</target>        </trans-unit>        <trans-unit id="208" resname="front_8">          <source>Water Blue</source>          <target>Water Blue</target>        </trans-unit>        <trans-unit id="209" resname="front_9">          <source>Leaf Green</source>          <target>Leaf Green</target>        </trans-unit>        <trans-unit id="210" resname="front_10">          <source>Signal Green</source>          <target>Signal Green</target>        </trans-unit>        <trans-unit id="211" resname="front_11">          <source>Brillant Yellow Green</source>          <target>Brillant Yellow Green</target>        </trans-unit>        <trans-unit id="212" resname="front_12">          <source>Olive</source>          <target>Olive</target>        </trans-unit>        <trans-unit id="213" resname="front_13">          <source>Saddle Brown</source>          <target>Saddle Brown</target>        </trans-unit>        <trans-unit id="214" resname="front_14">          <source>Beaver Brown</source>          <target>Beaver Brown</target>        </trans-unit>        <trans-unit id="215" resname="front_15">          <source>Moderate blue</source>          <target>Moderate blue</target>        </trans-unit>        <trans-unit id="216" resname="front_16">          <source>Dark Cold Gray</source>          <target>Dark Cold Gray</target>        </trans-unit>        <trans-unit id="217" resname="front_17">          <source>Personalized...</source>          <target>Angepasst...</target>        </trans-unit>      </group>      <group resname="Date format">        <trans-unit id="1" resname="date_1">          <source>System date short</source>          <target>Systemabhängig kurz</target>        </trans-unit>        <trans-unit id="2" resname="date_2">          <source>System date abbreviated</source>          <target>Systemabhängig abgekürzt</target>        </trans-unit>        <trans-unit id="3" resname="date_3">          <source>System date long</source>          <target>Systemabhängig ausgeschrieben</target>        </trans-unit>        <trans-unit id="4" resname="date_4">          <source>Internal date short special</source>          <target>Intern kurz Spezial</target>        </trans-unit>        <trans-unit id="5" resname="date_5">          <source>Internal date long</source>          <target>Intern ausgeschrieben</target>        </trans-unit>        <trans-unit id="6" resname="date_6">          <source>Internal date abbreviated</source>          <target>Intern abgekürzt</target>        </trans-unit>        <trans-unit id="7" resname="date_7">          <source>Internal date short</source>          <target>Intern Kurz</target>        </trans-unit>        <trans-unit id="8" resname="date_8">          <source>ISO Date Time</source>          <target>ISO Datum Zeit</target>        </trans-unit>      </group>      <group resname="Picture formats">        <trans-unit id="1" resname="pict_1">          <source>Truncated (centered)</source>          <target>Abgeschnitten (zentriert)</target>        </trans-unit>        <trans-unit id="2" resname="pict_2">          <source>Scaled to fit</source>          <target>Größe angepasst</target>        </trans-unit>        <trans-unit id="3" resname="pict_3">          <source>On Background</source>          <target>Auf Hintergrund</target>        </trans-unit>        <trans-unit id="4" resname="pict_4">          <source>Truncated (non-centered)</source>          <target>Abgeschnitten (links oben)</target>        </trans-unit>        <trans-unit id="5" resname="pict_5">          <source>Scaled to fit (proportional)</source>          <target>Proportional verkleinert</target>        </trans-unit>        <trans-unit id="6" resname="pict_6">          <source>Scaled to fit centered (prop.)</source>          <target>Prop. verkleinert (zentriert)</target>        </trans-unit>        <trans-unit id="7" resname="pict_7">          <source>Replicated</source>          <target>Wiederholt</target>        </trans-unit>      </group>      <group resname="Boolean Format">        <trans-unit id="1" resname="boolean_1">          <source>True;False</source>          <target>Wahr;Falsch</target>          <note>You can add/remove formats according to the localisation.Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.               </note>        </trans-unit>        <trans-unit id="2" resname="boolean_2">          <source>Yes;No</source>          <target>Ja;Nein</target>        </trans-unit>        <trans-unit id="3" resname="boolean_3">          <source>Male;Female</source>          <target>Männlich;Weiblich</target>        </trans-unit>        <trans-unit id="4" resname="boolean_4">          <source>Mr;Ms</source>          <target>Herr;Frau</target>        </trans-unit>      </group>      <group resname="Number Format">        <trans-unit id="1" resname="number_1">          <source>###,##0</source>          <target>###,##0</target>          <note>You can add/remove formats according to the localisation.Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.Use the 4D separators: "." for decimal separator and "," for thousand separator                </note>        </trans-unit>        <trans-unit id="2" resname="number_2">          <source>###,##0.00</source>          <target>###,##0.00</target>        </trans-unit>        <trans-unit id="3" resname="number_3">          <source>###,##0 ;###,##0-</source>          <target>-###,##0 ;###,##0</target>        </trans-unit>        <trans-unit id="4" resname="number_4">          <source>###,##0.00 ;###,##0.00-</source>          <target>-###,##0.00 ;###,##0.00</target>        </trans-unit>        <trans-unit id="5" resname="number_5">          <source>###,##0;(###,##0)</source>          <target>###,##0;(###,##0)</target>        </trans-unit>        <trans-unit id="6" resname="number_6">          <source>###,##0;(###,##0.00)</source>          <target>###,##0;(###,##0.00)</target>        </trans-unit>        <trans-unit id="7" resname="number_7">          <source>###,##0.00  ;###,##0.00CR</source>          <target>###,##0.00  ;###,##0.00CR</target>        </trans-unit>        <trans-unit id="8" resname="number_8">          <source>$###,##0;-$###,##0</source>          <target>$###,##0;-$###,##0</target>        </trans-unit>        <trans-unit id="9" resname="number_9">          <source>$###,##0;($###,##0)</source>          <target>$###,##0;($###,##0)</target>        </trans-unit>        <trans-unit id="10" resname="number_10">          <source>$###,##0.00;-$###,##0.00</source>          <target>$###,##0.00;-$###,##0.00</target>        </trans-unit>        <trans-unit id="11" resname="number_11">          <source>$###,##0.00;($###,##0.00)</source>          <target>$###,##0.00;($###,##0.00)</target>        </trans-unit>        <trans-unit id="12" resname="number_12">          <source>$^^^,^^0;-$^^^,^^0</source>          <target>$^^^,^^0;-$^^^,^^0</target>        </trans-unit>        <trans-unit id="13" resname="number_13">          <source>$^^^,^^0;($^^^,^^0)</source>          <target>$^^^,^^0;($^^^,^^0)</target>        </trans-unit>        <trans-unit id="14" resname="number_14">          <source>$^^^,^^0.00;-$^^^,^^0.00</source>          <target>$^^^,^^0.00;-$^^^,^^0.00</target>        </trans-unit>        <trans-unit id="15" resname="number_15">          <source>$^^^,^^0.00;($^^^,^^0.00)</source>          <target>$^^^,^^0.00;($^^^,^^0.00)</target>        </trans-unit>        <trans-unit id="16" resname="number_16">          <source>$***,**0.00;-$***,**0.00</source>          <target>$***,**0.00;-$***,**0.00</target>        </trans-unit>        <trans-unit id="17" resname="number_17">          <source>$***,**0.00;($***,**0.00)</source>          <target>$***,**0.00;($***,**0.00)</target>        </trans-unit>        <trans-unit id="18" resname="number_18">          <source>$***,**0.00;VOID</source>          <target>$***,**0.00;VOID</target>        </trans-unit>        <trans-unit id="19" resname="number_19">          <source>###,##0.00€;(###,##0.00€)</source>          <target>###,##0.00€;(###,##0.00€)</target>        </trans-unit>      </group>      <group resname="Time format">        <trans-unit id="1" resname="time_1">          <source>HH:MM:SS</source>          <target>HH:MM:SS</target>        </trans-unit>        <trans-unit id="2" resname="time_2">          <source>HH:MM</source>          <target>HH:MM</target>        </trans-unit>        <trans-unit id="3" resname="time_3">          <source>Hour Min Sec</source>          <target>Stunde Min Sek</target>        </trans-unit>        <trans-unit id="4" resname="time_4">          <source>Hour Min</source>          <target>Stunde Min</target>        </trans-unit>        <trans-unit id="5" resname="time_5">          <source>HH:MM AM/PM</source>          <target>HH:MM AM/PM</target>        </trans-unit>        <trans-unit id="6" resname="time_6">          <source>MM:SS</source>          <target>MM:SS</target>        </trans-unit>        <trans-unit id="7" resname="time_7">          <source>Min Sec</source>          <target>Min Sek</target>        </trans-unit>        <trans-unit id="8" resname="time_8">          <source>ISO Date Time</source>          <target>ISO Datum Zeit</target>        </trans-unit>        <trans-unit id="9" resname="time_9">          <source>System time short</source>          <target>System Format kurz</target>        </trans-unit>        <trans-unit id="10" resname="time_10">          <source>System time long abbreviated</source>          <target>System Format lang abgekürzt</target>        </trans-unit>        <trans-unit id="11" resname="time_11">          <source>System time long</source>          <target>System Format lang</target>        </trans-unit>      </group>      <group resname="Alpha format">        <trans-unit id="1" resname="alpha_1" translate="no">          <source>###-####</source>        </trans-unit>        <trans-unit id="2" resname="alpha_2" translate="yes">          <source>(###) ###-####</source>        </trans-unit>        <trans-unit id="3" resname="alpha_3" translate="yes">          <source>###-###-####</source>          <target>###-###-####</target>        </trans-unit>        <trans-unit id="4" resname="alpha_4" translate="yes">          <source>###-##-####</source>        </trans-unit>        <trans-unit id="5" resname="alpha_5" translate="yes">          <source>00000</source>        </trans-unit>      </group>      <group resname="menus">        <trans-unit id="117" resname="menu_4d_view" translate="no">          <source>4D View</source>        </trans-unit>        <trans-unit id="113" resname="menu_add_column">          <source>Add a column…</source>          <target>Spalte hinzufügen…</target>        </trans-unit>        <trans-unit id="154" resname="menu_align_center">          <source>Align Center</source>          <target>Zentriert ausrichten</target>        </trans-unit>        <trans-unit id="155" resname="menu_align_default">          <source>Default</source>          <target>Standard</target>        </trans-unit>        <trans-unit id="152" resname="menu_align_left">          <source>Align Left</source>          <target>Links ausrichten</target>        </trans-unit>        <trans-unit id="153" resname="menu_align_right">          <source>Align Right</source>          <target>Rechtes ausrichten</target>        </trans-unit>        <trans-unit id="144" resname="menu_alternate_background_color">          <source>Alternate Background Color</source>          <target>Abwechselnde Hintergrundfarbe</target>        </trans-unit>        <trans-unit id="125" resname="menu_automatic_width">          <source>Automatic Width</source>          <target>Automatische Breite</target>        </trans-unit>        <trans-unit id="133" resname="menu_average">          <source>Average</source>          <target>Durchschnitt</target>        </trans-unit>        <trans-unit id="143" resname="menu_background_color">          <source>Background Color</source>          <target>Hintergrundfarbe</target>        </trans-unit>        <trans-unit id="150" resname="menu_bold">          <source>Bold</source>          <target>Fett</target>        </trans-unit>        <trans-unit id="118" resname="menu_borders">          <source>Borders…</source>          <target>Rahmen</target>        </trans-unit>        <trans-unit id="158" resname="menu_cells">          <source>Cells</source>          <target>Zellen</target>        </trans-unit>        <trans-unit id="174" resname="menu_clear_content">          <source>Clear Contents</source>          <target>Inhalt löschen</target>        </trans-unit>        <trans-unit id="159" resname="menu_columns">          <source>Columns</source>          <target>Spalten</target>        </trans-unit>        <trans-unit id="136" resname="menu_count">          <source>Count</source>          <target>Anzahl</target>        </trans-unit>        <trans-unit id="161" resname="menu_delete_break_line">          <source>Delete this break line</source>          <target>Diese Umbruchzeile löschen</target>        </trans-unit>        <trans-unit id="123" resname="menu_delete_column">          <source>Delete this column</source>          <target>Diese Spalte löschen</target>        </trans-unit>        <trans-unit id="148" resname="menu_destination">          <source>Destination</source>          <target>Ziel</target>        </trans-unit>        <trans-unit id="173" resname="menu_duplicate_column">          <source>Duplicate this column</source>          <target>Diese Spalte duplizieren</target>        </trans-unit>        <trans-unit id="175" resname="menu_edit">          <source>Edit</source>          <target>Bearbeiten</target>        </trans-unit>        <trans-unit id="121" resname="menu_edit_formula">          <source>Edit the formula…</source>          <target>Formel ändern…</target>        </trans-unit>        <trans-unit id="157" resname="menu_file">          <source>File</source>          <target>Datei</target>        </trans-unit>        <trans-unit id="138" resname="menu_font">          <source>Font</source>          <target>Schrift</target>        </trans-unit>        <trans-unit id="142" resname="menu_font_color">          <source>Font Color</source>          <target>Schriftfarbe</target>        </trans-unit>        <trans-unit id="145" resname="menu_format">          <source>Format</source>          <target>Format</target>        </trans-unit>        <trans-unit id="151" resname="menu_generate">          <source>Generate…</source>          <target>Erzeugen…</target>        </trans-unit>        <trans-unit id="119" resname="menu_header_and_footers">          <source>Header &amp; Footer…</source>          <target>Kopf &amp; Fußteil…</target>        </trans-unit>        <trans-unit id="176" resname="menu_hide">          <source>Hide</source>          <target>Ausblenden</target>        </trans-unit>        <trans-unit id="168" resname="menu_hide_break_line">          <source>Hide this break line</source>          <target>Diese Umbruchzeile ausblenden</target>        </trans-unit>        <trans-unit id="122" resname="menu_hide_column">          <source>Hide this column</source>          <target>Diese Spalte ausblenden</target>        </trans-unit>        <trans-unit id="130" resname="menu_hide_row">          <source>Hide this row</source>          <target>Diese Zeile ausblenden</target>        </trans-unit>        <trans-unit id="116" resname="menu_html_file">          <source>HTML file</source>          <target>HTML Datei</target>        </trans-unit>        <trans-unit id="169" resname="menu_insert_after">          <source>After</source>          <target>Danach</target>        </trans-unit>        <trans-unit id="168" resname="menu_insert_before">          <source>Before</source>          <target>Vorher</target>        </trans-unit>        <trans-unit id="170" resname="menu_insert_begin">          <source>At the beginning</source>          <target>Am Anfang</target>        </trans-unit>        <trans-unit id="120" resname="menu_insert_column">          <source>Insert a column…</source>          <target>Spalte einfügen…</target>        </trans-unit>        <trans-unit id="171" resname="menu_insert_end">          <source>At the end</source>          <target>Am Ende</target>        </trans-unit>        <trans-unit id="148" resname="menu_italic">          <source>Italic</source>          <target>Kursiv</target>        </trans-unit>        <trans-unit id="141" resname="menu_justification">          <source>Justification</source>          <target>Ausrichtung</target>        </trans-unit>        <trans-unit id="155" resname="menu_max">          <source>Max</source>          <target>Max</target>        </trans-unit>        <trans-unit id="134" resname="menu_min">          <source>Min</source>          <target>Min</target>        </trans-unit>        <trans-unit id="143" resname="menu_new">          <source>New</source>          <target>Neu</target>        </trans-unit>        <trans-unit id="172" resname="menu_new_column">          <source>New column</source>          <target>Neue Spalte</target>        </trans-unit>        <trans-unit id="144" resname="menu_open">          <source>Open…</source>          <target>Öffnen…</target>        </trans-unit>        <trans-unit id="149" resname="menu_page_setup">          <source>Page Setup…</source>          <target>Seite einrichten…</target>        </trans-unit>        <trans-unit id="151" resname="menu_plain">          <source>Plain</source>          <target>Standard</target>        </trans-unit>        <trans-unit id="156" resname="menu_presentation">          <source>Presentation…</source>          <target>Darstellung…</target>        </trans-unit>        <trans-unit id="150" resname="menu_preview ">          <source>Print Preview…</source>          <target>Druckvorschau…</target>        </trans-unit>        <trans-unit id="114" resname="menu_printer">          <source>Printer</source>          <target>Drucker</target>        </trans-unit>        <trans-unit id="124" resname="menu_repeated_values">          <source>Repeated Values</source>          <target>Wiederholte Werte</target>        </trans-unit>        <trans-unit id="147" resname="menu_revert">          <source>Revert to save</source>          <target>Letzte Version</target>        </trans-unit>        <trans-unit id="145" resname="menu_save">          <source>Save</source>          <target>Speichern</target>        </trans-unit>        <trans-unit id="146" resname="menu_save_as">          <source>Save as…</source>          <target>Speichern unter…</target>        </trans-unit>        <trans-unit id="146" resname="menu_show_fonts">          <source>Show font…</source>          <target>Schrift anzeigen…</target>        </trans-unit>        <trans-unit id="139" resname="menu_size">          <source>Size</source>          <target>Größe</target>        </trans-unit>        <trans-unit id="127" resname="menu_sort_ascending">          <source>Ascending</source>          <target>Aufsteigend</target>        </trans-unit>        <trans-unit id="128" resname="menu_sort_descending">          <source>Descending</source>          <target>Absteigend</target>        </trans-unit>        <trans-unit id="126" resname="menu_sort_none">          <source>None</source>          <target>Nicht</target>        </trans-unit>        <trans-unit id="129" resname="menu_sort_order">          <source>Sort Order</source>          <target>Sortierfolge</target>        </trans-unit>        <trans-unit id="137" resname="menu_standard_deviation">          <source>Standard deviation</source>          <target>Standardabweichung</target>        </trans-unit>        <trans-unit id="140" resname="menu_style">          <source>Style</source>          <target>Stil</target>        </trans-unit>        <trans-unit id="132" resname="menu_sum">          <source>Sum</source>          <target>Summe</target>        </trans-unit>        <trans-unit id="115" resname="menu_text_file">          <source>Text file</source>          <target>Text-Dokument</target>        </trans-unit>        <trans-unit id="131" resname="menu_total_spacing">          <source>Total Spacing…</source>          <target>Gesamter Abstand…</target>        </trans-unit>        <trans-unit id="147" resname="menu_underline">          <source>Underline</source>          <target>Unterstrichen</target>        </trans-unit>        <trans-unit id="191" resname="menu_sort_leftToRight">          <source>From left to right</source>          <target>Von links nach rechts</target>        </trans-unit>        <trans-unit id="192" resname="menu_sort_rightToLeft">          <source>From right to left</source>          <target>Von rechts nach links</target>        </trans-unit>        <trans-unit id="193" resname="menu_sort_topToBottom">          <source>From top to bottom</source>          <target>Von oben nach unten</target>        </trans-unit>        <trans-unit id="194" resname="menu_sort_bottomToTop">          <source>From bottom to top</source>          <target>Von unten nach oben</target>        </trans-unit>		<trans-unit id="218" resname="menu_subtotalProperties">		   <source>Spacing</source>		   <target>Abstand</target>		</trans-unit>		<trans-unit id="219" resname="menu_subtotalSpacingBreak">		   <source>Page break </source>		   <target>Seitenumbruch </target>		</trans-unit>		<trans-unit id="221" resname="menu_subtotalSpacingPercent">		   <source>%</source>		   <target>%</target>		</trans-unit>		<trans-unit id="222" resname="menu_subtotalSpacingPoint">		   <source>Pt</source>		   <target>Pt</target>		</trans-unit>		<trans-unit id="223" resname="menu_subtotalSpacingItem">		   <source>Break options</source>		   <target>Abstand Optionen</target>		</trans-unit>		<trans-unit id="225" resname="menu_subtotalSpacingMnuInPercent">		   <source>Line break (%)...</source>		   <target>Zeilenumbruch (%)...</target>		</trans-unit>		<trans-unit id="226" resname="menu_subtotalSpacingMnuPageBreak">		   <source>Page Break</source>		   <target>Seitenumbruch</target>		</trans-unit>		<trans-unit id="227" resname="menu_subtotalSpacingRequest">		   <source>Spacing</source>		   <target>Abstand</target>		</trans-unit>		<trans-unit id="228" resname="menu_subtotalSpacingValue">		   <source>Line break</source>		   <target>Zeilenumbruch</target>		</trans-unit>		<trans-unit id="229" resname="menu_subtotalSpacingMnuInPoint">		   <source>Line break (pt)...</source>		   <target>Zeilenumbruch (pt)...</target>		</trans-unit>		            <trans-unit id="230" resname="menu_thickness0">               <source>No border</source>               <target>Kein Rahmen</target>            </trans-unit>            <trans-unit id="231" resname="menu_thickness1">               <source>Hairline</source>               <target>Haarlinie</target>            </trans-unit>            <trans-unit id="232" resname="menu_thickness2">               <source>0.5 point</source>               <target>0.5 Punkte</target>            </trans-unit>            <trans-unit id="233" resname="menu_thickness3">               <source>1 point</source>               <target>1 Punkt</target>            </trans-unit>            <trans-unit id="234" resname="menu_thickness4">               <source>2 points</source>               <target>2 Punkte</target>            </trans-unit>            <trans-unit id="235" resname="menu_thicknessMultiple">               <source>(Mixed)</source>               <target>(Mehrere)</target>            </trans-unit>                                   <trans-unit id="236" resname="menu_borderAll">               <source>All borders</source>               <target>Alle Rahmen</target>            </trans-unit>            <trans-unit id="237" resname="menu_borderOutside">               <source>Outside borders</source>               <target>Rahmen außerhalb</target>            </trans-unit>            <trans-unit id="238" resname="menu_borderInside">               <source>Inside borders</source>               <target>Rahmen innerhalb</target>            </trans-unit>            <trans-unit id="239" resname="menu_borderVertical">               <source>Vertical borders</source>               <target>Vertikale Linien</target>            </trans-unit>            <trans-unit id="240" resname="menu_borderHorizontal">               <source>Horizontal borders</source>               <target>Horizontale Linien</target>            </trans-unit>            <trans-unit id="241" resname="menu_border_left">               <source>Left borders</source>               <target>Linien links</target>            </trans-unit>            <trans-unit id="242" resname="menu_border_right">               <source>Right borders</source>               <target>Linien rechts</target>            </trans-unit>            <trans-unit id="243" resname="menu_border_top">               <source>Top borders</source>               <target>Linien oben</target>            </trans-unit>            <trans-unit id="244" resname="menu_border_bottom">               <source>Bottom borders</source>               <target>Linien unten</target>            </trans-unit>            <trans-unit id="245" resname="menu_border_thickness">               <source>Thickness</source>               <target>Stärke</target>            </trans-unit>            <trans-unit id="246" resname="menu_border_color">               <source>Color</source>               <target>Farbe</target>            </trans-unit>	            <trans-unit id="247" resname="button_addBorder">            	<source>Add</source>            	<target>Hinzufügen</target>            </trans-unit>              <trans-unit id="248" resname="button_clearBorder">            	<source>Clear</source>            	<target>Löschen</target>            </trans-unit>                   </group>      <group resname="messages">        <trans-unit id="153" resname="select_a_report_definition_document">          <source>Select a report definition document</source>          <target>Wählen Sie eine Berichtsvorlage aus</target>        </trans-unit>        <trans-unit id="154" resname="save_the_report_as">          <source>Name of the report definition document</source>          <target>Name der Berichtsvorlage</target>        </trans-unit>        <trans-unit id="177" resname="save_the_new_report_as">          <source>Name of the new report definition document</source>          <target>Name der neuen Berichtsvorlage</target>        </trans-unit>      </group>      <group resname="Format">        <trans-unit id="158" resname="disparate">          <source>&lt;Disparate&gt;</source>          <target>&lt;Unterschiedlich&gt;</target>        </trans-unit>        <trans-unit id="159" resname="none">          <source>&lt;None&gt;</source>          <target>&lt;Nichts&gt;</target>        </trans-unit>        <trans-unit id="161" resname="inapplicable">          <source>&lt;Inapplicable&gt;</source>          <target>&lt;Nicht anwendbar&gt;</target>        </trans-unit>        <trans-unit id="166" resname="systemFont">          <source>System Font</source>          <target>Systemschrift</target>        </trans-unit>      </group>      <group resname="Fields">        <trans-unit id="178" resname="listOfFields">          <source>List of Fields</source>          <target>Feldliste</target>        </trans-unit>        <trans-unit id="179" resname="listOfFieldsTips">          <source>Double click to append a columnDrag &amp; drop to insert or replace a column</source>          <target>Doppelklick um Spalte anzufügenDrag &amp; drop zum Einfügen oder Ersetzen</target>        </trans-unit>        <trans-unit id="180" resname="fieldsLabel">          <source>Fields</source>          <target>Felder</target>        </trans-unit>      </group>      <group resname="Settings">        <trans-unit id="181" resname="addFormula">          <source>Add Formula...</source>          <target>Formel hinzufügen...</target>        </trans-unit>        <trans-unit id="182" resname="availableFields">          <source>Available Fields</source>          <target>Verfügbare Felder</target>        </trans-unit>        <trans-unit id="183" resname="modify">          <source>Modify...</source>          <target>Ändern...</target>        </trans-unit>        <trans-unit id="185" resname="reportColumns">          <source>Report Columns</source>          <target>Berichtspalten</target>        </trans-unit>      </group>      <group resname="CrossReport">        <trans-unit id="185" resname="columns">          <source>&lt;Columns&gt;</source>          <target>&lt;Spalten&gt;</target>        </trans-unit>        <trans-unit id="186" resname="rows">          <source>&lt;Rows&gt;</source>          <target>&lt;Zeilen&gt;</target>        </trans-unit>        <trans-unit id="187" resname="cells">          <source>&lt;Cells&gt;</source>          <target>&lt;Zellen&gt;</target>        </trans-unit>        <trans-unit id="188" resname="assignAsDatasourceForColumns">          <source>Assign as datasource for Columns</source>          <target>Als Datenquelle für Spalten verwenden</target>        </trans-unit>        <trans-unit id="189" resname="assignAsDatasourceForRows">          <source>Assign as datasource for Rows</source>          <target>Als Datenquelle für Zeilen verwenden</target>        </trans-unit>        <trans-unit id="190" resname="assignAsDatasourceForCells">          <source>Use as datasource for Cells</source>          <target>Als Datenquelle für Zellen verwenden</target>        </trans-unit>        <trans-unit id="195" resname="defaultLastColumnTitle">          <source>Totals</source>          <target>Summen</target>        </trans-unit>        <trans-unit id="196" resname="defaultLastRowTitle">          <source>Grand Total</source>          <target>Gesamtsumme</target>        </trans-unit>        <trans-unit id="197" resname="tipsRowDataSource">          <source>Data Source for Rows</source>          <target>Datenquelle für Zeilen</target>        </trans-unit>        <trans-unit id="198" resname="tipsColumnDataSource">          <source>Data Source for Columns</source>          <target>Datenquelle für Spalten</target>        </trans-unit>        <trans-unit id="199" resname="tipsCellDataSource">          <source>Data Source for Cells</source>          <target>Datenquelle für Zellen</target>        </trans-unit>      </group>      <group resname="templates">        <trans-unit id="200" resname="title_1">          <source>Person</source>          <target>Person</target>        </trans-unit>        <trans-unit id="201" resname="title_2">          <source>Department</source>          <target>Abteilung</target>        </trans-unit>        <trans-unit id="202" resname="title_3">          <source>Area</source>          <target>Bereich</target>        </trans-unit>        <trans-unit id="203" resname="title_4">          <source>Sales</source>          <target>Verkauf</target>        </trans-unit>        <trans-unit id="204" resname="person_4">          <source>Vincent</source>          <target>Vincent</target>        </trans-unit>        <trans-unit id="205" resname="person_5">          <source>Natalie</source>          <target>Natalie</target>        </trans-unit>        <trans-unit id="206" resname="person_1">          <source>Peter</source>          <target>Peter</target>        </trans-unit>        <trans-unit id="207" resname="person_2">          <source>Helene</source>          <target>Helene</target>        </trans-unit>        <trans-unit id="208" resname="person_3">          <source>François</source>          <target>François</target>        </trans-unit>        <trans-unit id="209" resname="service">          <source>Sales</source>          <target>Sales</target>        </trans-unit>        <trans-unit id="210" resname="sector_1">          <source>North-East</source>          <target>Nordost</target>        </trans-unit>        <trans-unit id="211" resname="sector_2">          <source>South-West</source>          <target>Südwest</target>        </trans-unit>        <trans-unit id="212" resname="sector">          <source>{sector} Area</source>          <target>{sector} Bereich</target>        </trans-unit>        <trans-unit id="213" resname="departement">          <source>{service} Department</source>          <target>{service} Abteilung</target>        </trans-unit>        <trans-unit id="214" resname="button_apply">          <source>Apply</source>          <target>Anwenden</target>        </trans-unit>      </group>      <group resname="errors">        <trans-unit id="215" resname="ERROR_4DQR_1">          <source>The quick report area type must be Numeric.</source>          <target>Der Variablentyp eines Schnellbericht-Bereichs muss numerisch sein.</target>        </trans-unit>      </group>      <group resname="Tips">        <trans-unit id="Mx3dx03ndviL1DPMjrRypQ" resname="ascendingSortOrder">          <source>Ascending sort order</source>          <target state="new">Ascending sort order</target>        </trans-unit>        <trans-unit id="Sy3GZtSXmevEXXGJiGJPNw" resname="descendingSortOrder">          <source>Descending sort order</source>          <target state="new">Descending sort order</target>        </trans-unit>      </group>    </body>  </file></xliff>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--Translation file.
+This file is distributed under the same license as the product package.-->
+<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
+
+  <file datatype="x-STR#" original="undefined" source-language="en" target-language="de">
+    <header>
+      <prop-group name="Xliff-Editor.4dbase">
+        <prop prop-type="version">2.0</prop>
+      </prop-group>
+    </header>
+    <body>
+      <group resname="List report">
+        <trans-unit id="1" resname="head_title">
+          <source>Title</source>
+          <target>Titel</target>
+        </trans-unit>
+        <trans-unit id="2" resname="head_details">
+          <source>Details</source>
+          <target>Details</target>
+        </trans-unit>
+        <trans-unit id="3" resname="head_grand_total">
+          <source>Grand total</source>
+          <target>Gesamtsumme</target>
+        </trans-unit>
+        <trans-unit id="4" resname="head_subtotal">
+          <source>{field} changed</source>
+          <target>{field} Änderung</target>
+        </trans-unit>
+      </group>
+      <group resname="dialog">
+        <trans-unit id="dialog_1" resname="qr_windowTitle">
+          <source>Quick Report</source>
+          <target>Schnellbericht</target>
+        </trans-unit>
+        <trans-unit id="dialog_2" resname="qr_noTable">
+          <source>No table to make a report</source>
+          <target>Keine Tabelle ausgewählt</target>
+        </trans-unit>
+      </group>
+      <group resname="data">
+        <trans-unit id="6" resname="nqr_sum">
+          <source>Sum</source>
+          <target>Summe</target>
+        </trans-unit>
+        <trans-unit id="7" resname="nqr_average">
+          <source>Average</source>
+          <target>Durchschnitt</target>
+        </trans-unit>
+        <trans-unit id="8" resname="nqr_min">
+          <source>Min</source>
+          <target>Min</target>
+        </trans-unit>
+        <trans-unit id="9" resname="nqr_max">
+          <source>Max</source>
+          <target>Max</target>
+        </trans-unit>
+        <trans-unit id="10" resname="nqr_count">
+          <source>Count</source>
+          <target>Anzahl</target>
+        </trans-unit>
+        <trans-unit id="11" resname="nqr_standard_deviation">
+          <source>Standard deviation</source>
+          <target>Standardabweichung</target>
+        </trans-unit>
+      </group>
+      <group resname="Background Colors">
+        <trans-unit id="81" resname="back_0">
+          <source>Automatic</source>
+          <target>Automatik</target>
+        </trans-unit>
+        <trans-unit id="82" resname="back_1">
+          <source>Sable</source>
+          <target>Sable</target>
+        </trans-unit>
+        <trans-unit id="83" resname="back_2">
+          <source>Melon</source>
+          <target>Melon</target>
+        </trans-unit>
+        <trans-unit id="84" resname="back_3">
+          <source>Orange</source>
+          <target>Orange</target>
+        </trans-unit>
+        <trans-unit id="85" resname="back_4">
+          <source>Salmon</source>
+          <target>Salmon</target>
+        </trans-unit>
+        <trans-unit id="86" resname="back_5">
+          <source>Lilac</source>
+          <target>Lilac</target>
+        </trans-unit>
+        <trans-unit id="87" resname="back_6">
+          <source>Light Violet</source>
+          <target>Light Violet</target>
+        </trans-unit>
+        <trans-unit id="88" resname="back_7">
+          <source>Pigeon Blue</source>
+          <target>Pigeon Blue</target>
+        </trans-unit>
+        <trans-unit id="89" resname="back_8">
+          <source>Turkish Blue</source>
+          <target>Turkish Blue</target>
+        </trans-unit>
+        <trans-unit id="90" resname="back_9">
+          <source>Pale Green</source>
+          <target>Pale Green</target>
+        </trans-unit>
+        <trans-unit id="91" resname="back_10">
+          <source>Yellow Green</source>
+          <target>Yellow Green</target>
+        </trans-unit>
+        <trans-unit id="92" resname="back_11">
+          <source>Golden Maize</source>
+          <target>Golden Maize</target>
+        </trans-unit>
+        <trans-unit id="93" resname="back_12">
+          <source>Grayish Brown</source>
+          <target>Grayish Brown</target>
+        </trans-unit>
+        <trans-unit id="94" resname="back_13">
+          <source>Dark Sable</source>
+          <target>Dark Sable</target>
+        </trans-unit>
+        <trans-unit id="95" resname="back_14">
+          <source>Antelope</source>
+          <target>Antelope</target>
+        </trans-unit>
+        <trans-unit id="96" resname="back_15">
+          <source>Pale Blue</source>
+          <target>Pale Blue</target>
+        </trans-unit>
+        <trans-unit id="97" resname="back_16">
+          <source>Cold Gray</source>
+          <target>Cold Gray</target>
+        </trans-unit>
+        <trans-unit id="98" resname="back_17">
+          <source>Personalized...</source>
+          <target>Angepasst...</target>
+        </trans-unit>
+      </group>
+      <group resname="Foreground Colors">
+        <trans-unit id="200" resname="front_0">
+          <source>Automatic</source>
+          <target>Automatik</target>
+        </trans-unit>
+        <trans-unit id="201" resname="front_1">
+          <source>Beige</source>
+          <target>Beige</target>
+        </trans-unit>
+        <trans-unit id="202" resname="front_2">
+          <source>Brown</source>
+          <target>Brown</target>
+        </trans-unit>
+        <trans-unit id="203" resname="front_3">
+          <source>Orange</source>
+          <target>Orange</target>
+        </trans-unit>
+        <trans-unit id="204" resname="front_4">
+          <source>Red</source>
+          <target>Red</target>
+        </trans-unit>
+        <trans-unit id="205" resname="front_5">
+          <source>Purple</source>
+          <target>Purple</target>
+        </trans-unit>
+        <trans-unit id="206" resname="front_6">
+          <source>Violet</source>
+          <target>Violet</target>
+        </trans-unit>
+        <trans-unit id="207" resname="front_7">
+          <source>Signal Blue</source>
+          <target>Signal Blue</target>
+        </trans-unit>
+        <trans-unit id="208" resname="front_8">
+          <source>Water Blue</source>
+          <target>Water Blue</target>
+        </trans-unit>
+        <trans-unit id="209" resname="front_9">
+          <source>Leaf Green</source>
+          <target>Leaf Green</target>
+        </trans-unit>
+        <trans-unit id="210" resname="front_10">
+          <source>Signal Green</source>
+          <target>Signal Green</target>
+        </trans-unit>
+        <trans-unit id="211" resname="front_11">
+          <source>Brillant Yellow Green</source>
+          <target>Brillant Yellow Green</target>
+        </trans-unit>
+        <trans-unit id="212" resname="front_12">
+          <source>Olive</source>
+          <target>Olive</target>
+        </trans-unit>
+        <trans-unit id="213" resname="front_13">
+          <source>Saddle Brown</source>
+          <target>Saddle Brown</target>
+        </trans-unit>
+        <trans-unit id="214" resname="front_14">
+          <source>Beaver Brown</source>
+          <target>Beaver Brown</target>
+        </trans-unit>
+        <trans-unit id="215" resname="front_15">
+          <source>Moderate blue</source>
+          <target>Moderate blue</target>
+        </trans-unit>
+        <trans-unit id="216" resname="front_16">
+          <source>Dark Cold Gray</source>
+          <target>Dark Cold Gray</target>
+        </trans-unit>
+        <trans-unit id="217" resname="front_17">
+          <source>Personalized...</source>
+          <target>Angepasst...</target>
+        </trans-unit>
+      </group>
+      <group resname="Date format">
+        <trans-unit id="1" resname="date_1">
+          <source>System date short</source>
+          <target>Systemabhängig kurz</target>
+        </trans-unit>
+        <trans-unit id="2" resname="date_2">
+          <source>System date abbreviated</source>
+          <target>Systemabhängig abgekürzt</target>
+        </trans-unit>
+        <trans-unit id="3" resname="date_3">
+          <source>System date long</source>
+          <target>Systemabhängig ausgeschrieben</target>
+        </trans-unit>
+        <trans-unit id="4" resname="date_4">
+          <source>Internal date short special</source>
+          <target>Intern kurz Spezial</target>
+        </trans-unit>
+        <trans-unit id="5" resname="date_5">
+          <source>Internal date long</source>
+          <target>Intern ausgeschrieben</target>
+        </trans-unit>
+        <trans-unit id="6" resname="date_6">
+          <source>Internal date abbreviated</source>
+          <target>Intern abgekürzt</target>
+        </trans-unit>
+        <trans-unit id="7" resname="date_7">
+          <source>Internal date short</source>
+          <target>Intern Kurz</target>
+        </trans-unit>
+        <trans-unit id="8" resname="date_8">
+          <source>ISO Date Time</source>
+          <target>ISO Datum Zeit</target>
+        </trans-unit>
+      </group>
+      <group resname="Picture formats">
+        <trans-unit id="1" resname="pict_1">
+          <source>Truncated (centered)</source>
+          <target>Abgeschnitten (zentriert)</target>
+        </trans-unit>
+        <trans-unit id="2" resname="pict_2">
+          <source>Scaled to fit</source>
+          <target>Größe angepasst</target>
+        </trans-unit>
+        <trans-unit id="3" resname="pict_3">
+          <source>On Background</source>
+          <target>Auf Hintergrund</target>
+        </trans-unit>
+        <trans-unit id="4" resname="pict_4">
+          <source>Truncated (non-centered)</source>
+          <target>Abgeschnitten (links oben)</target>
+        </trans-unit>
+        <trans-unit id="5" resname="pict_5">
+          <source>Scaled to fit (proportional)</source>
+          <target>Proportional verkleinert</target>
+        </trans-unit>
+        <trans-unit id="6" resname="pict_6">
+          <source>Scaled to fit centered (prop.)</source>
+          <target>Prop. verkleinert (zentriert)</target>
+        </trans-unit>
+        <trans-unit id="7" resname="pict_7">
+          <source>Replicated</source>
+          <target>Wiederholt</target>
+        </trans-unit>
+      </group>
+      <group resname="Boolean Format">
+        <trans-unit id="1" resname="boolean_1">
+          <source>True;False</source>
+          <target>Wahr;Falsch</target>
+          <note>You can add/remove formats according to the localisation.
+
+Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.
+               </note>
+        </trans-unit>
+        <trans-unit id="2" resname="boolean_2">
+          <source>Yes;No</source>
+          <target>Ja;Nein</target>
+        </trans-unit>
+        <trans-unit id="3" resname="boolean_3">
+          <source>Male;Female</source>
+          <target>Männlich;Weiblich</target>
+        </trans-unit>
+        <trans-unit id="4" resname="boolean_4">
+          <source>Mr;Ms</source>
+          <target>Herr;Frau</target>
+        </trans-unit>
+      </group>
+      <group resname="Number Format">
+        <trans-unit id="1" resname="number_1">
+          <source>###,##0</source>
+          <target>###,##0</target>
+          <note>You can add/remove formats according to the localisation.
+
+Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.
+
+Use the 4D separators: "." for decimal separator and "," for thousand separator 
+               </note>
+        </trans-unit>
+        <trans-unit id="2" resname="number_2">
+          <source>###,##0.00</source>
+          <target>###,##0.00</target>
+        </trans-unit>
+        <trans-unit id="3" resname="number_3">
+          <source>###,##0 ;###,##0-</source>
+          <target>-###,##0 ;###,##0</target>
+        </trans-unit>
+        <trans-unit id="4" resname="number_4">
+          <source>###,##0.00 ;###,##0.00-</source>
+          <target>-###,##0.00 ;###,##0.00</target>
+        </trans-unit>
+        <trans-unit id="5" resname="number_5">
+          <source>###,##0;(###,##0)</source>
+          <target>###,##0;(###,##0)</target>
+        </trans-unit>
+        <trans-unit id="6" resname="number_6">
+          <source>###,##0;(###,##0.00)</source>
+          <target>###,##0;(###,##0.00)</target>
+        </trans-unit>
+        <trans-unit id="7" resname="number_7">
+          <source>###,##0.00  ;###,##0.00CR</source>
+          <target>###,##0.00  ;###,##0.00CR</target>
+        </trans-unit>
+        <trans-unit id="8" resname="number_8">
+          <source>$###,##0;-$###,##0</source>
+          <target>$###,##0;-$###,##0</target>
+        </trans-unit>
+        <trans-unit id="9" resname="number_9">
+          <source>$###,##0;($###,##0)</source>
+          <target>$###,##0;($###,##0)</target>
+        </trans-unit>
+        <trans-unit id="10" resname="number_10">
+          <source>$###,##0.00;-$###,##0.00</source>
+          <target>$###,##0.00;-$###,##0.00</target>
+        </trans-unit>
+        <trans-unit id="11" resname="number_11">
+          <source>$###,##0.00;($###,##0.00)</source>
+          <target>$###,##0.00;($###,##0.00)</target>
+        </trans-unit>
+        <trans-unit id="12" resname="number_12">
+          <source>$^^^,^^0;-$^^^,^^0</source>
+          <target>$^^^,^^0;-$^^^,^^0</target>
+        </trans-unit>
+        <trans-unit id="13" resname="number_13">
+          <source>$^^^,^^0;($^^^,^^0)</source>
+          <target>$^^^,^^0;($^^^,^^0)</target>
+        </trans-unit>
+        <trans-unit id="14" resname="number_14">
+          <source>$^^^,^^0.00;-$^^^,^^0.00</source>
+          <target>$^^^,^^0.00;-$^^^,^^0.00</target>
+        </trans-unit>
+        <trans-unit id="15" resname="number_15">
+          <source>$^^^,^^0.00;($^^^,^^0.00)</source>
+          <target>$^^^,^^0.00;($^^^,^^0.00)</target>
+        </trans-unit>
+        <trans-unit id="16" resname="number_16">
+          <source>$***,**0.00;-$***,**0.00</source>
+          <target>$***,**0.00;-$***,**0.00</target>
+        </trans-unit>
+        <trans-unit id="17" resname="number_17">
+          <source>$***,**0.00;($***,**0.00)</source>
+          <target>$***,**0.00;($***,**0.00)</target>
+        </trans-unit>
+        <trans-unit id="18" resname="number_18">
+          <source>$***,**0.00;VOID</source>
+          <target>$***,**0.00;VOID</target>
+        </trans-unit>
+        <trans-unit id="19" resname="number_19">
+          <source>###,##0.00€;(###,##0.00€)</source>
+          <target>###,##0.00€;(###,##0.00€)</target>
+        </trans-unit>
+      </group>
+      <group resname="Time format">
+        <trans-unit id="1" resname="time_1">
+          <source>HH:MM:SS</source>
+          <target>HH:MM:SS</target>
+        </trans-unit>
+        <trans-unit id="2" resname="time_2">
+          <source>HH:MM</source>
+          <target>HH:MM</target>
+        </trans-unit>
+        <trans-unit id="3" resname="time_3">
+          <source>Hour Min Sec</source>
+          <target>Stunde Min Sek</target>
+        </trans-unit>
+        <trans-unit id="4" resname="time_4">
+          <source>Hour Min</source>
+          <target>Stunde Min</target>
+        </trans-unit>
+        <trans-unit id="5" resname="time_5">
+          <source>HH:MM AM/PM</source>
+          <target>HH:MM AM/PM</target>
+        </trans-unit>
+        <trans-unit id="6" resname="time_6">
+          <source>MM:SS</source>
+          <target>MM:SS</target>
+        </trans-unit>
+        <trans-unit id="7" resname="time_7">
+          <source>Min Sec</source>
+          <target>Min Sek</target>
+        </trans-unit>
+        <trans-unit id="8" resname="time_8">
+          <source>ISO Date Time</source>
+          <target>ISO Datum Zeit</target>
+        </trans-unit>
+        <trans-unit id="9" resname="time_9">
+          <source>System time short</source>
+          <target>System Format kurz</target>
+        </trans-unit>
+        <trans-unit id="10" resname="time_10">
+          <source>System time long abbreviated</source>
+          <target>System Format lang abgekürzt</target>
+        </trans-unit>
+        <trans-unit id="11" resname="time_11">
+          <source>System time long</source>
+          <target>System Format lang</target>
+        </trans-unit>
+      </group>
+      <group resname="Alpha format">
+        <trans-unit id="1" resname="alpha_1" translate="no">
+          <source>###-####</source>
+        </trans-unit>
+        <trans-unit id="2" resname="alpha_2" translate="yes">
+          <source>(###) ###-####</source>
+        </trans-unit>
+        <trans-unit id="3" resname="alpha_3" translate="yes">
+          <source>###-###-####</source>
+          <target>###-###-####</target>
+        </trans-unit>
+        <trans-unit id="4" resname="alpha_4" translate="yes">
+          <source>###-##-####</source>
+        </trans-unit>
+        <trans-unit id="5" resname="alpha_5" translate="yes">
+          <source>00000</source>
+        </trans-unit>
+      </group>
+      <group resname="menus">
+        <trans-unit id="117" resname="menu_4d_view" translate="no">
+          <source>4D View</source>
+        </trans-unit>
+        <trans-unit id="113" resname="menu_add_column">
+          <source>Add a column…</source>
+          <target>Spalte hinzufügen…</target>
+        </trans-unit>
+        <trans-unit id="154" resname="menu_align_center">
+          <source>Align Center</source>
+          <target>Zentriert ausrichten</target>
+        </trans-unit>
+        <trans-unit id="155" resname="menu_align_default">
+          <source>Default</source>
+          <target>Standard</target>
+        </trans-unit>
+        <trans-unit id="152" resname="menu_align_left">
+          <source>Align Left</source>
+          <target>Links ausrichten</target>
+        </trans-unit>
+        <trans-unit id="153" resname="menu_align_right">
+          <source>Align Right</source>
+          <target>Rechtes ausrichten</target>
+        </trans-unit>
+        <trans-unit id="144" resname="menu_alternate_background_color">
+          <source>Alternate Background Color</source>
+          <target>Abwechselnde Hintergrundfarbe</target>
+        </trans-unit>
+        <trans-unit id="125" resname="menu_automatic_width">
+          <source>Automatic Width</source>
+          <target>Automatische Breite</target>
+        </trans-unit>
+        <trans-unit id="133" resname="menu_average">
+          <source>Average</source>
+          <target>Durchschnitt</target>
+        </trans-unit>
+        <trans-unit id="143" resname="menu_background_color">
+          <source>Background Color</source>
+          <target>Hintergrundfarbe</target>
+        </trans-unit>
+        <trans-unit id="150" resname="menu_bold">
+          <source>Bold</source>
+          <target>Fett</target>
+        </trans-unit>
+        <trans-unit id="118" resname="menu_borders">
+          <source>Borders…</source>
+          <target>Rahmen</target>
+        </trans-unit>
+        <trans-unit id="158" resname="menu_cells">
+          <source>Cells</source>
+          <target>Zellen</target>
+        </trans-unit>
+        <trans-unit id="174" resname="menu_clear_content">
+          <source>Clear Contents</source>
+          <target>Inhalt löschen</target>
+        </trans-unit>
+        <trans-unit id="159" resname="menu_columns">
+          <source>Columns</source>
+          <target>Spalten</target>
+        </trans-unit>
+        <trans-unit id="136" resname="menu_count">
+          <source>Count</source>
+          <target>Anzahl</target>
+        </trans-unit>
+        <trans-unit id="161" resname="menu_delete_break_line">
+          <source>Delete this break line</source>
+          <target>Diese Umbruchzeile löschen</target>
+        </trans-unit>
+        <trans-unit id="123" resname="menu_delete_column">
+          <source>Delete this column</source>
+          <target>Diese Spalte löschen</target>
+        </trans-unit>
+        <trans-unit id="148" resname="menu_destination">
+          <source>Destination</source>
+          <target>Ziel</target>
+        </trans-unit>
+        <trans-unit id="173" resname="menu_duplicate_column">
+          <source>Duplicate this column</source>
+          <target>Diese Spalte duplizieren</target>
+        </trans-unit>
+        <trans-unit id="175" resname="menu_edit">
+          <source>Edit</source>
+          <target>Bearbeiten</target>
+        </trans-unit>
+        <trans-unit id="121" resname="menu_edit_formula">
+          <source>Edit the formula…</source>
+          <target>Formel ändern…</target>
+        </trans-unit>
+        <trans-unit id="157" resname="menu_file">
+          <source>File</source>
+          <target>Datei</target>
+        </trans-unit>
+        <trans-unit id="138" resname="menu_font">
+          <source>Font</source>
+          <target>Schrift</target>
+        </trans-unit>
+        <trans-unit id="142" resname="menu_font_color">
+          <source>Font Color</source>
+          <target>Schriftfarbe</target>
+        </trans-unit>
+        <trans-unit id="145" resname="menu_format">
+          <source>Format</source>
+          <target>Format</target>
+        </trans-unit>
+        <trans-unit id="151" resname="menu_generate">
+          <source>Generate…</source>
+          <target>Erzeugen…</target>
+        </trans-unit>
+        <trans-unit id="119" resname="menu_header_and_footers">
+          <source>Header &amp; Footer…</source>
+          <target>Kopf &amp; Fußteil…</target>
+        </trans-unit>
+        <trans-unit id="176" resname="menu_hide">
+          <source>Hide</source>
+          <target>Ausblenden</target>
+        </trans-unit>
+        <trans-unit id="168" resname="menu_hide_break_line">
+          <source>Hide this break line</source>
+          <target>Diese Umbruchzeile ausblenden</target>
+        </trans-unit>
+        <trans-unit id="122" resname="menu_hide_column">
+          <source>Hide this column</source>
+          <target>Diese Spalte ausblenden</target>
+        </trans-unit>
+        <trans-unit id="130" resname="menu_hide_row">
+          <source>Hide this row</source>
+          <target>Diese Zeile ausblenden</target>
+        </trans-unit>
+        <trans-unit id="116" resname="menu_html_file">
+          <source>HTML file</source>
+          <target>HTML Datei</target>
+        </trans-unit>
+        <trans-unit id="169" resname="menu_insert_after">
+          <source>After</source>
+          <target>Danach</target>
+        </trans-unit>
+        <trans-unit id="168" resname="menu_insert_before">
+          <source>Before</source>
+          <target>Vorher</target>
+        </trans-unit>
+        <trans-unit id="170" resname="menu_insert_begin">
+          <source>At the beginning</source>
+          <target>Am Anfang</target>
+        </trans-unit>
+        <trans-unit id="120" resname="menu_insert_column">
+          <source>Insert a column…</source>
+          <target>Spalte einfügen…</target>
+        </trans-unit>
+        <trans-unit id="171" resname="menu_insert_end">
+          <source>At the end</source>
+          <target>Am Ende</target>
+        </trans-unit>
+        <trans-unit id="148" resname="menu_italic">
+          <source>Italic</source>
+          <target>Kursiv</target>
+        </trans-unit>
+        <trans-unit id="141" resname="menu_justification">
+          <source>Justification</source>
+          <target>Ausrichtung</target>
+        </trans-unit>
+        <trans-unit id="155" resname="menu_max">
+          <source>Max</source>
+          <target>Max</target>
+        </trans-unit>
+        <trans-unit id="134" resname="menu_min">
+          <source>Min</source>
+          <target>Min</target>
+        </trans-unit>
+        <trans-unit id="143" resname="menu_new">
+          <source>New</source>
+          <target>Neu</target>
+        </trans-unit>
+        <trans-unit id="172" resname="menu_new_column">
+          <source>New column</source>
+          <target>Neue Spalte</target>
+        </trans-unit>
+        <trans-unit id="144" resname="menu_open">
+          <source>Open…</source>
+          <target>Öffnen…</target>
+        </trans-unit>
+        <trans-unit id="149" resname="menu_page_setup">
+          <source>Page Setup…</source>
+          <target>Seite einrichten…</target>
+        </trans-unit>
+        <trans-unit id="151" resname="menu_plain">
+          <source>Plain</source>
+          <target>Standard</target>
+        </trans-unit>
+        <trans-unit id="156" resname="menu_presentation">
+          <source>Presentation…</source>
+          <target>Darstellung…</target>
+        </trans-unit>
+        <trans-unit id="150" resname="menu_preview ">
+          <source>Print Preview…</source>
+          <target>Druckvorschau…</target>
+        </trans-unit>
+        <trans-unit id="114" resname="menu_printer">
+          <source>Printer</source>
+          <target>Drucker</target>
+        </trans-unit>
+        <trans-unit id="124" resname="menu_repeated_values">
+          <source>Repeated Values</source>
+          <target>Wiederholte Werte</target>
+        </trans-unit>
+        <trans-unit id="147" resname="menu_revert">
+          <source>Revert to save</source>
+          <target>Letzte Version</target>
+        </trans-unit>
+        <trans-unit id="145" resname="menu_save">
+          <source>Save</source>
+          <target>Speichern</target>
+        </trans-unit>
+        <trans-unit id="146" resname="menu_save_as">
+          <source>Save as…</source>
+          <target>Speichern unter…</target>
+        </trans-unit>
+        <trans-unit id="146" resname="menu_show_fonts">
+          <source>Show font…</source>
+          <target>Schrift anzeigen…</target>
+        </trans-unit>
+        <trans-unit id="139" resname="menu_size">
+          <source>Size</source>
+          <target>Größe</target>
+        </trans-unit>
+        <trans-unit id="127" resname="menu_sort_ascending">
+          <source>Ascending</source>
+          <target>Aufsteigend</target>
+        </trans-unit>
+        <trans-unit id="128" resname="menu_sort_descending">
+          <source>Descending</source>
+          <target>Absteigend</target>
+        </trans-unit>
+        <trans-unit id="126" resname="menu_sort_none">
+          <source>None</source>
+          <target>Nicht</target>
+        </trans-unit>
+        <trans-unit id="129" resname="menu_sort_order">
+          <source>Sort Order</source>
+          <target>Sortierfolge</target>
+        </trans-unit>
+        <trans-unit id="137" resname="menu_standard_deviation">
+          <source>Standard deviation</source>
+          <target>Standardabweichung</target>
+        </trans-unit>
+        <trans-unit id="140" resname="menu_style">
+          <source>Style</source>
+          <target>Stil</target>
+        </trans-unit>
+        <trans-unit id="132" resname="menu_sum">
+          <source>Sum</source>
+          <target>Summe</target>
+        </trans-unit>
+        <trans-unit id="115" resname="menu_text_file">
+          <source>Text file</source>
+          <target>Text-Dokument</target>
+        </trans-unit>
+        <trans-unit id="131" resname="menu_total_spacing">
+          <source>Total Spacing…</source>
+          <target>Gesamter Abstand…</target>
+        </trans-unit>
+        <trans-unit id="147" resname="menu_underline">
+          <source>Underline</source>
+          <target>Unterstrichen</target>
+        </trans-unit>
+        <trans-unit id="191" resname="menu_sort_leftToRight">
+          <source>From left to right</source>
+          <target>Von links nach rechts</target>
+        </trans-unit>
+        <trans-unit id="192" resname="menu_sort_rightToLeft">
+          <source>From right to left</source>
+          <target>Von rechts nach links</target>
+        </trans-unit>
+        <trans-unit id="193" resname="menu_sort_topToBottom">
+          <source>From top to bottom</source>
+          <target>Von oben nach unten</target>
+        </trans-unit>
+        <trans-unit id="194" resname="menu_sort_bottomToTop">
+          <source>From bottom to top</source>
+          <target>Von unten nach oben</target>
+        </trans-unit>
+		<trans-unit id="218" resname="menu_subtotalProperties">
+		   <source>Spacing</source>
+		   <target>Abstand</target>
+		</trans-unit>
+		<trans-unit id="219" resname="menu_subtotalSpacingBreak">
+		   <source>Page break </source>
+		   <target>Seitenumbruch </target>
+		</trans-unit>
+		<trans-unit id="221" resname="menu_subtotalSpacingPercent">
+		   <source>%</source>
+		   <target>%</target>
+		</trans-unit>
+		<trans-unit id="222" resname="menu_subtotalSpacingPoint">
+		   <source>Pt</source>
+		   <target>Pt</target>
+		</trans-unit>
+		<trans-unit id="223" resname="menu_subtotalSpacingItem">
+		   <source>Break options</source>
+		   <target>Abstand Optionen</target>
+		</trans-unit>
+		<trans-unit id="225" resname="menu_subtotalSpacingMnuInPercent">
+		   <source>Line break (%)...</source>
+		   <target>Zeilenumbruch (%)...</target>
+		</trans-unit>
+		<trans-unit id="226" resname="menu_subtotalSpacingMnuPageBreak">
+		   <source>Page Break</source>
+		   <target>Seitenumbruch</target>
+		</trans-unit>
+		<trans-unit id="227" resname="menu_subtotalSpacingRequest">
+		   <source>Spacing</source>
+		   <target>Abstand</target>
+		</trans-unit>
+		<trans-unit id="228" resname="menu_subtotalSpacingValue">
+		   <source>Line break</source>
+		   <target>Zeilenumbruch</target>
+		</trans-unit>
+		<trans-unit id="229" resname="menu_subtotalSpacingMnuInPoint">
+		   <source>Line break (pt)...</source>
+		   <target>Zeilenumbruch (pt)...</target>
+		</trans-unit>
+		            <trans-unit id="230" resname="menu_thickness0">
+               <source>No border</source>
+               <target>Kein Rahmen</target>
+            </trans-unit>
+            <trans-unit id="231" resname="menu_thickness1">
+               <source>Hairline</source>
+               <target>Haarlinie</target>
+            </trans-unit>
+            <trans-unit id="232" resname="menu_thickness2">
+               <source>0.5 point</source>
+               <target>0.5 Punkte</target>
+            </trans-unit>
+            <trans-unit id="233" resname="menu_thickness3">
+               <source>1 point</source>
+               <target>1 Punkt</target>
+            </trans-unit>
+            <trans-unit id="234" resname="menu_thickness4">
+               <source>2 points</source>
+               <target>2 Punkte</target>
+            </trans-unit>
+            <trans-unit id="235" resname="menu_thicknessMultiple">
+               <source>(Mixed)</source>
+               <target>(Mehrere)</target>
+            </trans-unit>
+                                   <trans-unit id="236" resname="menu_borderAll">
+
+               <source>All borders</source>
+
+               <target>Alle Rahmen</target>
+
+            </trans-unit>
+            <trans-unit id="237" resname="menu_borderOutside">
+
+               <source>Outside borders</source>
+
+               <target>Rahmen außerhalb</target>
+
+            </trans-unit>
+            <trans-unit id="238" resname="menu_borderInside">
+
+               <source>Inside borders</source>
+
+               <target>Rahmen innerhalb</target>
+
+            </trans-unit>
+            <trans-unit id="239" resname="menu_borderVertical">
+
+               <source>Vertical borders</source>
+
+               <target>Vertikale Linien</target>
+
+            </trans-unit>
+            <trans-unit id="240" resname="menu_borderHorizontal">
+
+               <source>Horizontal borders</source>
+
+               <target>Horizontale Linien</target>
+
+            </trans-unit>
+            <trans-unit id="241" resname="menu_border_left">
+
+               <source>Left borders</source>
+
+               <target>Linien links</target>
+
+            </trans-unit>
+            <trans-unit id="242" resname="menu_border_right">
+
+               <source>Right borders</source>
+
+               <target>Linien rechts</target>
+
+            </trans-unit>
+            <trans-unit id="243" resname="menu_border_top">
+
+               <source>Top borders</source>
+
+               <target>Linien oben</target>
+
+            </trans-unit>
+            <trans-unit id="244" resname="menu_border_bottom">
+
+               <source>Bottom borders</source>
+
+               <target>Linien unten</target>
+
+            </trans-unit>
+            <trans-unit id="245" resname="menu_border_thickness">
+
+               <source>Thickness</source>
+
+               <target>Stärke</target>
+
+            </trans-unit>
+            <trans-unit id="246" resname="menu_border_color">
+
+               <source>Color</source>
+
+               <target>Farbe</target>
+
+            </trans-unit>	
+            <trans-unit id="247" resname="button_addBorder">
+            	<source>Add</source>
+            	<target>Hinzufügen</target>
+            </trans-unit>  
+            <trans-unit id="248" resname="button_clearBorder">
+            	<source>Clear</source>
+            	<target>Löschen</target>
+            </trans-unit>             
+      </group>
+      <group resname="messages">
+        <trans-unit id="153" resname="select_a_report_definition_document">
+          <source>Select a report definition document</source>
+          <target>Wählen Sie eine Berichtsvorlage aus</target>
+        </trans-unit>
+        <trans-unit id="154" resname="save_the_report_as">
+          <source>Name of the report definition document</source>
+          <target>Name der Berichtsvorlage</target>
+        </trans-unit>
+        <trans-unit id="177" resname="save_the_new_report_as">
+          <source>Name of the new report definition document</source>
+          <target>Name der neuen Berichtsvorlage</target>
+        </trans-unit>
+      </group>
+      <group resname="Format">
+        <trans-unit id="158" resname="disparate">
+          <source>&lt;Disparate&gt;</source>
+          <target>&lt;Unterschiedlich&gt;</target>
+        </trans-unit>
+        <trans-unit id="159" resname="none">
+          <source>&lt;None&gt;</source>
+          <target>&lt;Nichts&gt;</target>
+        </trans-unit>
+        <trans-unit id="161" resname="inapplicable">
+          <source>&lt;Inapplicable&gt;</source>
+          <target>&lt;Nicht anwendbar&gt;</target>
+        </trans-unit>
+        <trans-unit id="166" resname="systemFont">
+          <source>System Font</source>
+          <target>Systemschrift</target>
+        </trans-unit>
+      </group>
+      <group resname="Fields">
+        <trans-unit id="178" resname="listOfFields">
+          <source>List of Fields</source>
+          <target>Feldliste</target>
+        </trans-unit>
+        <trans-unit id="179" resname="listOfFieldsTips">
+          <source>Double click to append a column
+Drag &amp; drop to insert or replace a column</source>
+          <target>Doppelklick um Spalte anzufügen
+Drag &amp; drop zum Einfügen oder Ersetzen</target>
+        </trans-unit>
+        <trans-unit id="180" resname="fieldsLabel">
+          <source>Fields</source>
+          <target>Felder</target>
+        </trans-unit>
+      </group>
+      <group resname="Settings">
+        <trans-unit id="181" resname="addFormula">
+          <source>Add Formula...</source>
+          <target>Formel hinzufügen...</target>
+        </trans-unit>
+        <trans-unit id="182" resname="availableFields">
+          <source>Available Fields</source>
+          <target>Verfügbare Felder</target>
+        </trans-unit>
+        <trans-unit id="183" resname="modify">
+          <source>Modify...</source>
+          <target>Ändern...</target>
+        </trans-unit>
+        <trans-unit id="185" resname="reportColumns">
+          <source>Report Columns</source>
+          <target>Berichtspalten</target>
+        </trans-unit>
+      </group>
+      <group resname="CrossReport">
+        <trans-unit id="185" resname="columns">
+          <source>&lt;Columns&gt;</source>
+          <target>&lt;Spalten&gt;</target>
+        </trans-unit>
+        <trans-unit id="186" resname="rows">
+          <source>&lt;Rows&gt;</source>
+          <target>&lt;Zeilen&gt;</target>
+        </trans-unit>
+        <trans-unit id="187" resname="cells">
+          <source>&lt;Cells&gt;</source>
+          <target>&lt;Zellen&gt;</target>
+        </trans-unit>
+        <trans-unit id="188" resname="assignAsDatasourceForColumns">
+          <source>Assign as datasource for Columns</source>
+          <target>Als Datenquelle für Spalten verwenden</target>
+        </trans-unit>
+        <trans-unit id="189" resname="assignAsDatasourceForRows">
+          <source>Assign as datasource for Rows</source>
+          <target>Als Datenquelle für Zeilen verwenden</target>
+        </trans-unit>
+        <trans-unit id="190" resname="assignAsDatasourceForCells">
+          <source>Use as datasource for Cells</source>
+          <target>Als Datenquelle für Zellen verwenden</target>
+        </trans-unit>
+        <trans-unit id="195" resname="defaultLastColumnTitle">
+          <source>Totals</source>
+          <target>Summen</target>
+        </trans-unit>
+        <trans-unit id="196" resname="defaultLastRowTitle">
+          <source>Grand Total</source>
+          <target>Gesamtsumme</target>
+        </trans-unit>
+        <trans-unit id="197" resname="tipsRowDataSource">
+          <source>Data Source for Rows</source>
+          <target>Datenquelle für Zeilen</target>
+        </trans-unit>
+        <trans-unit id="198" resname="tipsColumnDataSource">
+          <source>Data Source for Columns</source>
+          <target>Datenquelle für Spalten</target>
+        </trans-unit>
+        <trans-unit id="199" resname="tipsCellDataSource">
+          <source>Data Source for Cells</source>
+          <target>Datenquelle für Zellen</target>
+        </trans-unit>
+      </group>
+      <group resname="templates">
+        <trans-unit id="200" resname="title_1">
+          <source>Person</source>
+          <target>Person</target>
+        </trans-unit>
+        <trans-unit id="201" resname="title_2">
+          <source>Department</source>
+          <target>Abteilung</target>
+        </trans-unit>
+        <trans-unit id="202" resname="title_3">
+          <source>Area</source>
+          <target>Bereich</target>
+        </trans-unit>
+        <trans-unit id="203" resname="title_4">
+          <source>Sales</source>
+          <target>Verkauf</target>
+        </trans-unit>
+        <trans-unit id="204" resname="person_4">
+          <source>Vincent</source>
+          <target>Vincent</target>
+        </trans-unit>
+        <trans-unit id="205" resname="person_5">
+          <source>Natalie</source>
+          <target>Natalie</target>
+        </trans-unit>
+        <trans-unit id="206" resname="person_1">
+          <source>Peter</source>
+          <target>Peter</target>
+        </trans-unit>
+        <trans-unit id="207" resname="person_2">
+          <source>Helene</source>
+          <target>Helene</target>
+        </trans-unit>
+        <trans-unit id="208" resname="person_3">
+          <source>François</source>
+          <target>François</target>
+        </trans-unit>
+        <trans-unit id="209" resname="service">
+          <source>Sales</source>
+          <target>Sales</target>
+        </trans-unit>
+        <trans-unit id="210" resname="sector_1">
+          <source>North-East</source>
+          <target>Nordost</target>
+        </trans-unit>
+        <trans-unit id="211" resname="sector_2">
+          <source>South-West</source>
+          <target>Südwest</target>
+        </trans-unit>
+        <trans-unit id="212" resname="sector">
+          <source>{sector} Area</source>
+          <target>{sector} Bereich</target>
+        </trans-unit>
+        <trans-unit id="213" resname="departement">
+          <source>{service} Department</source>
+          <target>{service} Abteilung</target>
+        </trans-unit>
+        <trans-unit id="214" resname="button_apply">
+          <source>Apply</source>
+          <target>Anwenden</target>
+        </trans-unit>
+      </group>
+      <group resname="errors">
+        <trans-unit id="215" resname="ERROR_4DQR_1">
+          <source>The quick report area type must be Numeric.</source>
+          <target>Der Variablentyp eines Schnellbericht-Bereichs muss numerisch sein.</target>
+        </trans-unit>
+      </group>
+      <group resname="Tips">
+        <trans-unit id="Mx3dx03ndviL1DPMjrRypQ" resname="ascendingSortOrder">
+          <source>Ascending sort order</source>
+          <target state="new">Ascending sort order</target>
+        </trans-unit>
+        <trans-unit id="Sy3GZtSXmevEXXGJiGJPNw" resname="descendingSortOrder">
+          <source>Descending sort order</source>
+          <target state="new">Descending sort order</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+
+</xliff>
