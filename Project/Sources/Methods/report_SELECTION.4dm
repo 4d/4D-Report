@@ -302,6 +302,8 @@ If ($action="select_@")
 		//display if any
 		OBJECT SET VISIBLE:C603(*; "sel@"; $right>=$left)
 		
+		REDRAW WINDOW:C456(Current form window:C827)
+		
 	Else 
 		
 		OBJECT SET VISIBLE:C603(*; "sel@"; False:C215)

@@ -15,6 +15,10 @@ C_BLOB:C604($Blb_buffer)
 C_LONGINT:C283($Lon_area; $Lon_parameters; $Lon_tableNumber)
 C_POINTER:C301($Ptr_container)
 
+var $digest : Text
+
+var $Lon_column; $Lon_row; $Lon_lastColumn; $Lon_lastRow : Integer
+
 If (False:C215)
 	C_POINTER:C301(report_CREATE_AREA; $1)
 End if 
@@ -80,9 +84,13 @@ If ($Lon_tableNumber#0)  //There is at least one table
 		
 		//update the hash
 		QR REPORT TO BLOB:C770($Lon_area; $Blb_buffer)
+		
+		$digest:=Generate digest:C1147($Blb_buffer; MD5 digest:K66:1)
+		QR GET SELECTION:C793($Lon_area; $Lon_column; $Lon_row; $Lon_lastColumn; $Lon_lastRow)
+		$digest+=String:C10($Lon_column)+"_"+String:C10($Lon_row)+"_"+String:C10($Lon_lastColumn)+"_"+String:C10($Lon_lastRow)
+		
 		OB SET:C1220(ob_area; \
-			"_digest"; Generate digest:C1147($Blb_buffer; \
-			MD5 digest:K66:1))
+			"_digest"; $digest)
 		
 		SET BLOB SIZE:C606($Blb_buffer; 0)
 		

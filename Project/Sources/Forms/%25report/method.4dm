@@ -25,6 +25,8 @@ $blob : Blob
 var \
 $form_event : Object
 
+var $Lon_column; $Lon_row; $Lon_lastColumn; $Lon_lastRow : Integer
+
 // ----------------------------------------------------
 // Initialisations
 $form_event:=FORM Event:C1606
@@ -86,6 +88,8 @@ Case of
 				If (ERROR=0)
 					
 					$digest:=Generate digest:C1147($blob; MD5 digest:K66:1)
+					QR GET SELECTION:C793($ui_subform_pointer->; $Lon_column; $Lon_row; $Lon_lastColumn; $Lon_lastRow)
+					$digest+=String:C10($Lon_column)+"_"+String:C10($Lon_row)+"_"+String:C10($Lon_lastColumn)+"_"+String:C10($Lon_lastRow)
 					
 					If (String:C10(ob_area._digest)#$digest)
 						

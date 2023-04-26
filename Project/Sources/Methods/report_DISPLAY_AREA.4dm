@@ -22,6 +22,8 @@ $digest : Text
 var \
 $x : Blob
 
+var $Lon_column; $Lon_row; $Lon_lastColumn; $Lon_lastRow : Integer
+
 // ----------------------------------------------------
 // Initialisations
 //$area:=$1
@@ -40,6 +42,8 @@ If ($area_reference#0)
 		QR REPORT TO BLOB:C770($area_reference; $x)
 		
 		$digest:=Generate digest:C1147($x; MD5 digest:K66:1)
+		QR GET SELECTION:C793($area_reference; $Lon_column; $Lon_row; $Lon_lastColumn; $Lon_lastRow)
+		$digest+=String:C10($Lon_column)+"_"+String:C10($Lon_row)+"_"+String:C10($Lon_lastColumn)+"_"+String:C10($Lon_lastRow)
 		
 		If ($digest#String:C10(ob_area._digest))
 			
