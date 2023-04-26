@@ -1,0 +1,123 @@
+{
+	"destination": "detailScreen",
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onValidate",
+		"onClick",
+		"onOutsideCall",
+		"onDoubleClick",
+		"onDrop",
+		"onMenuSelect",
+		"onPluginArea",
+		"onDataChange",
+		"onDragOver",
+		"onTimer",
+		"onAfterKeystroke",
+		"onAfterEdit",
+		"onBeginDragOver",
+		"onBoundVariableChange",
+		"onPageChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"Button": {
+					"type": "button",
+					"top": 34,
+					"left": 132,
+					"width": 138,
+					"height": 43,
+					"text": "Open QR",
+					"focusable": false,
+					"method": "ObjectMethods/Button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 34,
+					"left": 650,
+					"width": 138,
+					"height": 43,
+					"text": "Select col 2",
+					"focusable": false,
+					"method": "ObjectMethods/Button1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Unterformular": {
+					"type": "subform",
+					"top": 97,
+					"left": 37,
+					"width": 744,
+					"height": 463,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "qrsub",
+					"dataSourceTypeHint": "number",
+					"detailForm": "%report",
+					"scrollbarHorizontal": "visible",
+					"scrollbarVertical": "visible",
+					"deletableInList": false,
+					"doubleClickInRowAction": "editSubrecord",
+					"doubleClickInEmptyAreaAction": "addSubrecord",
+					"selectionMode": "multiple",
+					"printFrame": "variable",
+					"borderStyle": "system"
+				},
+				"Text": {
+					"type": "text",
+					"top": 44,
+					"left": 290,
+					"width": 200,
+					"height": 22,
+					"stroke": "#FF0000",
+					"fontFamily": "System Font Regular",
+					"fontSize": 18,
+					"fontWeight": "bold",
+					"text": "Manually select col 1 or"
+				},
+				"Button2": {
+					"type": "button",
+					"top": 34,
+					"left": 499,
+					"width": 138,
+					"height": 43,
+					"text": "Select col 1",
+					"focusable": false,
+					"method": "ObjectMethods/Button2.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		}
+	],
+	"geometryStamp": 14,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}
