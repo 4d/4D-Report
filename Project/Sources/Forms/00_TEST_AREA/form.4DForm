@@ -44,16 +44,16 @@
 				"Button": {
 					"type": "button",
 					"top": 363,
-					"left": 346,
-					"width": 140,
+					"left": 405,
+					"width": 87,
 					"height": 20,
 					"sizingX": "move",
 					"sizingY": "move",
-					"action": "cancel",
-					"text": "Close",
+					"text": "ACI0103784",
 					"events": [
 						"onClick"
-					]
+					],
+					"method": "ObjectMethods/Button.4dm"
 				},
 				"Check Box": {
 					"type": "checkbox",
@@ -73,7 +73,7 @@
 					"type": "button",
 					"text": "Generate report",
 					"top": 363,
-					"left": 178,
+					"left": 118,
 					"width": 140,
 					"height": 20,
 					"events": [
@@ -90,7 +90,7 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 29,
+	"geometryStamp": 32,
 	"method": "method.4dm",
 	"editor": {
 		"activeView": "View 1",
