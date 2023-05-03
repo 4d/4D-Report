@@ -87,6 +87,16 @@ Case of
 					
 					$digest:=Generate digest:C1147($blob; MD5 digest:K66:1)
 					
+					// MARK:ACI0103784
+					If (Not:C34(Bool:C1537(ob_area["4d-dialog"])))
+						
+						// Add selection to the digest string
+						var $left; $top; $right; $bottom : Integer
+						QR GET SELECTION:C793($ui_subform_pointer->; $left; $top; $right; $bottom)
+						$digest+=String:C10($left)+"_"+String:C10($top)+"_"+String:C10($right)+"_"+String:C10($bottom)
+						
+					End if 
+					
 					If (String:C10(ob_area._digest)#$digest)
 						
 						ob_area._digest:=$digest
@@ -103,7 +113,6 @@ Case of
 				SET TIMER:C645(-1)
 				
 			End if 
-			
 		End if 
 		
 		//______________________________________________________
