@@ -241,6 +241,12 @@ Case of
 					
 					OBJECT GET COORDINATES:C663(*; $_columnNames{$idx_1}; $left; $top; $right; $bottom)
 					
+					// MARK:ACI0103784
+					If ($bottom<=$top)
+						
+						$bottom:=$top+($rowNumber*Form:C1466.defaultRowHeight)
+						
+					End if 
 				End if 
 				
 				//…………………………………………………………………………………………
