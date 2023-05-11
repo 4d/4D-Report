@@ -189,7 +189,7 @@
 					"type": "list",
 					"top": 27,
 					"left": 292,
-					"width": 239,
+					"width": 238,
 					"height": 210,
 					"sizingY": "grow",
 					"enterable": false,
@@ -335,7 +335,7 @@
 			}
 		}
 	],
-	"geometryStamp": 56,
+	"geometryStamp": 57,
 	"$4d": {
 		"version": "1",
 		"kind": "form"
