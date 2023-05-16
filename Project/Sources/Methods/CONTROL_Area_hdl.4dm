@@ -483,9 +483,6 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 					//………………………………………………………………………………………………………………
 				: ($Txt_buffer="text")
 					
-					$Lon_x:=0
-					$Lon_y:=($Num_height/2)-($Lon_fontSize\2)-1
-					
 					//font size
 					ARRAY LONGINT:C221($tLon_fontSizes; 0x0000)
 					
@@ -530,6 +527,9 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 					End if 
 					
 					$Txt_fontColor:=Choose:C955(Length:C16($Txt_fontColor)=0; $kTxt_defaultColor; $Txt_fontColor)
+					
+					$Lon_x:=0
+					$Lon_y:=($Num_height/2)-($Lon_fontSize\2)-1
 					
 					//missing are set to default
 					ARRAY TEXT:C222($tTxt_fontColors; $Lon_number)
