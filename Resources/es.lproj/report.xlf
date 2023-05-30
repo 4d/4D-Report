@@ -56,7 +56,7 @@ This file is distributed under the same license as the product package.-->
             </trans-unit>
             <trans-unit id="10" resname="nqr_count">
                <source>Count</source>
-               <target>Cuenta</target>
+               <target>Conteo</target>
             </trans-unit>
             <trans-unit id="11" resname="nqr_standard_deviation">
                <source>Standard deviation</source>
