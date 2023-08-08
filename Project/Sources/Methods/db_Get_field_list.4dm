@@ -35,7 +35,6 @@ $id; \
 $related_field_id; \
 $related_field_type; \
 $related_table_id; \
-$table_id; \
 $child_node : Integer
 
 var \

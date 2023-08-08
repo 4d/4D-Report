@@ -40,7 +40,7 @@ $MARGIN:=5
 
 var \
 $buffer_integer; \
-$count_parameters; \; \
+$count_parameters; \
 $int; \
 $report_type; \
 $type : Integer
@@ -193,7 +193,7 @@ Case of
 						$buffer_text:=QR_Get_font_name($area_reference; $column_number; $row_number)
 						
 						//OB SET($caller_object; \
-														"fontName"; $buffer_text)
+																					"fontName"; $buffer_text)
 						
 						$caller_object.fontName:=$buffer_text
 						
@@ -211,7 +211,7 @@ Case of
 						$buffer_integer:=QR_Get_font_style($area_reference; $column_number; $row_number)
 						
 						//OB SET($caller_object; \
-														"fontStyle"; $buffer_integer)
+																					"fontStyle"; $buffer_integer)
 						
 						$caller_object.fontStyle:=$buffer_integer
 						
@@ -224,7 +224,7 @@ Case of
 						$buffer_integer:=QR_Get_font_size($area_reference; $column_number; $row_number)
 						
 						//OB SET($caller_object; \
-														"fontSize"; $buffer_integer)
+																					"fontSize"; $buffer_integer)
 						
 						$caller_object.fontSize:=$buffer_integer
 						
@@ -240,7 +240,7 @@ Case of
 						$buffer_integer:=QR_Get_justification($area_reference; $column_number; $row_number)
 						
 						//OB SET($caller_object; \
-														"justification"; $buffer_integer)
+																					"justification"; $buffer_integer)
 						
 						$caller_object.justification:=$buffer_integer
 						
@@ -254,7 +254,7 @@ Case of
 						$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr text color:K14904:6)
 						
 						//OB SET($caller_object; \
-														"frontColor"; $buffer_integer)
+																					"frontColor"; $buffer_integer)
 						
 						$caller_object.frontColor:=$buffer_integer
 						
@@ -323,7 +323,7 @@ Case of
 							End if 
 							
 							//OB SET($caller_object; \
-																"computations"; $buffer_integer)
+																								"computations"; $buffer_integer)
 							
 							$caller_object.computations:=$buffer_integer
 							
@@ -430,7 +430,7 @@ Case of
 										$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr alternate background color:K14904:9)
 										
 										//OB SET($caller_object; \
-																						"altBackColor"; $buffer_integer)
+																																	"altBackColor"; $buffer_integer)
 										
 										$caller_object.altBackColor:=$buffer_integer
 										
@@ -460,7 +460,7 @@ Case of
 											$buffer_text:=QR_Get_column_format($area_reference; $column_number)
 											
 											//OB SET($caller_object; \
-																								"columnFormat"; $buffer_text)
+																																				"columnFormat"; $buffer_text)
 											
 											$caller_object.columnFormat:=$buffer_text
 											
@@ -482,7 +482,7 @@ Case of
 									$buffer_integer:=QR_Get_computation($area_reference; $column_number; $row_number)
 									
 									//OB SET($caller_object; \
-																				"computations"; $buffer_integer)
+																														"computations"; $buffer_integer)
 									
 									$caller_object.computations:=$buffer_integer
 									
@@ -500,8 +500,8 @@ Case of
 									
 									//#ACI0098288 [
 									//$Lon_buffer:=Choose(($Lon_reportType=qr cross report) & ($Lon_column=3);\
-																																																		\
-																																																																																																																																																																																																																																																																																																																																																																																																						QR_Get_computation ($area_reference;$column_number;$row_number))
+																																																												\
+																																																																																																																																																																																																																																																																																																																																																																																																																QR_Get_computation ($area_reference;$column_number;$row_number))
 									If ($report_type=qr cross report:K14902:2) & ($column_number=3)
 										
 										// Cross - report
@@ -515,7 +515,7 @@ Case of
 									//]
 									
 									//OB SET($caller_object; \
-																				"computations"; $buffer_integer)
+																														"computations"; $buffer_integer)
 									
 									$caller_object.computations:=$buffer_integer
 									
@@ -538,7 +538,7 @@ Case of
 								$buffer_integer:=QR_Get_color($area_reference; $column_number; $row_number; qr alternate background color:K14904:9)
 								
 								//OB SET($caller_object; \
-																		"altBackColor"; $buffer_integer)
+																											"altBackColor"; $buffer_integer)
 								
 								$caller_object.altBackColor:=$buffer_integer
 								
@@ -573,7 +573,7 @@ Case of
 							End if 
 							
 							//OB SET($caller_object; \
-																"columnFormat"; $buffer_text)
+																								"columnFormat"; $buffer_text)
 							
 							$caller_object.columnFormat:=$buffer_text
 							
@@ -690,8 +690,8 @@ Case of
 								
 								//ACI0100940{ACI0100938
 /*
-																																																																																If ($Lon_columnData=2)\
-																																																																																										 | ($Lon_columnData=3)  //apply to line
+																																																																																								If ($Lon_columnData=2)\
+																																																																																																			 | ($Lon_columnData=3)  //apply to line
 								
 $lon_columnTempo:=$Lon_columnData+(3-$Lon_columnData)+(2-$Lon_columnData)
 Else 
@@ -702,7 +702,7 @@ End if
 								$buffer_text:=QR_Get_column_format($area_reference; $column_data; $column_type)
 								
 								//OB SET($caller_object; \
-																		"columnFormat"; $buffer_text)
+																											"columnFormat"; $buffer_text)
 								
 								$caller_object.columnFormat:=$buffer_text
 								
@@ -725,7 +725,7 @@ End if
 								$buffer_integer:=QR_Get_color($area_reference; $column_data; $row_data; qr alternate background color:K14904:9)
 								
 								//OB SET($caller_object; \
-																		"altBackColor"; $buffer_integer)
+																											"altBackColor"; $buffer_integer)
 								
 								$caller_object.altBackColor:=$buffer_integer
 								
@@ -740,7 +740,7 @@ End if
 							$buffer_integer:=QR_Get_computation($area_reference; $column_number; $row_number)
 							
 							//OB SET($caller_object; \
-																"computations"; $buffer_integer)
+																								"computations"; $buffer_integer)
 							
 							$caller_object.computations:=$buffer_integer
 							
@@ -769,14 +769,14 @@ End if
 		If (OBJECT Get visible:C1075(*; $SUBFORM_NAME))
 			
 			//OB SET($parameter; \
-								"action"; "hide")
+												"action"; "hide")
 			
 			$parameter.action:="hide"
 			
 		Else 
 			
 			//OB SET($parameter; \
-								"action"; "show")
+												"action"; "show")
 			
 			$parameter.action:="show"
 			
@@ -841,7 +841,7 @@ End if
 		
 		//set the balloon's flag
 		//OB SET(ob_area; \
-						"balloon"; True)
+									"balloon"; True)
 		
 		ob_area.balloon:=True:C214
 		//______________________________________________________
@@ -867,7 +867,7 @@ End if
 		//release the balloon's flag
 		
 		//OB SET(ob_area; \
-						"balloon"; False)
+									"balloon"; False)
 		
 		ob_area.balloon:=False:C215
 		
