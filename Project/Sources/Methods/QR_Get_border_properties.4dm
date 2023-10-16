@@ -16,7 +16,7 @@ C_LONGINT:C283($Lon_area;$Lon_parameters;$Lon_column;$Lon_row;$lon_border;$lon_a
 C_LONGINT:C283($lon_thickness;$lon_color;$Lon_i;$lon_thicknessBuffer;$lon_colorBuffer;$lon_lastRow;$lon_columnCount)
 C_OBJECT:C1216($Obj_caller;$obj_border;$obj_borderItem)
 C_POINTER:C301($Ptr_caller)
-C_BOOLEAN:C305($boo_sameThickness;$boo_sameColor;$boo_sameThickness;$boo_withGrandTotal)
+C_BOOLEAN:C305($boo_sameThickness;$boo_sameColor;$boo_withGrandTotal)
 C_COLLECTION:C1488($col_borders)
 C_TEXT:C284($txt_borderBuffer;$Txt_content)
 

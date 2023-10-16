@@ -12,11 +12,6 @@
 
 #DECLARE($table_id : Integer; $filter : Text; $ordered : Boolean)->$list : Integer
 
-C_LONGINT:C283($0)
-C_LONGINT:C283($1)
-C_TEXT:C284($2)
-C_BOOLEAN:C305($3)
-
 /* 
   ----------------------------------------------------
 
@@ -50,13 +45,6 @@ ARRAY LONGINT:C221($_field_id; 0)
 ARRAY LONGINT:C221($_related_field_id; 0)
 ARRAY TEXT:C222($_field_names; 0)
 ARRAY TEXT:C222($_related_field_names; 0)
-
-If (False:C215)
-	C_LONGINT:C283(db_Get_field_list; $0)
-	C_LONGINT:C283(db_Get_field_list; $1)
-	C_TEXT:C284(db_Get_field_list; $2)
-	C_BOOLEAN:C305(db_Get_field_list; $3)
-End if 
 
 // ----------------------------------------------------
 // Initialisations
@@ -219,10 +207,6 @@ If ($table_id#0)
 		End if 
 	End for 
 End if 
-
-// ----------------------------------------------------
-// Return
-//$0:=$list
 
 // ----------------------------------------------------
 // End
