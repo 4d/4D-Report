@@ -39,40 +39,43 @@ End if
 // ----------------------------------------------------
 OBJECT SET VISIBLE:C603(*; "cell_menu"; False:C215)
 
-//#DD ACI0104452 ob_area is undefined at this level when esc keydown 
 
-//get edited cell
-$Lon_area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
-
-If (OB Get:C1224(ob_area; "crossReport"; Is boolean:K8:9))
+If (ob_area#Null:C1517)  //#DD ACI0104452 ob_area is undefined at this level when esc keydown 
 	
-	$Lon_column:=OB Get:C1224(ob_area; "columnIndex"; Is longint:K8:6)
-	$Lon_row:=OB Get:C1224(ob_area; "rowIndex"; Is longint:K8:6)
+	//get edited cell
+	$Lon_area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
 	
-	If ($Lon_column=1)\
-		 & ($Lon_row=1)
+	If (OB Get:C1224(ob_area; "crossReport"; Is boolean:K8:9))
 		
-		$Lon_column:=0
-		$Lon_row:=0
+		$Lon_column:=OB Get:C1224(ob_area; "columnIndex"; Is longint:K8:6)
+		$Lon_row:=OB Get:C1224(ob_area; "rowIndex"; Is longint:K8:6)
+		
+		If ($Lon_column=1)\
+			 & ($Lon_row=1)
+			
+			$Lon_column:=0
+			$Lon_row:=0
+			
+		End if 
+		
+	Else 
+		
+		$Lon_column:=OB Get:C1224(ob_area; "qrColumn"; Is longint:K8:6)
+		$Lon_row:=OB Get:C1224(ob_area; "qrRow"; Is longint:K8:6)
 		
 	End if 
 	
-Else 
+	//%W-533.3
+	$Txt_buffer:=ST Get plain text:C1092($Ptr_me->{$Ptr_me->})
+	//%W+533.3
 	
-	$Lon_column:=OB Get:C1224(ob_area; "qrColumn"; Is longint:K8:6)
-	$Lon_row:=OB Get:C1224(ob_area; "qrRow"; Is longint:K8:6)
+	QR_SET_CELL_TEXT($Lon_area; $Lon_column; $Lon_row; $Txt_buffer)
+	
+	//update data
+	OB SET:C1220(ob_area; \
+		"cellEdition"; False:C215)
 	
 End if 
-
-//%W-533.3
-$Txt_buffer:=ST Get plain text:C1092($Ptr_me->{$Ptr_me->})
-//%W+533.3
-
-QR_SET_CELL_TEXT($Lon_area; $Lon_column; $Lon_row; $Txt_buffer)
-
-//update data
-OB SET:C1220(ob_area; \
-"cellEdition"; False:C215)
 
 OBJECT SET ENTERABLE:C238($Ptr_me->; False:C215)
 
