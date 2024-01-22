@@ -13,7 +13,7 @@
 var \
 $count_parameters : Integer
 
-var \
+//var \
 $timer_event : Pointer
 
 
@@ -27,7 +27,7 @@ If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	//NO PARAMETERS REQUIRED
 	//mark:ACI0103539
 	//#DD : old system deprecated use Form.timerEvent instead
-	$timer_event:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
+	//$timer_event:=OBJECT Get pointer(Object named; "timerEvent")
 	
 Else 
 	
@@ -39,26 +39,26 @@ End if
 
 //todo: simplification remove $timer_event etc 
 
-Case of 
-	: (True:C214)
-		
-		Form:C1466.timerEvent:=1
-		SET TIMER:C645(-1)
-		
-	: (Is nil pointer:C315($timer_event))
-		
-		QR_area:=QR_area
-		REDRAW:C174(QR_area)
-		
-	Else 
-		
-		//mark:ACI0103539
-		//#DD : old system deprecated use Form.timerEvent instead
-		$timer_event->:=1
-		
-		
-		
-End case 
+//Case of 
+//: (True)
+
+Form:C1466.timerEvent:=1
+SET TIMER:C645(-1)
+
+//: (Is nil pointer($timer_event))
+
+//QR_area:=QR_area
+//REDRAW(QR_area)
+
+//Else 
+
+////mark:ACI0103539
+////#DD : old system deprecated use Form.timerEvent instead
+//$timer_event->:=1
+
+
+
+//End case 
 
 
 // ----------------------------------------------------
