@@ -84,7 +84,7 @@ End if
 
 // ----------------------------------------------------
 If ($table_id#0)
-	
+	//todo: object field path using extra external file #DD
 	GET FIELD TITLES:C804((Table:C252($table_id))->; $_field_names; $_field_id)
 	
 	For ($i; 1; Size of array:C274($_field_id); 1)

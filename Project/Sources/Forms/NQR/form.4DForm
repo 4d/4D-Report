@@ -759,14 +759,11 @@
 	},
 	"geometryStamp": 43,
 	"editor": {
-		"activeView": "Area",
+		"activeView": "fieldList",
 		"defaultView": "Toolbar",
 		"views": {
-			"Toolbar": {
-				"visible": false
-			},
+			"Toolbar": {},
 			"fieldList": {
-				"visible": false,
 				"objects": [
 					"settings.dial"
 				]
@@ -818,6 +815,7 @@
 				]
 			},
 			"Area": {
+				"visible": false,
 				"objects": [
 					"myQR"
 				]
