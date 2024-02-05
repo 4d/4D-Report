@@ -759,11 +759,12 @@
 	},
 	"geometryStamp": 43,
 	"editor": {
-		"activeView": "fieldList",
+		"activeView": "Toolbar",
 		"defaultView": "Toolbar",
 		"views": {
 			"Toolbar": {},
 			"fieldList": {
+				"visible": false,
 				"objects": [
 					"settings.dial"
 				]
