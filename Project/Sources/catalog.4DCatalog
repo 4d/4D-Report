@@ -117,7 +117,7 @@
 			</editor_table_info>
 		</table_extra>
 	</table>
-	<relation uuid="86FE1B662607490D85436EAFAFA0C15A" name_Nto1="Link_1" name_1toN="Link_1_return" auto_load_Nto1="false" auto_load_1toN="false" foreign_key="false" state="1">
+	<relation uuid="86FE1B662607490D85436EAFAFA0C15A" name_Nto1="Link_1" name_1toN="Link_1_return" state="1">
 		<related_field kind="source">
 			<field_ref uuid="611743081005491591619440DB956C77" name="Society_ID">
 				<table_ref uuid="50302DE30F2D4D65901048C55B2893DD" name="Clients"/>

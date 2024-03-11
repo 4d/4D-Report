@@ -39,12 +39,28 @@ NQR_SET_SELECTION("none")
 
 If (Length:C16(C_QR_INITPATH)>0)
 	
-	//load the contents of the document
-	DOCUMENT TO BLOB:C525(C_QR_INITPATH; $Blb_buffer)
-	
-	If (OK=1)
+	//mark:ACI0104639
+	If (Test path name:C476(C_QR_INITPATH)=Is a document:K24:1)
 		
-		//place the report in the area
+		//load the contents of the document
+		DOCUMENT TO BLOB:C525(C_QR_INITPATH; $Blb_buffer)
+		
+		If (OK=1)
+			
+			//place the report in the area
+			QR BLOB TO REPORT:C771(QR_area; $Blb_buffer)
+			
+		End if 
+	Else 
+		
+		//mark:ACI0104639
+		//#DD
+		
+		// the document has been deleted since we open it
+		// we can't restore it from the original file.
+		// may be we should store the document in a temporary variable
+		// to respoect the concept of don't save modifications
+		$Blb_buffer:=Form:C1466.original_report_data
 		QR BLOB TO REPORT:C771(QR_area; $Blb_buffer)
 		
 	End if 

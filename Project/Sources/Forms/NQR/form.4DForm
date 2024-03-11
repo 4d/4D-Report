@@ -770,7 +770,6 @@
 				]
 			},
 			"alertBox": {
-				"visible": false,
 				"objects": [
 					"alert.mask",
 					"alert.button",
