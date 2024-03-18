@@ -104,6 +104,8 @@ Case of
 					End if 
 				End if 
 				
+				Form:C1466.original_report_data:=4D:C1709.Blob.new(C_QR_INITBLOB)  //#DD ACI0104639
+				
 				//load the last report for the master table if any
 				If (BLOB size:C605(C_QR_INITBLOB)>0)
 					
