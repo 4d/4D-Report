@@ -177,5 +177,5 @@
 			<table_ref uuid="89726F9C3EB04E3589878BA47BA86E02" name="Table_4"/>
 		</field_ref>
 	</index>
-	<base_extra __stringCompHash="icu:72.1.0" __keywordBuildingHash="icu:72.1.0" package_name="4D Report" structure_file_name="4D Report" data_file_path=":4D Report.4DD"/>
+	<base_extra package_name="4D Report" structure_file_name="4D Report" data_file_path=":4D Report.4DD"/>
 </base>
