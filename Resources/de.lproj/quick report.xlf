@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-   <!--Translation file.
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--Translation file.
 This file is distributed under the same license as the product package.-->
-
 <xliff version="1.0">
    <file datatype="x-STR#" original="undefined" source-language="en" target-language="de">
       <header>
@@ -84,7 +82,7 @@ This file is distributed under the same license as the product package.-->
                <source>4D view</source>
                <target>4D View</target>
             </trans-unit>
-			<trans-unit id="96" resname="toolbar_save">
+			    <trans-unit id="96" resname="toolbar_save">
                <source>Save</source>
                <target>Speichern</target>
             </trans-unit>
@@ -353,11 +351,11 @@ This file is distributed under the same license as the product package.-->
                <source>You can hide the line and thus keep the sorting of the data.</source>
                <target>Sie können die Zeile ausblenden und so die Sortierung der Daten beibehalten.</target>
             </trans-unit>
-			<trans-unit id="93" resname="SaveInNewDocument">
+			    <trans-unit id="93" resname="SaveInNewDocument">
                <source>Save in a new document</source>
                <target>In neuem Dokument speichern</target>
             </trans-unit>
-			<trans-unit id="93" resname="DoYouWantToSaveChangesInThisDocument">
+			    <trans-unit id="93" resname="DoYouWantToSaveChangesInThisDocument">
                <source>Do you want to save changes in this document?</source>
                <target>Wollen Sie die Änderungen an diesem Dokument sichern?</target>
             </trans-unit>
@@ -365,7 +363,7 @@ This file is distributed under the same license as the product package.-->
                <target>You can hide the column to keep the subtotal row.</target>
                <target>Sie können die Spalte ausblenden um die Zwischensummenzeile beizubehalten.</target>
             </trans-unit>
-			<trans-unit id="95" resname="theSubtotalRowAssociatedWillBeRemoved.">
+			    <trans-unit id="95" resname="theSubtotalRowAssociatedWillBeRemoved.">
                <source>The subtotal row associated with this column will be removed.</source>
                <target>Die verbundene Zwischensummenzeile der Spalte wird nicht mehr sortiert.</target>
             </trans-unit>

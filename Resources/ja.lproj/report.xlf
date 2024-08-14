@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <!--Translation file.
  This file is distributed under the same license as the product package.-->
 <xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
@@ -11,273 +11,273 @@
     </header>
         <body>
             <group resname="List report">
-                <trans-unit id="1" resname="head_title">
+                <trans-unit id="SakLgAdc8PcZUfDuqkThzg" resname="head_title">
                     <source>Title</source>
                     <target>タイトル</target>
                 </trans-unit>
-                <trans-unit id="2" resname="head_details">
+                <trans-unit id="v2NotlXRz1_31fWAtWreKw" resname="head_details">
                     <source>Details</source>
                     <target>詳細</target>
                 </trans-unit>
-                <trans-unit id="3" resname="head_grand_total">
+                <trans-unit id="xMoOllOV+VYfOY8o6QPvqg" resname="head_grand_total">
                     <source>Grand Total</source>
                     <target>合計</target>
                 </trans-unit>
-                <trans-unit id="4" resname="head_subtotal">
+                <trans-unit id="jdtbu6v5Vjk+I+vVRvOpcw" resname="head_subtotal">
                     <source>{field} changed</source>
                     <target>{field} 小計</target>
                 </trans-unit>
             </group>
             <group resname="dialog">
-                <trans-unit id="dialog_1" resname="qr_windowTitle">
+                <trans-unit id="lef9u7h1twyA5Vj5qZcWEw" resname="qr_windowTitle">
                     <source>Quick Report</source>
                     <target>クイックレポート</target>
                 </trans-unit>
-                <trans-unit id="dialog_2" resname="qr_noTable">
+                <trans-unit id="Gleb221VzdbPCf3LGklgAQ" resname="qr_noTable">
                     <source>No table to make a report</source>
                     <target>レポートを作成するテーブルがありません</target>
                 </trans-unit>            
             </group>
             <group resname="data">
-                <trans-unit id="6" resname="nqr_sum">
+                <trans-unit id="wspsQ04Se5c4LyBnbsfsVQ" resname="nqr_sum">
                     <source>Sum</source>
                     <target>合計値</target>
                 </trans-unit>
-                <trans-unit id="7" resname="nqr_average">
+                <trans-unit id="ad0rhZJWINrBVnx3MuAXXw" resname="nqr_average">
                     <source>Average</source>
                     <target>平均値</target>
                 </trans-unit>
-                <trans-unit id="8" resname="nqr_min">
+                <trans-unit id="URfAHsW6NKPas1NOaQRC3w" resname="nqr_min">
                     <source>Min</source>
                     <target>最小値</target>
                 </trans-unit>
-                <trans-unit id="9" resname="nqr_max">
+                <trans-unit id="+eSNWfDIQN7IzNwW1k1wew" resname="nqr_max">
                     <source>Max</source>
                     <target>最大値</target>
                 </trans-unit>
-                <trans-unit id="10" resname="nqr_count">
+                <trans-unit id="1WUVvKRhUHJyacs6z79KNg" resname="nqr_count">
                     <source>Count</source>
                     <target>合計数</target>
                 </trans-unit>
-                <trans-unit id="11" resname="nqr_standard_deviation">
+                <trans-unit id="UIKxXbEbQxHCsizhH2O6fg" resname="nqr_standard_deviation">
                     <source>Standard deviation</source>
                     <target>標準偏差値</target>
                 </trans-unit>
             </group>
             <group resname="Background Colors">
-                <trans-unit id="81" resname="back_0">
+                <trans-unit id="NIBtvWOmcm23xzeiRFOX3A" resname="back_0">
                     <source>Automatic</source>
                     <target>自動</target>
                 </trans-unit>
-                <trans-unit id="82" resname="back_1">
+                <trans-unit id="eoUToyshY9Z8Lc9OC8gjdQ" resname="back_1">
                     <source>Sable</source>
                     <target>サブレー</target>
                 </trans-unit>
-                <trans-unit id="83" resname="back_2">
+                <trans-unit id="mdLw3CzIiCH7jSVpNWethg" resname="back_2">
                     <source>Melon</source>
                     <target>メロン</target>
                 </trans-unit>
-                <trans-unit id="84" resname="back_3">
+                <trans-unit id="AziYg3Wy7wDllNaT2oZR0g" resname="back_3">
                     <source>Orange</source>
                     <target>オレンジ</target>
                 </trans-unit>
-                <trans-unit id="85" resname="back_4">
+                <trans-unit id="r2TOm4Wl1fv0wSf5eRXWmQ" resname="back_4">
                     <source>Salmon</source>
                     <target>サーモン</target>
                 </trans-unit>
-                <trans-unit id="86" resname="back_5">
+                <trans-unit id="efeygs7UDN57M4m+eBhYwA" resname="back_5">
                     <source>Lilac</source>
                     <target>ライラック</target>
                 </trans-unit>
-                <trans-unit id="87" resname="back_6">
+                <trans-unit id="APTI2Tvenzl4z557GceqIA" resname="back_6">
                     <source>Light Violet</source>
                     <target>ライトバイオレット</target>
                 </trans-unit>
-                <trans-unit id="88" resname="back_7">
+                <trans-unit id="W3GkYdJGWVRqUSMrHKb+bQ" resname="back_7">
                     <source>Pigeon Blue</source>
                     <target>ピジョンブルー</target>
                 </trans-unit>
-                <trans-unit id="89" resname="back_8">
+                <trans-unit id="7CBzZZtQeiHXIhhYGHjU4g" resname="back_8">
                     <source>Turkish Blue</source>
                     <target>ターキッシュブルー</target>
                 </trans-unit>
-                <trans-unit id="90" resname="back_9">
+                <trans-unit id="igiteUYX9Z_YVU0bAOSQnw" resname="back_9">
                     <source>Pale Green</source>
                     <target>ペールグリーン</target>
                 </trans-unit>
-                <trans-unit id="91" resname="back_10">
+                <trans-unit id="BHoepsLRl48fqM1KXKkaqg" resname="back_10">
                     <source>Yellow Green</source>
                     <target>イエローグリーン</target>
                 </trans-unit>
-                <trans-unit id="92" resname="back_11">
+                <trans-unit id="4BM6O31G_TAGDEftO2ulmw" resname="back_11">
                     <source>Golden Maize</source>
                     <target>ゴールデンメイズ</target>
                 </trans-unit>
-                <trans-unit id="93" resname="back_12">
+                <trans-unit id="sd5u4xSSjdWHknVDoyzaFA" resname="back_12">
                     <source>Grayish Brown</source>
                     <target>グレーイッシュブラウン</target>
                 </trans-unit>
-                <trans-unit id="94" resname="back_13">
+                <trans-unit id="PSFsyOcY8ZilTsF7UMRD3w" resname="back_13">
                     <source>Dark Sable</source>
                     <target>ダークサブレー</target>
                 </trans-unit>
-                <trans-unit id="95" resname="back_14">
+                <trans-unit id="vsO80QD0X_xgk5tuCMVmsA" resname="back_14">
                     <source>Antelope</source>
                     <target>アンテロープ</target>
                 </trans-unit>
-                <trans-unit id="96" resname="back_15">
+                <trans-unit id="63u8hk6ev6N9sGvz2Lm0tQ" resname="back_15">
                     <source>Pale Blue</source>
                     <target>ペールブルー</target>
                 </trans-unit>
-                <trans-unit id="97" resname="back_16">
+                <trans-unit id="XVDadLu9SJbInrMXni09Jg" resname="back_16">
                     <source>Cold Gray</source>
                     <target>コールドグレー</target>
                 </trans-unit>
-                <trans-unit id="98" resname="back_17">
+                <trans-unit id="+qMgykF9ukUpWqNexzkG2w" resname="back_17">
                     <source>Personalized...</source>
                     <target>個人設定...</target>
                 </trans-unit>
             </group>
             <group resname="Foreground Colors">
-                <trans-unit id="200" resname="front_0">
+                <trans-unit id="KJo1D+peTzO6GLAnUyQsGA" resname="front_0">
                     <source>Automatic</source>
                     <target>自動</target>
                 </trans-unit>
-                <trans-unit id="201" resname="front_1">
+                <trans-unit id="jJ5N_r0RV6Nn6LwSr7xwQA" resname="front_1">
                     <source>Beige</source>
                     <target>ベージュ</target>
                 </trans-unit>
-                <trans-unit id="202" resname="front_2">
+                <trans-unit id="FE7qaU7AL7UGva6gaGwf7A" resname="front_2">
                     <source>Brown</source>
                     <target>ブラウン</target>
                 </trans-unit>
-                <trans-unit id="203" resname="front_3">
+                <trans-unit id="CtgU5byIlnECODEQEM1aIQ" resname="front_3">
                     <source>Orange</source>
                     <target>オレンジ</target>
                 </trans-unit>
-                <trans-unit id="204" resname="front_4">
+                <trans-unit id="mJwXgFDtR+0rwFaydbzTlQ" resname="front_4">
                     <source>Red</source>
                     <target>レッド</target>
                 </trans-unit>
-                <trans-unit id="205" resname="front_5">
+                <trans-unit id="IHt9TkhHMGEIJ+WfP+wqyg" resname="front_5">
                     <source>Purple</source>
                     <target>パープル</target>
                 </trans-unit>
-                <trans-unit id="206" resname="front_6">
+                <trans-unit id="PC2q__nxjXLKjNuYI4JGDw" resname="front_6">
                     <source>Violet</source>
                     <target>バイオレット</target>
                 </trans-unit>
-                <trans-unit id="207" resname="front_7">
+                <trans-unit id="FUCDa7DzYAUegSX6vmZEGw" resname="front_7">
                     <source>Signal Blue</source>
                     <target>シグナルブルー</target>
                 </trans-unit>
-                <trans-unit id="208" resname="front_8">
+                <trans-unit id="6isdCXxJoEz6e8uv36WeHg" resname="front_8">
                     <source>Water Blue</source>
                     <target>ウォーターブルー</target>
                 </trans-unit>
-                <trans-unit id="209" resname="front_9">
+                <trans-unit id="p+ldnmFGSyaktf4NR5fT6w" resname="front_9">
                     <source>Leaf Green</source>
                     <target>リーフグリーン</target>
                 </trans-unit>
-                <trans-unit id="210" resname="front_10">
+                <trans-unit id="YkgwC+mS74pEMJ3qAQpR9A" resname="front_10">
                     <source>Signal Green</source>
                     <target>シグナルグリーン</target>
                 </trans-unit>
-                <trans-unit id="211" resname="front_11">
+                <trans-unit id="Z_xgY9SfdDzHAnCC9RRPwQ" resname="front_11">
                     <source>Brillant Yellow Green</source>
                     <target>ブリリアントイエローグリーン</target>
                 </trans-unit>
-                <trans-unit id="212" resname="front_12">
+                <trans-unit id="lazk7Uknt5VqqokDvnFuxQ" resname="front_12">
                     <source>Olive</source>
                     <target>オリーブ</target>
                 </trans-unit>
-                <trans-unit id="213" resname="front_13">
+                <trans-unit id="JCpyDDyiYOhXa_vsbZdXNA" resname="front_13">
                     <source>Saddle Brown</source>
                     <target>サドルブラウン</target>
                 </trans-unit>
-                <trans-unit id="214" resname="front_14">
+                <trans-unit id="P28547ptP3hMkdjkj7SoAQ" resname="front_14">
                     <source>Beaver Brown</source>
                     <target>ビーバーブラウン</target>
                 </trans-unit>
-                <trans-unit id="215" resname="front_15">
+                <trans-unit id="jvf6Uzz7BGsq13wl5O8gZg" resname="front_15">
                     <source>Moderate blue</source>
                     <target>モデレートブルー</target>
                 </trans-unit>
-                <trans-unit id="216" resname="front_16">
+                <trans-unit id="f48yLwBtJI2meN6listh4A" resname="front_16">
                     <source>Dark Cold Gray</source>
                     <target>ダークコールドグレー</target>
                 </trans-unit>
-                <trans-unit id="217" resname="front_17">
+                <trans-unit id="ni_QgXEV4OxD1izyNMSnuw" resname="front_17">
                     <source>Personalized...</source>
                     <target>個人設定...</target>
                 </trans-unit>
             </group>
             <group resname="Date format">
-                <trans-unit id="1" resname="date_1">
+                <trans-unit id="bMSdMTGZxPoTR9oMazbM3g" resname="date_1">
                     <source>System date short</source>
                     <target>System date short</target>
                 </trans-unit>
-                <trans-unit id="2" resname="date_2">
+                <trans-unit id="vzyyAV2moi5yRv0kZOzjcQ" resname="date_2">
                     <source>System date abbreviated</source>
                     <target>System date abbreviated</target>
                 </trans-unit>
-                <trans-unit id="3" resname="date_3">
+                <trans-unit id="SWBpfWCPlCivRG3owhyaNg" resname="date_3">
                     <source>System date long</source>
                     <target>System date long</target>
                 </trans-unit>
-                <trans-unit id="4" resname="date_4">
+                <trans-unit id="wSkywZ2+jyChgBdaY5J9+A" resname="date_4">
                     <source>Internal date short special</source>
                     <target>Internal date short special</target>
                 </trans-unit>
-                <trans-unit id="5" resname="date_5">
+                <trans-unit id="tJ+pWWkkBC23QEdkXVnysg" resname="date_5">
                     <source>Internal date long</source>
                     <target>Internal date long</target>
                 </trans-unit>
-                <trans-unit id="6" resname="date_6">
+                <trans-unit id="kjhQ5rBCIZuNp0utH1m3rQ" resname="date_6">
                     <source>Internal date abbreviated</source>
                     <target>Internal date abbreviated</target>
                 </trans-unit>
-                <trans-unit id="7" resname="date_7">
+                <trans-unit id="ATn8ccnM5_sK88BtMs6_eQ" resname="date_7">
                     <source>Internal date short</source>
                     <target>Internal date short</target>
                 </trans-unit>
-                <trans-unit id="8" resname="date_8">
+                <trans-unit id="n7B1IOID3NjELvftTCcm4w" resname="date_8">
                     <source>ISO Date Time</source>
                     <target>ISO Date Time</target>
                 </trans-unit>
             </group> 
             <group resname="Picture formats">
-                <trans-unit id="1" resname="pict_1">
+                <trans-unit id="EfZcTB9jW0gfI1sD+d8T3Q" resname="pict_1">
                     <source>Truncated (centered)</source>
                     <target>切り捨てる（中央に寄せる）</target>
                 </trans-unit>
-                <trans-unit id="2" resname="pict_2">
+                <trans-unit id="ffc3+KZg1VH+Xj0aWxBFBA" resname="pict_2">
                     <source>Scaled to fit</source>
                     <target>サイズに合わせる</target>
                 </trans-unit>
-                <trans-unit id="3" resname="pict_3">
+                <trans-unit id="9QJl7+irODdQ0W5uRJc3tA" resname="pict_3">
                     <source>On Background</source>
                     <target>背景にする</target>
                 </trans-unit>
-                <trans-unit id="4" resname="pict_4">
+                <trans-unit id="F44CkjXPAnXmCWuvvXJZew" resname="pict_4">
                     <source>Truncated (non-centered)</source>
                     <target>切り捨てる（中央に寄せない）</target>
                 </trans-unit>
-                <trans-unit id="5" resname="pict_5">
+                <trans-unit id="C4876WIEe4lpPxag8oZ73g" resname="pict_5">
                     <source>Scaled to fit (proportional)</source>
                     <target>サイズに合わせる（縦横比を保持）</target>
                 </trans-unit>
-                <trans-unit id="6" resname="pict_6">
+                <trans-unit id="5o+n3rtP5Qo8PvHnXtfcHQ" resname="pict_6">
                     <source>Scaled to fit centered (prop.)</source>
                     <target>サイズに合わせて中央に寄せる（縦横比を保持）</target>
                 </trans-unit>
-                <trans-unit id="7" resname="pict_7">
+                <trans-unit id="YdLY5PoHsMw3ij6e6wj2Bw" resname="pict_7">
                     <source>Replicated</source>
                     <target>繰り返し</target>
                 </trans-unit>
             </group>         
             <group resname="Boolean Format">
-                <trans-unit id="1" resname="boolean_1">
+                <trans-unit id="4IoE+Kek6wxgRZJzJHVt1w" resname="boolean_1">
                     <source>True;False</source>
                     <target>○;×</target>
                     <note>You can add/remove formats according to the localisation.
@@ -285,21 +285,21 @@
                         Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.
                     </note>                    
                 </trans-unit>
-                <trans-unit id="2" resname="boolean_2">
+                <trans-unit id="8+d4IDvIqOIKVFn9CJuu1Q" resname="boolean_2">
                     <source>Yes;No</source>
                     <target>はい;いいえ</target>
                 </trans-unit>
-                <trans-unit id="3" resname="boolean_3">
+                <trans-unit id="VGURxrA8kIljkPNNh_pf5A" resname="boolean_3">
                     <source>Male;Female</source>
                     <target>男性;女性</target>
                 </trans-unit>    
-                <trans-unit id="4" resname="boolean_4">
+                <trans-unit id="eq4LmL84QzDem3wS69Wcjg" resname="boolean_4">
                     <source>Mr;Ms</source>
                     <target>Mr;Ms</target>
                 </trans-unit>                
             </group>        
             <group resname="Number Format">
-                <trans-unit id="1" resname="number_1">
+                <trans-unit id="JrMe1JHbcxY8AyqfgZBZhg" resname="number_1">
                     <source>###0</source>
                     <target>###0</target>
                     <note>You can add/remove formats according to the localisation.
@@ -309,747 +309,747 @@
                         Use the 4D separators: "." for decimal separator and "," for thousand separator 
                     </note>                    
                 </trans-unit>
-                <trans-unit id="2" resname="number_2">
+                <trans-unit id="eYe_xfOocAaAc9obNWKgoA" resname="number_2">
                     <source>###,###,##0</source>
                     <target>###,###,##0</target>
                 </trans-unit>
-                <trans-unit id="3" resname="number_3">
+                <trans-unit id="MhG_8zXvaVE9QUSnpPM4hw" resname="number_3">
                     <source>###,###,##0.00</source>
                     <target>###,###,##0.00</target>
                 </trans-unit>
-                <trans-unit id="4" resname="number_4">
+                <trans-unit id="SumkExSRARwVhlun6f3v+g" resname="number_4">
                     <source>###,##0;(###,##0)</source>
                     <target>###,##0;(###,##0)</target>
                 </trans-unit>
-                <trans-unit id="5" resname="number_5">
+                <trans-unit id="YJMP_70G9zdUbDmJItsZQA" resname="number_5">
                     <source>###,##0.00 ;###,##0.00-</source>
                     <target>###,##0.00 ;###,##0.00-</target>
                 </trans-unit>
-                <trans-unit id="6" resname="number_6">
+                <trans-unit id="7tShAbm7iEEP2CAYE6thGQ" resname="number_6">
                     <source>###,##0.00;(###,##0.00)</source>
                     <target>###,##0.00;(###,##0.00)</target>
                 </trans-unit>
-                <trans-unit id="7" resname="number_7">
+                <trans-unit id="Fhzz0zGMY5NQLpGQg7xI_w" resname="number_7">
                     <source>$###,###,##0.00</source>
                     <target>$###,###,##0.00</target>
                 </trans-unit>
-                <trans-unit id="8" resname="number_8">
+                <trans-unit id="5Iu5a2R7SD0gGFPKA4zBwQ" resname="number_8">
                     <source>$###,##0;-$###,##0</source>
                     <target>$###,##0;-$###,##0</target>
                 </trans-unit>
-                <trans-unit id="9" resname="number_9">
+                <trans-unit id="amrLdGzr_zrc9zgQ2Epk7Q" resname="number_9">
                     <source>$###,##0;($###,##0)</source>
                     <target>$###,##0;($###,##0)</target>
                 </trans-unit>
-                <trans-unit id="10" resname="number_10">
+                <trans-unit id="hZoRaV15Ehdbqs8cDf7Jlw" resname="number_10">
                     <source>$###,##0.00;-$###,##0.00</source>
                     <target>$###,##0.00;-$###,##0.00</target>
                 </trans-unit>
-                <trans-unit id="11" resname="number_11">
+                <trans-unit id="Nx3nhx1iSpsiO83CNxxuSg" resname="number_11">
                     <source>$###,##0.00;($###,##0.00)</source>
                     <target>$###,##0.00;($###,##0.00)</target>
                 </trans-unit>
-                <trans-unit id="12" resname="number_12">
+                <trans-unit id="fEPLEOOCvQrIqyZSzGXvsw" resname="number_12">
                     <source>$^^^,^^0;-$^^^,^^0</source>
                     <target>$^^^,^^0;-$^^^,^^0</target>
                 </trans-unit>
-                <trans-unit id="13" resname="number_13">
+                <trans-unit id="yPOkXhYrMTEBu8jFuJWnUA" resname="number_13">
                     <source>$^^^,^^0;($^^^,^^0)</source>
                     <target>$^^^,^^0;($^^^,^^0)</target>
                 </trans-unit>
-                <trans-unit id="14" resname="number_14">
+                <trans-unit id="qgrCYr1_IaCHx6aMTyXXgw" resname="number_14">
                     <source>$^^^,^^0.00;-$^^^,^^0.00</source>
                     <target>$^^^,^^0.00;-$^^^,^^0.00</target>
                 </trans-unit>
-                <trans-unit id="15" resname="number_15">
+                <trans-unit id="8gFmmxDGTBiqTo_aQnfG9A" resname="number_15">
                     <source>$^^^,^^0.00;($^^^,^^0.00)</source>
                     <target>$^^^,^^0.00;($^^^,^^0.00)</target>
                 </trans-unit>
-                <trans-unit id="16" resname="number_16">
+                <trans-unit id="OrK89aRdSQoci7SjDE9ynA" resname="number_16">
                     <source>$***,**0.00;-$***,**0.00</source>
                     <target>$***,**0.00;-$***,**0.00</target>
                 </trans-unit>
-                <trans-unit id="17" resname="number_17">
+                <trans-unit id="QdMqAaOsBPf3Ba2oIjWRBA" resname="number_17">
                     <source>$***,**0.00;($***,**0.00)</source>
                     <target>$***,**0.00;($***,**0.00)</target>
                 </trans-unit>
-                <trans-unit id="18" resname="number_18">
+                <trans-unit id="9TM1E2Bk72gGtifqGyyBNw" resname="number_18">
                     <source>Positive;Negative;Nul</source>
                     <target>正;負;Nul</target>
                 </trans-unit>
-                <trans-unit id="19" resname="number_19">
+                <trans-unit id="xy+uybfcFage19OGh3DRTw" resname="number_19">
                     <source>(##) ###-###-###</source>
                     <target>(##) ###-###-###</target>
                 </trans-unit>
-                <trans-unit id="20" resname="number_20">
+                <trans-unit id="j8HGFH3aJZD8pFcvuCR8uQ" resname="number_20">
                     <source>##0%</source>
                     <target>##0%</target>
                 </trans-unit>
-                <trans-unit id="21" resname="number_21">
+                <trans-unit id="4x8QxwrGfcVimZsHMG2Nqg" resname="number_21">
                     <source>##0.00%</source>
                     <target>##0.00%</target>
                 </trans-unit>                
             </group>       
             <group resname="Time format">
-                <trans-unit id="1" resname="time_1">
+                <trans-unit id="r6nO9UWmPJQQd3rxsH9iRw" resname="time_1">
                     <source>HH:MM:SS</source>
                     <target>HH:MM:SS</target>
                 </trans-unit>
-                <trans-unit id="2" resname="time_2">
+                <trans-unit id="VcowmsuKcBRIqcypIGTJlw" resname="time_2">
                     <source>HH:MM</source>
                     <target>HH:MM</target>
                 </trans-unit>
-                <trans-unit id="3" resname="time_3">
+                <trans-unit id="J_KO5rG49R86Ot6YcgANlQ" resname="time_3">
                     <source>Hour Min Sec</source>
                     <target>Hour Min Sec</target>
                 </trans-unit>
-                <trans-unit id="4" resname="time_4">
+                <trans-unit id="GWFYena8fR6Cbd2HYwgwiw" resname="time_4">
                     <source>Hour Min</source>
                     <target>Hour Min</target>
                 </trans-unit>
-                <trans-unit id="5" resname="time_5">
+                <trans-unit id="c73XCzfUvUs3hAj1WxwDKA" resname="time_5">
                     <source>HH:MM AM/PM</source>
                     <target>HH:MM AM/PM</target>
                 </trans-unit>
-                <trans-unit id="6" resname="time_6">
+                <trans-unit id="fkxfHxPdxSLn6GYMNzwOUQ" resname="time_6">
                     <source>MM:SS</source>
                     <target>MM:SS</target>
                 </trans-unit>
-                <trans-unit id="7" resname="time_7">
+                <trans-unit id="6e7GkIQnZmv6G3RQjBrqUw" resname="time_7">
                     <source>Min Sec</source>
                     <target>Min Sec</target>
                 </trans-unit>
-                <trans-unit id="8" resname="time_8">
+                <trans-unit id="O0_8q+_yQe4NyFShQmghaQ" resname="time_8">
                     <source>ISO Date Time</source>
                     <target>ISO Date Time</target>
                 </trans-unit>
-                <trans-unit id="9" resname="time_9">
+                <trans-unit id="lkRsVDcv8NYWS6R1nH+8XQ" resname="time_9">
                     <source>System time short</source>
                     <target>System time short</target>
                 </trans-unit>
-                <trans-unit id="10" resname="time_10">
+                <trans-unit id="LmZMqke+Ve0pXZ8WFpZgrw" resname="time_10">
                     <source>System time long abbreviated</source>
                     <target>System time long abbreviated</target>
                 </trans-unit>
-                <trans-unit id="11" resname="time_11">
+                <trans-unit id="qyZTYwlzKdNVjMupDbXDDw" resname="time_11">
                     <source>System time long</source>
                     <target>System time long</target>
                 </trans-unit>
             </group>       
             <group resname="Alpha format">
-                <trans-unit id="1" resname="alpha_1" translate="no">
+                <trans-unit id="6hMdyCUvuQBipT1kONuZSQ" resname="alpha_1" translate="no">
                     <source>###-####</source>
                     <note>You can add/remove formats according to the localisation.
                         
                         Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.
                     </note>                    
                 </trans-unit>
-                <trans-unit id="2" resname="alpha_2" translate="yes">
+                <trans-unit id="lz0cWehfGq3JpChvBWzMQQ" resname="alpha_2" translate="yes">
                     <source>(###) ###-####</source>
                     <target>(###) ###-####</target>
                 </trans-unit>
-                <trans-unit id="3" resname="alpha_3" translate="yes">
+                <trans-unit id="0SBE_rIZlXE_UGBfg+1gqA" resname="alpha_3" translate="yes">
                     <source>###-###-####</source>
                     <target>###-###-####</target>
                 </trans-unit>
-                <trans-unit id="4" resname="alpha_4" translate="yes">
+                <trans-unit id="cUDnSJgbpNGHF20CERVDVQ" resname="alpha_4" translate="yes">
                     <source>###-##-####</source>
                     <target>###-##-####</target>
                 </trans-unit>
-                <trans-unit id="5" resname="alpha_5" translate="yes">
+                <trans-unit id="tS3DuxxuNtwHb2Q34Jgoqw" resname="alpha_5" translate="yes">
                     <source>(##) ###-###-###</source>
                     <target>(##) ###-###-###</target>
                 </trans-unit>
             </group>
             <group resname="menus">
-                <trans-unit id="117" resname="menu_4d_view" translate="no">
+                <trans-unit id="daWZFA5NIEpMWNt6r_KbkA" resname="menu_4d_view" translate="no">
                     <source>4D View</source>
                 </trans-unit>                
-                <trans-unit id="113" resname="menu_add_column">
+                <trans-unit id="FYkixBKhtrsvsrpeSemdvw" resname="menu_add_column">
                     <source>Add a column…</source>
                     <target>カラムを追加…</target>
                 </trans-unit>
-                <trans-unit id="154" resname="menu_align_center">
+                <trans-unit id="CfVmgZWfJfAzXB59Y4CPCQ" resname="menu_align_center">
                     <source>Align Center</source>
                     <target>中央揃え</target>
                 </trans-unit>
-                <trans-unit id="155" resname="menu_align_default">
+                <trans-unit id="09CTDxw5ZXxbl4mffSuiQg" resname="menu_align_default">
                     <source>Default</source>
                     <target>デフォルト</target>
                 </trans-unit>                
-                <trans-unit id="152" resname="menu_align_left">
+                <trans-unit id="3MPR2tJD+KKoRX02XN9NOA" resname="menu_align_left">
                     <source>Align Left</source>
                     <target>左揃え</target>
                 </trans-unit>
-                <trans-unit id="153" resname="menu_align_right">
+                <trans-unit id="rtnAOrzEHF5LJDfpOBcDQQ" resname="menu_align_right">
                     <source>Align Right</source>
                     <target>右揃え</target>
                 </trans-unit>                
-                <trans-unit id="144" resname="menu_alternate_background_color">
+                <trans-unit id="24TVEufZz0OMaOXicEH1sA" resname="menu_alternate_background_color">
                     <source>Alternate Background Color</source>
                     <target>代替背景色</target>
                 </trans-unit>
-                <trans-unit id="125" resname="menu_automatic_width">
+                <trans-unit id="B5SSoNi9DNmFRLQkjUFIlg" resname="menu_automatic_width">
                     <source>Automatic Width</source>
                     <target>自動幅設定</target>
                 </trans-unit>                
-                <trans-unit id="133" resname="menu_average">
+                <trans-unit id="AjXfiZzgj7_mNkkKigzRbA" resname="menu_average">
                     <source>Average</source>
                     <target>平均</target>
                 </trans-unit>
-                <trans-unit id="143" resname="menu_background_color">
+                <trans-unit id="O_GB1vJBS+DXNtYdK+YWsA" resname="menu_background_color">
                     <source>Background Color</source>
                     <target>背景色</target>
                 </trans-unit>
-                <trans-unit id="150" resname="menu_bold">
+                <trans-unit id="baGeN40i+ZMQ+moP7XwVtA" resname="menu_bold">
                     <source>Bold</source>
                     <target>太字</target>
                 </trans-unit>
-                <trans-unit id="118" resname="menu_borders">
+                <trans-unit id="G5oyAbjytxRQiMWKL+qWeg" resname="menu_borders">
                     <source>Borders</source>
                     <target>罫線</target>
                 </trans-unit>
-                <trans-unit id="158" resname="menu_cells">
+                <trans-unit id="aM78t1yoaTBFwYFEYGOCsA" resname="menu_cells">
                     <source>Cells</source>
                     <target>セル</target>
                 </trans-unit>
-                <trans-unit id="174" resname="menu_clear_content">
+                <trans-unit id="3kTDpn1H2bi74PRYQVDFxA" resname="menu_clear_content">
                     <source>Clear Contents</source>
                     <target>内容をクリア</target>
                 </trans-unit>                
-                <trans-unit id="159" resname="menu_columns">
+                <trans-unit id="unBPaGoD7dllYV7f4fj77g" resname="menu_columns">
                     <source>Columns</source>
                     <target>カラム</target>
                 </trans-unit>
-                <trans-unit id="136" resname="menu_count">
+                <trans-unit id="XLJuH904oYv2Owd4W4zPhQ" resname="menu_count">
                     <source>Count</source>
                     <target>カウント</target>
                 </trans-unit>                
-                <trans-unit id="161" resname="menu_delete_break_line">
+                <trans-unit id="3dl4l8r1+qKNM3BXXxT_gg" resname="menu_delete_break_line">
 	                <source>Remove this break row</source>
 	                <target>このブレーク行を削除</target>
 				</trans-unit> 
-                <trans-unit id="123" resname="menu_delete_column">
+                <trans-unit id="U7Fk9GFM9fxJJzjFktHVMw" resname="menu_delete_column">
                     <source>Delete the column</source>
                     <target>カラムを削除</target>
                 </trans-unit>
-	            <trans-unit id="148" resname="menu_destination">
+	            <trans-unit id="gmT1DZFi+xcNRf9tvRn8Gw" resname="menu_destination">
 	               <source>Destination</source>
 	               <target>保存先</target>
 	            </trans-unit>
-                <trans-unit id="173" resname="menu_duplicate_column">
+                <trans-unit id="biw9cuP5x_1NzkU1OHy9Jg" resname="menu_duplicate_column">
                     <source>Duplicate this column</source>
                     <target>このカラムを複製</target>
                 </trans-unit>
-                <trans-unit id="175" resname="menu_edit">
+                <trans-unit id="ghupcUURAj2Smhv20BKiWQ" resname="menu_edit">
                     <source>Edit</source>
                     <target>編集</target>
                 </trans-unit>                
-                <trans-unit id="121" resname="menu_edit_formula">
+                <trans-unit id="7KDJCkRtWWTbiS4hAuNaXQ" resname="menu_edit_formula">
                     <source>Edit the formula…</source>
                     <target>フォーミュラを編集…</target>
                 </trans-unit>                
-                <trans-unit id="157" resname="menu_file">
+                <trans-unit id="5LfriCMST6pmN2B7XTNUWg" resname="menu_file">
                     <source>File</source>
                     <target>ファイル</target>
                 </trans-unit> 
-                <trans-unit id="138" resname="menu_font">
+                <trans-unit id="ukrsY+Jf3+nRAV_J0voO1g" resname="menu_font">
                     <source>Font</source>
                     <target>フォント</target>
                 </trans-unit>                
-                <trans-unit id="142" resname="menu_font_color">
+                <trans-unit id="gQM2UjzBbMRv_pkwmuvaRA" resname="menu_font_color">
                     <source>Font Color</source>
                     <target>文字色</target>
                 </trans-unit>
-	            <trans-unit id="145" resname="menu_format">
+	            <trans-unit id="dHLx9+cdATwATuu6SisI3w" resname="menu_format">
 	               <source>Format</source>
 	               <target>フォーマット</target>
 	            </trans-unit>
-                <trans-unit id="151" resname="menu_generate">
+                <trans-unit id="7JHr4Qf7yWe5GzF3muZlzg" resname="menu_generate">
                     <source>Generate…</source>
                     <target>出力…</target>
                 </trans-unit>
-                <trans-unit id="119" resname="menu_header_and_footers">
+                <trans-unit id="QdzhEEo1sfXtxJmhtCfu_A" resname="menu_header_and_footers">
                     <source>Header &amp; Footer…</source>
                     <target>ヘッダー &amp; フッター…</target>
                 </trans-unit>                
-	            <trans-unit id="176" resname="menu_hide">
+	            <trans-unit id="zc1OtfA4czg2nVFpsSH96g" resname="menu_hide">
 	               <source>Hide</source>
 	               <target>非表示</target>
 	            </trans-unit>
-                <trans-unit id="168" resname="menu_hide_break_line">
+                <trans-unit id="7bfFar2AxbAK+UXsF2xwzg" resname="menu_hide_break_line">
 	                <source>Hide this break row</source>
                     <target>このブレーク行を隠す</target>
                 </trans-unit>
-                <trans-unit id="122" resname="menu_hide_column">
+                <trans-unit id="1hdMBFRb7e4l7V9JX9Wmhg" resname="menu_hide_column">
                     <source>Hide the column</source>
                     <target>カラムを隠す</target>
                 </trans-unit>
-                <trans-unit id="130" resname="menu_hide_row">
+                <trans-unit id="QPlCtY9XpA2mbUdfOZZcMQ" resname="menu_hide_row">
                     <source>Hide the row</source>
                     <target>行を隠す</target>
                 </trans-unit>
-                <trans-unit id="116" resname="menu_html_file">
+                <trans-unit id="S7t8I73ZpoDG8YNZaEZGpA" resname="menu_html_file">
                     <source>HTML file</source>
                     <target>HTML ファイル</target>
                 </trans-unit>                
-                <trans-unit id="169" resname="menu_insert_after">
+                <trans-unit id="7A2FuKGcYCOoC8ynH2AccQ" resname="menu_insert_after">
                     <source>After</source>
                     <target>後に</target>
                 </trans-unit>
-                <trans-unit id="168" resname="menu_insert_before">
+                <trans-unit id="GmjSymVISVBMvIW8iiVZdQ" resname="menu_insert_before">
                     <source>Before</source>
                     <target>前に</target>
                 </trans-unit>
-                <trans-unit id="170" resname="menu_insert_begin">
+                <trans-unit id="85OzFS6WBOIAfpReDDipLQ" resname="menu_insert_begin">
                     <source>At the beginning</source>
                     <target>先頭に</target>
                 </trans-unit>
-                <trans-unit id="120" resname="menu_insert_column">
+                <trans-unit id="dCPk4JImvCJnNwma_UbVUg" resname="menu_insert_column">
                     <source>Insert a column…</source>
                     <target>カラムを挿入…</target>
                 </trans-unit>
-                <trans-unit id="171" resname="menu_insert_end">
+                <trans-unit id="luC0kfnYdolsb0reVOks6w" resname="menu_insert_end">
                     <source>At the end</source>
                     <target>末尾に</target>
                 </trans-unit>
-                <trans-unit id="148" resname="menu_italic">
+                <trans-unit id="DkTbaiecLBo+G39nFQo+QQ" resname="menu_italic">
                     <source>Italic</source>
                     <target>イタリック</target>
                 </trans-unit>
-                <trans-unit id="141" resname="menu_justification">
+                <trans-unit id="a635tGIoVA+fKTGEWAT7YQ" resname="menu_justification">
                     <source>Justification</source>
                     <target>整列</target>
                 </trans-unit>
-                <trans-unit id="155" resname="menu_max">
+                <trans-unit id="NRafdFbrc6tPtW2pMqQBuw" resname="menu_max">
                     <source>Max</source>
                     <target>最大値</target>
                 </trans-unit>
-                <trans-unit id="134" resname="menu_min">
+                <trans-unit id="S04qgoRZrnUbaOSbsogeNw" resname="menu_min">
                     <source>Min</source>
                     <target>最小値</target>
                 </trans-unit>
-                <trans-unit id="143" resname="menu_new">
+                <trans-unit id="QJWYwswY3ZqwVEiE22Up_w" resname="menu_new">
                     <source>New</source>
                     <target>新規</target>
                 </trans-unit>
-                <trans-unit id="172" resname="menu_new_column">
+                <trans-unit id="+teVceSnltdy8l4A+R_OEw" resname="menu_new_column">
                     <source>New column</source>
                     <target>新規カラム</target>
                 </trans-unit>
-                <trans-unit id="144" resname="menu_open">
+                <trans-unit id="cqQm2YsxWLYis57sUHzRUA" resname="menu_open">
                     <source>Open…</source>
                     <target>開く…</target>
                 </trans-unit>
-                <trans-unit id="149" resname="menu_page_setup">
+                <trans-unit id="XoNAIRgAoo6tIddFWcM6Og" resname="menu_page_setup">
                     <source>Page Setup…</source>
                     <target>ページ設定…</target>
                 </trans-unit>
-                <trans-unit id="151" resname="menu_plain">
+                <trans-unit id="D2wN+6NsVusc3kMEovJXZQ" resname="menu_plain">
                     <source>Plain</source>
                     <target>標準</target>
                 </trans-unit>
-                <trans-unit id="156" resname="menu_presentation">
+                <trans-unit id="KPJ6L4ImckhJcgF5MN+t3w" resname="menu_presentation">
                     <source>Presentation…</source>
                     <target>表示形式…</target>
                 </trans-unit> 
-                <trans-unit id="150" resname="menu_preview ">
+                <trans-unit id="sRYWGuZEzq4mXaXVJwg+Ow" resname="menu_preview ">
                     <source>Print Preview…</source>
                     <target>印刷プレビュー…</target>
                 </trans-unit>
-                <trans-unit id="114" resname="menu_printer">
+                <trans-unit id="reGqk6idUh3A8YD3rc8U5g" resname="menu_printer">
                     <source>Printer</source>
                     <target>プリンター</target>
                 </trans-unit>
-                <trans-unit id="124" resname="menu_repeated_values">
+                <trans-unit id="lRn4aGf31vQexm3f9T0z5A" resname="menu_repeated_values">
                     <source>Repeated Values</source>
                     <target>同一値も印刷</target>
                 </trans-unit>
-                <trans-unit id="147" resname="menu_revert">
+                <trans-unit id="lFPpTSr3yQMmJWuqPJh+wQ" resname="menu_revert">
                     <source>Revert to save</source>
                     <target>元に戻す</target>
                 </trans-unit>
-                <trans-unit id="145" resname="menu_save">
+                <trans-unit id="ivcD+sfGAx90tyI++KWPdg" resname="menu_save">
                     <source>Save</source>
                     <target>保存</target>
                 </trans-unit>
-                <trans-unit id="146" resname="menu_save_as">
+                <trans-unit id="EvcO5LsK1_IOIpqkbwNtrg" resname="menu_save_as">
                     <source>Save as…</source>
                     <target>別名で保存…</target>
                 </trans-unit>                
-                <trans-unit id="146" resname="menu_show_fonts">
+                <trans-unit id="uGfO2jWmyST3PYLjKK_UhQ" resname="menu_show_fonts">
                     <source>Show font…</source>
                     <target>フォントを表示…</target>
                 </trans-unit>                
-                <trans-unit id="139" resname="menu_size">
+                <trans-unit id="dEdljgZGptGtzIsjr2XAnw" resname="menu_size">
                     <source>Size</source>
                     <target>サイズ</target>
                 </trans-unit>                
-                <trans-unit id="127" resname="menu_sort_ascending">
+                <trans-unit id="jYwERJaGfBxfy6RSB92DQA" resname="menu_sort_ascending">
                     <source>Ascending</source>
                     <target>昇順</target>
                 </trans-unit>
-                <trans-unit id="128" resname="menu_sort_descending">
+                <trans-unit id="GSLAyS5iN7eVQ4Taz0llYQ" resname="menu_sort_descending">
                     <source>Descending</source>
                     <target>降順</target>
                 </trans-unit>                
-                <trans-unit id="126" resname="menu_sort_none">
+                <trans-unit id="Di7i7V33At2j8hM0eDGzuw" resname="menu_sort_none">
                     <source>None</source>
                     <target>なし</target>
                 </trans-unit>                
-                <trans-unit id="129" resname="menu_sort_order">
+                <trans-unit id="sHkhjY2Cph4dtTtfgs+1Mg" resname="menu_sort_order">
                     <source>Sort Order</source>
                     <target>ソート順</target>
                 </trans-unit>                
-                <trans-unit id="137" resname="menu_standard_deviation">
+                <trans-unit id="Q8qu4bO8dqy_za1YIHZ+BQ" resname="menu_standard_deviation">
                     <source>Standard deviation</source>
                     <target>標準偏差</target>
                 </trans-unit>                
-                <trans-unit id="140" resname="menu_style">
+                <trans-unit id="0WQjwBTSbWvJTvY8Wwk47w" resname="menu_style">
                     <source>Style</source>
                     <target>スタイル</target>
                 </trans-unit>                
-                <trans-unit id="132" resname="menu_sum">
+                <trans-unit id="eY_MJnfoMTcF0sn34aQSjA" resname="menu_sum">
                     <source>Sum</source>
                     <target>合計</target>
                 </trans-unit>                
-                <trans-unit id="115" resname="menu_text_file">
+                <trans-unit id="Tz5kG3_TyAOBPuMAKFy_Aw" resname="menu_text_file">
                     <source>Text file</source>
                     <target>テキストファイル</target>
                 </trans-unit>                
-                <trans-unit id="131" resname="menu_total_spacing">
+                <trans-unit id="_vs3KYZxuEJ+hUp12bESrQ" resname="menu_total_spacing">
                     <source>Total Spacing…</source>
                     <target>合計行の行間…</target>
                 </trans-unit>                
-                <trans-unit id="147" resname="menu_underline">
+                <trans-unit id="zofeuQZIA26RC5cie55f3Q" resname="menu_underline">
                     <source>Underline</source>
                     <target>下線</target>
                 </trans-unit>                
-	            <trans-unit id="191" resname="menu_sort_leftToRight">
+	            <trans-unit id="UEbIYuxGVvQNT+DXrW+GiQ" resname="menu_sort_leftToRight">
 	               <source>From left to right</source>
 	               <target>左から右へ</target>
 	            </trans-unit>
-	            <trans-unit id="192" resname="menu_sort_rightToLeft">
+	            <trans-unit id="kvk1dPoCm8H9N9rR9z7iag" resname="menu_sort_rightToLeft">
 	               <source>From right to left</source>
 	               <target>右から左へ</target>
 	            </trans-unit>
-	            <trans-unit id="193" resname="menu_sort_topToBottom">
+	            <trans-unit id="iEfCn731NgjA7dHp7S63Dg" resname="menu_sort_topToBottom">
 	               <source>From top to bottom</source>
 	               <target>上から下へ</target>
 	            </trans-unit>
-	            <trans-unit id="194" resname="menu_sort_bottomToTop">
+	            <trans-unit id="TH9Efnx+YFWDnzf0RaYMAA" resname="menu_sort_bottomToTop">
 	               <source>From bottom to top</source>
 	               <target>下から上へ</target>
 	            </trans-unit>
 
-	            <trans-unit id="218" resname="menu_subtotalProperties">
+	            <trans-unit id="6BVX935OIku9QJ8g0keEng" resname="menu_subtotalProperties">
 	               <source>Spacing</source>
 	               <target>スペース</target>
 	            </trans-unit>
-	            <trans-unit id="219" resname="menu_subtotalSpacingBreak">
+	            <trans-unit id="b1BBbMNA8Yx1Y5tGjSjY2w" resname="menu_subtotalSpacingBreak">
 	               <source>Page break </source>
 	               <target>改ページ</target>
 	            </trans-unit>
-	            <trans-unit id="221" resname="menu_subtotalSpacingPercent">
+	            <trans-unit id="GBi9HSDJ8nhU89cPxpvDNQ" resname="menu_subtotalSpacingPercent">
 	               <source>%</source>
 	               <target>%</target>
 	            </trans-unit>
-	            <trans-unit id="222" resname="menu_subtotalSpacingPoint">
+	            <trans-unit id="5PMZIaALefDLl1V2XZatAQ" resname="menu_subtotalSpacingPoint">
 	               <source>Pt</source>
 	               <target>Pt</target>
 	            </trans-unit>
-	            <trans-unit id="223" resname="menu_subtotalSpacingItem">
+	            <trans-unit id="ZzqcjZfOWqeLC0XAc1nknw" resname="menu_subtotalSpacingItem">
 	               <source>Spacing options</source>
 	               <target>スペースオプション</target>
 	            </trans-unit>
-	            <trans-unit id="225" resname="menu_subtotalSpacingMnuInPercent">
+	            <trans-unit id="Z2mi7nMrmazGnrcXmjvhNQ" resname="menu_subtotalSpacingMnuInPercent">
 	               <source>Line break (%)...</source>
 	               <target>改行(%)...</target>
 	            </trans-unit>
-	            <trans-unit id="226" resname="menu_subtotalSpacingMnuPageBreak">
+	            <trans-unit id="2AetU8Ik7cMrWCcgbjf53Q" resname="menu_subtotalSpacingMnuPageBreak">
 	               <source>Page Break</source>
 	               <target>改ページ</target>
 	            </trans-unit>
-	            <trans-unit id="227" resname="menu_subtotalSpacingRequest">
+	            <trans-unit id="ODCv1Ay2syB0WBk03JzqjQ" resname="menu_subtotalSpacingRequest">
 	               <source>Spacing</source>
 	               <target>スペース</target>
 	            </trans-unit>
-	            <trans-unit id="228" resname="menu_subtotalSpacingValue">
+	            <trans-unit id="J_kU6VT_d3rOYIzheyRVyg" resname="menu_subtotalSpacingValue">
 	               <source>Line break</source>
 	               <target>改行</target>
 	            </trans-unit>
-	            <trans-unit id="229" resname="menu_subtotalSpacingMnuInPoint">
+	            <trans-unit id="qtLOvcsdRYTuAKlW_hpMwQ" resname="menu_subtotalSpacingMnuInPoint">
 	               <source>Line break (pt)...</source>
 	               <target>改行(pt)...</target>
 	            </trans-unit>
 
-	            <trans-unit id="230" resname="menu_thickness0">
+	            <trans-unit id="H0blrIKoZviDO5Bfl2QwnQ" resname="menu_thickness0">
 	               <source>No border</source>
 	               <target>境界線なし</target>
 	            </trans-unit>
-	            <trans-unit id="231" resname="menu_thickness1">
+	            <trans-unit id="E8oR4LAZeT6sZuUKDJd1XQ" resname="menu_thickness1">
 	               <source>Hairline</source>
 	               <target>極細線</target>
 	            </trans-unit>
-	            <trans-unit id="232" resname="menu_thickness2">
+	            <trans-unit id="EW_jpP61wT8gVTwQQP2YUA" resname="menu_thickness2">
 	               <source>0.5 point</source>
 	               <target>0.5 pt</target>
 	            </trans-unit>
-	            <trans-unit id="233" resname="menu_thickness3">
+	            <trans-unit id="p+wvl6Uc40OZ3vXb4MOVWA" resname="menu_thickness3">
 	               <source>1 point</source>
 	               <target>1 pt</target>
 	            </trans-unit>
-	            <trans-unit id="234" resname="menu_thickness4">
+	            <trans-unit id="8WLBj3kaF9OaK62Hd1qmjg" resname="menu_thickness4">
 	               <source>2 points</source>
 	               <target>2 pt</target>
 	            </trans-unit>
-	            <trans-unit id="235" resname="menu_thicknessMultiple">
+	            <trans-unit id="QRpnJNVgJHflihv3fIjK1g" resname="menu_thicknessMultiple">
 	               <source>(Multiple)</source>
 	               <target>(マルチ)</target>
 	            </trans-unit>
-	            <trans-unit id="236" resname="menu_borderAll">
+	            <trans-unit id="hA4fwi4joazsSZvOLOgw1w" resname="menu_borderAll">
 	               <source>All borders</source>
 	               <target>全ての境界線</target>
 	            </trans-unit>
-	            <trans-unit id="237" resname="menu_borderOutside">
+	            <trans-unit id="no4MgOCchBhTsm0vKsF4FQ" resname="menu_borderOutside">
 	               <source>Outside borders</source>
 	               <target>外側の境界線</target>
 	            </trans-unit>
-	            <trans-unit id="238" resname="menu_borderInside">
+	            <trans-unit id="JImpcf4oc9Fs8k4_pyc73g" resname="menu_borderInside">
 	               <source>Inside borders</source>
 	               <target>内側の境界線</target>
 	            </trans-unit>
-	            <trans-unit id="239" resname="menu_borderVertical">
+	            <trans-unit id="FEIJPyV7pfsP_HewQ5V+gA" resname="menu_borderVertical">
 	               <source>Vertical borders</source>
 	               <target>垂直方向の境界線</target>
 	            </trans-unit>
-	            <trans-unit id="240" resname="menu_borderHorizontal">
+	            <trans-unit id="VxdqZ66OLwvee3oRVM7GYA" resname="menu_borderHorizontal">
 	               <source>Horizontal borders</source>
 	               <target>水平方向の境界線</target>
 	            </trans-unit>
-	            <trans-unit id="241" resname="menu_border_left">
+	            <trans-unit id="MRbinWE5Hca76FekM9js8g" resname="menu_border_left">
 	               <source>Left borders</source>
 	               <target>左の境界線</target>
 	            </trans-unit>
-	            <trans-unit id="242" resname="menu_border_right">
+	            <trans-unit id="iyfHuE8nySNPgUCNT6PLmw" resname="menu_border_right">
 	               <source>Right borders</source>
 	               <target>右の境界線</target>
 	            </trans-unit>
-	            <trans-unit id="243" resname="menu_border_top">
+	            <trans-unit id="C6lmtOM1KcGtx0NuMLc4Ew" resname="menu_border_top">
 	               <source>Top borders</source>
 	               <target>上の境界線</target>
 	            </trans-unit>
-	            <trans-unit id="244" resname="menu_border_bottom">
+	            <trans-unit id="O8uMmH0VaGZuoZkJTfQCwQ" resname="menu_border_bottom">
 	               <source>Bottom borders</source>
 	               <target>下の境界線</target>
 	            </trans-unit>
-	            <trans-unit id="245" resname="menu_border_thickness">
+	            <trans-unit id="0CPkO67F6PL9f8RVzKdPZQ" resname="menu_border_thickness">
 	               <source>Thickness</source>
 	               <target>太さ</target>
 	            </trans-unit>
-	            <trans-unit id="246" resname="menu_border_color">
+	            <trans-unit id="Hh_SlTDfDsmMDTPCspSQXw" resname="menu_border_color">
 	               <source>Color</source>
 	               <target>カラー</target>
 	            </trans-unit>			
-	            <trans-unit id="247" resname="button_addBorder">
+	            <trans-unit id="MNxMJJmpN38nuDc+lfmYcQ" resname="button_addBorder">
 	            	<source>Add</source>
 	            	<target>追加</target>
 	            </trans-unit>  
-	            <trans-unit id="248" resname="button_clearBorder">
+	            <trans-unit id="PYtxXo233y_F98LWw6C+mQ" resname="button_clearBorder">
 	            	<source>Clear</source>
 	            	<target>消去</target>
 	            </trans-unit>
             </group>
             <group resname="messages">
-                <trans-unit id="153" resname="select_a_report_definition_document">
+                <trans-unit id="aEyK_ZKkFp_qHSCADxUVgA" resname="select_a_report_definition_document">
                     <source>Select a report definition document</source>
                     <target>レポート定義ドキュメントを選択</target>
                 </trans-unit>
-                <trans-unit id="154" resname="save_the_report_as">
+                <trans-unit id="4ZugWv+lAb3o2p3lgLBJBA" resname="save_the_report_as">
 	                <source>Name of the report definition document</source>
 	                <target>レポート定義ドキュメント名</target>
 	             </trans-unit>
-	             <trans-unit id="177" resname="save_the_new_report_as">
+	             <trans-unit id="jDyW4I+qUZEWCxgYRwS6Mw" resname="save_the_new_report_as">
 	                <source>Name of the new report definition document</source>
 	                <target>新しいレポート定義ドキュメント名</target>
 	             </trans-unit>
             </group>            
             <group resname="Format">
-                <trans-unit id="158" resname="disparate">
+                <trans-unit id="p31B1XQz4mHs96RQiaXLtQ" resname="disparate">
                     <source>&lt;Disparate&gt;</source>
                     <target>&lt;非連続&gt;</target>
                 </trans-unit>
-                <trans-unit id="159" resname="none">
+                <trans-unit id="Fhxtjvdb2nZmnDgqjju4wA" resname="none">
                     <source>&lt;None&gt;</source>
                     <target>&lt;なし&gt;</target>
                 </trans-unit>
-                <trans-unit id="161" resname="inapplicable">
+                <trans-unit id="Wd4TAAM9UkBZ7XHj7bddaA" resname="inapplicable">
                     <source>&lt;Inapplicable&gt;</source>
                     <target>&lt;対象外&gt;</target>
                 </trans-unit>
-                <trans-unit id="166" resname="systemFont">
+                <trans-unit id="nY+b70nSDpaskDGSAX_wQQ" resname="systemFont">
                     <source>System Font</source>
                     <target>システムフォント</target>
                 </trans-unit>                
             </group>            
 
             <group resname="Fields">
-               <trans-unit id="178" resname="listOfFields">
+               <trans-unit id="xcpLyq0Lp7XIm69EggmJ7w" resname="listOfFields">
                   <source>List of Fields</source>
                   <target>フィールド一覧</target>
                </trans-unit>
-               <trans-unit id="179" resname="listOfFieldsTips">
+               <trans-unit id="CTUrLKVjQ+CGkkSFd3BPZw" resname="listOfFieldsTips">
                   <source>Double click to append a column
    Drag &amp; drop to insert or replace a column</source>
                   <target>ダブルクリックでカラムを追加
    ドラッグ&amp;ドロップでカラムを挿入または置換</target>
                </trans-unit>
-               <trans-unit id="180" resname="fieldsLabel">
+               <trans-unit id="ZGBDoPqgpwcTNpX+W5WpCw" resname="fieldsLabel">
                   <source>Fields</source>
                   <target>フィールド</target>
                </trans-unit>
             </group>
             <group resname="Settings">
-               <trans-unit id="181" resname="addFormula">
+               <trans-unit id="_EmiN2tyeiVTNCc7H6WSgQ" resname="addFormula">
                   <source>Add Formula...</source>
                   <target>フォーミュラを追加...</target>
                </trans-unit>
-               <trans-unit id="182" resname="availableFields">
+               <trans-unit id="MCAPzo1rYP+AimXnkzlgUQ" resname="availableFields">
                   <source>Available Fields</source>
                   <target>利用可能フィールド</target>
                </trans-unit>
-               <trans-unit id="183" resname="modify">
+               <trans-unit id="QrDnX8c0h+8b+Z5BU0Hx6Q" resname="modify">
                   <source>Modify...</source>
                   <target>修正...</target>
                </trans-unit>
-               <trans-unit id="185" resname="reportColumns">
+               <trans-unit id="gyc0ZqsgIgefQFA83_UWrw" resname="reportColumns">
                   <source>Report Columns</source>
                   <target>出力カラム</target>
                </trans-unit>
             </group>
 
 	        <group resname="CrossReport">
-	            <trans-unit id="185" resname="columns">
+	            <trans-unit id="KKSE1CA1+lkt6SIyOPwgNQ" resname="columns">
 	               <source>&lt;Columns&gt;</source>
 	               <target>&lt;カラム&gt;</target>
 	            </trans-unit>
-	            <trans-unit id="186" resname="rows">
+	            <trans-unit id="nnaIbM6QiwKixtSxFWzhyg" resname="rows">
 	               <source>&lt;Rows&gt;</source>
 	               <target>&lt;行&gt;</target>
 	            </trans-unit>
-	            <trans-unit id="187" resname="cells">
+	            <trans-unit id="5WUc_QEO9ntIGIucrcOBnw" resname="cells">
 	               <source>&lt;Cells&gt;</source>
 	               <target>&lt;セル&gt;</target>
 	            </trans-unit>
-	            <trans-unit id="188" resname="assignAsDatasourceForColumns">
+	            <trans-unit id="hZM2aFMl1OFfiNt6J8ugHg" resname="assignAsDatasourceForColumns">
 	               <source>Use as datasource for Columns</source>
 	               <target>カラムのデータソースとして使用</target>
 	            </trans-unit>
-	            <trans-unit id="189" resname="assignAsDatasourceForRows">
+	            <trans-unit id="FcFA5hp1GbeAcnI6TUmAdQ" resname="assignAsDatasourceForRows">
 	               <source>Use as datasource for Rows</source>
 	               <target>行のデータソースとして使用</target>
 	            </trans-unit>
-	            <trans-unit id="190" resname="assignAsDatasourceForCells">
+	            <trans-unit id="h+tUFfcB1cdOtciZugmzuw" resname="assignAsDatasourceForCells">
 	               <source>Use as datasource for Cells</source>
 	               <target>セルのデータソースとして使用</target>
 	            </trans-unit>
-	            <trans-unit id="195" resname="defaultLastColumnTitle">
+	            <trans-unit id="u0TmmJQdprBeFmR7FPT1DA" resname="defaultLastColumnTitle">
 	               <source>Totals</source>
 	               <target>小計</target>
 	            </trans-unit>
-	            <trans-unit id="196" resname="defaultLastRowTitle">
+	            <trans-unit id="EdYLIwImWiBfMs_pESQRyw" resname="defaultLastRowTitle">
 	               <source>Grand Total</source>
 	               <target>総計</target>
 	            </trans-unit>
-	            <trans-unit id="197" resname="tipsRowDataSource">
+	            <trans-unit id="PtQW1lkJcLmx4fhetJPSZA" resname="tipsRowDataSource">
 	               <source>Data Source for Rows</source>
 	               <target>行のデータソース</target>
 	            </trans-unit>
-	            <trans-unit id="198" resname="tipsColumnDataSource">
+	            <trans-unit id="ncnG2oHA89cWLfkQx7hHBw" resname="tipsColumnDataSource">
 	               <source>Data Source for Columns</source>
 	               <target>列のデータソース</target>
 	            </trans-unit>
-	            <trans-unit id="199" resname="tipsCellDataSource">
+	            <trans-unit id="_0HsHzO4CCaZz50ch1_GBw" resname="tipsCellDataSource">
 	               <source>Data Source for Cells</source>
 	               <target>セルのデータソース</target>
 	            </trans-unit>
 	         </group>
 
 	         <group resname="templates">
-	            <trans-unit id="200" resname="title_1">
+	            <trans-unit id="5nT1+ONv6IKlCfPXErd+Mw" resname="title_1">
 	               <source>Person</source>
 	               <target>人</target>
 	            </trans-unit>
-	            <trans-unit id="201" resname="title_2">
+	            <trans-unit id="fdPRVtjDRMliKsniI3rNfA" resname="title_2">
 	               <source>Department</source>
 	               <target>部署</target>
 	            </trans-unit>
-	            <trans-unit id="202" resname="title_3">
+	            <trans-unit id="eRayn1F3ZkUSwakTgP32ow" resname="title_3">
 	               <source>Area</source>
 	               <target>エリア</target>
 	            </trans-unit>
-	            <trans-unit id="203" resname="title_4">
+	            <trans-unit id="V8GlPgoK1kaTibbOK2G4fA" resname="title_4">
 	               <source>Sales</source>
 	               <target>売り上げ</target>
 	            </trans-unit>
-	            <trans-unit id="204" resname="person_4">
+	            <trans-unit id="+3Yv_a60HKwhwy9RiFA2ZA" resname="person_4">
 	               <source>Vincent</source>
 	               <target>Vincent</target>
 	            </trans-unit>
-	            <trans-unit id="205" resname="person_5">
+	            <trans-unit id="r8rCxjoIkvKVxFFFjtuWtA" resname="person_5">
 	               <source>Natalie</source>
 	               <target>Natalie</target>
 	            </trans-unit>
-	            <trans-unit id="206" resname="person_1">
+	            <trans-unit id="4BLHVT6SZEaZRj82prKupg" resname="person_1">
 	               <source>Peter</source>
 	               <target>Peter</target>
 	            </trans-unit>
-	            <trans-unit id="207" resname="person_2">
+	            <trans-unit id="+DWKaaUotwFXjH7KQECAEw" resname="person_2">
 	               <source>Helene</source>
 	               <target>Helene</target>
 	            </trans-unit>
-	            <trans-unit id="208" resname="person_3">
+	            <trans-unit id="yPaGoW4sR68ZvLcjCoS9fw" resname="person_3">
 	                <source>François</source>
 	                <target>François</target>
 				</trans-unit>
-	            <trans-unit id="209" resname="service">
+	            <trans-unit id="fDuZ_5zSDcZNVFgXxJIJ2A" resname="service">
 	               <source>Sales</source>
 	               <target>営業</target>
 	            </trans-unit>
-	            <trans-unit id="210" resname="sector_1">
+	            <trans-unit id="7U1OrIhGi8A37cvi7A6XOw" resname="sector_1">
 	               <source>North-East</source>
 	               <target>北東</target>
 	            </trans-unit>
-	            <trans-unit id="211" resname="sector_2">
+	            <trans-unit id="i8Xrsprt75zwquDYQYOpEw" resname="sector_2">
 	               <source>South-West</source>
 	               <target>南西</target>
 	            </trans-unit>
-	            <trans-unit id="212" resname="sector">
+	            <trans-unit id="IT3pKA6wCdYz1NziMITMlA" resname="sector">
 	               <source>{sector} Area</source>
 	               <target>{sector} エリア</target>
 	            </trans-unit>
-	            <trans-unit id="213" resname="departement">
+	            <trans-unit id="UbluWWbudJsJQ9_7LoleUw" resname="departement">
 	               <source>{service} Department</source>
 	               <target>{service} 部署</target>
 	            </trans-unit>
-	            <trans-unit id="214" resname="button_apply">
+	            <trans-unit id="q1Hzk213IwPwE2INoRPwZQ" resname="button_apply">
 	               <source>Apply</source>
 	               <target>適用</target>
 	            </trans-unit>
 
 	         </group>
 	         <group resname="errors">
-	            <trans-unit id="215" resname="ERROR_4DQR_1">
+	            <trans-unit id="pvw3koH4uhZq43Soo9PEWg" resname="ERROR_4DQR_1">
 	               <source>The quick report area type must be Numeric.</source>
 	               <target>クイックレポートエリアの型は数値型でなければなりません。</target>
 	            </trans-unit>
 	         </group>
 	         <group resname="Tips">
-	           <trans-unit id="Mx3dx03ndviL1DPMjrRypQ" resname="ascendingSortOrder">
+	           <trans-unit id="6SXP2eJUlqcC7H1dNRfkBQ" resname="ascendingSortOrder">
 	             <source>Ascending sort order</source>
 	             <target>昇順に並べる</target>
 	           </trans-unit>
-	           <trans-unit id="Sy3GZtSXmevEXXGJiGJPNw" resname="descendingSortOrder">
+	           <trans-unit id="k68GYKP2S2km+SiXBj0L5w" resname="descendingSortOrder">
 	             <source>Descending sort order</source>
 	             <target>降順に並べる</target>
 	           </trans-unit>
