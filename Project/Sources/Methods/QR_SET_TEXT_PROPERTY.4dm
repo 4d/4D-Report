@@ -5,45 +5,13 @@
 // ID[15A97CCE1E9544E6B66EB8A851D0050C]
 // Created #24-3-2014 by Vincent de Lachaux
 // ----------------------------------------------------
-// Description:
-//
-// ----------------------------------------------------
-// Declarations
-
-
 #DECLARE($area : Integer; $property : Integer; $value : Text; $column : Integer; $row : Integer)
 
-//C_LONGINT($1)
-//C_LONGINT($2)
-//C_TEXT($3)
-//C_LONGINT($4)
-//C_LONGINT($5)
+var $count_parameters; $column_number; $row_number : Integer
 
-var \
-$count_parameters; \
-$column_number; \
-$row_number : Integer
-
-
-
-
-If (False:C215)
-	C_LONGINT:C283(QR_SET_TEXT_PROPERTY; $1)
-	C_LONGINT:C283(QR_SET_TEXT_PROPERTY; $2)
-	C_TEXT:C284(QR_SET_TEXT_PROPERTY; $3)
-	C_LONGINT:C283(QR_SET_TEXT_PROPERTY; $4)
-	C_LONGINT:C283(QR_SET_TEXT_PROPERTY; $5)
-End if 
-
-// ----------------------------------------------------
-// Initialisations
 $count_parameters:=Count parameters:C259
 
 If (Asserted:C1132($count_parameters>=3; "Missing parameter"))
-	
-	//$area:=$1
-	//$property:=$2
-	//$value:=$3
 	
 	If ($count_parameters>=4)
 		
@@ -62,7 +30,6 @@ Else
 	
 End if 
 
-// ----------------------------------------------------
 Case of 
 		
 		//________________________________________
@@ -72,7 +39,7 @@ Case of
 		
 		//______________________________________________________
 	: ($column_number=0)\
-		 & ($row_number=0)  //applies to all cells
+		 & ($row_number=0)  // Applies to all cells
 		
 		For ($column_number; 1; QR Count columns:C764($area); 1)
 			
@@ -144,7 +111,7 @@ Case of
 		End for 
 		
 		//______________________________________________________
-	: ($column_number=0)  //applies to the line
+	: ($column_number=0)  // Applies to the line
 		
 		For ($column_number; 1; QR Count columns:C764($area); 1)
 			
@@ -160,7 +127,7 @@ Case of
 		End for 
 		
 		//______________________________________________________
-	: ($row_number=0)  //applies to the column
+	: ($row_number=0)  // Applies to the column
 		
 		If ($property=qr font name:K14904:10)
 			
@@ -210,7 +177,7 @@ Case of
 		End if 
 		
 		//______________________________________________________
-	Else   //applies to the cell
+	Else   // Applies to the cell
 		
 		If ($property=qr font name:K14904:10)
 			
@@ -224,6 +191,3 @@ Case of
 		
 		//______________________________________________________
 End case 
-
-// ----------------------------------------------------
-// End
