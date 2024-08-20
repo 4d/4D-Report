@@ -367,8 +367,6 @@
 					"left": 17,
 					"width": 120,
 					"height": 22,
-					"fontFamily": ".Lucida Grande UI",
-					"fontSize": 11,
 					"stroke": "automatic",
 					"popupPlacement": "linked",
 					"textPlacement": "left",
@@ -384,8 +382,6 @@
 					"left": 142,
 					"width": 44,
 					"height": 22,
-					"fontFamily": ".Lucida Grande UI",
-					"fontSize": 11,
 					"stroke": "automatic",
 					"popupPlacement": "linked",
 					"textPlacement": "left",
@@ -443,11 +439,11 @@
 					"enterableInList": false,
 					"deletableInList": false,
 					"printFrame": "variable",
-					"method": "ObjectMethods/font.alternate.back.color.4dm",
 					"events": [
 						"onDataChange"
 					],
-					"class": ""
+					"class": "",
+					"method": "ObjectMethods/font.alternate.back.color.4dm"
 				},
 				"borders.controls": {
 					"type": "subform",
@@ -502,8 +498,6 @@
 					"left": 132,
 					"width": 130,
 					"height": 22,
-					"fontFamily": ".Lucida Grande UI",
-					"fontSize": 11,
 					"stroke": "automatic",
 					"popupPlacement": "linked",
 					"textPlacement": "left",
@@ -549,8 +543,6 @@
 					"width": 171,
 					"height": 22,
 					"sizingX": "grow",
-					"fontFamily": ".Lucida Grande UI",
-					"fontSize": 11,
 					"stroke": "#AAAAAA",
 					"popupPlacement": "linked",
 					"textPlacement": "left",
@@ -605,7 +597,6 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"method": "method.4dm",
 	"geometryStamp": 96,
 	"editor": {
 		"activeView": "View 1",
