@@ -42,6 +42,8 @@ SET ASSERT ENABLED:C1131(<>Boo_debug; *)
 // Methods
 If (False:C215)
 	
+	C_LONGINT:C283(nqr_SET_BACK_COLOR; $1)
+	
 	// =======================================
 	C_OBJECT:C1216(NQR_AREA_HANDLE; $1)
 	

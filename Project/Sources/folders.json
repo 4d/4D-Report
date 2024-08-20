@@ -1,7 +1,6 @@
 {
 	"_": {
 		"methods": [
-			"____test",
 			"_colorToStyled",
 			"_hexToDec",
 			"_max",
@@ -260,6 +259,7 @@
 			"NQR_RELOAD",
 			"NQR_Save",
 			"NQR_SaveAs",
+			"nqr_SET_BACK_COLOR",
 			"NQR_SET_DESTINATION",
 			"NQR_SET_HEADER_AND_FOOTER",
 			"NQR_SET_SELECTION",
