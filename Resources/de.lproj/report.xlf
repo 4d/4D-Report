@@ -383,10 +383,10 @@ Use the 4D separators: "." for decimal separator and "," for thousand separator
         </trans-unit>
         <trans-unit id="j8HGFH3aJZD8pFcvuCR8uQ" resname="number_20">
                <source>##0%</source>
-               <target state="new">##0%</target>
+               <target>##0%</target>
             </trans-unit><trans-unit id="4x8QxwrGfcVimZsHMG2Nqg" resname="number_21">
                <source>##0.00%</source>
-               <target state="new">##0.00%</target>
+               <target>##0.00%</target>
             </trans-unit></group>
       <group resname="Time format">
         <trans-unit id="r6nO9UWmPJQQd3rxsH9iRw" resname="time_1">
