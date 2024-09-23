@@ -13,11 +13,8 @@
 #DECLARE()->$OK : Boolean
 
 
-var \
-$count_parameters : Integer
-
-var \
-$document_name : Text
+var $count_parameters : Integer
+var $document_name : Text
 
 
 // ----------------------------------------------------
@@ -47,7 +44,7 @@ QR REPORT TO BLOB:C770(QR_area; C_QR_INITBLOB)
 
 $document_name:=Select document:C905(8858; \
 ".4qr"; \
-Get localized string:C991("save_the_report_as"); \
+Localized string:C991("save_the_report_as"); \
 File name entry:K24:17+Use sheet window:K24:11+Package open:K24:8)
 
 $OK:=(OK=1)

@@ -4,9 +4,9 @@
 // Created #13-3-2014 by Vincent de Lachaux
 // ----------------------------------------------------
 // Declarations
-C_BOOLEAN:C305($Boo_many; $Boo_one)
-C_LONGINT:C283($Lon_area; $Lon_formEvent; $Lon_timerEvent)
-C_POINTER:C301($Ptr_timer)
+_O_C_BOOLEAN:C305($Boo_many; $Boo_one)
+_O_C_LONGINT:C283($Lon_area; $Lon_formEvent; $Lon_timerEvent)
+_O_C_POINTER:C301($Ptr_timer)
 
 // ----------------------------------------------------
 // Initialisations
@@ -67,12 +67,12 @@ Case of
 		$Ptr_timer->:=-1  //init
 		SET TIMER:C645(-1)
 		
-		If (<>withFeature102041)
-			
-			// do not modify .doAction C++ is using it for launching QR ON COMMAND
-			Form:C1466.doAction:=Formula:C1597(NQR_doAction($1))
-			
-		End if 
+		//If (<>withFeature102041)
+		
+		// do not modify .doAction C++ is using it for launching QR ON COMMAND
+		Form:C1466.doAction:=Formula:C1597(NQR_doAction($1))
+		
+		//End if 
 		
 		//______________________________________________________
 	: ($Lon_formEvent=On Timer:K2:25)

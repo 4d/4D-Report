@@ -1,47 +1,52 @@
-  // ----------------------------------------------------
-  // Object method : HDI_PATH_PICKER.widget_path
-  // ID[5AC07F61D04D4C29A136AA0B224F1384]
-  // Created #9-9-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($Lon_bottom;$Lon_formEvent;$Lon_left;$Lon_right;$Lon_top)
-C_POINTER:C301($Ptr_me)
-C_TEXT:C284($Txt_me)
+// ----------------------------------------------------
+// Object method : HDI_PATH_PICKER.widget_path
+// ID[5AC07F61D04D4C29A136AA0B224F1384]
+// Created #9-9-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Declarations
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_formEvent:=Form event code:C388
-$Txt_me:=OBJECT Get name:C1087(Object current:K67:2)
-$Ptr_me:=OBJECT Get pointer:C1124(Object current:K67:2)
+var $e : Object
+var $my_name : Text
+var $self : Pointer
 
-$Lon_formEvent:=Form event code:C388
+var $left; $top; $right; $bottom : Integer
 
-  // ----------------------------------------------------
+
+
+// ----------------------------------------------------
+// Initialisations
+
+$e:=FORM Event:C1606
+$my_name:=OBJECT Get name:C1087(Object current:K67:2)
+$self:=OBJECT Get pointer:C1124(Object current:K67:2)
+
+
+// ----------------------------------------------------
 Case of 
 		
-		  //______________________________________________________
-	: ($Lon_formEvent<0)
+		//______________________________________________________
+	: ($e.code<0)
 		
-		  //______________________________________________________
-	: ($Lon_formEvent=On Data Change:K2:15)
+		//______________________________________________________
+	: ($e.code=On Data Change:K2:15)
 		
-		  //update UI
+		//update UI
 		SET TIMER:C645(-1)
 		
-		  //______________________________________________________
-	: ($Lon_formEvent=On Load:K2:1)
+		//______________________________________________________
+	: ($e.code=On Load:K2:1)
 		
-		  //Resize the widget
-		OBJECT GET COORDINATES:C663(*;$Txt_me+".template";$Lon_left;$Lon_top;$Lon_right;$Lon_bottom)
-		OBJECT SET COORDINATES:C1248(*;$Txt_me;$Lon_left;$Lon_top;$Lon_right;$Lon_bottom)
+		//Resize the widget
+		OBJECT GET COORDINATES:C663(*; $my_name+".template"; $left; $top; $right; $bottom)
+		OBJECT SET COORDINATES:C1248(*; $my_name; $left; $top; $right; $bottom)
 		
-		  //Offsets of the widget
-		subform_SET_OFFSET ($Txt_me)
+		//Offsets of the widget
+		subform_SET_OFFSET($my_name)
 		
-		  //______________________________________________________
+		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215;"Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
+		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($e.code)+")")
 		
-		  //______________________________________________________
+		//______________________________________________________
 End case 

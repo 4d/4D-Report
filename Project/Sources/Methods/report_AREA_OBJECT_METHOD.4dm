@@ -76,7 +76,7 @@ If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	$event_code:=Form event code:C388
 	
 	//mouse state
-	GET MOUSE:C468($mouse_x; $mouse_y; $mouse_button)
+	MOUSE POSITION:C468($mouse_x; $mouse_y; $mouse_button)
 	
 	$contextual_click:=(($event_code=On Clicked:K2:4) | ($event_code=On Header Click:K2:40)) & (Contextual click:C713 | ($mouse_button=2))
 	$mouse_down:=($mouse_button=1)
@@ -290,20 +290,20 @@ If (Not:C34($skip)\
 			//______________________________________________________
 		: ($event_code=On Mouse Enter:K2:33)
 			
-			//If (<>withFeature105739)
+			
 			
 			ob_area.tipsDelay:=Get database parameter:C643(Tips delay:K37:80)
 			SET DATABASE PARAMETER:C642(Tips delay:K37:80; 0)
 			
-			//End if 
+			
 			//______________________________________________________
 		: ($event_code=On Mouse Leave:K2:34)
 			
-			//If (<>withFeature105739)
+			
 			
 			SET DATABASE PARAMETER:C642(Tips delay:K37:80; Num:C11(ob_area.tipsDelay))
 			
-			//End if 
+			
 			
 			//______________________________________________________
 		: ($event_code=On Header Click:K2:40)
@@ -664,7 +664,7 @@ If (Not:C34($skip)\
 					
 					LISTBOX GET CELL COORDINATES:C1330(*; $my_name; 1; $row_index; $left; $top; $right; $bottom)
 					
-					//If (<>withFeature105739)
+					
 					
 					If (ob_area.sortNumber>0)  // The report is sorted
 						
@@ -686,12 +686,12 @@ If (Not:C34($skip)\
 							 & (ob_area.rowIndex<(3+ob_area.sortNumber)))  // In a subtotal row header
 							
 							//%W-533.3
-							$help_tip_text:=Get localized string:C991(Choose:C955($aOrdersReordered{(ob_area.rowIndex-2)}=1; "ascendingSortOrder"; "descendingSortOrder"))
+							$help_tip_text:=Localized string:C991(Choose:C955($aOrdersReordered{(ob_area.rowIndex-2)}=1; "ascendingSortOrder"; "descendingSortOrder"))
 							//%W+533.3
 							
 						End if 
 					End if 
-					//End if 
+					
 					
 					//…………………………………………………
 				: ($is_in_header_column)

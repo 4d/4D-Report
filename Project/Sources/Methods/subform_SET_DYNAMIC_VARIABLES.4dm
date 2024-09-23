@@ -1,44 +1,42 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : subform_SET_DYNAMIC_VARIABLES
-  // Database: 4D Report
-  // ID[AD0697EE830A493BAAF3FF510F9A35D1]
-  // Created #2-6-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_OBJECT:C1216($1)
+// ----------------------------------------------------
+// Project method : subform_SET_DYNAMIC_VARIABLES
+// Database: 4D Report
+// ID[AD0697EE830A493BAAF3FF510F9A35D1]
+// Created #2-6-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_LONGINT:C283($Lon_i;$Lon_parameters;$Lon_type)
-C_POINTER:C301($Ptr_target)
-C_TEXT:C284($Txt_target)
-C_OBJECT:C1216($Obj_variables)
+#DECLARE($variables : Object)
 
-ARRAY TEXT:C222($tTxt_properties;0)
+var $i; $count_parameters; $type : Integer
+var $target_name : Text
+var $target_pointer : Pointer
 
-If (False:C215)
-	C_OBJECT:C1216(subform_SET_DYNAMIC_VARIABLES ;$1)
-End if 
+ARRAY TEXT:C222($_properties; 0)
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
+
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	  //Required parameters
-	$Obj_variables:=$1
+	//Required parameters
+	//$variables:=$1
 	
-	  //Optional parameters
-	If ($Lon_parameters>=1)
+	//Optional parameters
+	If ($count_parameters>=1)
 		
-		  //<none>
+		//<none>
 		
 	End if 
 	
-	OB GET PROPERTY NAMES:C1232($Obj_variables;$tTxt_properties)
+	OB GET PROPERTY NAMES:C1232($variables; $_properties)
 	
 Else 
 	
@@ -46,29 +44,29 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-For ($Lon_i;1;Size of array:C274($tTxt_properties);1)
+// ----------------------------------------------------
+For ($i; 1; Size of array:C274($_properties); 1)
 	
-	$Txt_target:=$tTxt_properties{$Lon_i}
-	$Ptr_target:=OBJECT Get pointer:C1124(Object named:K67:5;$Txt_target)
+	$target_name:=$_properties{$i}
+	$target_pointer:=OBJECT Get pointer:C1124(Object named:K67:5; $target_name)
 	
-	If (Not:C34(Is nil pointer:C315($Ptr_target)))
+	If (Not:C34(Is nil pointer:C315($target_pointer)))
 		
-		$Lon_type:=Type:C295($Ptr_target->)
+		$type:=Type:C295($target_pointer->)
 		
-		$Ptr_target->:=OB Get:C1224($Obj_variables;$Txt_target;$Lon_type)
+		$target_pointer->:=OB Get:C1224($variables; $target_name; $type)
 		
 	Else 
 		
-		ASSERT:C1129(False:C215;"unknown object: "+$Txt_target)
+		ASSERT:C1129(False:C215; "unknown object: "+$target_name)
 		
 	End if 
 End for 
 
-  // ----------------------------------------------------
-  // Return
+// ----------------------------------------------------
+// Return
 
-  //<NONE>
+//<NONE>
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

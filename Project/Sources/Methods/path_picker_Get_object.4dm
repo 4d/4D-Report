@@ -1,41 +1,32 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : path_picker_Get_object
-  // ID[54AF9A672A2847FEAE71180159E52D38]
-  // Created #28-11-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_POINTER:C301($0)
-C_TEXT:C284($1)
-C_POINTER:C301($2)
+// ----------------------------------------------------
+// Project method : path_picker_Get_object
+// ID[54AF9A672A2847FEAE71180159E52D38]
+// Created #28-11-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
+#DECLARE($widget_name : Text; $widget : Pointer)->$widget_pointer : Pointer
 
-C_LONGINT:C283($Lon_parameters)
-C_POINTER:C301($Ptr_object;$Ptr_widget)
-C_TEXT:C284($Txt_widget)
 
-If (False:C215)
-	C_POINTER:C301(path_picker_Get_object ;$0)
-	C_TEXT:C284(path_picker_Get_object ;$1)
-	C_POINTER:C301(path_picker_Get_object ;$2)
-End if 
+var $count_parameters : Integer
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	  //Required parameters
-	$Txt_widget:=$1  //Name of the widget object
-	$Ptr_object:=$2  //Object to populate
+	//Required parameters
+	//$widget_name:=$1  //Name of the widget object
 	
-	  //Optional parameters
-	If ($Lon_parameters>=2)
+	
+	//Optional parameters
+	If ($count_parameters>=2)
 		
-		  // <NONE>
+		// <NONE>
 		
 	End if 
 	
@@ -45,19 +36,19 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-$Ptr_widget:=OBJECT Get pointer:C1124(Object named:K67:5;"ob_widget";$Txt_widget)
+// ----------------------------------------------------
+$widget_pointer:=OBJECT Get pointer:C1124(Object named:K67:5; "ob_widget"; $widget_name)
 
-If (Not:C34(Is nil pointer:C315($Ptr_widget)))
+If (Not:C34(Is nil pointer:C315($widget_pointer)))
 	
-	If (Length:C16($Ptr_widget->)=0)
+	If (Length:C16($widget_pointer->)=0)
 		
-		  //default values
-		$Ptr_object->:=path_picker_INIT 
+		//default values
+		$widget->:=path_picker_INIT
 		
 	Else 
 		
-		$Ptr_object->:=JSON Parse:C1218($Ptr_widget->)
+		$widget->:=JSON Parse:C1218($widget_pointer->)
 		
 	End if 
 	
@@ -67,9 +58,9 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-  // Return
-$0:=$Ptr_widget  //Pointer to the widget object
+// ----------------------------------------------------
+// Return
+return $widget_pointer  //Pointer to the widget object
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

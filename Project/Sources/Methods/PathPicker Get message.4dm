@@ -1,42 +1,38 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : PathPicker Get message
-  // ID[4C754CB98E0E4BE290EA0C08EF4A7DCC]
-  // Created #26-11-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_TEXT:C284($0)
-C_TEXT:C284($1)
+// ----------------------------------------------------
+// Project method : PathPicker Get message
+// ID[4C754CB98E0E4BE290EA0C08EF4A7DCC]
+// Created #26-11-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_LONGINT:C283($Lon_parameters)
-C_TEXT:C284($Txt_message;$Txt_widget)
-C_OBJECT:C1216($Obj_widget)
+#DECLARE($widget_name : Text) : Text
 
-If (False:C215)
-	C_TEXT:C284(PathPicker Get message ;$0)
-	C_TEXT:C284(PathPicker Get message ;$1)
-End if 
+var $count_parameters : Integer
+var $message : Text
+var $widget : Object
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
+
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	  //Required parameters
-	$Txt_widget:=$1  //Name of the widget object
+	//Required parameters
 	
-	  //Optional parameters
-	If ($Lon_parameters>=2)
+	//Optional parameters
+	If ($count_parameters>=2)
 		
-		  // <NONE>
+		// <NONE>
 		
 	End if 
 	
-	path_picker_Get_object ($Txt_widget;->$Obj_widget)
+	path_picker_Get_object($widget_name; ->$widget)
 	
 Else 
 	
@@ -44,12 +40,12 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-$Txt_message:=OB Get:C1224($Obj_widget;"message";Is text:K8:3)
+// ----------------------------------------------------
+$message:=String:C10($widget.message)
 
-  // ----------------------------------------------------
-  // Return
-$0:=$Txt_message
+// ----------------------------------------------------
+// Return
+return $message
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

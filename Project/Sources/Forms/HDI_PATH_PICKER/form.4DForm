@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"windowTitle": "HDI Path picker",
 	"windowSizingY": "fixed",
@@ -314,5 +314,10 @@
 				"message"
 			]
 		}
-	]
+	],
+	"geometryStamp": 4,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
 }

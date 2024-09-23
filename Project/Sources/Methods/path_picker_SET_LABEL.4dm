@@ -1,39 +1,35 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : path_picker_SET_LABEL
-  // ID[F366056285464A5390A355AA354BA923]
-  // Created #10-9-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_POINTER:C301($1)
+// ----------------------------------------------------
+// Project method : path_picker_SET_LABEL
+// ID[F366056285464A5390A355AA354BA923]
+// Created #10-9-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
+#DECLARE($widget_pointer : Pointer)
 
-C_LONGINT:C283($Lon_parameters;$Lon_platform;$Lon_size)
-C_POINTER:C301($Ptr_widget)
-C_TEXT:C284($kTxt_Separator;$Txt_Buffer;$Txt_File;$Txt_lastPath;$Txt_path;$Txt_Volume)
-C_OBJECT:C1216($Obj_widget)
+var $count_parameters; $size : Integer
+var $separator; $buffer; $file; $last_path; $path; $volume : Text
+var $widget : Object
 
-If (False:C215)
-	C_POINTER:C301(path_picker_SET_LABEL ;$1)
-End if 
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	  //Required parameters
-	$Ptr_widget:=$1
+	//Required parameters
+	//$widget_pointer:=$1
 	
-	$Obj_widget:=JSON Parse:C1218($Ptr_widget->)
+	$widget:=JSON Parse:C1218($widget_pointer->)
 	
-	  //Optional parameters
-	If ($Lon_parameters>=2)
+	//Optional parameters
+	If ($count_parameters>=2)
 		
-		  // <NONE>
+		// <NONE>
 		
 	End if 
 	
@@ -43,79 +39,78 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-$Txt_path:=OB Get:C1224($Obj_widget;"accessPath";Is text:K8:3)
-$Txt_lastPath:=OB Get:C1224($Obj_widget;"_lastPath";Is text:K8:3)
+// ----------------------------------------------------
+$path:=OB Get:C1224($widget; "accessPath"; Is text:K8:3)
+$last_path:=OB Get:C1224($widget; "_lastPath"; Is text:K8:3)
 
-If ($Txt_path#$Txt_lastPath)
+If ($path#$last_path)
 	
-	$Lon_size:=Length:C16($Txt_path)
+	$size:=Length:C16($path)
 	
-	If ($Lon_size>0)
+	If ($size>0)
 		
-		  // C/S mode on Mac the path could be in Windows mode if server run on PC
-		  // E:\Backup Base Rezs v11\Ressources_4D_v11[0373].4BK
-		_O_PLATFORM PROPERTIES:C365($Lon_platform)
+		// C/S mode on Mac the path could be in Windows mode if server run on PC
+		// E:\Backup Base Rezs v11\Ressources_4D_v11[0373].4BK
 		
 		Case of 
 				
-				  //……………………………………………………………………………………………………………………
+				//……………………………………………………………………………………………………………………
 			: (Application type:C494=4D Remote mode:K5:5)\
-				 & ($Lon_platform=Mac OS:K25:2)\
-				 & (Position:C15("\\";$Txt_path)>0)
+				 & (Is macOS:C1572)\
+				 & (Position:C15("\\"; $path)>0)
 				
-				$kTxt_Separator:="\\"
+				$separator:="\\"
 				
-				  //……………………………………………………………………………………………………………………
+				//……………………………………………………………………………………………………………………
 			: (Application type:C494=4D Remote mode:K5:5)\
-				 & ($Lon_platform=Windows:K25:3)\
-				 & (Position:C15(":";Replace string:C233($Txt_path;":";"";1))>0)
+				 & (Is Windows:C1573)\
+				 & (Position:C15(":"; Replace string:C233($path; ":"; ""; 1))>0)
 				
-				$kTxt_Separator:=":"
+				$separator:=":"
 				
-				  //……………………………………………………………………………………………………………………
+				//……………………………………………………………………………………………………………………
 			Else 
 				
-				$kTxt_Separator:=Folder separator:K24:12
+				$separator:=Folder separator:K24:12
 				
-				  //……………………………………………………………………………………………………………………
+				//……………………………………………………………………………………………………………………
 		End case 
 		
-		$Txt_Volume:=Replace string:C233(doc_volumeName ($Txt_path);$kTxt_Separator;"")
-		$Txt_File:=Replace string:C233(doc_getFromPath ("fullName";$Txt_path;$kTxt_Separator);$kTxt_Separator;"")
+		$volume:=Replace string:C233(doc_volumeName($path); $separator; "")
+		$file:=Replace string:C233(doc_getFromPath("fullName"; $path; $separator); $separator; "")
 		
-		If ($Txt_File#$Txt_Volume)
+		If ($file#$volume)
 			
-			$Txt_Buffer:=Replace string:C233(Get localized string:C991("FileInVolume");"{file}";$Txt_File)
-			$Txt_Buffer:=Replace string:C233($Txt_Buffer;"{volume}";$Txt_Volume)
+			$buffer:=Replace string:C233(Localized string:C991("FileInVolume"); "{file}"; $file)
+			$buffer:=Replace string:C233($buffer; "{volume}"; $volume)
 			
 		Else 
 			
-			$Txt_Buffer:="\""+$Txt_File+"\""
+			$buffer:="\""+$file+"\""
 			
 		End if 
 		
-		OBJECT SET VISIBLE:C603(*;"plus";True:C214)
+		OBJECT SET VISIBLE:C603(*; "plus"; True:C214)
 		
 	Else 
 		
-		CLEAR VARIABLE:C89($Txt_buffer)
-		OBJECT SET VISIBLE:C603(*;"plus";False:C215)
+		CLEAR VARIABLE:C89($buffer)
+		OBJECT SET VISIBLE:C603(*; "plus"; False:C215)
 		
 	End if 
 	
-	  //store the current path value
-	OB SET:C1220($Obj_widget;\
-		"_lastPath";$Txt_path)
+	//store the current path value
+	OB SET:C1220($widget; \
+		"_lastPath"; $path)
 	
-	$Ptr_widget->:=JSON Stringify:C1217($Obj_widget)
+	$widget_pointer->:=JSON Stringify:C1217($widget)
 	
-	(OBJECT Get pointer:C1124(Object named:K67:5;"accessPath"))->:=$Txt_buffer
+	(OBJECT Get pointer:C1124(Object named:K67:5; "accessPath"))->:=$buffer
 	
 End if 
 
-  // ----------------------------------------------------
-  // Return
-  // <NONE>
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// Return
+// <NONE>
+// ----------------------------------------------------
+// End
