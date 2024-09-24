@@ -5,6 +5,7 @@
 // ID[584A5065D22E433C98F7D94F79E000FE]
 // Created #25-9-2014 by Vincent de Lachaux
 // ----------------------------------------------------
+
 #DECLARE($parameter : Object)
 
 /* CONSTANTS */
@@ -71,7 +72,7 @@ Case of
 				
 				// Mark:Font name
 				$caller.fontName:=QR_Get_font_name($area; $columnNumber; $rowNumber)
-				$caller.fontName:=Choose:C955($caller.fontName="-"; Get localized string:C991("disparate"); \
+				$caller.fontName:=Choose:C955($caller.fontName="-"; Localized string:C991("disparate"); \
 					Choose:C955($caller.fontName=""; "<Default>"; Replace string:C233($caller.fontName; ".Lucida Grande UI"; "Lucida Grande")))
 				(OBJECT Get pointer:C1124(Object named:K67:5; "font.family.label"))->:=$caller.fontName
 				
@@ -108,7 +109,7 @@ Case of
 					
 					// Thickness
 					(OBJECT Get pointer:C1124(Object named:K67:5; "border.style"))->:=$o.thicknessToSet
-					(OBJECT Get pointer:C1124(Object named:K67:5; "border.style.label"))->:=Get localized string:C991($o.sameThickness ? "menu_thickness"+String:C10($o.thicknessToSet) : "menu_thicknessMultiple")
+					(OBJECT Get pointer:C1124(Object named:K67:5; "border.style.label"))->:=Localized string:C991($o.sameThickness ? "menu_thickness"+String:C10($o.thicknessToSet) : "menu_thicknessMultiple")
 					
 				End if 
 				
@@ -145,21 +146,21 @@ Case of
 							If ($i=32000)
 								
 								$isSelected:=False:C215
-								$t:=Get localized string:C991("menu_subtotalSpacingBreak")
+								$t:=Localized string:C991("menu_subtotalSpacingBreak")
 								
 							Else 
 								
 								$isSelected:=True:C214
-								$t:=Get localized string:C991("menu_subtotalSpacingValue")
+								$t:=Localized string:C991("menu_subtotalSpacingValue")
 								
 								If ($i<0)
 									
-									$unit_name:=Get localized string:C991("menu_subtotalSpacingPercent")
+									$unit_name:=Localized string:C991("menu_subtotalSpacingPercent")
 									$i:=-$i
 									
 								Else 
 									
-									$unit_name:=Get localized string:C991("menu_subtotalSpacingPoint")
+									$unit_name:=Localized string:C991("menu_subtotalSpacingPoint")
 									
 								End if 
 							End if 
@@ -211,7 +212,7 @@ Case of
 							: ($rowNumber=qr title:K14906:1)  // Title
 								
 								OBJECT SET ENABLED:C1123(*; "format@"; False:C215)
-								(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Get localized string:C991("inapplicable")
+								(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Localized string:C991("inapplicable")
 								
 								//______________________________________________________
 							: ($rowNumber=qr detail:K14906:2)  // Detail
@@ -229,7 +230,7 @@ Case of
 									OBJECT SET ENABLED:C1123(*; "format"; False:C215)
 									OBJECT SET VISIBLE:C603(*; "format.back"; False:C215)
 									OBJECT SET VISIBLE:C603(*; "format.label"; True:C214)
-									(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Get localized string:C991("inapplicable")
+									(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Localized string:C991("inapplicable")
 									
 								Else 
 									
@@ -238,7 +239,7 @@ Case of
 									OBJECT SET VISIBLE:C603(*; "format.label"; True:C214)
 									
 									$caller.columnFormat:=QR_Get_column_format($area; $columnNumber)
-									(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($caller.columnFormat)#0; $caller.columnFormat; Get localized string:C991("none"))
+									(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($caller.columnFormat)#0; $caller.columnFormat; Localized string:C991("none"))
 									
 								End if 
 								
@@ -313,7 +314,7 @@ Case of
 							
 						End if 
 						
-						(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($caller.columnFormat)#0; $caller.columnFormat; Get localized string:C991("none"))
+						(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($caller.columnFormat)#0; $caller.columnFormat; Localized string:C991("none"))
 						OBJECT SET VISIBLE:C603(*; "format@"; True:C214)
 						
 						// Sort
@@ -323,7 +324,7 @@ Case of
 							
 							OBJECT SET ENABLED:C1123(*; "sort"; False:C215)
 							OBJECT SET VISIBLE:C603(*; "sort.back"; False:C215)
-							(OBJECT Get pointer:C1124(Object named:K67:5; "sort.label"))->:=Get localized string:C991("inapplicable")
+							(OBJECT Get pointer:C1124(Object named:K67:5; "sort.label"))->:=Localized string:C991("inapplicable")
 							
 						Else 
 							
@@ -340,17 +341,17 @@ Case of
 									//-----------------------------
 								: ($index=-1)  // Not sorted
 									
-									$ui_label_pointer->:=Get localized string:C991("menu_sort_none")
+									$ui_label_pointer->:=Localized string:C991("menu_sort_none")
 									
 									//-----------------------------
 								: ($orders{$index}=0)
 									
-									$ui_label_pointer->:=Get localized string:C991("menu_sort_none")
+									$ui_label_pointer->:=Localized string:C991("menu_sort_none")
 									
 									//-----------------------------
 								: ($orders{$index}=1)
 									
-									$ui_label_pointer->:=Get localized string:C991(\
+									$ui_label_pointer->:=Localized string:C991(\
 										Choose:C955($reportKind=qr cross report:K14902:2; \
 										Choose:C955($columnNumber=2; \
 										"menu_sort_leftToRight"; \
@@ -360,7 +361,7 @@ Case of
 									//-----------------------------
 								: ($orders{$index}=-1)
 									
-									$ui_label_pointer->:=Get localized string:C991(\
+									$ui_label_pointer->:=Localized string:C991(\
 										Choose:C955($reportKind=qr cross report:K14902:2; \
 										Choose:C955($columnNumber=2; \
 										"menu_sort_rightToLeft"; \
@@ -414,7 +415,7 @@ Case of
 							OBJECT SET ENABLED:C1123(*; "format"; False:C215)
 							OBJECT SET VISIBLE:C603(*; "format.back"; False:C215)
 							OBJECT SET VISIBLE:C603(*; "format.label"; True:C214)
-							(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Get localized string:C991("inapplicable")
+							(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Localized string:C991("inapplicable")
 							
 						Else 
 							
@@ -425,7 +426,7 @@ Case of
 							// ACI0100940
 							// ACI0100938
 							$caller.columnFormat:=QR_Get_column_format($area; $columnData; $columnType)
-							(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($caller.columnFormat)#0; $caller.columnFormat; Get localized string:C991("none"))
+							(OBJECT Get pointer:C1124(Object named:K67:5; "format.label"))->:=Choose:C955(Length:C16($caller.columnFormat)#0; $caller.columnFormat; Localized string:C991("none"))
 							
 						End if 
 						
@@ -539,7 +540,7 @@ Case of
 			
 			If (OB Get:C1224($parameter; "postClick"; Is boolean:K8:9))
 				
-				GET MOUSE:C468($mouseX; $mouseY; $i; *)
+				MOUSE POSITION:C468($mouseX; $mouseY; $i; *)
 				POST CLICK:C466($mouseX; $mouseY; *)
 				
 			End if 

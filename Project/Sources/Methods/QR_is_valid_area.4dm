@@ -12,10 +12,6 @@
 
 #DECLARE($area_reference : Integer)->$is_valid : Boolean
 
-If (False:C215)
-	C_BOOLEAN:C305(QR_is_valid_area; $0)
-	C_LONGINT:C283(QR_is_valid_area; $1)
-End if 
 
 /* 
   ----------------------------------------------------
