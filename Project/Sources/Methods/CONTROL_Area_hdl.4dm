@@ -11,27 +11,23 @@
 // Remove the link to component 4D SVG
 // ----------------------------------------------------
 // Declarations
-C_TEXT:C284($0)
-C_OBJECT:C1216($1)
+#DECLARE($object_definition : Object) : Text
 
-C_BOOLEAN:C305($Boo_selected; $boo_isBorder; $boo_isColorSchemeLight)
-C_LONGINT:C283($Lon_color; $Lon_fontSize; $Lon_formEvent; $Lon_i; $Lon_id; $Lon_number)
-C_LONGINT:C283($Lon_offset; $Lon_parameters; $Lon_pictHeight; $Lon_pictWidth; $Lon_platform; $Lon_round)
-C_LONGINT:C283($Lon_size; $Lon_state; $Lon_type; $Lon_x; $Lon_y)
-C_POINTER:C301($Ptr_container)
-C_REAL:C285($kNum_highlithOpacity; $Num_buffer; $Num_height; $Num_unit; $Num_width)
-C_TEXT:C284($Dir_resources; $Dom_style; $File_icon; $kTxt_defaultColor; $kTxt_highlithColor; $Svg_back)
-C_TEXT:C284($Svg_control; $Svg_defs; $Svg_main; $Svg_root; $Svg_unit; $Txt_buffer)
-C_TEXT:C284($Txt_color; $Txt_fontColor; $Txt_fontFamily; $Txt_hightlight; $Txt_id; $Txt_me)
-C_TEXT:C284($Txt_mode; $Txt_path; $Txt_result; $Txt_stroke; $Txt_type; $Txt_URL)
-C_OBJECT:C1216($Obj_definition)
+var $is_selected; $is_border; $is_color_scheme_light : Boolean
+var $Lon_color; $Lon_fontSize; $Lon_formEvent; $Lon_i; $Lon_id; $Lon_number : Integer
+var $Lon_offset; $Lon_parameters; $Lon_pictHeight; $Lon_pictWidth; $Lon_round : Integer
+var $Lon_size; $Lon_state; $Lon_type; $Lon_x; $Lon_y : Integer
+var $Ptr_container : Pointer
+
+var $kNum_highlithOpacity; $Num_buffer; $Num_height; $Num_unit; $Num_width : Real
+var $Dir_resources; $Dom_style; $File_icon; $kTxt_defaultColor; $kTxt_highlithColor; $Svg_back : Text
+var $Svg_control; $Svg_defs; $Svg_main; $Svg_root; $Svg_unit; $Txt_buffer : Text
+var $Txt_color; $Txt_fontColor; $Txt_fontFamily; $Txt_hightlight; $Txt_id; $Txt_me : Text
+var $Txt_mode; $Txt_path; $Txt_result; $Txt_stroke; $Txt_type; $Txt_URL : Text
+
 
 ARRAY TEXT:C222($tTxt_definition; 0)
 
-If (False:C215)
-	C_TEXT:C284(CONTROL_Area_hdl; $0)
-	C_OBJECT:C1216(CONTROL_Area_hdl; $1)
-End if 
 
 // ----------------------------------------------------
 // Initialisations
@@ -44,7 +40,7 @@ If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	
 	If ($Lon_parameters>=1)
 		
-		$Obj_definition:=$1  //{object definition} Omitted for the object's script
+		//$object_definition:=$1  //{object definition} Omitted for the object's script
 		
 	End if 
 	
@@ -65,7 +61,6 @@ If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
 	
 	$kNum_highlithOpacity:=0.4  //opacity of a selected item
 	
-	_O_PLATFORM PROPERTIES:C365($Lon_platform)
 	
 Else 
 	
@@ -74,28 +69,28 @@ Else
 End if 
 
 // ----------------------------------------------------
-If (OB Is defined:C1231($Obj_definition))  //draw
+If (OB Is defined:C1231($object_definition))  //draw
 	
 	//Get the preset value
 	$Lon_type:=Type:C295($Ptr_container->)
 	
-	$Txt_hightlight:=Choose:C955(OB Is defined:C1231($Obj_definition; "highlight"); \
-		OB Get:C1224($Obj_definition; "highlight"; Is text:K8:3); \
+	$Txt_hightlight:=Choose:C955(OB Is defined:C1231($object_definition; "highlight"); \
+		OB Get:C1224($object_definition; "highlight"; Is text:K8:3); \
 		$kTxt_highlithColor)
 	
-	$Txt_stroke:=Choose:C955(OB Is defined:C1231($Obj_definition; "stroke"); \
-		OB Get:C1224($Obj_definition; "stroke"; Is text:K8:3); \
+	$Txt_stroke:=Choose:C955(OB Is defined:C1231($object_definition; "stroke"); \
+		OB Get:C1224($object_definition; "stroke"; Is text:K8:3); \
 		"darkgray")
 	
-	$Txt_fontFamily:=Choose:C955(OB Is defined:C1231($Obj_definition; "font-family"); \
-		OB Get:C1224($Obj_definition; "font-family"; Is text:K8:3); \
+	$Txt_fontFamily:=Choose:C955(OB Is defined:C1231($object_definition; "font-family"); \
+		OB Get:C1224($object_definition; "font-family"; Is text:K8:3); \
 		"'Lucida Grande','Segoe UI','Arial',sans-serif")
 	
-	$Txt_type:=OB Get:C1224($Obj_definition; "type"; Is text:K8:3)
+	$Txt_type:=OB Get:C1224($object_definition; "type"; Is text:K8:3)
 	
-	If (OB Is defined:C1231($Obj_definition; "offset"))
+	If (OB Is defined:C1231($object_definition; "offset"))
 		
-		$Lon_offset:=OB Get:C1224($Obj_definition; "offset"; Is longint:K8:6)
+		$Lon_offset:=OB Get:C1224($object_definition; "offset"; Is longint:K8:6)
 		
 	End if 
 	
@@ -140,7 +135,7 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 			//Prepare a group, in the background, for the check mark
 			$Svg_back:=DOM Create XML element:C865($Svg_main; "g")
 			
-			$Lon_size:=Choose:C955(OB Is defined:C1231($Obj_definition; "width"); OB Get:C1224($Obj_definition; "width"; Is longint:K8:6); 14)  //default is 14px
+			$Lon_size:=Choose:C955(OB Is defined:C1231($object_definition; "width"); OB Get:C1224($object_definition; "width"; Is longint:K8:6); 14)  //default is 14px
 			
 			If ($Txt_type="checkcircle")
 				
@@ -170,18 +165,18 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 					//…………………………………………
 				: ($Lon_type=Is text:K8:3)
 					
-					$Boo_selected:=($Ptr_container->="1")
+					$is_selected:=($Ptr_container->="1")
 					
 					//…………………………………………
 				: ($Lon_type=Is real:K8:4)
 					
-					$Boo_selected:=($Ptr_container->=1)
+					$is_selected:=($Ptr_container->=1)
 					
 					//…………………………………………
 			End case 
 			
 			DOM SET XML ATTRIBUTE:C866($Svg_control; \
-				"vdl:value"; Num:C11($Boo_selected))
+				"vdl:value"; Num:C11($is_selected))
 			
 			//Draw the check mark
 			$Num_unit:=$Lon_size/4
@@ -194,7 +189,7 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 				"d"; $Txt_buffer; \
 				"id"; "check"; \
 				"class"; "check-mark"; \
-				"visibility"; Choose:C955($Boo_selected; "visible"; "hidden"); \
+				"visibility"; Choose:C955($is_selected; "visible"; "hidden"); \
 				"stroke-linecap"; "round"; \
 				"stroke-linejoin"; "round"; \
 				"stroke-width"; "2"; \
@@ -203,10 +198,10 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 			//______________________________________________________
 		: ($Txt_type="text-color")
 			
-			$Txt_mode:=OB Get:C1224($Obj_definition; "mode"; Is text:K8:3)
+			$Txt_mode:=OB Get:C1224($object_definition; "mode"; Is text:K8:3)
 			
 			
-			$boo_isBorder:=OB Get:C1224($Obj_definition; "isBorder"; Is boolean:K8:9)
+			$is_border:=OB Get:C1224($object_definition; "isBorder"; Is boolean:K8:9)
 			$Dom_style:=DOM Create XML element:C865($Svg_defs; "style"; \
 				"type"; "text/css")
 			DOM SET XML ELEMENT VALUE:C868($Dom_style; "rect.color{fill: "+Choose:C955($Txt_mode="back"; "white"; "black")+"; fill-opacity: 1; stroke: none}")
@@ -236,21 +231,21 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 				"id"; "sample")
 			
 			
-			$boo_isColorSchemeLight:=(FORM Get color scheme:C1761="light")
+			$is_color_scheme_light:=(FORM Get color scheme:C1761="light")
 			
 			//place icon - /!\ the relative paths don't operate from a component
-			If ($boo_isBorder)
+			If ($is_border)
 				$File_icon:=Get 4D folder:C485(Current resources folder:K5:16)\
 					+"Images"+Folder separator:K24:12\
 					+"widgets"+Folder separator:K24:12\
 					+"controls"+Folder separator:K24:12\
-					+"typo_border"+Choose:C955($boo_isColorSchemeLight; ".png"; "_dark.png")
+					+"typo_border"+Choose:C955($is_color_scheme_light; ".png"; "_dark.png")
 			Else 
 				$File_icon:=Get 4D folder:C485(Current resources folder:K5:16)\
 					+"Images"+Folder separator:K24:12\
 					+"widgets"+Folder separator:K24:12\
 					+"controls"+Folder separator:K24:12\
-					+"typo_"+Choose:C955($Txt_mode="back"; "back"; "front")+Choose:C955($boo_isColorSchemeLight; ".png"; "_dark.png")
+					+"typo_"+Choose:C955($Txt_mode="back"; "back"; "front")+Choose:C955($is_color_scheme_light; ".png"; "_dark.png")
 			End if 
 			
 			
@@ -291,7 +286,7 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 			//______________________________________________________
 		: ($Txt_type="color-picker")
 			
-			$Txt_mode:=OB Get:C1224($Obj_definition; "mode"; Is text:K8:3)
+			$Txt_mode:=OB Get:C1224($object_definition; "mode"; Is text:K8:3)
 			
 			$Dom_style:=DOM Create XML element:C865($Svg_defs; "style"; \
 				"type"; "text/css")
@@ -345,16 +340,16 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 			//______________________________________________________
 		: ($Txt_type="tabs")
 			
-			$Num_width:=OB Get:C1224($Obj_definition; "width"; Is real:K8:4)
-			$Num_height:=OB Get:C1224($Obj_definition; "height"; Is real:K8:4)
+			$Num_width:=OB Get:C1224($object_definition; "width"; Is real:K8:4)
+			$Num_height:=OB Get:C1224($object_definition; "height"; Is real:K8:4)
 			
-			$Lon_round:=Choose:C955(OB Is defined:C1231($Obj_definition; "round"); OB Get:C1224($Obj_definition; "round"; Is longint:K8:6); 5)
+			$Lon_round:=Choose:C955(OB Is defined:C1231($object_definition; "round"); OB Get:C1224($object_definition; "round"; Is longint:K8:6); 5)
 			
-			OB GET ARRAY:C1229($Obj_definition; "definition"; $tTxt_definition)
+			OB GET ARRAY:C1229($object_definition; "definition"; $tTxt_definition)
 			$Lon_number:=Size of array:C274($tTxt_definition)
 			
 			ARRAY TEXT:C222($tTxt_values; 0x0000)
-			OB GET ARRAY:C1229($Obj_definition; "values"; $tTxt_values)
+			OB GET ARRAY:C1229($object_definition; "values"; $tTxt_values)
 			ARRAY TEXT:C222($tTxt_values; $Lon_number)
 			
 			Case of 
@@ -377,9 +372,9 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 				"vdl:number"; $Lon_number; \
 				"vdl:values"; JSON Stringify array:C1228($tTxt_values))
 			
-			$Lon_fontSize:=Choose:C955(OB Is defined:C1231($Obj_definition; "font-size"); OB Get:C1224($Obj_definition; "font-size"; Is longint:K8:6); 13)
+			$Lon_fontSize:=Choose:C955(OB Is defined:C1231($object_definition; "font-size"); OB Get:C1224($object_definition; "font-size"; Is longint:K8:6); 13)
 			
-			$Txt_fontColor:=Choose:C955(OB Is defined:C1231($Obj_definition; "font-color"); OB Get:C1224($Obj_definition; "font-color"; Is text:K8:3); $kTxt_highlithColor)
+			$Txt_fontColor:=Choose:C955(OB Is defined:C1231($object_definition; "font-color"); OB Get:C1224($object_definition; "font-color"; Is text:K8:3); $kTxt_highlithColor)
 			
 			$Lon_x:=0
 			$Lon_y:=($Num_height/2)-($Lon_fontSize\2)-1
@@ -422,17 +417,17 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 			//______________________________________________________
 		: ($Txt_type="segmented")
 			
-			$Num_width:=OB Get:C1224($Obj_definition; "width"; Is real:K8:4)
-			$Num_height:=OB Get:C1224($Obj_definition; "height"; Is real:K8:4)
+			$Num_width:=OB Get:C1224($object_definition; "width"; Is real:K8:4)
+			$Num_height:=OB Get:C1224($object_definition; "height"; Is real:K8:4)
 			
-			$Lon_round:=Choose:C955(OB Is defined:C1231($Obj_definition; "round"); OB Get:C1224($Obj_definition; "round"; Is longint:K8:6); \
-				Choose:C955($Lon_platform=Windows:K25:3; 0; 4))
+			$Lon_round:=Choose:C955(OB Is defined:C1231($object_definition; "round"); OB Get:C1224($object_definition; "round"; Is longint:K8:6); \
+				Choose:C955(Is Windows:C1573; 0; 4))
 			
-			OB GET ARRAY:C1229($Obj_definition; "definition"; $tTxt_definition)
+			OB GET ARRAY:C1229($object_definition; "definition"; $tTxt_definition)
 			$Lon_number:=Size of array:C274($tTxt_definition)
 			
 			ARRAY TEXT:C222($tTxt_values; 0x0000)
-			OB GET ARRAY:C1229($Obj_definition; "values"; $tTxt_values)
+			OB GET ARRAY:C1229($object_definition; "values"; $tTxt_values)
 			ARRAY TEXT:C222($tTxt_values; $Lon_number)
 			
 			Case of 
@@ -459,13 +454,13 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 			DOM SET XML ATTRIBUTE:C866($Svg_control; \
 				"vdl:number"; $Lon_number; \
 				"vdl:values"; JSON Stringify array:C1228($tTxt_values); \
-				"vdl:mode"; OB Get:C1224($Obj_definition; "mode"; Is text:K8:3))
+				"vdl:mode"; OB Get:C1224($object_definition; "mode"; Is text:K8:3))
 			//}
 			
-			If (OB Is defined:C1231($Obj_definition; "tips"))
+			If (OB Is defined:C1231($object_definition; "tips"))
 				
 				ARRAY TEXT:C222($tTxt_buffer; 0x0000)
-				OB GET ARRAY:C1229($Obj_definition; "tips"; $tTxt_buffer)
+				OB GET ARRAY:C1229($object_definition; "tips"; $tTxt_buffer)
 				DOM SET XML ATTRIBUTE:C866($Svg_control; \
 					"vdl:tips"; JSON Stringify array:C1228($tTxt_buffer))
 				
@@ -476,7 +471,7 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 				
 			End if 
 			
-			$Txt_buffer:=OB Get:C1224($Obj_definition; "source"; Is text:K8:3)
+			$Txt_buffer:=OB Get:C1224($object_definition; "source"; Is text:K8:3)
 			
 			Case of 
 					
@@ -486,15 +481,15 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 					//font size
 					ARRAY LONGINT:C221($tLon_fontSizes; 0x0000)
 					
-					If (OB Is defined:C1231($Obj_definition; "font-size"))
+					If (OB Is defined:C1231($object_definition; "font-size"))
 						
-						If (OB Get type:C1230($Obj_definition; "font-size")=Object array:K8:28)
+						If (OB Get type:C1230($object_definition; "font-size")=Object array:K8:28)
 							
-							OB GET ARRAY:C1229($Obj_definition; "font-size"; $tLon_fontSizes)
+							OB GET ARRAY:C1229($object_definition; "font-size"; $tLon_fontSizes)
 							
 						Else 
 							
-							$Lon_fontSize:=OB Get:C1224($Obj_definition; "font-size"; Is longint:K8:6)
+							$Lon_fontSize:=OB Get:C1224($object_definition; "font-size"; Is longint:K8:6)
 							
 						End if 
 					End if 
@@ -513,15 +508,15 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 					//font color
 					ARRAY TEXT:C222($tTxt_fontColors; 0x0000)
 					
-					If (OB Is defined:C1231($Obj_definition; "font-color"))
+					If (OB Is defined:C1231($object_definition; "font-color"))
 						
-						If (OB Get type:C1230($Obj_definition; "font-color")=Is collection:K8:32)
+						If (OB Get type:C1230($object_definition; "font-color")=Is collection:K8:32)
 							
-							OB GET ARRAY:C1229($Obj_definition; "font-color"; $tTxt_fontColors)
+							OB GET ARRAY:C1229($object_definition; "font-color"; $tTxt_fontColors)
 							
 						Else 
 							
-							$Txt_fontColor:=OB Get:C1224($Obj_definition; "font-color"; Is text:K8:3)
+							$Txt_fontColor:=OB Get:C1224($object_definition; "font-color"; Is text:K8:3)
 							
 						End if 
 					End if 
@@ -543,15 +538,15 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 					//vertical offset
 					ARRAY LONGINT:C221($tLon_vOffsets; 0x0000)
 					
-					If (OB Is defined:C1231($Obj_definition; "vOffset"))
+					If (OB Is defined:C1231($object_definition; "vOffset"))
 						
-						If (OB Get type:C1230($Obj_definition; "vOffset")=Object array:K8:28)
+						If (OB Get type:C1230($object_definition; "vOffset")=Object array:K8:28)
 							
-							OB GET ARRAY:C1229($Obj_definition; "vOffset"; $tLon_vOffsets)
+							OB GET ARRAY:C1229($object_definition; "vOffset"; $tLon_vOffsets)
 							
 						Else 
 							
-							$Lon_fontSize:=OB Get:C1224($Obj_definition; "vOffset"; Is longint:K8:6)
+							$Lon_fontSize:=OB Get:C1224($object_definition; "vOffset"; Is longint:K8:6)
 							
 						End if 
 					End if 
@@ -583,8 +578,8 @@ If (OB Is defined:C1231($Obj_definition))  //draw
 				: ($Txt_buffer="pict")
 					
 					//Put the pictures in the background
-					$Lon_pictWidth:=Choose:C955(OB Is defined:C1231($Obj_definition; "pictWidth"); OB Get:C1224($Obj_definition; "pictWidth"; Is longint:K8:6); 16)
-					$Lon_pictHeight:=Choose:C955(OB Is defined:C1231($Obj_definition; "pictHeight"); OB Get:C1224($Obj_definition; "pictHeight"; Is longint:K8:6); $Lon_pictWidth)
+					$Lon_pictWidth:=Choose:C955(OB Is defined:C1231($object_definition; "pictWidth"); OB Get:C1224($object_definition; "pictWidth"; Is longint:K8:6); 16)
+					$Lon_pictHeight:=Choose:C955(OB Is defined:C1231($object_definition; "pictHeight"); OB Get:C1224($object_definition; "pictHeight"; Is longint:K8:6); $Lon_pictWidth)
 					
 					$Lon_x:=($Num_width/2)-($Lon_pictWidth/2)
 					$Lon_y:=($Num_height/2)-($Lon_pictHeight/2)
@@ -665,7 +660,7 @@ Else
 					
 					SVG GET ATTRIBUTE:C1056(*; $Txt_me; "controls"; "vdl:value"; $Lon_state)
 					
-					$Boo_selected:=($Lon_state=0)
+					$is_selected:=($Lon_state=0)
 					
 					//-----------------------------------------
 				: ($Lon_formEvent=On Bound Variable Change:K2:52)  //language assignment
@@ -675,12 +670,12 @@ Else
 							//………………………………………………
 						: ($Lon_type=Is text:K8:3)
 							
-							$Boo_selected:=($Ptr_container->="1")
+							$is_selected:=($Ptr_container->="1")
 							
 							//………………………………………………
 						: ($Lon_type=Is real:K8:4)
 							
-							$Boo_selected:=($Ptr_container->=1)
+							$is_selected:=($Ptr_container->=1)
 							
 							//………………………………………………
 					End case 
@@ -689,12 +684,12 @@ Else
 			End case 
 			
 			SVG SET ATTRIBUTE:C1055(*; $Txt_me; "check"; \
-				"visibility"; Choose:C955($Boo_selected; "visible"; "hidden"); *)
+				"visibility"; Choose:C955($is_selected; "visible"; "hidden"); *)
 			
 			SVG SET ATTRIBUTE:C1055(*; $Txt_me; "controls"; \
-				"vdl:value"; Num:C11($Boo_selected); *)
+				"vdl:value"; Num:C11($is_selected); *)
 			
-			$Txt_result:=Choose:C955($Boo_selected; "1"; "0")
+			$Txt_result:=Choose:C955($is_selected; "1"; "0")
 			
 			//______________________________________________________
 		: ($Txt_type="color-picker")\
@@ -802,7 +797,7 @@ Else
 			
 			If ($Lon_id#0)  //-1 to unselect all
 				
-				$Txt_fontColor:=Choose:C955(OB Is defined:C1231($Obj_definition; "font-color"); OB Get:C1224($Obj_definition; "font-color"; Is text:K8:3); $kTxt_highlithColor)
+				$Txt_fontColor:=Choose:C955(OB Is defined:C1231($object_definition; "font-color"); OB Get:C1224($object_definition; "font-color"; Is text:K8:3); $kTxt_highlithColor)
 				
 				//Update the control
 				For ($Lon_i; 1; $Lon_number; 1)
@@ -1009,7 +1004,7 @@ Else
 			//______________________________________________________
 	End case 
 	
-	$0:=$Txt_result
+	return $Txt_result
 	
 End if 
 

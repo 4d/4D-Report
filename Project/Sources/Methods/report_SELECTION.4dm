@@ -13,9 +13,7 @@
 #DECLARE($action : Text; $index_1 : Integer; $index_2 : Integer)
 
 
-var \
-$is_OK; \
-$display : Boolean
+var $is_OK; $display : Boolean
 
 
 var \
@@ -37,9 +35,7 @@ $count_lockedColumns; \
 $lockedRight : Integer
 
 
-var \
-$idx_1; \
-$idx_2 : Integer
+var $idx_1; $idx_2 : Integer
 
 
 ARRAY BOOLEAN:C223($_visible; 0)
@@ -49,11 +45,7 @@ ARRAY POINTER:C280($_styles; 0)
 ARRAY TEXT:C222($_columnNames; 0)
 ARRAY TEXT:C222($_headerNames; 0)
 
-If (False:C215)
-	C_TEXT:C284(report_SELECTION; $1)
-	C_LONGINT:C283(report_SELECTION; $2)
-	C_LONGINT:C283(report_SELECTION; $3)
-End if 
+
 
 // ----------------------------------------------------
 // Initialisations

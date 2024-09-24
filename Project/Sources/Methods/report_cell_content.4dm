@@ -11,13 +11,7 @@
 // Declarations
 #DECLARE($content : Text; $operator : Integer; $isStyled : Boolean; $withReturn : Boolean) : Text
 
-If (False:C215)
-	C_TEXT:C284(report_cell_content; $1)
-	C_LONGINT:C283(report_cell_content; $2)
-	C_BOOLEAN:C305(report_cell_content; $3)
-	C_BOOLEAN:C305(report_cell_content; $4)
-	C_TEXT:C284(report_cell_content; $0)
-End if 
+
 
 If (Length:C16($content)=0)\
  & ($operator#0)

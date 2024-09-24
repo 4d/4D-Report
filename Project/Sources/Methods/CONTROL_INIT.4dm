@@ -1,30 +1,35 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : CONTROL_INIT
-  // Database: 4D Report
-  // ID[4BB978A40BC04CF7A232662F1C1DB82D]
-  // Created #17-9-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($Lon_parameters)
+// ----------------------------------------------------
+// Project method : CONTROL_INIT
+// Database: 4D Report
+// ID[4BB978A40BC04CF7A232662F1C1DB82D]
+// Created #17-9-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+#DECLARE()
 
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+
+var $count_parameters : Integer
+
+
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
+
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
-	  //NO PARAMETERS REQUIRED
+	//NO PARAMETERS REQUIRED
 	
-	C_BOOLEAN:C305(<>ctrl_inited)
+	var <>ctrl_inited : Boolean
 	
-	  //Optional parameters
-	If ($Lon_parameters>=1)
+	//Optional parameters
+	If ($count_parameters>=1)
 		
-		  // <NONE>
+		// <NONE>
 		
 	End if 
 	
@@ -34,7 +39,7 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 If (Not:C34(<>ctrl_inited))\
  | (Shift down:C543)
 	
@@ -43,8 +48,8 @@ If (Not:C34(<>ctrl_inited))\
 	
 End if 
 
-  // ----------------------------------------------------
-  // Return
-  // <NONE>
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// Return
+// <NONE>
+// ----------------------------------------------------
+// End

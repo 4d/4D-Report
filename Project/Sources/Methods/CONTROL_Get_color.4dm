@@ -1,53 +1,45 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : CONTROL_Get_color
-  // ID[AEBFD273926047DC981A7CF5AC550B62]
-  // Created #14-2-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($0)
-C_LONGINT:C283($1)
-C_TEXT:C284($2)
+// ----------------------------------------------------
+// Project method : CONTROL_Get_color
+// ID[AEBFD273926047DC981A7CF5AC550B62]
+// Created #14-2-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
+#DECLARE($current_color : Integer; $mode : Text) : Integer
 
-C_LONGINT:C283($Lon_color;$Lon_current_color;$Lon_i;$Lon_new_color;$Lon_parameters;$Lon_selected)
-C_TEXT:C284($Mnu_pop;$Txt_mode)
+var $color; $new_color; $i; $selected; $count_parameters : Integer
+var $popup_menu : Text
 
-If (False:C215)
-	C_LONGINT:C283(CONTROL_Get_color ;$0)
-	C_LONGINT:C283(CONTROL_Get_color ;$1)
-	C_TEXT:C284(CONTROL_Get_color ;$2)
-End if 
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
-
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
-	  //NO PARAMETERS REQUIRED
+	//NO PARAMETERS REQUIRED
 	
-	$Lon_color:=-1
-	$Txt_mode:="front"
+	$color:=-1
+	$mode:="front"
 	
-	If ($Lon_parameters>=1)
+	If ($count_parameters>=1)
 		
-		$Lon_current_color:=$1  //{preselected} : -1 = automatic (default); RGB color
+		$current_color:=$1  //{preselected} : -1 = automatic (default); RGB color
 		
-		If ($Lon_parameters>=2)
+		If ($count_parameters>=2)
 			
-			$Txt_mode:=$2  //{target} : front (default); back
+			$mode:=$2  //{target} : front (default); back
 			
 		End if 
 	End if 
 	
-	ARRAY LONGINT:C221($tLon_colors;18)
+	ARRAY LONGINT:C221($tLon_colors; 18)
 	
 	$tLon_colors{1}:=0x00FFFFFF  //Automatic
 	
-	If ($Txt_mode="front")
+	If ($mode="front")
 		
 		$tLon_colors{2}:=0xFFAA753F
 		$tLon_colors{3}:=0xFFCC7A02
@@ -95,81 +87,81 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 Case of 
 		
-		  //______________________________________________________
-	: ($Lon_current_color=-1)
+		//______________________________________________________
+	: ($current_color=-1)
 		
-		$Lon_selected:=1  //Automatic
-		$Lon_current_color:=Choose:C955($Txt_mode="front";Black:K11:16;White:K11:1)
+		$selected:=1  //Automatic
+		$current_color:=Choose:C955($mode="front"; Black:K11:16; White:K11:1)
 		
-		  //______________________________________________________
-	: ($Lon_current_color=Black:K11:16)\
-		 & ($Txt_mode="front")
+		//______________________________________________________
+	: ($current_color=Black:K11:16)\
+		 & ($mode="front")
 		
-		$Lon_selected:=1  //Automatic
+		$selected:=1  //Automatic
 		
-		  //______________________________________________________
-	: ($Lon_current_color=White:K11:1)\
-		 & ($Txt_mode="back")
+		//______________________________________________________
+	: ($current_color=White:K11:1)\
+		 & ($mode="back")
 		
-		$Lon_selected:=1  //Automatic
+		$selected:=1  //Automatic
 		
-		  //______________________________________________________
+		//______________________________________________________
 	Else 
 		
-		$Lon_selected:=Find in array:C230($tLon_colors;$Lon_current_color | 0xFF000000)
-		$Lon_selected:=Choose:C955($Lon_selected>0;$Lon_selected;18)  //Personalized
+		$selected:=Find in array:C230($tLon_colors; $current_color | 0xFF000000)
+		$selected:=Choose:C955($selected>0; $selected; 18)  //Personalized
 		
-		  //______________________________________________________
+		//______________________________________________________
 End case 
 
-$Mnu_pop:=Create menu:C408
+$popup_menu:=Create menu:C408
 
-For ($Lon_i;0;17;1)
+For ($i; 0; 17; 1)
 	
-	APPEND MENU ITEM:C411($Mnu_pop;Get localized string:C991($Txt_mode+"_"+String:C10($Lon_i)))
-	SET MENU ITEM PARAMETER:C1004($Mnu_pop;-1;String:C10($Lon_i+1))
-	SET MENU ITEM ICON:C984($Mnu_pop;-1;"#Images/colors/"+$Txt_mode+"_"+String:C10($Lon_i)+".png")
+	APPEND MENU ITEM:C411($popup_menu; Localized string:C991($mode+"_"+String:C10($i)))
+	SET MENU ITEM PARAMETER:C1004($popup_menu; -1; String:C10($i+1))
+	SET MENU ITEM ICON:C984($popup_menu; -1; "#Images/colors/"+$mode+"_"+String:C10($i)+".png")
 	
 End for 
 
-SET MENU ITEM MARK:C208($Mnu_pop;$Lon_selected;Char:C90(18))
-$Lon_new_color:=Num:C11(Dynamic pop up menu:C1006($Mnu_pop;String:C10($Lon_selected)))
-RELEASE MENU:C978($Mnu_pop)
+SET MENU ITEM MARK:C208($popup_menu; $selected; Char:C90(18))
+$new_color:=Num:C11(Dynamic pop up menu:C1006($popup_menu; String:C10($selected)))
+RELEASE MENU:C978($popup_menu)
 
-If ($Lon_new_color>0)
+If ($new_color>0)
 	
 	Case of 
 			
-			  //________________________________________
-		: ($Lon_new_color=1)  //automatic
+			//________________________________________
+		: ($new_color=1)  //automatic
 			
-			$Lon_color:=Choose:C955($Txt_mode="front";Black:K11:16;White:K11:1)
+			$color:=Choose:C955($mode="front"; Black:K11:16; White:K11:1)
 			
-			  //________________________________________
-		: ($Lon_new_color=18)  //let user choose
+			//________________________________________
+		: ($new_color=18)  //let user choose
 			
-			$Lon_color:=Select RGB color:C956($Lon_current_color)
+			$color:=Select RGB color:C956($current_color)
 			
-			  //________________________________________
+			//________________________________________
 		Else 
 			
-			$Lon_color:=$tLon_colors{$Lon_new_color}
+			$color:=$tLon_colors{$new_color}
 			
-			  //________________________________________
+			//________________________________________
 	End case 
 	
-	  // #9-5-2016
-	If ($Txt_mode#"front")
+	// #9-5-2016
+	If ($mode#"front")
 		
-		$Lon_color:=$Lon_color & 0x00FFFFFF
+		$color:=$color & 0x00FFFFFF
 		
 	End if 
 End if 
 
-$0:=$Lon_color
+return $color
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

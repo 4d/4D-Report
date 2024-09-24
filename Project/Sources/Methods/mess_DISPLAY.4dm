@@ -9,26 +9,20 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_OBJECT:C1216($1)
+#DECLARE($message : Object)
 
-C_LONGINT:C283($Lon_parameters)
-C_OBJECT:C1216($Obj_message)
-
-If (False:C215)
-	C_OBJECT:C1216(mess_DISPLAY; $1)
-End if 
+var $count_parameters : Integer
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
 	// Required parameters
-	$Obj_message:=$1
 	
 	// Optional parameters
-	If ($Lon_parameters>=2)
+	If ($count_parameters>=2)
 		
 		// <NONE>
 		
@@ -50,7 +44,7 @@ OBJECT SET VISIBLE:C603(*; "alert.@"; True:C214)
 // Assign object to the widget
 //4D_SET_OBJECT($Obj_message; "alert.box") //ACI0102649
 
-OBJECT SET VALUE:C1742("alert.box"; $Obj_message)
+OBJECT SET VALUE:C1742("alert.box"; $message)
 // ----------------------------------------------------
 // Return
 // <NONE>

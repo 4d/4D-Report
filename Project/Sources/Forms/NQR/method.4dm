@@ -4,20 +4,26 @@
 // Created #13-3-2014 by Vincent de Lachaux
 // ----------------------------------------------------
 // Declarations
-_O_C_BOOLEAN:C305($Boo_many; $Boo_one)
-_O_C_LONGINT:C283($Lon_area; $Lon_formEvent; $Lon_timerEvent)
-_O_C_POINTER:C301($Ptr_timer)
+
+var $auto_many; $auto_one : Boolean
+
+var $e : Object
+
+var $timer_pointer : Pointer
+var $area; $timer_value : Integer
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_formEvent:=Form event code:C388
-$Ptr_timer:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
+$e:=FORM Event:C1606
+
+$timer_pointer:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
 
 // ----------------------------------------------------
 Case of 
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Load:K2:1)
+	: ($e.code=On Load:K2:1)
 		
 		COMPILER_NQR
 		
@@ -55,16 +61,16 @@ Case of
 		If (4D_MainProcess)  //Direct use
 			
 			//keep relation's status
-			GET AUTOMATIC RELATIONS:C899($Boo_one; $Boo_many)
+			GET AUTOMATIC RELATIONS:C899($auto_one; $auto_many)
 			
-			OB SET:C1220(ob_area; "one"; $Boo_one; "many"; $Boo_many)
+			OB SET:C1220(ob_area; "one"; $auto_one; "many"; $auto_many)
 			
 			//changes all into automatic relations
 			SET AUTOMATIC RELATIONS:C310(True:C214; True:C214)
 			
 		End if 
 		
-		$Ptr_timer->:=-1  //init
+		$timer_pointer->:=-1  //init
 		SET TIMER:C645(-1)
 		
 		//If (<>withFeature102041)
@@ -75,27 +81,27 @@ Case of
 		//End if 
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Timer:K2:25)
+	: ($e.code=On Timer:K2:25)
 		
 		SET TIMER:C645(0)
 		
-		$Lon_timerEvent:=$Ptr_timer->
-		$Ptr_timer->:=0
+		$timer_value:=$timer_pointer->
+		$timer_pointer->:=0
 		
 		Case of 
 				
 				//………………………………………………………………………………
-			: ($Lon_timerEvent=-1)  //init
+			: ($timer_value=-1)  //init
 				
 				If (QR_area=0)
 					
 					//#ACI0093088
 					//the area was inited by the subform
-					$Lon_area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
+					$area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
 					
-					If ($Lon_area#0)
+					If ($area#0)
 						
-						QR_area:=$Lon_area
+						QR_area:=$area
 						
 					Else 
 						
@@ -133,19 +139,19 @@ Case of
 				//………………………………………………………………………………
 		End case 
 		
-		If ($Ptr_timer->#0)
+		If ($timer_pointer->#0)
 			
 			SET TIMER:C645(-1)
 			
 		End if 
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Close Box:K2:21)
+	: ($e.code=On Close Box:K2:21)
 		
 		NQR_CLOSE
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Unload:K2:2)
+	: ($e.code=On Unload:K2:2)
 		
 		QR REPORT TO BLOB:C770(QR_area; C_QR_INITBLOB)
 		QR DELETE OFFSCREEN AREA:C754(QR_area)
@@ -153,10 +159,10 @@ Case of
 		If (4D_MainProcess)  //Direct use
 			
 			//restore relations' status
-			$Boo_one:=OB Get:C1224(ob_area; "one"; Is boolean:K8:9)
-			$Boo_many:=OB Get:C1224(ob_area; "many"; Is boolean:K8:9)
+			$auto_one:=OB Get:C1224(ob_area; "one"; Is boolean:K8:9)
+			$auto_many:=OB Get:C1224(ob_area; "many"; Is boolean:K8:9)
 			
-			SET AUTOMATIC RELATIONS:C310($Boo_one; $Boo_many)
+			SET AUTOMATIC RELATIONS:C310($auto_one; $auto_many)
 			
 		End if 
 		
@@ -164,7 +170,7 @@ Case of
 		CLEAR VARIABLE:C89(ob_dialog)
 		
 		//______________________________________________________
-	: ($Lon_formEvent=On Resize:K2:27)
+	: ($e.code=On Resize:K2:27)
 		
 		SET TIMER:C645(0)
 		
@@ -201,7 +207,7 @@ Case of
 		
 		REDRAW WINDOW:C456(Current form window:C827)
 		
-		If ($Ptr_timer->#0)
+		If ($timer_pointer->#0)
 			
 			SET TIMER:C645(-1)
 			
@@ -210,7 +216,7 @@ Case of
 		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($Lon_formEvent)+")")
+		ASSERT:C1129(False:C215; "Form event activated unnecessary ("+String:C10($e.code)+")")
 		
 		//______________________________________________________
 End case 

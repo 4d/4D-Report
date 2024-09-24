@@ -1,35 +1,32 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : CONTROL_SET_COLORS
-  // ID[B5890476F0CF47D595E54D42B6A64A35]
-  // Created #17-9-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($1)
+// ----------------------------------------------------
+// Project method : CONTROL_SET_COLORS
+// ID[B5890476F0CF47D595E54D42B6A64A35]
+// Created #17-9-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
+#DECLARE($highlight_color : Integer)
 
-C_LONGINT:C283($Lon_highlitColor;$Lon_parameters)
+var $count_parameters : Integer
 
-If (False:C215)
-	C_LONGINT:C283(CONTROL_SET_COLORS ;$1)
-End if 
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
-
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
-	  //NO PARAMETERS REQUIRED
+	//NO PARAMETERS REQUIRED
 	
-	$Lon_highlitColor:=0x002A93FB
+	$highlight_color:=$count_parameters<1 ? 0x002A93FB : $highlight_color
 	
-	  //Optional parameters
-	If ($Lon_parameters>=1)
+	
+	//Optional parameters
+	If ($count_parameters>=1)
 		
-		$Lon_highlitColor:=$1
+		//$Lon_highlitColor:=$1
 		
 	End if 
 	
@@ -39,11 +36,11 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-<>ctrl_highlitColor:=$Lon_highlitColor
+// ----------------------------------------------------
+<>ctrl_highlitColor:=$highlight_color
 
-  // ----------------------------------------------------
-  // Return
-  // <NONE>
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// Return
+// <NONE>
+// ----------------------------------------------------
+// End

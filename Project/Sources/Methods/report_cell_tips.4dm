@@ -12,13 +12,9 @@
 
 #DECLARE($label : Text) : Text
 
-var \
-$count_parameters : Integer
+var $count_parameters : Integer
 
-If (False:C215)
-	C_TEXT:C284(report_cell_tips; $0)
-	C_TEXT:C284(report_cell_tips; $1)
-End if 
+
 
 // ----------------------------------------------------
 // Initialisations
@@ -27,7 +23,6 @@ $count_parameters:=Count parameters:C259
 If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
-	//$label:=$1
 	
 	//Optional parameters
 	If ($count_parameters>=2)

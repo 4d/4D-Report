@@ -35,10 +35,7 @@ var \
 $need_update : Boolean
 
 
-If (False:C215)
-	C_TEXT:C284(report_ADD_COLUMN; $1)
-	C_OBJECT:C1216(report_ADD_COLUMN; $2)
-End if 
+
 
 // ----------------------------------------------------
 // Initialisations

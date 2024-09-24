@@ -9,9 +9,12 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_area; $Lon_column; $Lon_parameters; $Lon_row)
-C_POINTER:C301($Ptr_me)
-C_TEXT:C284($Txt_buffer)
+
+#DECLARE()
+
+var $Lon_area; $Lon_column; $Lon_parameters; $Lon_row : Integer
+var $Ptr_me : Pointer
+var $Txt_buffer : Text
 
 // ----------------------------------------------------
 // Initialisations

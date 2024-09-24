@@ -1,40 +1,32 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : report_catchErrors
-  // Database: 4D Report
-  // ID[74749F6B547F4A08A87081D16677FEAC]
-  // Created #13-3-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_TEXT:C284($0)
-C_TEXT:C284($1)
-C_TEXT:C284($2)
+// ----------------------------------------------------
+// Project method : report_catchErrors
+// Database: 4D Report
+// ID[74749F6B547F4A08A87081D16677FEAC]
+// Created #13-3-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_LONGINT:C283($Lon_parameters)
-C_TEXT:C284($Txt_entrypoint;$Txt_errorHandlingMethod)
+#DECLARE($entry_point : Text; $error_handler : Text) : Text
 
-If (False:C215)
-	C_TEXT:C284(report_catchErrors ;$0)
-	C_TEXT:C284(report_catchErrors ;$1)
-	C_TEXT:C284(report_catchErrors ;$2)
-End if 
+var $count_parameters : Integer
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
+
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
-	If ($Lon_parameters>=1)
+	If ($count_parameters>=1)
 		
-		$Txt_entrypoint:=$1
 		
-		If ($Lon_parameters>=2)
+		
+		If ($count_parameters>=2)
 			
-			$Txt_errorHandlingMethod:=$2
 			
 		End if 
 	End if 
@@ -45,39 +37,39 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
+// ----------------------------------------------------
 Case of 
 		
-		  //______________________________________________________
-	: ($Lon_parameters=0)  //errer-handling method
+		//______________________________________________________
+	: ($count_parameters=0)  //errer-handling method
 		
-		  //noError
+		//noError
 		IDLE:C311
 		
-		  //______________________________________________________
-	: ($Txt_entrypoint="on")
+		//______________________________________________________
+	: ($entry_point="on")
 		
-		  //return the previous method isntalled
-		$Txt_errorHandlingMethod:=Method called on error:C704
+		//return the previous method isntalled
+		$error_handler:=Method called on error:C704
 		ERROR:=0
 		
 		ON ERR CALL:C155(Current method name:C684)
 		
-		$0:=$Txt_errorHandlingMethod
+		return $error_handler
 		
-		  //______________________________________________________
-	: ($Txt_entrypoint="off")
+		//______________________________________________________
+	: ($entry_point="off")
 		
-		  //restaure the previous method
-		ON ERR CALL:C155($Txt_errorHandlingMethod)
+		//restaure the previous method
+		ON ERR CALL:C155($error_handler)
 		
-		  //______________________________________________________
+		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215;"Unknown entry point: \""+$Txt_entrypoint+"\"")
+		ASSERT:C1129(False:C215; "Unknown entry point: \""+$entry_point+"\"")
 		
-		  //______________________________________________________
+		//______________________________________________________
 End case 
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

@@ -11,6 +11,8 @@
 // ----------------------------------------------------
 // Declarations
 
+#DECLARE()
+
 var \
 $horizontal; \
 $vertical : Boolean

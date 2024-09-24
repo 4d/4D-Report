@@ -1,6 +1,6 @@
 //%attributes = {"invisible":true}
-C_OBJECT:C1216(mess_DISPLAY ;$1)
+//_O_C_OBJECT(mess_DISPLAY; $1)
 
-C_BOOLEAN:C305(mess_Preferences ;$0)
-C_TEXT:C284(mess_Preferences ;$1)
-C_TEXT:C284(mess_Preferences ;$2)
+//_O_C_BOOLEAN(mess_Preferences; $0)
+//_O_C_TEXT(mess_Preferences; $1)
+//_O_C_TEXT(mess_Preferences; $2)

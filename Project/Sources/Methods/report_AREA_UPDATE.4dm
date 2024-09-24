@@ -10,6 +10,8 @@
 // ----------------------------------------------------
 // Declarations
 
+#DECLARE()
+
 var \
 $count_parameters : Integer
 

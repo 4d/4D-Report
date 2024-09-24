@@ -1,44 +1,41 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : mess_Preferences
-  // Database: 4D Report
-  // ID[607E53E77A2A4BB98E8D5E49B1EDE712]
-  // Created #20-1-2015 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_BOOLEAN:C305($0)
-C_TEXT:C284($1)
-C_TEXT:C284($2)
+// ----------------------------------------------------
+// Project method : mess_Preferences
+// Database: 4D Report
+// ID[607E53E77A2A4BB98E8D5E49B1EDE712]
+// Created #20-1-2015 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
+#DECLARE($item : Text; $action : Text) : Boolean
 
-C_BOOLEAN:C305($Boo_show)
-C_LONGINT:C283($Lon_parameters)
-C_TEXT:C284($Dir_preferences;$Dom_item;$Dom_report;$Dom_root;$File_preferences;$Txt_action)
-C_TEXT:C284($Txt_item)
+var $do_show : Boolean
+var $count_parameters : Integer
 
-If (False:C215)
-	C_BOOLEAN:C305(mess_Preferences ;$0)
-	C_TEXT:C284(mess_Preferences ;$1)
-	C_TEXT:C284(mess_Preferences ;$2)
-End if 
+var $folder_preferences; $dom_item; $dom_report; $dom_root; $file_preferences : Text
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1;"Missing parameter"))
+
+
+
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
+
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
-	  //Required parameters
-	$Txt_item:=$1
+	//Required parameters
 	
-	$Txt_action:="GET"
 	
-	  //Optional parameters
-	If ($Lon_parameters>=2)
+	$action:=($count_parameters<2) ? "GET" : $action
+	
+	//Optional parameters
+	If ($count_parameters>=2)
 		
-		$Txt_action:=$2
+		
+		
 		
 	End if 
 	
@@ -48,66 +45,66 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-$Dir_preferences:=Get 4D folder:C485(Active 4D Folder:K5:10)+Path to object:C1547(Structure file:C489(*)).name+Folder separator:K24:12
+// ----------------------------------------------------
+$folder_preferences:=Get 4D folder:C485(Active 4D Folder:K5:10)+Path to object:C1547(Structure file:C489(*)).name+Folder separator:K24:12
 
-CREATE FOLDER:C475($Dir_preferences;*)
+CREATE FOLDER:C475($folder_preferences; *)
 
-$File_preferences:=$Dir_preferences+"report.4DPreferences"
+$file_preferences:=$folder_preferences+"report.4DPreferences"
 
-If (Test path name:C476($File_preferences)=Is a document:K24:1)
+If (Test path name:C476($file_preferences)=Is a document:K24:1)
 	
-	  //parse source
-	$Dom_root:=DOM Parse XML source:C719($File_preferences)
+	//parse source
+	$dom_root:=DOM Parse XML source:C719($file_preferences)
 	
 Else 
 	
-	  //create source
-	$Dom_root:=DOM Create XML Ref:C861("preferences")
+	//create source
+	$dom_root:=DOM Create XML Ref:C861("preferences")
 	
 End if 
 
-$Dom_report:=DOM Find XML element:C864($Dom_root;"preferences/doNotAskAgain")
+$dom_report:=DOM Find XML element:C864($dom_root; "preferences/doNotAskAgain")
 
 If (OK=0)
 	
-	$Dom_report:=DOM Create XML element:C865($Dom_root;"doNotAskAgain")
+	$dom_report:=DOM Create XML element:C865($dom_root; "doNotAskAgain")
 	
 End if 
 
-$Dom_item:=DOM Find XML element:C864($Dom_report;"doNotAskAgain/"+$Txt_item)
+$dom_item:=DOM Find XML element:C864($dom_report; "doNotAskAgain/"+$item)
 
 Case of 
 		
-		  //______________________________________________________
-	: ($Txt_action="GET")
+		//______________________________________________________
+	: ($action="GET")
 		
-		$Boo_show:=(OK=0)
+		$do_show:=(OK=0)
 		
-		  //______________________________________________________
-	: ($Txt_action="SET")
+		//______________________________________________________
+	: ($action="SET")
 		
 		If (OK=0)
 			
-			$Dom_item:=DOM Create XML element:C865($Dom_report;$Txt_item)
+			$dom_item:=DOM Create XML element:C865($dom_report; $item)
 			
-			DOM EXPORT TO FILE:C862($Dom_root;$File_preferences)
+			DOM EXPORT TO FILE:C862($dom_root; $file_preferences)
 			
 		End if 
 		
-		  //______________________________________________________
+		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215;"Unknown entry point: \""+$Txt_action+"\"")
+		ASSERT:C1129(False:C215; "Unknown entry point: \""+$action+"\"")
 		
-		  //______________________________________________________
+		//______________________________________________________
 End case 
 
-DOM CLOSE XML:C722($Dom_root)
+DOM CLOSE XML:C722($dom_root)
 
-  // ----------------------------------------------------
-  // Return
-$0:=$Boo_show
+// ----------------------------------------------------
+// Return
+return $do_show
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

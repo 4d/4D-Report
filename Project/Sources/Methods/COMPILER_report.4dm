@@ -14,12 +14,10 @@
 // ===============================================
 var Form_C_UseVirtualStructure : Integer
 
-//_O_C_LONGINT(Form_C_UseVirtualStructure)
 
 // ===============================================
 var ob_dialog; ob_area : Object
 
-//_O_C_OBJECT(ob_dialog; ob_area)
 
 ob_area:=ob_area || New object:C1471
 
@@ -27,35 +25,22 @@ ARRAY LONGINT:C221(tLon_rowHeights; 0)
 
 var boo_useVirtualStructure : Boolean
 
-//_O_C_BOOLEAN(boo_useVirtualStructure)
 
 
 // ----------------------------------------------------
 // Initialisations
 
-var <>withFeature110931 : Boolean
+var <>withFeature110931 : Boolean  // border managment
 
-//_O_C_BOOLEAN(<>withFeature110931)  // border managment
-//<>withFeature110931<>withFeature110931:=False
+<>withFeature110931:=False:C215
 
-//C_BOOLEAN(<>withFeature111172)  // Virtual structure
-//<>withFeature111172:=True
 
 //Assertions are enabled in dev mode
 SET ASSERT ENABLED:C1131(Not:C34(Is compiled mode:C492); *)
 
-//C_BOOLEAN(<>withFeature111172)  // Virtual structure
-//<>withFeature111172:=True
-
-//If (<>withFeature111172)
 
 boo_useVirtualStructure:=True:C214  //// By default we use the Virtual structure. (Form_C_UseVirtualStructure=1)
 
-//Else 
-
-//boo_useVirtualStructure:=False
-
-//End if 
 
 report_INIT
 
