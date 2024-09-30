@@ -1,36 +1,31 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project method : report_Get_table
-  // Database: 4D Report
-  // ID[F1C41B317FAE4EE6971FEF8C4745D3D6]
-  // Created #1-4-2014 by Vincent de Lachaux
-  // ----------------------------------------------------
-  // Description:
-  //
-  // ----------------------------------------------------
-  // Declarations
-C_LONGINT:C283($0)
-C_LONGINT:C283($1)
+// ----------------------------------------------------
+// Project method : report_Get_table
+// Database: 4D Report
+// ID[F1C41B317FAE4EE6971FEF8C4745D3D6]
+// Created #1-4-2014 by Vincent de Lachaux
+// ----------------------------------------------------
+// Description:
+//
+// ----------------------------------------------------
+// Declarations
 
-C_LONGINT:C283($Lon_i;$Lon_parameters;$Lon_tableNumber)
-C_POINTER:C301($Ptr_currentTable)
+#DECLARE($table_number : Integer) : Integer
 
-If (False:C215)
-	C_LONGINT:C283(report_Get_table ;$0)
-	C_LONGINT:C283(report_Get_table ;$1)
-End if 
 
-  // ----------------------------------------------------
-  // Initialisations
-$Lon_parameters:=Count parameters:C259
+var $i; $count_parameters : Integer
+var $current_table : Pointer
 
-If (Asserted:C1132($Lon_parameters>=0;"Missing parameter"))
+// ----------------------------------------------------
+// Initialisations
+$count_parameters:=Count parameters:C259
+
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
-	  //NO PARAMETERS REQUIRED
+	//NO PARAMETERS REQUIRED
 	
-	If ($Lon_parameters>=1)
+	If ($count_parameters>=1)
 		
-		$Lon_tableNumber:=$1
 		
 	End if 
 	
@@ -40,32 +35,32 @@ Else
 	
 End if 
 
-  // ----------------------------------------------------
-If (Not:C34(Is table number valid:C999($Lon_tableNumber)))
+// ----------------------------------------------------
+If (Not:C34(Is table number valid:C999($table_number)))
 	
-	$Ptr_currentTable:=Current default table:C363
+	$current_table:=Current default table:C363
 	
-	If (Not:C34(Is nil pointer:C315($Ptr_currentTable)))
+	If (Not:C34(Is nil pointer:C315($current_table)))
 		
-		$Lon_tableNumber:=Table:C252($Ptr_currentTable)
+		$table_number:=Table:C252($current_table)
 		
 	End if 
 	
-	If ($Lon_tableNumber=0)
+	If ($table_number=0)
 		
-		For ($Lon_i;1;Get last table number:C254;1)
+		For ($i; 1; Last table number:C254; 1)
 			
-			If (Is table number valid:C999($Lon_i))
+			If (Is table number valid:C999($i))
 				
-				$Lon_tableNumber:=$Lon_i
-				$Lon_i:=MAXLONG:K35:2-1
+				$table_number:=$i
+				$i:=MAXLONG:K35:2-1
 				
 			End if 
 		End for 
 	End if 
 End if 
 
-$0:=$Lon_tableNumber
+return $table_number
 
-  // ----------------------------------------------------
-  // End
+// ----------------------------------------------------
+// End

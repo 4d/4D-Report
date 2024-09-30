@@ -9,49 +9,55 @@
 //
 // ----------------------------------------------------
 // Declarations
+
 #DECLARE($Obj_params : Object)
 
-//C_OBJECT($1)
 
-C_LONGINT:C283($Lon_bestHeight; $Lon_bestWidth; $Lon_bottom; $Lon_column)
-C_LONGINT:C283($Lon_columnNumber; $Lon_defaultColumnWidth; $Lon_defaultRowHeight; $Lon_hOffset; $Lon_i; $Lon_index)
-C_LONGINT:C283($Lon_left; $Lon_parameters; $Lon_posBottom; $Lon_posLeft; $Lon_posRight; $Lon_posTop)
-C_LONGINT:C283($Lon_right; $Lon_row; $Lon_rowNumber; $Lon_top; $Lon_width; $Lon_x)
-C_POINTER:C301($Ptr_bestObectSize; $Ptr_nil; $Ptr_rowHightArray)
-C_TEXT:C284($kTxt_reportObject; $Txt_action; $Txt_column; $Txt_header)
-//C_OBJECT($Obj_params)
+var $action; $column_name; $header_name; $listbox_name : Text
 
-ARRAY BOOLEAN:C223($tBoo_visibles; 0)
-ARRAY POINTER:C280($tPtr_arrays; 0)
-ARRAY POINTER:C280($tPtr_columns; 0)
-ARRAY POINTER:C280($tPtr_headers; 0)
-ARRAY TEXT:C222($tTxt_columns; 0)
-ARRAY TEXT:C222($tTxt_headers; 0)
+var $i; $index; $x : Integer
+var $count_parameters; $row_number; $column_number; $row; $column : Integer
 
-If (False:C215)
-	C_OBJECT:C1216(report_DISPLAY_COMMON; $1)
-End if 
+var $best_height; $best_width : Integer
+var $default_column_width; $default_row_height : Integer
+
+var $left; $top; $right; $bottom; $width : Integer
+var $left_position; $top_position; $right_position; $bottom_position : Integer
+var $h_offset : Integer
+
+var $best_object_size; $nil; $row_height_array : Pointer
+
+
+
+ARRAY BOOLEAN:C223($_visibles; 0)
+ARRAY POINTER:C280($_styles; 0)
+ARRAY POINTER:C280($_columns; 0)
+ARRAY POINTER:C280($_headers; 0)
+ARRAY TEXT:C222($_columns_name; 0)
+ARRAY TEXT:C222($_headers_name; 0)
+
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
 	//$Obj_params:=$1
 	
 	//Optional parameters
-	If ($Lon_parameters>=2)
+	If ($count_parameters>=2)
 		
 		// <NONE>
 		
 	End if 
 	
-	$Txt_action:=OB Get:C1224($Obj_params; "action"; Is text:K8:3)
-	$kTxt_reportObject:=OB Get:C1224($Obj_params; "object"; Is text:K8:3)
+	$action:=OB Get:C1224($Obj_params; "action"; Is text:K8:3)
+	$listbox_name:=OB Get:C1224($Obj_params; "object"; Is text:K8:3)
 	
-	LISTBOX GET ARRAYS:C832(*; $kTxt_reportObject; $tTxt_columns; $tTxt_headers; $tPtr_columns; $tPtr_headers; $tBoo_visibles; $tPtr_arrays)
+	LISTBOX GET ARRAYS:C832(*; $listbox_name; $_columns_name; $_headers_name; $_columns; $_headers; $_visibles; $_styles)
 	
 Else 
 	
@@ -63,102 +69,102 @@ End if
 Case of 
 		
 		//______________________________________________________
-	: ($Txt_action="adjustColumnNumber")
+	: ($action="adjustColumnNumber")
 		
-		$Lon_index:=OB Get:C1224($Obj_params; "columnsNumber"; Is longint:K8:6)
-		
-		Repeat 
-			
-			$Lon_x:=Find in array:C230($tTxt_columns; "QR_column_"+String:C10($Lon_index))
-			
-			If ($Lon_x>0)
-				
-				LISTBOX DELETE COLUMN:C830(*; $kTxt_reportObject; $Lon_x; 1)
-				$Lon_index:=$Lon_index+1
-				
-				LISTBOX GET ARRAYS:C832(*; $kTxt_reportObject; $tTxt_columns; $tTxt_headers; $tPtr_columns; $tPtr_headers; $tBoo_visibles; $tPtr_arrays)
-				
-			End if 
-		Until ($Lon_x=-1)
-		
-		//______________________________________________________
-	: ($Txt_action="adjustRowsNumber")
+		$index:=OB Get:C1224($Obj_params; "columnsNumber"; Is longint:K8:6)
 		
 		Repeat 
 			
-			$Lon_rowNumber:=LISTBOX Get number of rows:C915(*; $kTxt_reportObject)
+			$x:=Find in array:C230($_columns_name; "QR_column_"+String:C10($index))
 			
-			If ($Lon_rowNumber>0)
+			If ($x>0)
 				
-				LISTBOX DELETE ROWS:C914(*; $kTxt_reportObject; 1; $Lon_rowNumber)
+				LISTBOX DELETE COLUMN:C830(*; $listbox_name; $x; 1)
+				$index:=$index+1
+				
+				LISTBOX GET ARRAYS:C832(*; $listbox_name; $_columns_name; $_headers_name; $_columns; $_headers; $_visibles; $_styles)
 				
 			End if 
-		Until ($Lon_rowNumber=0)
-		
-		$Lon_rowNumber:=OB Get:C1224($Obj_params; "rowsNumber"; Is longint:K8:6)
-		LISTBOX INSERT ROWS:C913(*; $kTxt_reportObject; 1; $Lon_rowNumber)
+		Until ($x=-1)
 		
 		//______________________________________________________
-	: ($Txt_action="createColumn")
+	: ($action="adjustRowsNumber")
 		
-		$Txt_column:=OB Get:C1224($Obj_params; "columnName"; Is text:K8:3)
-		$Txt_header:=OB Get:C1224($Obj_params; "headerName"; Is text:K8:3)
-		$Lon_index:=OB Get:C1224($Obj_params; "columnPosition"; Is longint:K8:6)
+		Repeat 
+			
+			$row_number:=LISTBOX Get number of rows:C915(*; $listbox_name)
+			
+			If ($row_number>0)
+				
+				LISTBOX DELETE ROWS:C914(*; $listbox_name; 1; $row_number)
+				
+			End if 
+		Until ($row_number=0)
 		
-		$Lon_x:=Find in array:C230($tTxt_columns; $Txt_column)
+		$row_number:=OB Get:C1224($Obj_params; "rowsNumber"; Is longint:K8:6)
+		LISTBOX INSERT ROWS:C913(*; $listbox_name; 1; $row_number)
 		
-		If ($Lon_x<0)
+		//______________________________________________________
+	: ($action="createColumn")
+		
+		$column_name:=OB Get:C1224($Obj_params; "columnName"; Is text:K8:3)
+		$header_name:=OB Get:C1224($Obj_params; "headerName"; Is text:K8:3)
+		$index:=OB Get:C1224($Obj_params; "columnPosition"; Is longint:K8:6)
+		
+		$x:=Find in array:C230($_columns_name; $column_name)
+		
+		If ($x<0)
 			
 			//append a new column
-			LISTBOX DUPLICATE COLUMN:C1273(*; "tmpl_column"; $Lon_index; $Txt_column; $Ptr_nil; $Txt_header; $Ptr_nil)
-			APPEND TO ARRAY:C911((OBJECT Get pointer:C1124(Object named:K67:5; $Txt_column))->; "")  //set the type as text
-			DELETE FROM ARRAY:C228((OBJECT Get pointer:C1124(Object named:K67:5; $Txt_column))->; 1; 1)
-			OBJECT SET VISIBLE:C603(*; $Txt_column; True:C214)
+			LISTBOX DUPLICATE COLUMN:C1273(*; "tmpl_column"; $index; $column_name; $nil; $header_name; $nil)
+			APPEND TO ARRAY:C911((OBJECT Get pointer:C1124(Object named:K67:5; $column_name))->; "")  //set the type as text
+			DELETE FROM ARRAY:C228((OBJECT Get pointer:C1124(Object named:K67:5; $column_name))->; 1; 1)
+			OBJECT SET VISIBLE:C603(*; $column_name; True:C214)
 			
 		End if 
 		
 		If (OB Is defined:C1231($Obj_params; "columnWidth"))
 			
-			LISTBOX SET COLUMN WIDTH:C833(*; $Txt_column; OB Get:C1224($Obj_params; "columnWidth"; Is longint:K8:6))
+			LISTBOX SET COLUMN WIDTH:C833(*; $column_name; OB Get:C1224($Obj_params; "columnWidth"; Is longint:K8:6))
 			
 		End if 
 		
 		//______________________________________________________
-	: ($Txt_action="filler")
+	: ($action="filler")
 		
-		$Txt_column:="filler"
+		$column_name:="filler"
 		
-		$Lon_x:=Find in array:C230($tTxt_columns; $Txt_column)
+		$x:=Find in array:C230($_columns_name; $column_name)
 		
-		If ($Lon_x<0)
+		If ($x<0)
 			
-			LISTBOX INSERT COLUMN:C829(*; $kTxt_reportObject; Size of array:C274($tTxt_columns)+1; $Txt_column; $Ptr_nil; "head_filler"; $Ptr_nil)
+			LISTBOX INSERT COLUMN:C829(*; $listbox_name; Size of array:C274($_columns_name)+1; $column_name; $nil; "head_filler"; $nil)
 			//set the type - [ARRAY OBJECT] for future use ;-)
-			EXECUTE FORMULA:C63("ARRAY OBJECT:C1221((OBJECT Get pointer:C1124(Object named:K67:5;\""+$Txt_column+"\"))->;0)")
+			EXECUTE FORMULA:C63("ARRAY OBJECT:C1221((OBJECT Get pointer:C1124(Object named:K67:5;\""+$column_name+"\"))->;0)")
 			
 		End if 
 		
 		//______________________________________________________
-	: ($Txt_action="headercolumnWidth")
+	: ($action="headercolumnWidth")
 		
 		//#DO_NOT_WORKS [
-		//OBJECT GET BEST SIZE(*;$tTxt_columns{1};$Lon_bestWidth;$Lon_bestHeight)
-		//LISTBOX SET COLUMN WIDTH(*;$tTxt_columns{1};$Lon_bestWidth)
-		$Lon_rowNumber:=OB Get:C1224($Obj_params; "rowNumber"; Is longint:K8:6)
-		$Ptr_bestObectSize:=OBJECT Get pointer:C1124(Object named:K67:5; "bestobjectsize")
+		//OBJECT GET BEST SIZE(*;$tTxt_columns{1};$best_width;$best_height)
+		//LISTBOX SET COLUMN WIDTH(*;$tTxt_columns{1};$best_width)
+		$row_number:=OB Get:C1224($Obj_params; "rowNumber"; Is longint:K8:6)
+		$best_object_size:=OBJECT Get pointer:C1124(Object named:K67:5; "bestobjectsize")
 		
 		If (OB Get:C1224(ob_area; "reportType"; Is longint:K8:6)=qr list report:K14902:1)
 			
-			For ($Lon_i; 1; $Lon_rowNumber; 1)
+			For ($i; 1; $row_number; 1)
 				
-				$Ptr_bestObectSize->:=$tPtr_columns{1}->{$Lon_i}+"\r"
-				OBJECT GET BEST SIZE:C717(*; "bestobjectsize"; $Lon_bestWidth; $Lon_bestHeight)
+				$best_object_size->:=$_columns{1}->{$i}+"\r"
+				OBJECT GET BEST SIZE:C717(*; "bestobjectsize"; $best_width; $best_height)
 				
-				$Lon_bestWidth:=$Lon_bestWidth*1.3
+				$best_width:=$best_width*1.3
 				
-				If ($Lon_bestWidth>$Lon_width)
+				If ($best_width>$width)
 					
-					$Lon_width:=$Lon_bestWidth
+					$width:=$best_width
 					
 				End if 
 			End for 
@@ -166,9 +172,9 @@ Case of
 			
 			//mark:- ACI0103452
 			//#DD si un jour nous voulons contrôler la largeur de la colonne 1, c'est ici que cela se passe
-			//If ($Lon_width>=256)
+			//If ($width>=256)
 			//LISTBOX SET PROPERTY(*; $tTxt_columns{1}; lk truncate; lk with ellipsis)
-			//$Lon_width:=256
+			//$width:=256
 			//Else 
 			//LISTBOX SET PROPERTY(*; $tTxt_columns{1}; lk truncate; lk without ellipsis)
 			//End if 
@@ -176,76 +182,76 @@ Case of
 			
 			
 			//not resizable
-			LISTBOX SET COLUMN WIDTH:C833(*; $tTxt_columns{1}; $Lon_width; $Lon_width; $Lon_width)
+			LISTBOX SET COLUMN WIDTH:C833(*; $_columns_name{1}; $width; $width; $width)
 			
 		Else 
 			
-			LISTBOX SET COLUMN WIDTH:C833(*; $tTxt_columns{1}; Form:C1466.defaultColumWidth; 10; MAXTEXTLENBEFOREV11:K35:3)
+			LISTBOX SET COLUMN WIDTH:C833(*; $_columns_name{1}; Form:C1466.defaultColumWidth; 10; MAXTEXTLENBEFOREV11:K35:3)
 			
 		End if 
 		//]
 		
 		//______________________________________________________
-	: ($Txt_action="rowHeight")
+	: ($action="rowHeight")
 		
-		$Lon_columnNumber:=OB Get:C1224($Obj_params; "columnNumber"; Is longint:K8:6)
-		$Lon_rowNumber:=OB Get:C1224($Obj_params; "rowNumber"; Is longint:K8:6)
-		$Lon_defaultColumnWidth:=OB Get:C1224($Obj_params; "columnWidth"; Is longint:K8:6)  //width for automatic size
-		$Lon_defaultRowHeight:=OB Get:C1224($Obj_params; "rowHeight"; Is longint:K8:6)  //default height (pixels) for rows in the list mode
+		$column_number:=OB Get:C1224($Obj_params; "columnNumber"; Is longint:K8:6)
+		$row_number:=OB Get:C1224($Obj_params; "rowNumber"; Is longint:K8:6)
+		$default_column_width:=OB Get:C1224($Obj_params; "columnWidth"; Is longint:K8:6)  //width for automatic size
+		$default_row_height:=OB Get:C1224($Obj_params; "rowHeight"; Is longint:K8:6)  //default height (pixels) for rows in the list mode
 		
-		$Ptr_bestObectSize:=OBJECT Get pointer:C1124(Object named:K67:5; "bestobjectsize")
+		$best_object_size:=OBJECT Get pointer:C1124(Object named:K67:5; "bestobjectsize")
 		
 		//#WARNING: 4D View Pro license required
-		$Ptr_rowHightArray:=LISTBOX Get array:C1278(*; $kTxt_reportObject; lk row height array:K53:34)
+		$row_height_array:=LISTBOX Get array:C1278(*; $listbox_name; lk row height array:K53:34)
 		
 		//#DO_NOT_WORKS - ALWAYS NIL
 		//#TURN_AROUND - Use a process variable
-		ARRAY LONGINT:C221(tLon_rowHeights; $Lon_rowNumber)
+		ARRAY LONGINT:C221(tLon_rowHeights; $row_number)
 		
 		//for each row
-		For ($Lon_row; 1; $Lon_rowNumber; 1)
+		For ($row; 1; $row_number; 1)
 			
 			//set default height
-			tLon_rowHeights{$Lon_row}:=$Lon_defaultRowHeight
+			tLon_rowHeights{$row}:=$default_row_height
 			
 			//for each cell of the row
-			For ($Lon_column; 1; $Lon_columnNumber; 1)
+			For ($column; 1; $column_number; 1)
 				
 				//get best cell height
-				$Ptr_bestObectSize->:=$tPtr_columns{$Lon_column}->{$Lon_row}
+				$best_object_size->:=$_columns{$column}->{$row}
 				
-				OBJECT GET BEST SIZE:C717(*; "bestobjectsize"; $Lon_bestWidth; $Lon_bestHeight; LISTBOX Get column width:C834(*; $tTxt_columns{$Lon_column}))
+				OBJECT GET BEST SIZE:C717(*; "bestobjectsize"; $best_width; $best_height; LISTBOX Get column width:C834(*; $_columns_name{$column}))
 				
-				tLon_rowHeights{$Lon_row}:=_max(tLon_rowHeights{$Lon_row}; $Lon_bestHeight+10)  //add 10px offset
+				tLon_rowHeights{$row}:=_max(tLon_rowHeights{$row}; $best_height+10)  //add 10px offset
 				
 			End for 
 		End for 
 		
-		LISTBOX SET ARRAY:C1279(*; $kTxt_reportObject; lk row height array:K53:34; ->tLon_rowHeights)
+		LISTBOX SET ARRAY:C1279(*; $listbox_name; lk row height array:K53:34; ->tLon_rowHeights)
 		
 		//______________________________________________________
-	: ($Txt_action="adjustBalloon")
+	: ($action="adjustBalloon")
 		
-		$Lon_column:=OB Get:C1224($Obj_params; "column"; Is longint:K8:6)
+		$column:=OB Get:C1224($Obj_params; "column"; Is longint:K8:6)
 		
 		//header
-		OBJECT GET COORDINATES:C663(*; $tTxt_headers{$Lon_column}; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+		OBJECT GET COORDINATES:C663(*; $_headers_name{$column}; $left; $top; $right; $bottom)
 		
-		$Lon_posLeft:=$Lon_right-Form:C1466.headerButtonWidth
-		$Lon_posTop:=$Lon_top+Form:C1466.headerButtonOffset
-		$Lon_posRight:=$Lon_posLeft+Form:C1466.headerButtonWidth
-		$Lon_posBottom:=$Lon_posTop+Form:C1466.headerButtonWidth
+		$left_position:=$right-Form:C1466.headerButtonWidth
+		$top_position:=$top+Form:C1466.headerButtonOffset
+		$right_position:=$left_position+Form:C1466.headerButtonWidth
+		$bottom_position:=$top_position+Form:C1466.headerButtonWidth
 		
-		OBJECT GET COORDINATES:C663(*; "header_action"; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+		OBJECT GET COORDINATES:C663(*; "header_action"; $left; $top; $right; $bottom)
 		
-		If ($Lon_left#$Lon_posLeft)
+		If ($left#$left_position)
 			
-			$Lon_hOffset:=$Lon_posLeft-$Lon_left
+			$h_offset:=$left_position-$left
 			
 			If (Not:C34(ob_area.crossReport))
 				
-				OBJECT MOVE:C664(*; "header_action"; $Lon_hOffset; 0)
-				OBJECT MOVE:C664(*; "balloon.subform"; $Lon_hOffset; 0)
+				OBJECT MOVE:C664(*; "header_action"; $h_offset; 0)
+				OBJECT MOVE:C664(*; "balloon.subform"; $h_offset; 0)
 				
 			End if 
 			
@@ -254,7 +260,7 @@ Case of
 		//______________________________________________________
 	Else 
 		
-		ASSERT:C1129(False:C215; "Unknown entry point: \""+$Txt_action+"\"")
+		ASSERT:C1129(False:C215; "Unknown entry point: \""+$action+"\"")
 		
 		//______________________________________________________
 End case 

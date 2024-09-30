@@ -10,17 +10,12 @@
 // ----------------------------------------------------
 // Declarations
 
-#DECLARE($font_name : Text)->$font_substitution : Text
+#DECLARE($font_name : Text) : Text
 
 
-var \
-$count_parameters : Integer
+var $count_parameters : Integer
+var $font_substitution : Text
 
-
-If (False:C215)
-	C_TEXT:C284(env_Substitute_font; $0)
-	C_TEXT:C284(env_Substitute_font; $1)
-End if 
 
 // ----------------------------------------------------
 // Initialisations
@@ -33,7 +28,6 @@ If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	//Optional parameters
 	If ($count_parameters>=1)
 		
-		//$Txt_fontName:=$1  //{default font if omitted}
 		
 	Else 
 		
@@ -74,7 +68,7 @@ End case
 
 // ----------------------------------------------------
 // Return
-//$0:=$Txt_fontSubstituted
+return $font_substitution
 
 // ----------------------------------------------------
 // End

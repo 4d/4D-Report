@@ -9,39 +9,32 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_REAL:C285($0)
-C_REAL:C285($1)
-C_REAL:C285($2)
-C_REAL:C285(${3})
 
-C_LONGINT:C283($Lon_i; $Lon_parameters)
-C_REAL:C285($Num_max; $Num_value_1; $Num_value_2)
+#DECLARE($value_1 : Real; $value_2 : Real;  ...  : Real) : Real
 
-If (False:C215)
-	C_REAL:C285(_max; $0)
-	C_REAL:C285(_max; $1)
-	C_REAL:C285(_max; $2)
-	C_REAL:C285(_max; ${3})
-End if 
+
+var $i; $count_parameters : Integer
+
+var $max : Real
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=2; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=2; "Missing parameter"))
 	
 	//Required parameters
-	$Num_value_1:=$1
-	$Num_value_2:=$2
+	
 	
 	//Optional parameters
-	If ($Lon_parameters>=3)
+	If ($count_parameters>=3)
 		
 		// <NONE>
 		
 	End if 
 	
-	$Num_max:=$Num_value_1
+	$max:=$value_1
 	
 Else 
 	
@@ -50,11 +43,11 @@ Else
 End if 
 
 // ----------------------------------------------------
-For ($Lon_i; 2; $Lon_parameters; 1)
+For ($i; 2; $count_parameters; 1)
 	
-	If (${$Lon_i}>$Num_max)
+	If (${$i}>$max)
 		
-		$Num_max:=${$Lon_i}
+		$max:=${$i}
 		
 	End if 
 	
@@ -62,7 +55,7 @@ End for
 
 // ----------------------------------------------------
 // Return
-$0:=$Num_max
+return $max
 
 // ----------------------------------------------------
 // End

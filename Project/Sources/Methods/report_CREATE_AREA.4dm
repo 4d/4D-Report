@@ -9,27 +9,24 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_POINTER:C301($1)
 
-C_BLOB:C604($Blb_buffer)
-C_LONGINT:C283($Lon_area; $Lon_parameters; $Lon_tableNumber)
-C_POINTER:C301($Ptr_container)
+#DECLARE($container_pointer : Pointer)
 
-If (False:C215)
-	C_POINTER:C301(report_CREATE_AREA; $1)
-End if 
+var $buffer : Blob
+
+var $area; $count_parameters; $table_number : Integer
+
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=1; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=1; "Missing parameter"))
 	
 	//Required parameters
-	$Ptr_container:=$1
 	
 	//Optional parameters
-	If ($Lon_parameters>=2)
+	If ($count_parameters>=2)
 		
 		// <NONE>
 		
@@ -42,49 +39,49 @@ Else
 End if 
 
 // ----------------------------------------------------
-$Lon_tableNumber:=report_Get_table
+$table_number:=report_Get_table
 
-If ($Lon_tableNumber#0)  //There is at least one table
+If ($table_number#0)  //There is at least one table
 	
-	If (Asserted:C1132(Not:C34(Is nil pointer:C315($Ptr_container))))
+	If (Asserted:C1132(Not:C34(Is nil pointer:C315($container_pointer))))
 		
 		//%W-518.7
-		If (Not:C34(Undefined:C82($Ptr_container->)))
+		If (Not:C34(Undefined:C82($container_pointer->)))
 			//%W+518.7
 			
-			If (QR_is_valid_area($Ptr_container->))
+			If (QR_is_valid_area($container_pointer->))
 				
-				QR DELETE OFFSCREEN AREA:C754($Ptr_container->)
+				QR DELETE OFFSCREEN AREA:C754($container_pointer->)
 				
 			End if 
 		End if 
 	End if 
 	
 	//create the offscreen QR area
-	QR NEW AREA:C1320($Ptr_container)
+	QR NEW AREA:C1320($container_pointer)
 	
 	IDLE:C311
 	
-	$Lon_area:=$Ptr_container->
+	$area:=$container_pointer->
 	
-	QR SET REPORT TABLE:C757($Lon_area; $Lon_tableNumber)
-	QR SET REPORT KIND:C738($Lon_area; qr list report:K14902:1)
-	QR SET DESTINATION:C745($Lon_area; qr printer:K14903:1)
-	QR SET AREA PROPERTY:C796($Lon_area; qr view contextual menus:K14905:7; 1)
+	QR SET REPORT TABLE:C757($area; $table_number)
+	QR SET REPORT KIND:C738($area; qr list report:K14902:1)
+	QR SET DESTINATION:C745($area; qr printer:K14903:1)
+	QR SET AREA PROPERTY:C796($area; qr view contextual menus:K14905:7; 1)
 	
 	//update the area reference
-	OB SET:C1220(ob_area; \
-		"area"; $Lon_area)
 	
-	If (OB Get:C1224(ob_area; "4d-dialog"; Is boolean:K8:9))  //4D dialog
+	ob_area.area:=$area
+	
+	If (Bool:C1537(ob_area["4d-dialog"]))  //4D dialog
 		
 		//update the hash
-		QR REPORT TO BLOB:C770($Lon_area; $Blb_buffer)
-		OB SET:C1220(ob_area; \
-			"_digest"; Generate digest:C1147($Blb_buffer; \
-			MD5 digest:K66:1))
+		QR REPORT TO BLOB:C770($area; $buffer)
 		
-		SET BLOB SIZE:C606($Blb_buffer; 0)
+		
+		ob_area._digest:=Generate digest:C1147($buffer; MD5 digest:K66:1)
+		
+		SET BLOB SIZE:C606($buffer; 0)
 		
 		//If (<>withFeature111172)
 		If (Form_C_UseVirtualStructure=0)
@@ -102,11 +99,10 @@ If ($Lon_tableNumber#0)  //There is at least one table
 Else 
 	
 	//create the offscreen QR area
-	QR NEW AREA:C1320($Ptr_container)
+	QR NEW AREA:C1320($container_pointer)
 	
 	//update the area reference
-	OB SET:C1220(ob_area; \
-		"area"; $Ptr_container->)
+	ob_area.area:=($container_pointer)->
 	
 End if 
 
