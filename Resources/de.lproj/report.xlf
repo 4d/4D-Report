@@ -2,7 +2,6 @@
 <!--Translation file.
 This file is distributed under the same license as the product package.-->
 <xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
-
   <file datatype="x-STR#" original="undefined" source-language="en" target-language="de">
     <header>
       <prop-group name="Xliff-Editor.4dbase">
@@ -384,10 +383,12 @@ Use the 4D separators: "." for decimal separator and "," for thousand separator
         <trans-unit id="j8HGFH3aJZD8pFcvuCR8uQ" resname="number_20">
                <source>##0%</source>
                <target>##0%</target>
-            </trans-unit><trans-unit id="4x8QxwrGfcVimZsHMG2Nqg" resname="number_21">
+        </trans-unit>
+        <trans-unit id="4x8QxwrGfcVimZsHMG2Nqg" resname="number_21">
                <source>##0.00%</source>
                <target>##0.00%</target>
-            </trans-unit></group>
+         </trans-unit>
+         </group>
       <group resname="Time format">
         <trans-unit id="r6nO9UWmPJQQd3rxsH9iRw" resname="time_1">
           <source>HH:MM:SS</source>
@@ -437,9 +438,14 @@ Use the 4D separators: "." for decimal separator and "," for thousand separator
       <group resname="Alpha format">
         <trans-unit id="6hMdyCUvuQBipT1kONuZSQ" resname="alpha_1" translate="no">
           <source>###-####</source>
+           <note>You can add/remove formats according to the localisation.
+
+Be sure to name all trans-units of the group with the group prefix followed by a "_" and a number from 1 to N without holes.
+               </note>
         </trans-unit>
         <trans-unit id="lz0cWehfGq3JpChvBWzMQQ" resname="alpha_2" translate="yes">
           <source>(###) ###-####</source>
+          <target>(###) ###-####</target>
         </trans-unit>
         <trans-unit id="0SBE_rIZlXE_UGBfg+1gqA" resname="alpha_3" translate="yes">
           <source>###-###-####</source>
@@ -447,9 +453,11 @@ Use the 4D separators: "." for decimal separator and "," for thousand separator
         </trans-unit>
         <trans-unit id="cUDnSJgbpNGHF20CERVDVQ" resname="alpha_4" translate="yes">
           <source>###-##-####</source>
+          <target>###-##-####</target>
         </trans-unit>
         <trans-unit id="tS3DuxxuNtwHb2Q34Jgoqw" resname="alpha_5" translate="yes">
-          <source>00000</source>
+          <source>(##) ###-###-###</source>
+          <target>(##) ###-###-###</target>
         </trans-unit>
       </group>
       <group resname="menus">
@@ -796,82 +804,49 @@ Use the 4D separators: "." for decimal separator and "," for thousand separator
                <source>(Mixed)</source>
                <target>(Mehrere)</target>
             </trans-unit>
-                                   <trans-unit id="hA4fwi4joazsSZvOLOgw1w" resname="menu_borderAll">
-
+            <trans-unit id="hA4fwi4joazsSZvOLOgw1w" resname="menu_borderAll">
                <source>All borders</source>
-
                <target>Alle Rahmen</target>
-
             </trans-unit>
             <trans-unit id="no4MgOCchBhTsm0vKsF4FQ" resname="menu_borderOutside">
-
                <source>Outside borders</source>
-
                <target>Rahmen außerhalb</target>
-
             </trans-unit>
             <trans-unit id="JImpcf4oc9Fs8k4_pyc73g" resname="menu_borderInside">
-
                <source>Inside borders</source>
-
                <target>Rahmen innerhalb</target>
-
             </trans-unit>
             <trans-unit id="FEIJPyV7pfsP_HewQ5V+gA" resname="menu_borderVertical">
-
                <source>Vertical borders</source>
-
                <target>Vertikale Linien</target>
-
             </trans-unit>
             <trans-unit id="VxdqZ66OLwvee3oRVM7GYA" resname="menu_borderHorizontal">
-
                <source>Horizontal borders</source>
-
                <target>Horizontale Linien</target>
-
             </trans-unit>
             <trans-unit id="MRbinWE5Hca76FekM9js8g" resname="menu_border_left">
-
                <source>Left borders</source>
-
                <target>Linien links</target>
-
             </trans-unit>
             <trans-unit id="iyfHuE8nySNPgUCNT6PLmw" resname="menu_border_right">
-
                <source>Right borders</source>
-
                <target>Linien rechts</target>
-
             </trans-unit>
             <trans-unit id="C6lmtOM1KcGtx0NuMLc4Ew" resname="menu_border_top">
-
                <source>Top borders</source>
-
                <target>Linien oben</target>
-
             </trans-unit>
             <trans-unit id="O8uMmH0VaGZuoZkJTfQCwQ" resname="menu_border_bottom">
-
                <source>Bottom borders</source>
-
                <target>Linien unten</target>
-
             </trans-unit>
             <trans-unit id="0CPkO67F6PL9f8RVzKdPZQ" resname="menu_border_thickness">
-
                <source>Thickness</source>
-
                <target>Stärke</target>
-
             </trans-unit>
             <trans-unit id="Hh_SlTDfDsmMDTPCspSQXw" resname="menu_border_color">
-
                <source>Color</source>
-
                <target>Farbe</target>
-
             </trans-unit>	
             <trans-unit id="MNxMJJmpN38nuDc+lfmYcQ" resname="button_addBorder">
             	<source>Add</source>
@@ -1074,5 +1049,4 @@ Drag &amp; drop zum Einfügen oder Ersetzen</target>
       </group>
     </body>
   </file>
-
 </xliff>
