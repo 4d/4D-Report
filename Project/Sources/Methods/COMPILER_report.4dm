@@ -19,7 +19,7 @@ var Form_C_UseVirtualStructure : Integer
 var ob_dialog; ob_area : Object
 
 
-ob_area:=ob_area || New object:C1471
+ob_area:=ob_area || {}
 
 ARRAY LONGINT:C221(tLon_rowHeights; 0)
 

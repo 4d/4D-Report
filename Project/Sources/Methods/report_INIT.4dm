@@ -47,7 +47,7 @@ $template:="<span style=\"font-family:'"
 $template+=Choose:C955(Is Windows:C1573; "Segoe UI"; "Lucida Grande")
 $template+="';font-size:{size};font-weight:{weight};font-style:normal;text-decoration:none;color:{color}\">{value} </span>"
 
-Form:C1466.dataStyled:=New collection:C1472
+Form:C1466.dataStyled:=[]
 
 //------------------------- SUM -------------------------
 $text:=Replace string:C233($template; "{size}"; Choose:C955(Is Windows:C1573; "16"; "18"))
@@ -98,7 +98,7 @@ $text:=Replace string:C233($text; "{value}"; Char:C90(0x03C3))
 Form:C1466.dataStyled.push($text)
 
 // Mark:Tags for automatic calculations
-Form:C1466.dataTags:=New collection:C1472
+Form:C1466.dataTags:=[]
 
 Form:C1466.dataTags.push("##S")
 Form:C1466.dataTags.push("##A")
@@ -109,14 +109,14 @@ Form:C1466.dataTags.push("##D")
 
 
 // Mark:Labels for automatic calculations
-Form:C1466.dataLabels:=New collection:C1472
+Form:C1466.dataLabels:=[]
 
 $template:="<span style='font-weight: normal;text-decoration:none'> </span>"
 
-Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_sum")+"\r")
-Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_average")+"\r")
-Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_min")+"\r")
-Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_max")+"\r")
-Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_count")+"\r")
-Form:C1466.dataLabels.push($template+Get localized string:C991("nqr_standard_deviation")+"\r")
+Form:C1466.dataLabels.push($template+Localized string:C991("nqr_sum")+"\r")
+Form:C1466.dataLabels.push($template+Localized string:C991("nqr_average")+"\r")
+Form:C1466.dataLabels.push($template+Localized string:C991("nqr_min")+"\r")
+Form:C1466.dataLabels.push($template+Localized string:C991("nqr_max")+"\r")
+Form:C1466.dataLabels.push($template+Localized string:C991("nqr_count")+"\r")
+Form:C1466.dataLabels.push($template+Localized string:C991("nqr_standard_deviation")+"\r")
 
