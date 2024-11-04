@@ -64,7 +64,12 @@ If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	COMPILER_db
 	
 	//#ACI0097715 [
-	PROCESS PROPERTIES:C336(Current process:C322; $text; $int; $int; $int; $int; $origin)
+	//_O_PROCESS PROPERTIES(Current process; $text; $int; $int; $int; $int; $origin)
+	//var $process : Object
+	
+	//$process:=
+	$origin:=Process info:C1843(Current process:C322).type
+	
 	$in_design:=($origin<0)  // Main process or design process
 	//]
 	
@@ -78,7 +83,7 @@ End if
 // Loads the complete structure definition
 // Report_structureDefinition{0} stores the table names (index is the table ID)
 // Report_structureDefinition{1-n} stores the field names (index is the field ID)
-$count_tables:=Get last table number:C254
+$count_tables:=Last table number:C254
 
 ARRAY TEXT:C222(report_structureDefinition; $count_tables; 0)
 ARRAY TEXT:C222(report_structureDefinition{0}; $count_tables)
@@ -89,7 +94,7 @@ For ($i; 1; $count_tables; 1)
 		
 		report_structureDefinition{0}{$i}:=Table name:C256($i)
 		
-		$count_fields:=Get last field number:C255($i)
+		$count_fields:=Last field number:C255($i)
 		
 		ARRAY TEXT:C222(report_structureDefinition{$i}; $count_fields)
 		
@@ -161,7 +166,7 @@ For ($i; 1; $size; 1)
 	
 	If ($table_id#0)  //#ACI0094098
 		
-		$count_fields:=Get last field number:C255($table_id)
+		$count_fields:=Last field number:C255($table_id)
 		
 		$table:=Table:C252($table_id)
 		

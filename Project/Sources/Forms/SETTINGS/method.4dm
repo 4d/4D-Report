@@ -4,11 +4,11 @@
 // Created #4-12-2015 by Vincent de Lachaux
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_fieldID; $Lon_formEvent; $Lon_tableID)
-C_PICTURE:C286($p)
-C_POINTER:C301($Ptr_field; $Ptr_list)
-C_OBJECT:C1216($o; $Obj_container)
-C_TEXT:C284($txt_formula)
+var $Lon_fieldID; $Lon_formEvent; $Lon_tableID : Integer
+var $p : Picture
+var $Ptr_field; $Ptr_list : Pointer
+var $o; $Obj_container : Object
+var $txt_formula : Text
 
 ARRAY LONGINT:C221($tLon_lengths; 0)
 ARRAY LONGINT:C221($tLon_positions; 0)
@@ -18,7 +18,7 @@ ARRAY LONGINT:C221($tLon_positions; 0)
 $Lon_formEvent:=Form event code:C388
 
 // ----------------------------------------------------
-
+//TRACE
 Case of 
 		
 		//______________________________________________________

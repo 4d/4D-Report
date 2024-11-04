@@ -105,6 +105,7 @@ Case of
 						SET TIMER:C645(-1)
 						
 					End if 
+					
 				End if 
 				
 			Else 
@@ -133,7 +134,7 @@ Case of
 					_4D THROW ERROR:C1520(New object:C1471(\
 						"component"; "4DQR"; \
 						"code"; 1; \
-						"description"; Get localized string:C991("ERROR_4DQR_1"); \
+						"description"; Localized string:C991("ERROR_4DQR_1"); \
 						"deffered"; True:C214))
 					
 				Else 
@@ -190,6 +191,7 @@ Case of
 				QR DELETE OFFSCREEN AREA:C754($area)
 				
 			End if 
+			
 		End if 
 		
 		//______________________________________________________

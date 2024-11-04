@@ -86,6 +86,47 @@ End if
 If ($table_id#0)
 	//todo: object field path using extra external file #DD
 	GET FIELD TITLES:C804((Table:C252($table_id))->; $_field_names; $_field_id)
+	If (boo_useVirtualStructure)
+		
+		GET FIELD TITLES:C804((Table:C252($table_id))->; $_field_names; $_field_id)
+		
+	Else 
+		
+		TRACE:C157
+		
+		var $count_fields; $int : Integer
+		var $bool; $is_invisible; $in_design : Boolean
+		
+		
+		
+		$in_design:=((Process info:C1843(Current process:C322).type)<0)
+		
+		ARRAY TEXT:C222($_field_names; 0x0000)
+		ARRAY LONGINT:C221($_field_id; 0x0000)
+		
+		
+		
+		$count_fields:=Last field number:C255($table_id)
+		
+		For ($j; 1; $count_fields; 1)
+			
+			If (Is field number valid:C1000($table_id; $j))
+				
+				GET FIELD PROPERTIES:C258($table_id; $j; $int; $int; $bool; $bool; $is_invisible)
+				
+				If (Not:C34($is_invisible) | $in_design)
+					
+					APPEND TO ARRAY:C911($_field_names; Field name:C257($table_id; $j))
+					APPEND TO ARRAY:C911($_field_id; $j)
+					
+				End if 
+				
+			End if 
+			
+		End for 
+		
+	End if 
+	
 	
 	For ($i; 1; Size of array:C274($_field_id); 1)
 		

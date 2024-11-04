@@ -84,10 +84,24 @@ If ($table_number#0)  //There is at least one table
 		SET BLOB SIZE:C606($buffer; 0)
 		
 		//If (<>withFeature111172)
+		
+		
+		// **********************************************
+		// CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+		// VQRDelegate_Report::DoDialogLoaded
+		// if usermode ? 0 : 1 
+		
+		// test other C variable : nqr_ud 
+		// **********************************************
+		
+		//boo_useVirtualStructure:=Form_C_UseVirtualStructure=0
+		//(boo_useVirtualStructure)  //
+		
 		If (Form_C_UseVirtualStructure=0)
-			// we need to reinit the structure as we are not using the virtual structure in this special case: NQR + design mode. 
-			boo_useVirtualStructure:=False:C215
 			
+			// we need to reinit the structure as we are not using the virtual structure in this special case: NQR + design mode. 
+			
+			boo_useVirtualStructure:=False:C215
 			db_INIT_STRUCTURE
 			
 		End if 
