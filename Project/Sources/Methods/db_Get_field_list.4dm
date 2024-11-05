@@ -85,7 +85,7 @@ End if
 // ----------------------------------------------------
 If ($table_id#0)
 	//todo: object field path using extra external file #DD
-	GET FIELD TITLES:C804((Table:C252($table_id))->; $_field_names; $_field_id)
+	
 	If (boo_useVirtualStructure)
 		
 		GET FIELD TITLES:C804((Table:C252($table_id))->; $_field_names; $_field_id)
