@@ -9,14 +9,14 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_POINTER:C301($1)
+_O_C_POINTER:C301($1)
 
-C_BLOB:C604($Blb_buffer)
-C_LONGINT:C283($Lon_area; $Lon_parameters; $Lon_tableNumber)
-C_POINTER:C301($Ptr_container)
+_O_C_BLOB:C604($Blb_buffer)
+_O_C_LONGINT:C283($Lon_area; $Lon_parameters; $Lon_tableNumber)
+_O_C_POINTER:C301($Ptr_container)
 
 If (False:C215)
-	C_POINTER:C301(report_CREATE_AREA; $1)
+	_O_C_POINTER:C301(report_CREATE_AREA; $1)
 End if 
 
 // ----------------------------------------------------
@@ -86,7 +86,6 @@ If ($Lon_tableNumber#0)  //There is at least one table
 		
 		SET BLOB SIZE:C606($Blb_buffer; 0)
 		
-		//If (<>withFeature111172)
 		If (Form_C_UseVirtualStructure=0)
 			// we need to reinit the structure as we are not using the virtual structure in this special case: NQR + design mode. 
 			boo_useVirtualStructure:=False:C215
@@ -95,7 +94,7 @@ If ($Lon_tableNumber#0)  //There is at least one table
 			
 		End if 
 		
-		//End if 
+		
 		
 	End if 
 	
