@@ -98,7 +98,56 @@ End if
 // ----------------------------------------------------
 If ($table_id#0)
 	
-	GET FIELD TITLES:C804((Table:C252($table_id))->; $_field_names; $_field_id)
+	//GET FIELD TITLES((Table($table_id))->; $_field_names; $_field_id)
+	
+	//#ACI0104992 -- BEGIN
+	
+	If (boo_useVirtualStructure)
+		
+		GET FIELD TITLES:C804((Table:C252($table_id))->; $_field_names; $_field_id)
+		
+	Else 
+		
+		var $text : Text
+		var $count_fields; $int; $origin : Integer
+		var $bool; $is_invisible; $in_design : Boolean
+		
+		PROCESS PROPERTIES:C336(Current process:C322; $text; $int; $int; $int; $int; $origin)
+		$in_design:=($origin<0)  // Main process or design process
+		
+		
+		ARRAY TEXT:C222($_field_names; 0)
+		ARRAY LONGINT:C221($_field_id; 0)
+		
+		$count_fields:=Get last field number:C255($table_id)
+		
+		For ($j; 1; $count_fields; 1)
+			
+			If (Is field number valid:C1000($table_id; $j))
+				
+				GET FIELD PROPERTIES:C258($table_id; $j; $int; $int; $bool; $bool; $is_invisible)
+				
+				If (Not:C34($is_invisible) | $in_design)
+					
+					APPEND TO ARRAY:C911($_field_names; Field name:C257($table_id; $j))
+					APPEND TO ARRAY:C911($_field_id; $j)
+					
+				End if 
+				
+			End if 
+			
+		End for 
+		
+		
+	End if 
+	
+	//#ACI0104992 -- END
+	
+	
+	
+	
+	
+	
 	
 	For ($i; 1; Size of array:C274($_field_id); 1)
 		
@@ -223,7 +272,7 @@ End if
 
 // ----------------------------------------------------
 // Return
-//$0:=$list
+return $list
 
 // ----------------------------------------------------
 // End
