@@ -12,30 +12,30 @@
 
 #DECLARE()
 
-var \
+//var \
 $count_parameters : Integer
 
-var \
+//var \
 $timer_event : Pointer
 
 
 
 // ----------------------------------------------------
 // Initialisations
-$count_parameters:=Count parameters:C259
+//$count_parameters:=Count parameters
 
-If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
-	
-	//NO PARAMETERS REQUIRED
-	//mark:ACI0103539
-	//#DD : old system deprecated use Form.timerEvent instead
-	$timer_event:=OBJECT Get pointer:C1124(Object named:K67:5; "timerEvent")
-	
-Else 
-	
-	ABORT:C156
-	
-End if 
+//If (Asserted($count_parameters>=0; "Missing parameter"))
+
+////NO PARAMETERS REQUIRED
+////mark:ACI0103539
+////#DD : old system deprecated use Form.timerEvent instead
+//$timer_event:=OBJECT Get pointer(Object named; "timerEvent")
+
+//Else 
+
+//ABORT
+
+//End if 
 
 // ----------------------------------------------------
 

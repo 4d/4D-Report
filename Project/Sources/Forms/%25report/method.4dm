@@ -58,6 +58,48 @@ Case of
 		
 		//
 		
+	: ($form_event.code=On Getting Focus:K2:7)
+		
+		
+		Case of 
+				
+			: (ob_area=Null:C1517)
+				
+			: (ob_area.window=Null:C1517)
+				
+			: ($form_event.objectName="nqr")  // the listbox
+				
+				If (Num:C11($form_event.column)>1)
+					
+					CALL FORM:C1391(Current form window:C827; "do_enable_object"; "trap_escape"; True:C214)
+					
+				End if 
+				
+				
+		End case 
+		
+		
+	: ($form_event.code=On Losing Focus:K2:8)
+		
+		Case of 
+				
+			: (ob_area=Null:C1517)
+				
+			: (ob_area.window=Null:C1517)
+				
+			: ($form_event.objectName="nqr")  // the listbox
+				
+				If (Num:C11($form_event.column)>1)
+					
+					
+					CALL FORM:C1391(Current form window:C827; "do_enable_object"; "trap_escape"; False:C215)
+					
+					
+				End if 
+				
+		End case 
+		
+		
 		//______________________________________________________
 	: ($form_event.code=On Bound Variable Change:K2:52)  // Area update event
 		

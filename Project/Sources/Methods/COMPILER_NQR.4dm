@@ -12,7 +12,6 @@
 
 var <>Boo_debug : Boolean
 
-//_O_C_BOOLEAN(<>Boo_debug)
 
 // ===============================================
 // DON'T RENAME THESE VARIABLES LINKED TO C++ CODE
@@ -20,20 +19,13 @@ var <>Boo_debug : Boolean
 var C_QR_MASTERTABLE : Integer
 var C_QR_INITBLOB : Blob
 var C_QR_INITPATH : Text
-var QR_area : Integer
 var C_QR_ONCOMMANDFORMULA : Object
 
-//_O_C_LONGINT(C_QR_MASTERTABLE)
-//_O_C_BLOB(C_QR_INITBLOB)
-//_O_C_TEXT(C_QR_INITPATH)
-//_O_C_LONGINT(QR_area)
-//_O_C_OBJECT(C_QR_ONCOMMANDFORMULA)
+var QR_area : Integer
 
 // ===============================================
 
-var ob_dialog : Object
 
-//_O_C_OBJECT(ob_dialog)
 
 // ----------------------------------------------------
 // Initialisations

@@ -11,6 +11,8 @@
 	"markerFooter": 110,
 	"events": [
 		"onLoad",
+		"onLosingFocus",
+		"onGettingFocus",
 		"onUnload",
 		"onTimer",
 		"onBoundVariableChange"

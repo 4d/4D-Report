@@ -92,20 +92,19 @@ If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 		If (OB Is defined:C1231(ob_area))
 			
 			//QR properties
-			$area:=OB Get:C1224(ob_area; "area"; Is longint:K8:6)
-			$qr_column_number:=OB Get:C1224(ob_area; "qrColumnNumber"; Is longint:K8:6)
-			$qr_row_number:=OB Get:C1224(ob_area; "qrRowNumber"; Is longint:K8:6)
-			$qr_destination:=OB Get:C1224(ob_area; "destination"; Is longint:K8:6)
+			$area:=ob_area.area
+			$qr_column_number:=ob_area.qrColumnNumber
+			$qr_row_number:=ob_area.qrRowNumber
+			$qr_destination:=ob_area.destination
 			
-			$report_type:=OB Get:C1224(ob_area; "reportType"; Is longint:K8:6)
+			$report_type:=ob_area.reportType
 			$is_crossReport:=($report_type=qr cross report:K14902:2)
 			
-			$is_cell_editing:=OB Get:C1224(ob_area; "cellEdition"; Is boolean:K8:9)  //true if a cell is being edited
+			$is_cell_editing:=Bool:C1537(ob_area.cellEdition)  //true if a cell is being edited
 			
-			$skip:=OB Get:C1224(ob_area; "stop"; Is boolean:K8:9)\
-				 | OB Get:C1224(ob_area; "message"; Is boolean:K8:9)  //true if an additional panel is opened or if message is displayed
+			$skip:=Bool:C1537(ob_area.stop) | Bool:C1537(ob_area.message)  //true if an additional panel is opened or if message is displayed
 			
-			$is_quickReport:=OB Get:C1224(ob_area; "4d-dialog"; Is boolean:K8:9)  //true if Quick Report
+			$is_quickReport:=Bool:C1537(ob_area["4d-dialog"])  //true if Quick Report
 			
 			$header_height:=Choose:C955($is_crossReport; 0; Form:C1466.headerHeight)
 			
@@ -147,8 +146,7 @@ If (Not:C34($skip)\
 		//no longer necessary with CONVERT COORDINATES
 		//$Lon_y:=$Lon_y-OB Get(ob_area;"top-offset";Is longint)
 		
-		OB SET:C1220(ob_dialog; \
-			"action"; "hide_plus")
+		ob_dialog.action:="hide_plus"
 		
 	End if 
 	
@@ -203,8 +201,7 @@ If (Not:C34($skip)\
 				
 				OBJECT GET COORDINATES:C663(*; $_column_names{$i}; $column_left; $L; $column_right; $L)
 				
-				If ($mouse_x>$column_left)\
-					 & ($mouse_x<=$column_right)
+				If ($mouse_x>$column_left) & ($mouse_x<=$column_right)
 					
 					$column_index:=$i
 					$i:=MAXLONG:K35:2-1
@@ -319,8 +316,7 @@ If (Not:C34($skip)\
 					//………………………………………………………………………………
 				: ($contextual_click)
 					
-					OB SET:C1220(ob_dialog; \
-						"action"; "header_context_menu")
+					ob_dialog.action:="header_context_menu"
 					
 					//………………………………………………………………………………
 				: ($is_in_header_column)
@@ -355,8 +351,7 @@ If (Not:C34($skip)\
 			//______________________________________________________
 		: ($event_code=On Losing Focus:K2:8)
 			
-			OB SET:C1220(ob_dialog; \
-				"action"; "update")
+			ob_dialog.action:="update"
 			
 			//______________________________________________________
 		: ($event_code=On Double Clicked:K2:5)
@@ -403,8 +398,7 @@ If (Not:C34($skip)\
 						//%W+533.3
 						
 						//set the edit flag
-						OB SET:C1220(ob_area; \
-							"cellEdition"; True:C214)
+						ob_area.cellEdition:=True:C214
 						
 						$is_cell_editing:=True:C214
 						
@@ -425,13 +419,14 @@ If (Not:C34($skip)\
 								
 							Else 
 								
-								If ($column_index>1)\
-									 & ($row_index>1)
+								If ($column_index>1) & ($row_index>1)
 									
 									OBJECT SET VISIBLE:C603(*; "cell_menu"; True:C214)
 									
 								End if 
+								
 							End if 
+							
 						End if 
 						
 						EDIT ITEM:C870($self->)
@@ -460,13 +455,11 @@ If (Not:C34($skip)\
 						
 						If ($is_crossReport)
 							
-							OB SET:C1220(ob_dialog; \
-								"action"; "cell_context_menu")
+							ob_dialog.action:="cell_context_menu"
 							
 						Else 
 							
-							OB SET:C1220(ob_dialog; \
-								"action"; "line_context_menu")
+							ob_dialog.action:="line_context_menu"
 							
 						End if 
 						
@@ -474,8 +467,7 @@ If (Not:C34($skip)\
 						
 						If ($is_crossReport)
 							
-							If ($column_index=1)\
-								 & ($row_index=1)
+							If ($column_index=1) & ($row_index=1)
 								
 								QR SET SELECTION:C794($area; 0; 0; 0; 0)
 								report_SELECTION("select_all")
@@ -509,8 +501,7 @@ If (Not:C34($skip)\
 							
 						Else 
 							
-							OB SET:C1220(ob_dialog; \
-								"action"; "cell_context_menu")
+							ob_dialog.action:="cell_context_menu"
 							
 						End if 
 						
@@ -540,8 +531,7 @@ If (Not:C34($skip)\
 						
 						If (Not:C34($is_crossReport))
 							
-							OB SET:C1220(ob_dialog; \
-								"action"; "area_context_menu")
+							ob_dialog.action:="area_context_menu"
 							
 						End if 
 						
@@ -614,8 +604,7 @@ If (Not:C34($skip)\
 				End if 
 			End if 
 			
-			OB SET:C1220(ob_dialog; \
-				"action"; "update")
+			ob_dialog.action:="update"
 			
 			//______________________________________________________
 			
@@ -643,7 +632,7 @@ If (Not:C34($skip)\
 			Case of 
 					
 					//----------------------------------------
-				: (OB Get:C1224(ob_area; "on-drop"; Is boolean:K8:9))
+				: (Bool:C1537(ob_area["on-drop"]))  //just exist here .... ?
 					
 					//BEEP
 					
@@ -683,8 +672,7 @@ If (Not:C34($skip)\
 							
 						End for 
 						
-						If ((ob_area.rowIndex>2)\
-							 & (ob_area.rowIndex<(3+ob_area.sortNumber)))  // In a subtotal row header
+						If ((ob_area.rowIndex>2) & (ob_area.rowIndex<(3+ob_area.sortNumber)))  // In a subtotal row header
 							
 							//%W-533.3
 							$help_tip_text:=Localized string:C991(Choose:C955($aOrdersReordered{(ob_area.rowIndex-2)}=1; "ascendingSortOrder"; "descendingSortOrder"))
@@ -763,9 +751,8 @@ If (Not:C34($skip)\
 							
 							If (LISTBOX Get property:C917(*; $my_name; _o_lk hor scrollbar position:K53:10)=0)
 								
-								OB SET:C1220(ob_dialog; \
-									"action"; "show_plus"; \
-									"middle"; $right)
+								ob_dialog.action:="show_plus"
+								ob_dialog.middle:=$right
 								
 							End if 
 							
@@ -811,18 +798,18 @@ If (Not:C34($skip)\
 								
 								OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 								
-								OB SET:C1220(ob_dialog; \
-									"action"; "show_plus"; \
-									"middle"; $right)
+								ob_dialog.action:="show_plus"
+								ob_dialog.middle:=$right
+								
 								
 								//-----------------------------------
 							: ($mouse_x<=($left+Form:C1466.addSensitive))  //into the left separator sensitive area
 								
 								OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 								
-								OB SET:C1220(ob_dialog; \
-									"action"; "show_plus"; \
-									"middle"; $left)
+								ob_dialog.action:="show_plus"
+								ob_dialog.middle:=$left
+								
 								
 								//-----------------------------------
 							Else 
@@ -850,9 +837,8 @@ If (Not:C34($skip)\
 						
 						OBJECT SET VISIBLE:C603(*; "header_action"; False:C215)
 						
-						OB SET:C1220(ob_dialog; \
-							"action"; "show_plus"; \
-							"middle"; $right)
+						ob_dialog.action:="show_plus"
+						ob_dialog.middle:=$right
 						
 					Else 
 						
@@ -897,16 +883,14 @@ If (Not:C34($skip)\
 							//-----------------------------------
 						: ($mouse_x>=($right-Form:C1466.addSensitive))  //into the right separator sensitive area
 							
-							OB SET:C1220(ob_dialog; \
-								"action"; "show_plus"; \
-								"middle"; $right)
+							ob_dialog.action:="show_plus"
+							ob_dialog.middle:=$right
 							
 							//-----------------------------------
 						: ($mouse_x<=($left+Form:C1466.addSensitive))  //into the left separator sensitive area
 							
-							OB SET:C1220(ob_dialog; \
-								"action"; "show_plus"; \
-								"middle"; $left)
+							ob_dialog.action:="show_plus"
+							ob_dialog.middle:=$left
 							
 							//-----------------------------------
 						Else 
@@ -942,8 +926,7 @@ If (Not:C34($skip)\
 				//restore
 				If ($is_quickReport)
 					
-					OB SET:C1220(ob_dialog; \
-						"action"; "update")
+					ob_dialog.action:="update"
 					
 				Else 
 					
@@ -969,8 +952,7 @@ If (Not:C34($skip)\
 					Else 
 						
 						//restore
-						OB SET:C1220(ob_dialog; \
-							"action"; "update")
+						ob_dialog.action:="update"
 						
 					End if 
 				End if 
@@ -1008,8 +990,7 @@ If (Not:C34($skip)\
 			
 			If ($mouse_button=0)  //Button up
 				
-				OB SET:C1220(ob_dialog; \
-					"action"; "update")
+				ob_dialog.action:="update"
 				
 			End if 
 			
@@ -1030,11 +1011,10 @@ If (Not:C34($skip)\
 				//______________________________________________________
 			: ($is_cell_editing)
 				
-				OB SET:C1220(ob_area; \
-					"columnIndex"; $column_index; \
-					"rowIndex"; $row_index; \
-					"qrColumn"; $qr_column; \
-					"qrRow"; $qr_row)
+				ob_area.columnIndex:=$column_index
+				ob_area.rowIndex:=$row_index
+				ob_area.qrColumn:=$qr_column
+				ob_area.qrRow:=$qr_row
 				
 				//______________________________________________________
 			Else 
@@ -1046,7 +1026,7 @@ If (Not:C34($skip)\
 					
 					//move page break if any
 					OBJECT GET COORDINATES:C663(*; $_column_names{$locked_columns+1}; $left; $L; $L; $L)
-					$left:=($locked_column_right+OB Get:C1224(ob_area; "pageBreak"; Is longint:K8:6))-($locked_column_right-$left)
+					$left:=($locked_column_right+Num:C11(ob_area.pageBreak))-($locked_column_right-$left)
 					OBJECT GET COORDINATES:C663(*; "page.break"; $L; $top; $L; $bottom)
 					OBJECT SET COORDINATES:C1248(*; "page.break"; $left; $top; $left; $bottom)
 					OBJECT SET VISIBLE:C603(*; "page.break"; $left>$locked_column_right)
@@ -1056,18 +1036,19 @@ If (Not:C34($skip)\
 				//keep the position of the scroll bars
 				OBJECT GET SCROLL POSITION:C1114(*; $my_name; $row_position; $column_position)
 				
-				OB SET:C1220(ob_area; \
-					"columnIndex"; $column_index; \
-					"rowIndex"; $row_index; \
-					"qrColumn"; $qr_column; \
-					"qrRow"; $qr_row; \
-					"inTopLeftHeader"; $is_in_top_left_header; \
-					"inHeaderColumn"; $is_in_header_column; \
-					"inHeaderLine"; $is_in_header_line; \
-					"inCell"; $is_in_cell; \
-					"scrollRow"; $row_position; \
-					"scrollColumn"; $column_position; \
-					"crossReport"; $is_crossReport)
+				ob_area.columnIndex:=$column_index
+				ob_area.rowIndex:=$row_index
+				ob_area.qrColumn:=$qr_column
+				ob_area.qrRow:=$qr_row
+				ob_area.inTopLeftHeader:=$is_in_top_left_header
+				ob_area.inHeaderColumn:=$is_in_header_column
+				ob_area.inHeaderLine:=$is_in_header_line
+				ob_area.inCell:=$is_in_cell
+				ob_area.scrollRow:=$row_position
+				ob_area.scrollColumn:=$column_position
+				ob_area.crossReport:=$is_crossReport
+				
+				
 				
 				//______________________________________________________
 		End case 
@@ -1082,15 +1063,13 @@ If (Not:C34($skip)\
 			
 		Else 
 			
-			If ($contextual_click)\
-				 & ($area#0)
+			If ($contextual_click) & ($area#0)
 				
 				If (QR Get area property:C795($area; qr view contextual menus:K14905:7)#0)
 					
 					If ($is_crossReport)
 						
-						If ($column_index=3)\
-							 & ($row_index=3)
+						If ($column_index=3) & ($row_index=3)
 							
 						Else 
 							

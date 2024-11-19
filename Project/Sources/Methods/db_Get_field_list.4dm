@@ -92,7 +92,7 @@ If ($table_id#0)
 		
 	Else 
 		
-		TRACE:C157
+		
 		
 		var $count_fields; $int : Integer
 		var $bool; $is_invisible; $in_design : Boolean

@@ -9,21 +9,20 @@
 //
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_parameters)
-C_OBJECT:C1216($Obj_message)
+var $count_parameters : Integer
+var $message : Object
 
 // ----------------------------------------------------
 // Initialisations
-$Lon_parameters:=Count parameters:C259
+$count_parameters:=Count parameters:C259
 
-If (Asserted:C1132($Lon_parameters>=0; "Missing parameter"))
+If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	
 	// NO PARAMETERS REQUIRED
-	$Obj_message:=New object:C1471(\
-		"src"; "quit")
+	$message:=New object:C1471("src"; "quit")
 	
 	// Optional parameters
-	If ($Lon_parameters>=1)
+	If ($count_parameters>=1)
 		
 		// <NONE>
 		
@@ -46,30 +45,30 @@ If (Bool:C1537(ob_area.modified))
 	
 	If (Length:C16(C_QR_INITPATH)>0)
 		
-		$Obj_message.message:=Get localized string:C991("DoYouWantToSaveChangesInThisDocument")
+		$message.message:=Localized string:C991("DoYouWantToSaveChangesInThisDocument")
 		
-		$Obj_message.checkbox:=True:C214
-		$Obj_message.checkboxLabel:=Get localized string:C991("SaveInNewDocument")
+		$message.checkbox:=True:C214
+		$message.checkboxLabel:=Localized string:C991("SaveInNewDocument")
 		
 	Else 
 		
-		$Obj_message.message:=Get localized string:C991("doYouWantToSaveChanges")
+		$message.message:=Localized string:C991("doYouWantToSaveChanges")
 		
-		$Obj_message.checkbox:=False:C215
+		$message.checkbox:=False:C215
 		
 	End if 
 	
-	$Obj_message.doLabel:=Get localized string:C991("save")
-	$Obj_message.cancelLabel:=Get localized string:C991("cancel")
-	$Obj_message.forgetLabel:=Get localized string:C991("doNotSave")
+	$message.doLabel:=Localized string:C991("save")
+	$message.cancelLabel:=Localized string:C991("cancel")
+	$message.forgetLabel:=Localized string:C991("doNotSave")
 	
-	mess_DISPLAY($Obj_message)
+	mess_DISPLAY($message)
 	
 Else 
 	
-	$Obj_message.action:="none"
+	$message.action:="none"
 	
-	NQR_DO_IT($Obj_message)
+	NQR_DO_IT($message)
 	
 End if 
 

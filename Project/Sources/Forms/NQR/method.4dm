@@ -27,6 +27,8 @@ Case of
 		
 		COMPILER_NQR
 		
+		ob_area.window:=Current form window:C827
+		
 		//*******************************************************
 		//UNAVALAIBLE FEATURES
 		OBJECT SET VISIBLE:C603(*; "toolbar.opened.sep.4"; <>Boo_debug)

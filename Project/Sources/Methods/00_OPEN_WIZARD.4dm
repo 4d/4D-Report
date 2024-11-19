@@ -23,19 +23,12 @@ $method_name : Text
 
 
 
-If (False:C215)
-	C_TEXT:C284(00_OPEN_WIZARD; $1)
-End if 
 
 // ----------------------------------------------------
 // Initialisations
 $count_parameters:=Count parameters:C259
 
-If ($count_parameters>=1)
-	
-	$entry_point:=$1
-	
-End if 
+
 
 // ----------------------------------------------------
 Case of 
@@ -89,41 +82,41 @@ Case of
 		$menu_bar:=Create menu:C408
 		$menu_edit:=Create menu:C408
 		
-		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemUndo"))
+		APPEND MENU ITEM:C411($menu_edit; Localized string:C991("CommonMenuItemUndo"))
 		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Undo action:K59:16)
 		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "Z"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuRedo"))
+		APPEND MENU ITEM:C411($menu_edit; Localized string:C991("CommonMenuRedo"))
 		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Redo action:K59:17)
 		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "Z"; Shift key mask:K16:3)
 		
 		APPEND MENU ITEM:C411($menu_edit; "-")
 		
-		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemCut"))
+		APPEND MENU ITEM:C411($menu_edit; Localized string:C991("CommonMenuItemCut"))
 		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Cut action:K59:18)
 		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "X"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemCopy"))
+		APPEND MENU ITEM:C411($menu_edit; Localized string:C991("CommonMenuItemCopy"))
 		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Copy action:K59:19)
 		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "C"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemPaste"))
+		APPEND MENU ITEM:C411($menu_edit; Localized string:C991("CommonMenuItemPaste"))
 		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Paste action:K59:20)
 		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "V"; Command key mask:K16:1)
 		
-		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemClear"))
+		APPEND MENU ITEM:C411($menu_edit; Localized string:C991("CommonMenuItemClear"))
 		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Clear action:K59:21)
 		
-		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemSelectAll"))
+		APPEND MENU ITEM:C411($menu_edit; Localized string:C991("CommonMenuItemSelectAll"))
 		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Select all action:K59:22)
 		SET MENU ITEM SHORTCUT:C423($menu_edit; -1; "A"; Command key mask:K16:1)
 		
 		APPEND MENU ITEM:C411($menu_edit; "(-")
 		
-		APPEND MENU ITEM:C411($menu_edit; Get localized string:C991("CommonMenuItemShowClipboard"))
+		APPEND MENU ITEM:C411($menu_edit; Localized string:C991("CommonMenuItemShowClipboard"))
 		SET MENU ITEM PROPERTY:C973($menu_edit; -1; Associated standard action name:K28:8; _o_Show clipboard action:K59:23)
 		
-		APPEND MENU ITEM:C411($menu_bar; Get localized string:C991("CommonMenuEdit"); $menu_edit)
+		APPEND MENU ITEM:C411($menu_bar; Localized string:C991("CommonMenuEdit"); $menu_edit)
 		RELEASE MENU:C978($menu_edit)
 		
 		SET MENU BAR:C67($menu_bar)

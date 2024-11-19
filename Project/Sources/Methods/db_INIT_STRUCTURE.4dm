@@ -64,10 +64,7 @@ If (Asserted:C1132($count_parameters>=0; "Missing parameter"))
 	COMPILER_db
 	
 	//#ACI0097715 [
-	//_O_PROCESS PROPERTIES(Current process; $text; $int; $int; $int; $int; $origin)
-	//var $process : Object
 	
-	//$process:=
 	$origin:=Process info:C1843(Current process:C322).type
 	
 	$in_design:=($origin<0)  // Main process or design process
@@ -105,8 +102,11 @@ For ($i; 1; $count_tables; 1)
 				report_structureDefinition{$i}{$j}:=Field name:C257($i; $j)
 				
 			End if 
+			
 		End for 
+		
 	End if 
+	
 End for 
 
 //Loads the virtual/exposed structure

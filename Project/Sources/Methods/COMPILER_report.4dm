@@ -16,6 +16,7 @@ var Form_C_UseVirtualStructure : Integer
 
 
 // ===============================================
+
 var ob_dialog; ob_area : Object
 
 

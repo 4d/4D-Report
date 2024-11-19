@@ -15,8 +15,9 @@
 		],
 		"methods": [
 			"00_OPEN_WIZARD",
-			"COMPILER_TEMPO",
-			"DEBUG"
+			"DEBUG",
+			"do_enable_object",
+			"do_goto_object"
 		],
 		"forms": [
 			"00_TEST_AREA",
