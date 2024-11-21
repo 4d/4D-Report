@@ -593,7 +593,7 @@
 					"width": 150,
 					"height": 34,
 					"sizingY": "move",
-					"shortcutKey": "[Esc]",
+					"shortcutKey": "",
 					"shortcutAccel": false,
 					"text": "trap-escape",
 					"focusable": false,
@@ -793,12 +793,10 @@
 	},
 	"geometryStamp": 159,
 	"editor": {
-		"activeView": "Area",
+		"activeView": "Toolbar",
 		"defaultView": "Toolbar",
 		"views": {
-			"Toolbar": {
-				"visible": false
-			},
+			"Toolbar": {},
 			"fieldList": {
 				"visible": false,
 				"objects": [
@@ -852,6 +850,7 @@
 				]
 			},
 			"Area": {
+				"visible": false,
 				"objects": [
 					"myQR"
 				]

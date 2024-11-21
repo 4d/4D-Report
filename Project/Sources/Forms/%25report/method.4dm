@@ -71,7 +71,10 @@ Case of
 				
 				If (Num:C11($form_event.column)>1)
 					
-					CALL FORM:C1391(Current form window:C827; "do_enable_object"; "trap_escape"; True:C214)
+					//CALL FORM(Current form window; "do_enable_object"; "trap_escape"; True)
+					
+					CALL FORM:C1391(Current form window:C827; "do_set_shortcut"; "trap_escape"; Shortcut with Escape:K75:20)
+					
 					
 				End if 
 				
@@ -92,8 +95,9 @@ Case of
 				If (Num:C11($form_event.column)>1)
 					
 					
-					CALL FORM:C1391(Current form window:C827; "do_enable_object"; "trap_escape"; False:C215)
+					//CALL FORM(Current form window; "do_enable_object"; "trap_escape"; False)
 					
+					CALL FORM:C1391(Current form window:C827; "do_set_shortcut"; "trap_escape")
 					
 				End if 
 				

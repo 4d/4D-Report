@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="2855">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="2856">
 	<com.4d>
 		<general execute_host_database_event="true"/>
 		<compiler>
@@ -18,7 +18,7 @@
 		</web>
 		<interface>
 			<shortcuts>
-				<cancel_input_form alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+				<cancel_input_form alt="false" command="false" ctrl="false" key_code="13595" shift="false"/>
 				<accept_input_form alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
 				<add_subform alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
 			</shortcuts>
