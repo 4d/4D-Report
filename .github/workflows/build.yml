@@ -9,14 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+   build:
     name: "Build on ${{ matrix.os }}"
     strategy:
       fail-fast: false
       matrix:
-        os: [ macos, windows ]
+        os: [ macOS,Windows ]
     runs-on: ${{ matrix.os }}
-    steps:
+     steps:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Build
