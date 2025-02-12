@@ -29,7 +29,8 @@
 					"width": 420,
 					"height": 160,
 					"stroke": "#868B92",
-					"class": "background"
+					"class": "background",
+					"borderRadius": 10
 				},
 				"ok": {
 					"type": "button",
