@@ -440,11 +440,11 @@ If (OB Is defined:C1231($Obj_param; "action"))
 					
 					//sorted and not hidden
 					OB SET:C1220($Obj_message; \
-						"message"; Get localized string:C991("areYouSure"); \
-						"comment"; Get localized string:C991("theSubtotalRowAssociatedWillBeRemoved.")+"\r"+Get localized string:C991("youCanHideTheColumnAndKeepTheSortingData"); \
-						"doLabel"; Get localized string:C991("remove"); \
-						"cancelLabel"; Get localized string:C991("cancel"); \
-						"forgetLabel"; Get localized string:C991("menu_hide"); \
+						"message"; Localized string:C991("areYouSure"); \
+						"comment"; Localized string:C991("theSubtotalRowAssociatedWillBeRemoved.")+"\r"+Localized string:C991("youCanHideTheColumnAndKeepTheSortingData"); \
+						"doLabel"; Localized string:C991("remove"); \
+						"cancelLabel"; Localized string:C991("cancel"); \
+						"forgetLabel"; Localized string:C991("menu_hide"); \
 						"checkbox"; False:C215)
 					
 					mess_DISPLAY($Obj_message)
@@ -485,19 +485,19 @@ If (OB Is defined:C1231($Obj_param; "action"))
 					
 					//hidden row
 					OB SET:C1220($Obj_message; \
-						"message"; Get localized string:C991("areYouSure"); \
-						"comment"; Get localized string:C991("thisColumnWillNoMoreBeSorted"); \
-						"doLabel"; Get localized string:C991("remove"); \
-						"cancelLabel"; Get localized string:C991("cancel"))
+						"message"; Localized string:C991("areYouSure"); \
+						"comment"; Localized string:C991("thisColumnWillNoMoreBeSorted"); \
+						"doLabel"; Localized string:C991("remove"); \
+						"cancelLabel"; Localized string:C991("cancel"))
 					
 				Else 
 					
 					OB SET:C1220($Obj_message; \
-						"message"; Get localized string:C991("areYouSure"); \
-						"comment"; Get localized string:C991("thisColumnWillNoMoreBeSorted")+"\r"+Get localized string:C991("youCanHideTheLineAndKeepTheSortingData"); \
-						"doLabel"; Get localized string:C991("remove"); \
-						"cancelLabel"; Get localized string:C991("cancel"); \
-						"forgetLabel"; Get localized string:C991("menu_hide"))
+						"message"; Localized string:C991("areYouSure"); \
+						"comment"; Localized string:C991("thisColumnWillNoMoreBeSorted")+"\r"+Localized string:C991("youCanHideTheLineAndKeepTheSortingData"); \
+						"doLabel"; Localized string:C991("remove"); \
+						"cancelLabel"; Localized string:C991("cancel"); \
+						"forgetLabel"; Localized string:C991("menu_hide"))
 					
 				End if 
 				
