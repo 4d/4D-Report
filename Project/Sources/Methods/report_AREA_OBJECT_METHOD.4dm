@@ -951,7 +951,8 @@ If (Not:C34($skip)\
 						
 					Else 
 						
-						//restore
+						// Restore
+						ob_area._digest:=""  // Invalid the digest to force update
 						ob_dialog.action:="update"
 						
 					End if 
@@ -996,8 +997,6 @@ If (Not:C34($skip)\
 			
 			//________________________________________
 	End case 
-	
-	
 	
 	If ($area#0)
 		
