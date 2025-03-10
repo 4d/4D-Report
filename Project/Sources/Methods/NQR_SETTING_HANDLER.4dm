@@ -316,7 +316,8 @@ Case of
 		//______________________________________________________
 	: ($Txt_action="add_all")
 		
-		For ($Lon_i; 1; Count list items:C380(*; "field.list"; *); 1)
+		//For ($Lon_i; 1; Count list items(*; "field.list"; *); 1)
+		For ($Lon_i; 1; Count list items:C380(*; "field.list"); 1)  // fix:#ACI0105434
 			
 			GET LIST ITEM:C378(*; "field.list"; $Lon_i; $Lon_reference; $Txt_formula)
 			NQR_SETTING_HANDLER("add"; $Lon_reference)
