@@ -529,8 +529,9 @@ If (Not:C34($skip)\
 					
 					If ($contextual_click)
 						
-						If (Not:C34($is_crossReport))
+						If ($is_crossReport)
 							
+						Else 
 							ob_dialog.action:="area_context_menu"
 							
 						End if 

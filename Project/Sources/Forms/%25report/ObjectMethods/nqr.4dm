@@ -42,7 +42,7 @@ Case of
 		
 		$result:=-1
 		
-		GET MOUSE:C468($mouse_x; $mouse_y; $mouse_button)
+		MOUSE POSITION:C468($mouse_x; $mouse_y; $mouse_button)
 		
 		// #7-9-2015
 		//convert coordinates from global (window) to local (subform)
@@ -144,7 +144,7 @@ Case of
 		//2). Keep in mind that the drop does not have to take place before an existing
 		//column.
 		
-		GET MOUSE:C468($mouse_x; $mouse_y; $mouse_button)
+		MOUSE POSITION:C468($mouse_x; $mouse_y; $mouse_button)
 		
 		// #7-9-2015
 		//convert coordinates from global (window) to local (subform)
@@ -254,6 +254,7 @@ Case of
 			
 			//the area is loaded before the form
 			COMPILER_report
+			
 			
 		End if 
 		
