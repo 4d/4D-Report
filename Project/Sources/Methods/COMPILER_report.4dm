@@ -22,6 +22,8 @@ var ob_dialog; ob_area : Object
 
 ob_area:=ob_area || {}
 
+ob_dialog:=(ob_dialog=Null:C1517) ? {} : ob_dialog
+
 ARRAY LONGINT:C221(tLon_rowHeights; 0)
 
 var boo_useVirtualStructure : Boolean
