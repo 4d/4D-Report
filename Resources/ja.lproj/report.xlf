@@ -16,8 +16,8 @@
                     <target>タイトル</target>
                 </trans-unit>
                 <trans-unit id="v2NotlXRz1_31fWAtWreKw" resname="head_details">
-                    <source>Details</source>
-                    <target>詳細</target>
+                    <source>Format</source>
+                    <target>フォーマット</target>
                 </trans-unit>
                 <trans-unit id="xMoOllOV+VYfOY8o6QPvqg" resname="head_grand_total">
                     <source>Grand Total</source>
@@ -530,8 +530,8 @@
 	                <target>このブレーク行を削除</target>
 				</trans-unit> 
                 <trans-unit id="U7Fk9GFM9fxJJzjFktHVMw" resname="menu_delete_column">
-                    <source>Delete the column</source>
-                    <target>カラムを削除</target>
+                    <source>Delete this column</source>
+                    <target>このカラムを削除</target>
                 </trans-unit>
 	            <trans-unit id="gmT1DZFi+xcNRf9tvRn8Gw" resname="menu_destination">
 	               <source>Destination</source>
@@ -582,12 +582,12 @@
                     <target>このブレーク行を隠す</target>
                 </trans-unit>
                 <trans-unit id="1hdMBFRb7e4l7V9JX9Wmhg" resname="menu_hide_column">
-                    <source>Hide the column</source>
-                    <target>カラムを隠す</target>
+                    <source>Hide this column</source>
+                    <target>このカラムを隠す</target>
                 </trans-unit>
                 <trans-unit id="QPlCtY9XpA2mbUdfOZZcMQ" resname="menu_hide_row">
-                    <source>Hide the row</source>
-                    <target>行を隠す</target>
+                    <source>Hide this row</source>
+                    <target>この行を隠す</target>
                 </trans-unit>
                 <trans-unit id="S7t8I73ZpoDG8YNZaEZGpA" resname="menu_html_file">
                     <source>HTML file</source>
@@ -900,9 +900,9 @@
                </trans-unit>
                <trans-unit id="CTUrLKVjQ+CGkkSFd3BPZw" resname="listOfFieldsTips">
                   <source>Double click to append a column
-   Drag &amp; drop to insert or replace a column</source>
+Drag &amp; drop to insert or replace a column</source>
                   <target>ダブルクリックでカラムを追加
-   ドラッグ&amp;ドロップでカラムを挿入または置換</target>
+ドラッグ&amp;ドロップでカラムを挿入または置換</target>
                </trans-unit>
                <trans-unit id="ZGBDoPqgpwcTNpX+W5WpCw" resname="fieldsLabel">
                   <source>Fields</source>
