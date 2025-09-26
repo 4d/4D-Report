@@ -376,8 +376,9 @@ This file is distributed under the same license as the product package.-->
          <group resname="Help tips">
              <trans-unit id="69" resname="tips_add">
                  <source>Click to add a field
-                     Right click for more options</source>
-                 <target>フィールドを追加するにはクリック&#xD;右クリックですべてのオプションを表示</target>
+Right click for more options</source>
+                 <target>フィールドを追加するにはクリック
+右クリックですべてのオプションを表示</target>
              </trans-unit>
          </group>         
 
