@@ -1,33 +1,29 @@
 //%attributes = {"invisible":true}
-C_OBJECT:C1216($Obj_current)
-C_TEXT:C284($Txt_errorHandlingMethod)
+// Backup
+var $backup:={\
+preview: Get print preview:C1197; \
+dialog: QR Get document property:C773(QR_area; qr printing dialog:K14907:1)\
+}
 
-//save current
-OB SET:C1220($Obj_current; \
-"preview"; Get print preview:C1197; \
-"dialog"; QR Get document property:C773(QR_area; qr printing dialog:K14907:1))
-
-//the print dialog is not displayed prior to printing
-QR SET DOCUMENT PROPERTY:C772(QR_area; qr printing dialog:K14907:1; 0)
-
-//force preview
+// Force preview
 SET PRINT PREVIEW:C364(True:C214)
+
+// Don't dispaly the print dialog prior to printing
+QR SET DOCUMENT PROPERTY:C772(QR_area; qr printing dialog:K14907:1; 0)
 
 // MARK: ACI0106049
 SET PRINT OPTION:C733(Destination option:K47:7; 1)
 
-$Txt_errorHandlingMethod:=report_catchErrors("on")
-QR RUN:C746(QR_area)
-
-If (error#0)
+Try
+	
+	QR RUN:C746(QR_area)
+	
+Catch
 	
 	ALERT:C41(Localized string:C991("previewIsNotPossible"))
 	
-End if 
+End try
 
-report_catchErrors("off"; $Txt_errorHandlingMethod)
-
-//restore
-SET PRINT PREVIEW:C364($Obj_current.preview)
-QR SET DOCUMENT PROPERTY:C772(QR_area; qr printing dialog:K14907:1; OB Get:C1224($Obj_current; "dialog"; Is longint:K8:6))
-
+// Restore
+SET PRINT PREVIEW:C364($backup.preview)
+QR SET DOCUMENT PROPERTY:C772(QR_area; qr printing dialog:K14907:1; $backup.dialog)
