@@ -337,7 +337,7 @@ This file is distributed under the same license as the product package.-->
             </trans-unit>
             <trans-unit id="68" resname="doNotSave">
                <source>Do not save</source>
-               <target>Nicht speichern</target>
+               <target>Nein</target>
             </trans-unit>
             <trans-unit id="70" resname="remove">
                <source>Remove</source>
