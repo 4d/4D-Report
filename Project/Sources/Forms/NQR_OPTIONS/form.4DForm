@@ -1,4 +1,4 @@
-﻿{
+{
 	"destination": "detailScreen",
 	"formSizeAnchor": "shadow",
 	"rightMargin": 0,
@@ -201,7 +201,7 @@
 					"top": 46,
 					"left": 131,
 					"width": 151,
-					"height": 22,
+					"height": 23,
 					"text": ":xliff:menu_page_setup",
 					"focusable": false,
 					"method": "ObjectMethods/print.pageSetup.4dm",
@@ -502,7 +502,7 @@
 				},
 				"Text15": {
 					"type": "text",
-					"top": 38,
+					"top": 39,
 					"left": 108,
 					"width": 159,
 					"height": 16,
@@ -515,23 +515,23 @@
 					"top": 36,
 					"left": 447,
 					"width": 116,
-					"height": 20,
+					"height": 23,
 					"fontFamily": "System Font Regular",
 					"fontSize": 13,
 					"text": ":xliff:load",
 					"iconFrames": 4,
-					"style": "bevel",
 					"dropping": "custom",
 					"method": "ObjectMethods/html.browse.4dm",
 					"events": [
 						"onClick",
 						"onDrop",
 						"onDragOver"
-					]
+					],
+					"focusable": false
 				},
 				"html.template.default": {
 					"type": "checkbox",
-					"top": 37,
+					"top": 38,
 					"left": 275,
 					"width": 164,
 					"height": 18,
@@ -547,19 +547,19 @@
 					"top": 36,
 					"left": 583,
 					"width": 105,
-					"height": 20,
+					"height": 23,
 					"fontFamily": "System Font Regular",
 					"fontSize": 13,
 					"text": ":xliff:view",
 					"iconFrames": 4,
-					"style": "bevel",
 					"dropping": "custom",
 					"method": "ObjectMethods/html.view.4dm",
 					"events": [
 						"onClick",
 						"onDrop",
 						"onDragOver"
-					]
+					],
+					"focusable": false
 				}
 			}
 		}
@@ -568,7 +568,7 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 20,
+	"geometryStamp": 25,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
