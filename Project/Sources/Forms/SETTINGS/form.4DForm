@@ -142,10 +142,10 @@
 				},
 				"ok": {
 					"type": "button",
-					"top": 249,
+					"top": 248,
 					"left": 456,
 					"width": 75,
-					"height": 22,
+					"height": 23,
 					"sizingY": "move",
 					"dataSource": "OK",
 					"text": ":xliff:ok",
@@ -158,10 +158,10 @@
 				},
 				"cancel": {
 					"type": "button",
-					"top": 249,
+					"top": 248,
 					"left": 342,
 					"width": 94,
-					"height": 22,
+					"height": 23,
 					"sizingY": "move",
 					"shortcutKey": "[Esc]",
 					"text": ":xliff:cancel",
@@ -335,7 +335,7 @@
 			}
 		}
 	],
-	"geometryStamp": 59,
+	"geometryStamp": 61,
 	"$4d": {
 		"version": "1",
 		"kind": "form"
