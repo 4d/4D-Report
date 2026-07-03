@@ -332,7 +332,9 @@ Case of
 							OBJECT SET VISIBLE:C603(*; "sort.back"; True:C214)
 							
 							QR GET SORTS:C753($area; $columns; $orders)
-							$index:=Find in array:C230($columns; $columnNumber)
+							
+							// #ACI0106330 - per QR SET SORTS doc, a cross report is sorted with sort column 1 (columns, displayed column 2) or sort column 2 (rows, displayed column 1)
+							$index:=Find in array:C230($columns; Choose:C955($reportKind=qr cross report:K14902:2; Choose:C955($columnNumber=2; 1; 2); $columnNumber))
 							
 							$ui_label_pointer:=OBJECT Get pointer:C1124(Object named:K67:5; "sort.label")
 							

@@ -4,7 +4,7 @@
 // Created #18-9-2014 by Vincent de Lachaux
 // ----------------------------------------------------
 // Declarations
-C_LONGINT:C283($Lon_area; $Lon_column; $Lon_formEvent; $Lon_row; $Lon_sort_index)
+C_LONGINT:C283($Lon_area; $Lon_column; $Lon_formEvent; $Lon_qrColumn; $Lon_row; $Lon_sort_index)
 C_POINTER:C301($Ptr_me)
 C_TEXT:C284($Mnu_main; $Txt_action; $Txt_me)
 C_OBJECT:C1216($Obj_caller)
@@ -27,8 +27,25 @@ Case of
 		$Obj_caller:=JSON Parse:C1218((OBJECT Get pointer:C1124(Object named:K67:5; "caller"))->)
 		$Lon_area:=report_Get_target($Obj_caller; ->$Lon_column; ->$Lon_row)
 		CLEAR VARIABLE:C89($Obj_caller)
+		
+		/* #ACI0106330 - The sorts handled by QR GET SORTS/QR SET SORTS are NOT indexed by
+		the displayed column index. As per the QR SET SORTS documentation, in a cross report
+		you can only sort the columns (sort column 1) and the rows (sort column 2). The date
+		field is the columns source, displayed in column 2 ("Left to Right"), so it must be
+		sorted with sort column 1; the rows source is displayed in column 1 ("Top to Bottom")
+		and must be sorted with sort column 2. Using the displayed index made a sort applied
+		to the columns actually sort the rows and vice versa. $Lon_column is kept for the
+		displayed menu labels while $Lon_qrColumn is used for the sorts arrays. */
+		$Lon_qrColumn:=$Lon_column
+		
+		If (QR Get report kind:C755($Lon_area)=qr cross report:K14902:2)
+			
+			$Lon_qrColumn:=Choose:C955($Lon_column=2; 1; 2)
+			
+		End if 
+		
 		QR GET SORTS:C753($Lon_area; $tLon_sortedColumns; $tLon_sortOrder)
-		$Lon_sort_index:=Find in array:C230($tLon_sortedColumns; $Lon_column)
+		$Lon_sort_index:=Find in array:C230($tLon_sortedColumns; $Lon_qrColumn)
 		
 		If ($Lon_sort_index>0)
 			
@@ -103,7 +120,7 @@ Case of
 						
 					Else 
 						
-						APPEND TO ARRAY:C911($tLon_sortedColumns; $Lon_column)
+						APPEND TO ARRAY:C911($tLon_sortedColumns; $Lon_qrColumn)
 						APPEND TO ARRAY:C911($tLon_sortOrder; 1)
 						
 					End if 
@@ -129,7 +146,7 @@ Case of
 						
 					Else 
 						
-						APPEND TO ARRAY:C911($tLon_sortedColumns; $Lon_column)
+						APPEND TO ARRAY:C911($tLon_sortedColumns; $Lon_qrColumn)
 						APPEND TO ARRAY:C911($tLon_sortOrder; -1)
 						
 					End if 
