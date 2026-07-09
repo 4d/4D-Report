@@ -37,7 +37,7 @@
 					"top": 128,
 					"left": 325,
 					"width": 75,
-					"height": 22,
+					"height": 23,
 					"dataSource": "OK",
 					"text": "OK",
 					"focusable": false,
@@ -53,7 +53,7 @@
 					"top": 128,
 					"left": 211,
 					"width": 94,
-					"height": 22,
+					"height": 23,
 					"visibility": "hidden",
 					"shortcutKey": "[Esc]",
 					"text": "Cancel",
@@ -100,7 +100,7 @@
 					"top": 128,
 					"left": 17,
 					"width": 98,
-					"height": 22,
+					"height": 23,
 					"text": "Forget",
 					"focusable": false,
 					"method": "ObjectMethods/forget.4dm",
@@ -129,7 +129,7 @@
 			}
 		}
 	],
-	"geometryStamp": 3,
+	"geometryStamp": 4,
 	"$4d": {
 		"version": "1",
 		"kind": "form"

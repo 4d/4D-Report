@@ -158,7 +158,7 @@
 					"top": 298,
 					"left": 861,
 					"width": 83,
-					"height": 22,
+					"height": 23,
 					"sizingX": "move",
 					"text": ":xliff:button_apply",
 					"focusable": false,
@@ -195,7 +195,7 @@
 			}
 		}
 	],
-	"geometryStamp": 9,
+	"geometryStamp": 10,
 	"$4d": {
 		"version": "1",
 		"kind": "form"
