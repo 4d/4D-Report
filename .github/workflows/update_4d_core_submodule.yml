@@ -1,0 +1,108 @@
+name: Update submodule in 4D-core
+
+# GitHub equivalent of the TeamCity job Building4D_Main_Submodules_BuildChain:
+# points the submodule of 4d/4D-core (branch with the same name) that references this repository
+# (path found automatically in 4D-core's .gitmodules) to the pushed commit.
+# Only GitHub API calls, no clone. Requires the secret CORE_REPO_TOKEN
+# (4DBuildMgr token, Contents read/write on 4d/4D-core).
+
+on:
+  push:
+    branches:
+      - main
+      - '**.x'            # e.g. 21.x
+      - '**[0-9][0-9]R[0-9]'          # e.g. 21R2
+      - '**[0-9][0-9]R[0-9][0-9]'     # e.g. 20R10
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    if: ${{ !github.event.deleted }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CORE_REPO: 4d/4D-core
+      BRANCH: ${{ github.ref_name }}
+      NEW: ${{ github.sha }}
+      GH_TOKEN: ${{ secrets.CORE_REPO_TOKEN }}
+      SRC_TOKEN: ${{ github.token }}
+    steps:
+      - name: Point the submodule to the pushed commit
+        run: |
+          set -euo pipefail
+          core="repos/$CORE_REPO"
+
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Secret CORE_REPO_TOKEN is not set (or not available to this run)"
+            exit 1
+          fi
+          # A private repo answers 404 (not 403) when the token cannot see it
+          if ! gh api "$core" --silent; then
+            echo "::error::CORE_REPO_TOKEN cannot access $CORE_REPO: it needs Contents read/write on it" \
+              "(fine-grained PAT: resource owner 4d, repo selected, approved by the org; classic PAT: repo scope + SSO authorized)"
+            exit 1
+          fi
+
+          # Empty when the branch does not exist in 4D-core
+          head=$(gh api "$core/git/matching-refs/heads/$BRANCH" \
+            --jq '.[] | select(.ref == "refs/heads/" + env.BRANCH) | .object.sha')
+          if [ -z "$head" ]; then
+            echo "::notice::No branch $BRANCH in $CORE_REPO, nothing to do"
+            exit 0
+          fi
+          # Find the submodule path from 4D-core's .gitmodules: the entry whose URL points to this repository
+          # (https://github.com/owner/repo(.git), git@github.com:owner/repo(.git) or relative ../repo(.git))
+          gitmodules=$(mktemp)
+          gh api "$core/contents/.gitmodules?ref=$head" -H 'Accept: application/vnd.github.raw' >"$gitmodules"
+          repo_lc=${GITHUB_REPOSITORY,,}
+          paths=()
+          while read -r key url; do
+            url=${url,,}; url=${url%/}; url=${url%.git}
+            case "$url" in
+              */"$repo_lc" | *:"$repo_lc" | ../"${repo_lc#*/}")
+                name=${key#submodule.}; name=${name%.url}
+                paths+=("$(git config -f "$gitmodules" "submodule.$name.path")") ;;
+            esac
+          done < <(git config -f "$gitmodules" --get-regexp '^submodule\..*\.url$' || true)
+          if [ ${#paths[@]} -eq 0 ]; then
+            echo "::notice::$GITHUB_REPOSITORY is not a submodule of $CORE_REPO@$BRANCH, nothing to do"
+            exit 0
+          elif [ ${#paths[@]} -gt 1 ]; then
+            echo "::error::$GITHUB_REPOSITORY matches several submodules of $CORE_REPO@$BRANCH: ${paths[*]}"
+            exit 1
+          fi
+          export SUBMODULE=${paths[0]}
+
+          base_tree=$(gh api "$core/git/commits/$head" --jq .tree.sha)
+          old=$(gh api "$core/contents/$SUBMODULE?ref=$head" --jq 'select(.type == "submodule") | .sha')
+
+          # Never move the pointer backwards (e.g. re-run of an older workflow run)
+          cmp=$(GH_TOKEN=$SRC_TOKEN gh api "repos/$GITHUB_REPOSITORY/compare/$old...$NEW")
+          status=$(jq -r .status <<<"$cmp")
+          if [ "$status" = identical ] || [ "$status" = behind ]; then
+            echo "::notice::$SUBMODULE already up to date on $CORE_REPO@$BRANCH"
+            exit 0
+          fi
+
+          # Same message as the TeamCity job: one line per commit (max 250), one trailer per author
+          subjects=$(jq -r '.commits | reverse | .[].commit.message | split("\n")[0]' <<<"$cmp" | tr -d '\r')
+          coauthors=$(jq -r '.commits[].commit.author | "Co-authored-by: \(.name) <\(.email)>"' <<<"$cmp" | sort -u)
+          message=$(printf 'Update submodule %s [bot]\n\n%s\n\n%s' "$SUBMODULE" "$subjects" "$coauthors")
+
+          tree=$(jq -n --arg base "$base_tree" --arg sha "$NEW" \
+              '{base_tree: $base, tree: [{path: env.SUBMODULE, mode: "160000", type: "commit", sha: $sha}]}' |
+            gh api "$core/git/trees" --input - --jq .sha)
+          commit=$(jq -n --arg msg "$message" --arg tree "$tree" --arg parent "$head" \
+              '{message: $msg, tree: $tree, parents: [$parent], author: {name: "_compilator", email: "compilator@4d.com"}}' |
+            gh api "$core/git/commits" --input - --jq .sha)
+          # Fast-forward only: fails if 4D-core moved meanwhile (just re-run the job)
+          gh api -X PATCH "$core/git/refs/heads/$BRANCH" -f sha="$commit" -F force=false --silent
+
+          echo "$SUBMODULE: ${old:0:8} → ${NEW:0:8} on $CORE_REPO@$BRANCH ($commit)" >>"$GITHUB_STEP_SUMMARY"
