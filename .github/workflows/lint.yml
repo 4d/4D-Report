@@ -12,18 +12,22 @@ on:
       - '**.xlf'
       - '**.4DSettings'
       - '**.4DCatalog'
+
+permissions:
+  contents: read
+
 jobs:
   run-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Lint XML
         run: |
           sudo apt-get update
           sudo apt-get install libxml2-utils
-          # shellcheck disable=2046
           find . \( -name "*.xlf" -o -name '*.4DCatalog' -o -name "*.4DSettings" \) -type f -exec xmllint --noout '{}' +
